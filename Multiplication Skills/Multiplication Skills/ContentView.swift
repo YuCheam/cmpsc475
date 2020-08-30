@@ -8,13 +8,59 @@
 
 import SwiftUI
 
+func generateSecondNumber(uniqueNum: Int) -> Int {
+    var number: Int = Int.random(in:1...15)
+    while number == uniqueNum {
+        number = Int.random(in:1...15)
+    }
+    
+    return number
+}
+
+func generateAnswers(correctAnswer: Int) -> [Int] {
+    var array = [Int]()
+    let topLimit: Int = correctAnswer + 5
+    var bottomLimit: Int = correctAnswer - 5
+    
+    if bottomLimit < 0 { bottomLimit = 0 }
+    var number = Int.random(in:bottomLimit...topLimit)
+    
+    array.append(Int.random(in:bottomLimit...topLimit))
+    
+    while array.count < 4 {
+        if !array.contains(number) && !array.contains(correctAnswer) {
+            array.append(number)
+        }
+        
+        number = Int.random(in:bottomLimit...topLimit)
+    }
+    
+    array.insert(correctAnswer, at: Int.random(in:0..<4))
+    
+    return array
+}
+
 struct ContentView: View {
+//    let multipliers: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    var numberOne: Int
+    var numberTwo: Int
+    var answer: Int
+    var answerArray: [Int]
+    
+    
     var body: some View {
         VStack(spacing: 50) {
             userProgress()
-            multiplication(numberOne: 12, numberTwo: 13)
-            answers()
+            multiplication(numberOne: numberOne, numberTwo: numberTwo)
+            answers(answerArray)
         }
+    }
+    
+    init() {
+        self.numberOne = Int.random(in:1...15)
+        self.numberTwo = generateSecondNumber(uniqueNum: self.numberOne)
+        self.answer = self.numberOne * self.numberTwo
+        self.answerArray = generateAnswers(correctAnswer: self.answer)
     }
 }
 
@@ -65,7 +111,7 @@ struct multiplication: View {
 }
 
 struct answers: View {
-    var sampleAnswers : [Int] = [1,2,3,4,5]
+    var sampleAnswers : [Int]
     
     var body: some View {
         HStack {
@@ -76,5 +122,9 @@ struct answers: View {
                 .cornerRadius(5)
             }
         }
+    }
+    
+    init(_ answerArray: [Int]) {
+        self.sampleAnswers = answerArray
     }
 }
