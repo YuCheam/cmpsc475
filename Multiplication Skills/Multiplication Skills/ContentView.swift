@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         ZStack {
             Color(red: 0.75, green: 1, blue: 1)
@@ -24,7 +25,7 @@ struct ContentView: View {
                     answers([175, 178,172,170])
                 }.padding(10).background(Color.white)
                 
-                nextButton()
+                nextButton().hidden()
             }
         }.edgesIgnoringSafeArea(.all)
     }
