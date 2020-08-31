@@ -39,8 +39,8 @@ struct ContentView_Previews: PreviewProvider {
 
 struct userProgress: View {
     let totalQuestions: [Color] = [Color.green, Color.green, Color.red, Color.black, Color.black]
-    var totalCorrect: Int = 2
-    var totalIncorrect: Int = 1
+    let totalCorrect: Int = 2
+    let totalIncorrect: Int = 1
     
     var body: some View {
         VStack(spacing: 10) {
@@ -62,7 +62,7 @@ struct userProgress: View {
 struct multiplication: View {
     let numberOne: Int
     let numberTwo: Int
-    var symbol: String
+    let symbol: String
     let multiplicationWidth: CGFloat = 120
     
     var body: some View {
@@ -86,7 +86,7 @@ struct multiplication: View {
 }
 
 struct answers: View {
-    var sampleAnswers : [Int]
+    let sampleAnswers : [Int]
     
     var body: some View {
         HStack {
