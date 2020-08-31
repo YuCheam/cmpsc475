@@ -23,6 +23,8 @@ struct ContentView: View {
                     multiplication(numberOne: 17, numberTwo: 8)
                     answers([175, 178,172,170])
                 }.padding(10).background(Color.white)
+                
+                nextButton()
             }
         }.edgesIgnoringSafeArea(.all)
     }
@@ -40,7 +42,7 @@ struct userProgress: View {
     var totalIncorrect: Int = 1
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             HStack {
                 ForEach(0..<totalQuestions.count) {index in
                     Text("\(index+1)").overlay(
@@ -50,7 +52,7 @@ struct userProgress: View {
                 }
             }.padding(10)
             
-            Text("You got \(totalCorrect) out of 5 correct")
+            Text("You got \(totalCorrect) out of 5 correct!")
             
         }
     }
@@ -91,8 +93,8 @@ struct answers: View {
                 
                 Button("\(answer)"){}
                     .frame(width: 65, height: 40)
-                    .background(Color(red: 0.78, green: 0.78, blue: 0.78))
-                    .foregroundColor(Color.white)
+                    .background(Color(red: 0.6, green: 0.6, blue: 0.6))
+                    .foregroundColor(Color.black)
                     .cornerRadius(5)
                     .font(.system(size: 16, weight: .bold))
             }
@@ -101,5 +103,17 @@ struct answers: View {
     
     init(_ answerArray: [Int]) {
         self.sampleAnswers = answerArray
+    }
+}
+
+struct nextButton: View {
+    var body: some View {
+        Button("Next") { }
+            .padding(.vertical, 10.0)
+            .padding(.horizontal, 20)
+            .font(.system(size:24, weight: .semibold))
+            .background(Color(red: 0.6, green: 0.6, blue: 0.6))
+            .foregroundColor(Color.white)
+            .cornerRadius(10)
     }
 }
