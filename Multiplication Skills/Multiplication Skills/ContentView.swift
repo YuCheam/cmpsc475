@@ -8,59 +8,23 @@
 
 import SwiftUI
 
-func generateSecondNumber(uniqueNum: Int) -> Int {
-    var number: Int = Int.random(in:1...15)
-    while number == uniqueNum {
-        number = Int.random(in:1...15)
-    }
-    
-    return number
-}
-
-func generateAnswers(correctAnswer: Int) -> [Int] {
-    var array = [Int]()
-    let topLimit: Int = correctAnswer + 5
-    var bottomLimit: Int = correctAnswer - 5
-    
-    if bottomLimit < 0 { bottomLimit = 0 }
-    var number = Int.random(in:bottomLimit...topLimit)
-    
-    array.append(Int.random(in:bottomLimit...topLimit))
-    
-    while array.count < 4 {
-        if !array.contains(number) && !array.contains(correctAnswer) {
-            array.append(number)
-        }
-        
-        number = Int.random(in:bottomLimit...topLimit)
-    }
-    
-    array.insert(correctAnswer, at: Int.random(in:0..<4))
-    
-    return array
-}
-
 struct ContentView: View {
-//    let multipliers: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-    var numberOne: Int
-    var numberTwo: Int
-    var answer: Int
-    var answerArray: [Int]
-    
-    
     var body: some View {
-        VStack(spacing: 50) {
-            userProgress()
-            multiplication(numberOne: numberOne, numberTwo: numberTwo)
-            answers(answerArray)
-        }
-    }
-    
-    init() {
-        self.numberOne = Int.random(in:1...15)
-        self.numberTwo = generateSecondNumber(uniqueNum: self.numberOne)
-        self.answer = self.numberOne * self.numberTwo
-        self.answerArray = generateAnswers(correctAnswer: self.answer)
+        ZStack {
+            Color(red: 0.75, green: 1, blue: 1)
+            
+            VStack(spacing: 30) {
+                Text("Multiplication Skills")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                
+                VStack(spacing: 40) {
+                    userProgress()
+                    multiplication(numberOne: 17, numberTwo: 8)
+                    answers([175, 178,172,170])
+                }.padding(10).background(Color.white)
+            }
+        }.edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -71,15 +35,23 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct userProgress: View {
-    let totalQuestions: Int = 5
-    var totalCorrect: Int = 0
-    var totalIncorrect: Int = 0
+    let totalQuestions: [Color] = [Color.green, Color.green, Color.red, Color.black, Color.black]
+    var totalCorrect: Int = 2
+    var totalIncorrect: Int = 1
     
     var body: some View {
-        HStack {
-            ForEach(0..<totalQuestions) {circle in
-                Circle().frame(width: 16, height: 16)
-            }
+        VStack {
+            HStack {
+                ForEach(0..<totalQuestions.count) {index in
+                    Text("\(index+1)").overlay(
+                        Circle().strokeBorder(self.totalQuestions[index], lineWidth: 2)
+                    .frame(width:50, height:50)
+                    ).frame(width:50, height:50).font(.system(size: 16, weight: .bold)).foregroundColor(self.totalQuestions[index])
+                }
+            }.padding(10)
+            
+            Text("You got \(totalCorrect) out of 5 correct")
+            
         }
     }
 }
@@ -88,7 +60,7 @@ struct multiplication: View {
     let numberOne: Int
     let numberTwo: Int
     var symbol: String
-    let multiplicationWidth: CGFloat = 100
+    let multiplicationWidth: CGFloat = 120
     
     var body: some View {
         VStack(alignment: .trailing) {
@@ -99,8 +71,8 @@ struct multiplication: View {
                 Text("\(self.numberTwo)")
             }
             
-            Rectangle().frame(width: multiplicationWidth, height: 2)
-        }.font(.largeTitle)
+            Rectangle().frame(width: multiplicationWidth, height: 5)
+        }.font(.system(size: 55))
     }
     
     init(numberOne: Int, numberTwo: Int) {
@@ -115,13 +87,16 @@ struct answers: View {
     
     var body: some View {
         HStack {
-            ForEach(0..<sampleAnswers.count) { answer in
+            ForEach(sampleAnswers, id: \.self) {answer in
+                
                 Button("\(answer)"){}
-                .frame(width: 50, height: 30)
-                .background(Color.yellow)
-                .cornerRadius(5)
+                    .frame(width: 65, height: 40)
+                    .background(Color(red: 0.78, green: 0.78, blue: 0.78))
+                    .foregroundColor(Color.white)
+                    .cornerRadius(5)
+                    .font(.system(size: 16, weight: .bold))
             }
-        }
+        }.padding(10)
     }
     
     init(_ answerArray: [Int]) {
