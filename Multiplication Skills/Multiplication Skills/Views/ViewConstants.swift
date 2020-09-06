@@ -11,4 +11,5 @@ import SwiftUI
 struct ViewConstants {
     static let correctColor = Color.green
     static let incorrectColor = Color.red
+    static let unknownColor = Color(red: 0.4, green: 0.4, blue: 0.4)
 }
