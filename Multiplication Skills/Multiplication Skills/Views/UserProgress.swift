@@ -9,26 +9,35 @@
 import SwiftUI
 
 struct UserProgress: View {
-    let totalQuestions: [Color] = [Color.green, Color.green, Color.red, Color.black, Color.black]
-    let totalCorrect: Int = 2
-    let totalIncorrect: Int = 1
-
+    @EnvironmentObject var skillsViewModel: SkillsViewModel
+    
+    var totalQuestions: Int {skillsViewModel.totalQuestions}
     
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                ForEach(0..<totalQuestions.count) {index in
+                ForEach(0..<totalQuestions) {index in
                     Text("\(index+1)").overlay(
                         Circle()
-                            .strokeBorder(self.totalQuestions[index], lineWidth: 2)
+                            .stroke(Color.black, lineWidth: 2)
                             .frame(width:50, height:50))
-                        .frame(width:50, height:50).font(.system(size: 16, weight: .bold))
-                        .foregroundColor(self.totalQuestions[index])
+                        .foregroundColor(.black)
+                        .frame(width:50, height:50)
+                        .font(.system(size: 16, weight: .bold))
                 }
             }.padding(10)
             
-            Text("You got \(totalCorrect) out of 5 correct!")
+            Text("You got \(skillsViewModel.totalCorrect) out of 5 correct!")
         }
+    }
+    
+    mutating func answerColor() {
     }
 }
 
+
+struct UserProgress_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView().environmentObject(SkillsViewModel())
+    }
+}

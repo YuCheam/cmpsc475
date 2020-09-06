@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct Multiplication: View {
+    @EnvironmentObject var skillsViewModel: SkillsViewModel
+    
     let numberOne: Int
     let numberTwo: Int
     let symbol: String
@@ -33,5 +35,11 @@ struct Multiplication: View {
         self.numberOne = numberOne
         self.numberTwo = numberTwo
         self.symbol = "x"
+    }
+}
+
+struct Multiplication_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

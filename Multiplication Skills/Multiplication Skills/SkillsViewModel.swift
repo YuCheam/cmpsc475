@@ -12,4 +12,7 @@ class SkillsViewModel: ObservableObject {
     @Published var skillsModel = SkillsModel()
     
     // Intents from view
+    var totalQuestions: Int {skillsModel.totalQuestions}
+    var totalCorrect: Int {skillsModel.totalCorrect}
+    var questionsAnswered: [AnswerState] {skillsModel.questionsAnswered}
 }

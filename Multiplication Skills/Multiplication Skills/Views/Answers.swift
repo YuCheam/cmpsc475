@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct Answers: View {
+    @EnvironmentObject var skillsViewModel: SkillsViewModel
     let sampleAnswers : [Int]
     
     var body: some View {

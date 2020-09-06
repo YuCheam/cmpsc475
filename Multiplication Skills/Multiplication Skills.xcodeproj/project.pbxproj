@@ -20,6 +20,7 @@
 		2862B4AF2504715E00490848 /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4AE2504715E00490848 /* Multiplication.swift */; };
 		2862B4B1250471E300490848 /* Answers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4B0250471E300490848 /* Answers.swift */; };
 		2862B4B32504721D00490848 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4B22504721D00490848 /* NextButton.swift */; };
+		2862B4B525047E7200490848 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4B425047E7200490848 /* ViewConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		2862B4AE2504715E00490848 /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
 		2862B4B0250471E300490848 /* Answers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answers.swift; sourceTree = "<group>"; };
 		2862B4B22504721D00490848 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		2862B4B425047E7200490848 /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				2862B4AE2504715E00490848 /* Multiplication.swift */,
 				2862B4B0250471E300490848 /* Answers.swift */,
 				2862B4B22504721D00490848 /* NextButton.swift */,
+				2862B4B425047E7200490848 /* ViewConstants.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2862B4B525047E7200490848 /* ViewConstants.swift in Sources */,
 				2827824824FC17F300257043 /* AppDelegate.swift in Sources */,
 				2862B4AF2504715E00490848 /* Multiplication.swift in Sources */,
 				2827824A24FC17F300257043 /* SceneDelegate.swift in Sources */,

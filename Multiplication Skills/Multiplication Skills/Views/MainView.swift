@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct MainView: View {
+    enum AnswerState {
+        case correct, incorrect, unknown
+    }
+    
     @ObservedObject var skillsViewModel = SkillsViewModel()
     
     var body: some View {
@@ -29,12 +33,13 @@ struct MainView: View {
                 NextButton().hidden()
             }
         }.edgesIgnoringSafeArea(.all)
+        .environmentObject(skillsViewModel)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView().environmentObject(SkillsViewModel())
     }
 }
 

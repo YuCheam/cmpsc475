@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct NextButton: View {
+    @EnvironmentObject var skillsViewModel: SkillsViewModel
+    
     var body: some View {
         Button("Next") { }
             .padding(.vertical, 10.0)
@@ -17,5 +19,11 @@ struct NextButton: View {
             .background(Color(red: 0.6, green: 0.6, blue: 0.6))
             .foregroundColor(Color.white)
             .cornerRadius(10)
+    }
+}
+
+struct NextButton_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
