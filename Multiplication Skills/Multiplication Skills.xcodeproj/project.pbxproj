@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		2827824824FC17F300257043 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827824724FC17F300257043 /* AppDelegate.swift */; };
 		2827824A24FC17F300257043 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827824924FC17F300257043 /* SceneDelegate.swift */; };
-		2827824C24FC17F300257043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827824B24FC17F300257043 /* ContentView.swift */; };
+		2827824C24FC17F300257043 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827824B24FC17F300257043 /* MainView.swift */; };
 		2827824E24FC17F600257043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2827824D24FC17F600257043 /* Assets.xcassets */; };
 		2827825124FC17F600257043 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2827825024FC17F600257043 /* Preview Assets.xcassets */; };
 		2827825424FC17F600257043 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2827825224FC17F600257043 /* LaunchScreen.storyboard */; };
 		2827825F24FC17F600257043 /* Multiplication_SkillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827825E24FC17F600257043 /* Multiplication_SkillsTests.swift */; };
+		2862B4A825046C8E00490848 /* SkillsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4A725046C8E00490848 /* SkillsViewModel.swift */; };
+		2862B4AA25046D5000490848 /* SkillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4A925046D5000490848 /* SkillsModel.swift */; };
+		2862B4AD2504709300490848 /* UserProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4AC2504709300490848 /* UserProgress.swift */; };
+		2862B4AF2504715E00490848 /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4AE2504715E00490848 /* Multiplication.swift */; };
+		2862B4B1250471E300490848 /* Answers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4B0250471E300490848 /* Answers.swift */; };
+		2862B4B32504721D00490848 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4B22504721D00490848 /* NextButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +36,7 @@
 		2827824424FC17F300257043 /* Multiplication Skills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multiplication Skills.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2827824724FC17F300257043 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2827824924FC17F300257043 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2827824B24FC17F300257043 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2827824B24FC17F300257043 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2827824D24FC17F600257043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2827825024FC17F600257043 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2827825324FC17F600257043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +44,12 @@
 		2827825A24FC17F600257043 /* Multiplication SkillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Multiplication SkillsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2827825E24FC17F600257043 /* Multiplication_SkillsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication_SkillsTests.swift; sourceTree = "<group>"; };
 		2827826024FC17F600257043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2862B4A725046C8E00490848 /* SkillsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsViewModel.swift; sourceTree = "<group>"; };
+		2862B4A925046D5000490848 /* SkillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsModel.swift; sourceTree = "<group>"; };
+		2862B4AC2504709300490848 /* UserProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProgress.swift; sourceTree = "<group>"; };
+		2862B4AE2504715E00490848 /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
+		2862B4B0250471E300490848 /* Answers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answers.swift; sourceTree = "<group>"; };
+		2862B4B22504721D00490848 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +91,15 @@
 		2827824624FC17F300257043 /* Multiplication Skills */ = {
 			isa = PBXGroup;
 			children = (
+				2862B4AB25046E0C00490848 /* Views */,
 				2827824724FC17F300257043 /* AppDelegate.swift */,
 				2827824924FC17F300257043 /* SceneDelegate.swift */,
-				2827824B24FC17F300257043 /* ContentView.swift */,
 				2827824D24FC17F600257043 /* Assets.xcassets */,
 				2827825224FC17F600257043 /* LaunchScreen.storyboard */,
 				2827825524FC17F600257043 /* Info.plist */,
 				2827824F24FC17F600257043 /* Preview Content */,
+				2862B4A725046C8E00490848 /* SkillsViewModel.swift */,
+				2862B4A925046D5000490848 /* SkillsModel.swift */,
 			);
 			path = "Multiplication Skills";
 			sourceTree = "<group>";
@@ -105,6 +119,18 @@
 				2827826024FC17F600257043 /* Info.plist */,
 			);
 			path = "Multiplication SkillsTests";
+			sourceTree = "<group>";
+		};
+		2862B4AB25046E0C00490848 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2827824B24FC17F300257043 /* MainView.swift */,
+				2862B4AC2504709300490848 /* UserProgress.swift */,
+				2862B4AE2504715E00490848 /* Multiplication.swift */,
+				2862B4B0250471E300490848 /* Answers.swift */,
+				2862B4B22504721D00490848 /* NextButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,8 +235,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2827824824FC17F300257043 /* AppDelegate.swift in Sources */,
+				2862B4AF2504715E00490848 /* Multiplication.swift in Sources */,
 				2827824A24FC17F300257043 /* SceneDelegate.swift in Sources */,
-				2827824C24FC17F300257043 /* ContentView.swift in Sources */,
+				2862B4B32504721D00490848 /* NextButton.swift in Sources */,
+				2862B4B1250471E300490848 /* Answers.swift in Sources */,
+				2862B4A825046C8E00490848 /* SkillsViewModel.swift in Sources */,
+				2862B4AA25046D5000490848 /* SkillsModel.swift in Sources */,
+				2827824C24FC17F300257043 /* MainView.swift in Sources */,
+				2862B4AD2504709300490848 /* UserProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
