@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ViewConstants {
+    static let backgroundColor = UIColor(red: 0.75, green: 1, blue: 1, alpha: 1)
+    
     static let correctColor = Color.green
     static let incorrectColor = Color.red
     static let unknownColor = Color(red: 0.4, green: 0.4, blue: 0.4)

@@ -17,7 +17,7 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            Color(red: 0.75, green: 1, blue: 1)
+            Color(ViewConstants.backgroundColor)
             
             VStack(spacing: 30) {
                 Text("Multiplication Skills")
@@ -26,7 +26,7 @@ struct MainView: View {
                 
                 VStack(spacing: 40) {
                     UserProgress()
-                    Multiplication(numberOne: 17, numberTwo: 8)
+                    Multiplication()
                     Answers([175, 178,172,170])
                 }.padding(10).background(Color.white)
                 

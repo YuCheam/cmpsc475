@@ -15,4 +15,10 @@ class SkillsViewModel: ObservableObject {
     var totalQuestions: Int {skillsModel.totalQuestions}
     var totalCorrect: Int {skillsModel.totalCorrect}
     var questionsAnswered: [AnswerState] {skillsModel.questionsAnswered}
+    
+    var currentQuestion: Int {skillsModel.currentQuestion}
+    var multiplicand: Int {skillsModel.currentMultiplicand}
+    var multiplier: Int {skillsModel.currentMultiplier}
+    var answers: [Int] {skillsModel.currentAnswers}
+    var symbol: String {skillsModel.symbol}
 }

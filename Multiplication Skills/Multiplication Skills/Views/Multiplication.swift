@@ -11,35 +11,33 @@ import SwiftUI
 struct Multiplication: View {
     @EnvironmentObject var skillsViewModel: SkillsViewModel
     
-    let numberOne: Int
-    let numberTwo: Int
-    let symbol: String
+    var numberOne: Int {skillsViewModel.multiplicand}
+    var numberTwo: Int {skillsViewModel.multiplier}
+    var answers: [Int] {skillsViewModel.answers}
+    var currentQuestion: Int {skillsViewModel.currentQuestion + 1}
+    
+    var symbol: String {skillsViewModel.symbol}
     let multiplicationWidth: CGFloat = 120
     
     var body: some View {
         VStack(alignment: .trailing) {
-            Text("Problem 4").font(.headline)
+            Text("Problem \(currentQuestion)").font(.headline)
             
-            Text("\(self.numberOne)")
+            Text("\(numberOne)")
             
             HStack {
                 Text(symbol)
-                Text("\(self.numberTwo)")
+                Text("\(numberTwo)")
             }
             
             Rectangle().frame(width: multiplicationWidth, height: 5)
         }.font(.system(size: 55))
     }
     
-    init(numberOne: Int, numberTwo: Int) {
-        self.numberOne = numberOne
-        self.numberTwo = numberTwo
-        self.symbol = "x"
-    }
 }
 
 struct Multiplication_Previews: PreviewProvider {
     static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        MainView().environmentObject(SkillsViewModel())
     }
 }
