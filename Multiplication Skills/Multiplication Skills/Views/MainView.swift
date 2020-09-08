@@ -27,14 +27,25 @@ struct MainView: View {
                 VStack(spacing: 40) {
                     UserProgress()
                     Multiplication()
-                    Answers([175, 178,172,170])
-                }.padding(10).background(Color.white)
+                    Answers()
+                    }.opacity(showProblem).padding(10).background(Color.white)
                 
-                NextButton().hidden()
+                ButtonTemplate(skillsViewModel.buttonLabel)
             }
+            
         }.edgesIgnoringSafeArea(.all)
         .environmentObject(skillsViewModel)
     }
+    
+    var showProblem: Double {
+        switch skillsViewModel.gameState {
+        case .start, .restart:
+            return 0.0
+        default:
+            return 1.0
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

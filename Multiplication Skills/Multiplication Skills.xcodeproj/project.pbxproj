@@ -14,12 +14,13 @@
 		2827825124FC17F600257043 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2827825024FC17F600257043 /* Preview Assets.xcassets */; };
 		2827825424FC17F600257043 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2827825224FC17F600257043 /* LaunchScreen.storyboard */; };
 		2827825F24FC17F600257043 /* Multiplication_SkillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827825E24FC17F600257043 /* Multiplication_SkillsTests.swift */; };
+		285E949C2505699C00620968 /* MultiplicationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285E949B2505699C00620968 /* MultiplicationClass.swift */; };
 		2862B4A825046C8E00490848 /* SkillsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4A725046C8E00490848 /* SkillsViewModel.swift */; };
 		2862B4AA25046D5000490848 /* SkillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4A925046D5000490848 /* SkillsModel.swift */; };
 		2862B4AD2504709300490848 /* UserProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4AC2504709300490848 /* UserProgress.swift */; };
 		2862B4AF2504715E00490848 /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4AE2504715E00490848 /* Multiplication.swift */; };
 		2862B4B1250471E300490848 /* Answers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4B0250471E300490848 /* Answers.swift */; };
-		2862B4B32504721D00490848 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4B22504721D00490848 /* NextButton.swift */; };
+		2862B4B32504721D00490848 /* ButtonTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4B22504721D00490848 /* ButtonTemplate.swift */; };
 		2862B4B525047E7200490848 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4B425047E7200490848 /* ViewConstants.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,12 +46,13 @@
 		2827825A24FC17F600257043 /* Multiplication SkillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Multiplication SkillsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2827825E24FC17F600257043 /* Multiplication_SkillsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication_SkillsTests.swift; sourceTree = "<group>"; };
 		2827826024FC17F600257043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		285E949B2505699C00620968 /* MultiplicationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationClass.swift; sourceTree = "<group>"; };
 		2862B4A725046C8E00490848 /* SkillsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsViewModel.swift; sourceTree = "<group>"; };
 		2862B4A925046D5000490848 /* SkillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsModel.swift; sourceTree = "<group>"; };
 		2862B4AC2504709300490848 /* UserProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProgress.swift; sourceTree = "<group>"; };
 		2862B4AE2504715E00490848 /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
 		2862B4B0250471E300490848 /* Answers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answers.swift; sourceTree = "<group>"; };
-		2862B4B22504721D00490848 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		2862B4B22504721D00490848 /* ButtonTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTemplate.swift; sourceTree = "<group>"; };
 		2862B4B425047E7200490848 /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 		2827824624FC17F300257043 /* Multiplication Skills */ = {
 			isa = PBXGroup;
 			children = (
+				285E949A2505697D00620968 /* Types */,
 				2862B4AB25046E0C00490848 /* Views */,
 				2827824724FC17F300257043 /* AppDelegate.swift */,
 				2827824924FC17F300257043 /* SceneDelegate.swift */,
@@ -123,6 +126,14 @@
 			path = "Multiplication SkillsTests";
 			sourceTree = "<group>";
 		};
+		285E949A2505697D00620968 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				285E949B2505699C00620968 /* MultiplicationClass.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
 		2862B4AB25046E0C00490848 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +141,7 @@
 				2862B4AC2504709300490848 /* UserProgress.swift */,
 				2862B4AE2504715E00490848 /* Multiplication.swift */,
 				2862B4B0250471E300490848 /* Answers.swift */,
-				2862B4B22504721D00490848 /* NextButton.swift */,
+				2862B4B22504721D00490848 /* ButtonTemplate.swift */,
 				2862B4B425047E7200490848 /* ViewConstants.swift */,
 			);
 			path = Views;
@@ -237,11 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285E949C2505699C00620968 /* MultiplicationClass.swift in Sources */,
 				2862B4B525047E7200490848 /* ViewConstants.swift in Sources */,
 				2827824824FC17F300257043 /* AppDelegate.swift in Sources */,
 				2862B4AF2504715E00490848 /* Multiplication.swift in Sources */,
 				2827824A24FC17F300257043 /* SceneDelegate.swift in Sources */,
-				2862B4B32504721D00490848 /* NextButton.swift in Sources */,
+				2862B4B32504721D00490848 /* ButtonTemplate.swift in Sources */,
 				2862B4B1250471E300490848 /* Answers.swift in Sources */,
 				2862B4A825046C8E00490848 /* SkillsViewModel.swift in Sources */,
 				2862B4AA25046D5000490848 /* SkillsModel.swift in Sources */,

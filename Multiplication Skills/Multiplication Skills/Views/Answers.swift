@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Answers: View {
     @EnvironmentObject var skillsViewModel: SkillsViewModel
-    let sampleAnswers : [Int]
+    var answers : [Int] {skillsViewModel.answers}
     
     var body: some View {
         HStack {
-            ForEach(sampleAnswers, id: \.self) {answer in
+            ForEach(answers, id: \.self) {answer in
                 
                 Button("\(answer)"){}
                     .frame(width: 65, height: 40)
@@ -24,9 +24,5 @@ struct Answers: View {
                     .font(.system(size: 16, weight: .bold))
             }
         }.padding(10)
-    }
-    
-    init(_ answerArray: [Int]) {
-        self.sampleAnswers = answerArray
     }
 }

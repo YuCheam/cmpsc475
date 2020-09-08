@@ -8,11 +8,15 @@
 
 import SwiftUI
 
-struct NextButton: View {
+struct ButtonTemplate: View {
     @EnvironmentObject var skillsViewModel: SkillsViewModel
     
+    var label: String
+    
     var body: some View {
-        Button("Next") { }
+        Button(label) {
+            self.skillsViewModel.advanceGameState()
+        }
             .padding(.vertical, 10.0)
             .padding(.horizontal, 20)
             .font(.system(size:24, weight: .semibold))
@@ -20,10 +24,8 @@ struct NextButton: View {
             .foregroundColor(Color.white)
             .cornerRadius(10)
     }
-}
-
-struct NextButton_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    
+    init(_ label: String) {
+        self.label = label
     }
 }
