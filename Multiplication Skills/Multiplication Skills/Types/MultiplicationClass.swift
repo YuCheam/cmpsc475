@@ -13,9 +13,11 @@ class MultiplicationClass {
     var startRange: Int
     var endRange: Int
     var totalAnswers: Int
+    
     lazy var multiplicand: Int = Int.random(in: startRange...endRange)
     lazy var multiplier: Int = Int.random(in: startRange...endRange)
     lazy var answers: [Int] = generateAnswers()
+    lazy var correctAnswer: Int = multiplicand * multiplier
     
     func generateRandomNumbers(_ startRange: Int, _ endRange: Int) -> Int {
         return Int.random(in: startRange...endRange)
@@ -23,16 +25,15 @@ class MultiplicationClass {
     
     func generateAnswers() -> [Int] {
         var tempArray: [Int] = Array()
-        let answer: Int = multiplicand * multiplier
-        let answerStartRange: Int = answer - 5 <= 1 ? 1 : answer - 5
-        let answerEndRange: Int = answer + 5
+        let answerStartRange: Int = correctAnswer - 5 <= 1 ? 1 : correctAnswer - 5
+        let answerEndRange: Int = correctAnswer + 5
         
         for _ in 0..<totalAnswers-1 {
             tempArray.append(Int.random(in: answerStartRange...answerEndRange))
         }
         
         // Inject correct answer
-        tempArray.insert(answer, at: Int.random(in: 0...totalAnswers-2))
+        tempArray.insert(correctAnswer, at: Int.random(in: 0...totalAnswers-2))
         
         return tempArray
     }

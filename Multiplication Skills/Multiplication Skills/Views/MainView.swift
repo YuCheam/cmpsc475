@@ -9,9 +9,6 @@
 import SwiftUI
 
 struct MainView: View {
-    enum AnswerState {
-        case correct, incorrect, unknown
-    }
     
     @ObservedObject var skillsViewModel = SkillsViewModel()
     
@@ -30,7 +27,7 @@ struct MainView: View {
                     Answers()
                     }.opacity(showProblem).padding(10).background(Color.white)
                 
-                ButtonTemplate(skillsViewModel.buttonLabel)
+                ButtonTemplate()
             }
             
         }.edgesIgnoringSafeArea(.all)

@@ -30,7 +30,7 @@ struct UserProgress: View {
 struct QuestionNumber: View {
     @EnvironmentObject var skillsViewModel: SkillsViewModel
     var index: Int
-    var answerState: AnswerState {skillsViewModel.questionsAnswered[index]}
+    var answerState: AnswerState {skillsViewModel.getAnswerState(question: index)}
     
     var color: Color {
         switch answerState{

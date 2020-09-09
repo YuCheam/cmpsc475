@@ -11,21 +11,16 @@ import SwiftUI
 struct ButtonTemplate: View {
     @EnvironmentObject var skillsViewModel: SkillsViewModel
     
-    var label: String
-    
     var body: some View {
-        Button(label) {
+        Button(skillsViewModel.buttonLabel){
             self.skillsViewModel.advanceGameState()
         }
             .padding(.vertical, 10.0)
             .padding(.horizontal, 20)
             .font(.system(size:24, weight: .semibold))
             .background(Color(red: 0.6, green: 0.6, blue: 0.6))
-            .foregroundColor(Color.white)
+        .foregroundColor(.white)
             .cornerRadius(10)
     }
     
-    init(_ label: String) {
-        self.label = label
-    }
 }

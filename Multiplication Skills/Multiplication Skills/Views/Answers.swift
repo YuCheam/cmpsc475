@@ -16,7 +16,9 @@ struct Answers: View {
         HStack {
             ForEach(answers, id: \.self) {answer in
                 
-                Button("\(answer)"){}
+                Button("\(answer)"){
+                    self.skillsViewModel.guessedAnswer(guess: answer)
+                }
                     .frame(width: 65, height: 40)
                     .background(Color(red: 0.6, green: 0.6, blue: 0.6))
                     .foregroundColor(Color.black)
