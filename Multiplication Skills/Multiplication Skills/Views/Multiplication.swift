@@ -17,7 +17,6 @@ struct Multiplication: View {
     var currentQuestion: Int {skillsViewModel.currentQuestion + 1}
     
     var symbol: String {skillsViewModel.symbol}
-    let multiplicationWidth: CGFloat = 120
     
     var body: some View {
         VStack(alignment: .trailing) {
@@ -30,7 +29,7 @@ struct Multiplication: View {
                 Text("\(numberTwo)")
             }
             
-            Rectangle().frame(width: multiplicationWidth, height: 5)
+            Rectangle().frame(width: ViewConstants.multiplicationWidth, height: 5)
         }.font(.system(size: 55))
     }
     

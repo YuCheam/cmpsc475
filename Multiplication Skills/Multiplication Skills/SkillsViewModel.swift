@@ -13,7 +13,6 @@ class SkillsViewModel: ObservableObject {
     
     // Intents from view
     var gameState: State {skillsModel.gameState}
-    
     var totalQuestions: Int {skillsModel.totalQuestions}
     var totalCorrect: Int {
         var total: Int = 0
@@ -23,16 +22,16 @@ class SkillsViewModel: ObservableObject {
         return total
     }
     var questionsAnswered: [AnswerState] {skillsModel.questionsAnswered}
-    
     var currentQuestion: Int {skillsModel.currentQuestion}
+    var buttonLabel: String {skillsModel.buttonLabel}
+    
+    // Multiplication Problem Variables
     var multiplicand: Int {skillsModel.multiplicand}
     var multiplier: Int {skillsModel.multiplier}
     var answers: [Int] {skillsModel.answers}
     var correctAnswer: Int {skillsModel.multiplicationProblems[currentQuestion].correctAnswer}
     var selectedAnswer: Int = 0
     var symbol: String {skillsModel.symbol}
-    
-    var buttonLabel: String {skillsModel.buttonLabel}
     
     func advanceGameState() {
         skillsModel.advanceGameState()
@@ -44,10 +43,6 @@ class SkillsViewModel: ObservableObject {
     }
     
     func getAnswerState(question index: Int) -> AnswerState {
-        if questionsAnswered.count == 0 {
-            return .unknown
-        } else {
-            return questionsAnswered[index]
-        }
+        return questionsAnswered.count == 0 ? .unknown : questionsAnswered[index]
     }
 }

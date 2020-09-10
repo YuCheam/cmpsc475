@@ -19,19 +19,8 @@ enum AnswerState {
 struct SkillsModel {
     var gameState: State = .start
     var currentQuestion: Int = 0
-    
-    var buttonLabel: String {
-        switch gameState {
-        case .start:
-            return "Start"
-        case .next:
-            return "Next"
-        case .restart:
-            return "Restart"
-        default:
-            return "Next"
-        }
-    }
+    let totalQuestions: Int = 5
+    let totalAnswers: Int = 4
     
     mutating func advanceGameState() {
         switch gameState {
@@ -63,9 +52,18 @@ struct SkillsModel {
         advanceGameState()
     }
     
-    let totalQuestions: Int = 5
-    let totalAnswers: Int = 4
-    
+    var buttonLabel: String {
+        switch gameState {
+        case .start:
+            return "Start"
+        case .next:
+            return "Next"
+        case .restart:
+            return "Restart"
+        default:
+            return "Next"
+        }
+    }
     
     // Generate Multiplication Problems and AnswerStates
     let startRange: Int = 1

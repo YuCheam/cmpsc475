@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct MainView: View {
-    
     @ObservedObject var skillsViewModel = SkillsViewModel()
     
     var body: some View {
@@ -17,7 +16,10 @@ struct MainView: View {
             Color(ViewConstants.backgroundColor)
             
             VStack(spacing: 10) {
-                Text("Tap the start button to test your skills if you dare....").font(.largeTitle).multilineTextAlignment(.center).padding(.horizontal, 60.0)
+                Text("Tap the start button to test your skills if you dare....")
+                    .font(ViewConstants.titleFont)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 60.0)
                 
                 Image("dareYou")
                     .scaleEffect(0.7)
@@ -26,7 +28,7 @@ struct MainView: View {
             
             VStack(spacing: 30) {
                 Text("Multiplication Skills")
-                    .font(.largeTitle)
+                    .font(ViewConstants.titleFont)
                     .fontWeight(.heavy)
                     .padding(20)
                 
@@ -34,22 +36,19 @@ struct MainView: View {
                     UserProgress()
                     Multiplication()
                     Answers().disabled(disableAnswers)
-                }.padding(10).background(Color.white).opacity(showProblem)
+                }.padding(10)
+                    .background(ViewConstants.secondaryBackground)
+                    .opacity(showProblem)
                 
                 ButtonTemplate().opacity(showNextButton)
             }
             
         }.edgesIgnoringSafeArea(.all)
-        .environmentObject(skillsViewModel)
+            .environmentObject(skillsViewModel)
     }
     
     var showProblem: Double {
-        switch skillsViewModel.gameState {
-        case .start:
-            return 0.0
-        default:
-            return 1.0
-        }
+        return skillsViewModel.gameState == .start ? 0.0 : 1.0
     }
     
     var showNextButton: Double {
@@ -60,6 +59,8 @@ struct MainView: View {
         return skillsViewModel.gameState == .next || skillsViewModel.gameState == .restart
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

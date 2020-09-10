@@ -27,33 +27,6 @@ struct UserProgress: View {
     
 }
 
-struct QuestionNumber: View {
-    @EnvironmentObject var skillsViewModel: SkillsViewModel
-    var index: Int
-    var answerState: AnswerState {skillsViewModel.getAnswerState(question: index)}
-    
-    var color: Color {
-        switch answerState{
-        case .correct:
-            return ViewConstants.correctColor
-        case .incorrect:
-            return ViewConstants.incorrectColor
-        default:
-            return ViewConstants.unknownColor
-        }
-    }
-    
-    var body: some View {
-        Text("\(index+1)").overlay(
-        Circle()
-            .stroke(color, lineWidth: 2)
-            .frame(width:50, height:50))
-        .foregroundColor(color)
-        .frame(width:50, height:50)
-        .font(.system(size: 16, weight: .bold))
-    }
-}
-
 
 struct UserProgress_Previews: PreviewProvider {
     static var previews: some View {

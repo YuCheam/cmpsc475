@@ -11,9 +11,7 @@ import SwiftUI
 struct Answers: View {
     @EnvironmentObject var skillsViewModel: SkillsViewModel
     var answers : [Int] {skillsViewModel.answers}
-    var correctAnswer: Int {
-        skillsViewModel.correctAnswer
-    }
+    var correctAnswer: Int {skillsViewModel.correctAnswer}
     
     var body: some View {
         HStack {
@@ -22,8 +20,9 @@ struct Answers: View {
                 Button("\(answer)"){
                     self.skillsViewModel.checkCorrectGuess(guess: answer)
                 }
-                    .frame(width: 65, height: 40)
-                .background(Color.answerBackground(state: self.skillsViewModel.gameState, select: self.skillsViewModel.selectedAnswer, currentAnswer: answer, correctAnswer: self.correctAnswer))
+                .frame(width: 65, height: 40)
+                .background(Color.answerButtonBackground(
+                    state: self.skillsViewModel.gameState, select: self.skillsViewModel.selectedAnswer, currentAnswer: answer, correctAnswer: self.correctAnswer))
                     .foregroundColor(Color.black)
                     .cornerRadius(5)
                     .font(.system(size: 16, weight: .bold))

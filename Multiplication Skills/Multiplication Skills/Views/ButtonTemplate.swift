@@ -15,12 +15,12 @@ struct ButtonTemplate: View {
         Button(skillsViewModel.buttonLabel){
             self.skillsViewModel.advanceGameState()
         }
-            .padding(.vertical, 10.0)
-            .padding(.horizontal, 20)
-            .font(.system(size:24, weight: .semibold))
-            .background(Color(red: 0.6, green: 0.6, blue: 0.6))
+        .padding(.vertical, 10.0)
+        .padding(.horizontal, 20)
+        .font(.system(size:24, weight: .semibold))
+        .background(ViewConstants.defaultButtonColor)
         .foregroundColor(.white)
-            .cornerRadius(10)
+        .cornerRadius(10)
     }
     
 }

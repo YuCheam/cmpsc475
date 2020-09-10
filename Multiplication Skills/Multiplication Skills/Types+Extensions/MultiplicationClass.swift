@@ -9,19 +9,13 @@
 import Foundation
 
 class MultiplicationClass {
-    let answerRange: Int = 5
-    var startRange: Int
-    var endRange: Int
+    let answerRange: Int = 5 // Amount by which answers can vary
+    
+    var multiplicand: Int
+    var multiplier: Int
+    var correctAnswer: Int
     var totalAnswers: Int
-    
-    lazy var multiplicand: Int = Int.random(in: startRange...endRange)
-    lazy var multiplier: Int = Int.random(in: startRange...endRange)
     lazy var answers: [Int] = generateAnswers()
-    lazy var correctAnswer: Int = multiplicand * multiplier
-    
-    func generateRandomNumbers(_ startRange: Int, _ endRange: Int) -> Int {
-        return Int.random(in: startRange...endRange)
-    }
     
     func generateAnswers() -> [Int] {
         var tempArray: [Int] = Array()
@@ -31,7 +25,7 @@ class MultiplicationClass {
         for _ in 0..<totalAnswers-1 {
             var temp: Int = Int.random(in: answerStartRange...answerEndRange)
             
-            // Don't add duplicate value
+            // Check for duplicate value
             while tempArray.contains(temp) || (temp == correctAnswer) {
                 temp = Int.random(in: answerStartRange...answerEndRange)
             }
@@ -46,8 +40,9 @@ class MultiplicationClass {
     }
     
     init(_ startRange: Int, _ endRange: Int, _ totalAnswers: Int) {
-        self.startRange = startRange
-        self.endRange = endRange
+        self.multiplicand = Int.random(in: startRange...endRange)
+        self.multiplier = Int.random(in: startRange...endRange)
+        self.correctAnswer = multiplicand * multiplier
         self.totalAnswers = totalAnswers
     }
 }
