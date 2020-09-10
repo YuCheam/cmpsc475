@@ -16,16 +16,25 @@ struct MainView: View {
         ZStack {
             Color(ViewConstants.backgroundColor)
             
+            VStack(spacing: 10) {
+                Text("Tap the start button to test your skills if you dare....").font(.largeTitle).multilineTextAlignment(.center).padding(.horizontal, 60.0)
+                
+                Image("dareYou")
+                    .scaleEffect(0.7)
+                    .frame(width: 200, height: 246)
+            }
+            
             VStack(spacing: 30) {
                 Text("Multiplication Skills")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
+                    .padding(20)
                 
                 VStack(spacing: 40) {
                     UserProgress()
                     Multiplication()
                     Answers().disabled(disableAnswers)
-                }.opacity(showProblem).padding(10).background(Color.white)
+                }.padding(10).background(Color.white).opacity(showProblem)
                 
                 ButtonTemplate().opacity(showNextButton)
             }
