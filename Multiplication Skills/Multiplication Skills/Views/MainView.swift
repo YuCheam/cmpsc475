@@ -24,10 +24,10 @@ struct MainView: View {
                 VStack(spacing: 40) {
                     UserProgress()
                     Multiplication()
-                    Answers()
-                    }.opacity(showProblem).padding(10).background(Color.white)
+                    Answers().disabled(disableAnswers)
+                }.opacity(showProblem).padding(10).background(Color.white)
                 
-                ButtonTemplate()
+                ButtonTemplate().opacity(showNextButton)
             }
             
         }.edgesIgnoringSafeArea(.all)
@@ -36,13 +36,20 @@ struct MainView: View {
     
     var showProblem: Double {
         switch skillsViewModel.gameState {
-        case .start, .restart:
+        case .start:
             return 0.0
         default:
             return 1.0
         }
     }
     
+    var showNextButton: Double {
+        skillsViewModel.gameState == .multiply ? 0.0 : 1.0
+    }
+    
+    var disableAnswers: Bool {
+        return skillsViewModel.gameState == .next || skillsViewModel.gameState == .restart
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

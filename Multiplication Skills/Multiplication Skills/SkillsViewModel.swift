@@ -29,6 +29,7 @@ class SkillsViewModel: ObservableObject {
     var multiplier: Int {skillsModel.multiplier}
     var answers: [Int] {skillsModel.answers}
     var correctAnswer: Int {skillsModel.multiplicationProblems[currentQuestion].correctAnswer}
+    var selectedAnswer: Int = 0
     var symbol: String {skillsModel.symbol}
     
     var buttonLabel: String {skillsModel.buttonLabel}
@@ -37,8 +38,9 @@ class SkillsViewModel: ObservableObject {
         skillsModel.advanceGameState()
     }
     
-    func guessedAnswer(guess : Int) {
-        skillsModel.guessedAnswer(guess: guess)
+    func checkCorrectGuess(guess : Int) {
+        selectedAnswer = guess
+        skillsModel.checkCorrectGuess(guess: guess)
     }
     
     func getAnswerState(question index: Int) -> AnswerState {

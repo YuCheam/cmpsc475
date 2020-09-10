@@ -29,7 +29,7 @@ struct SkillsModel {
         case .restart:
             return "Restart"
         default:
-            return ""
+            return "Next"
         }
     }
     
@@ -38,28 +38,29 @@ struct SkillsModel {
         case .start:
             generateNewProblemSet()
             gameState = .multiply
-        case .next:
-            gameState = currentQuestion + 1 == totalQuestions ? .restart : .multiply
-            currentQuestion += 1 // Change to next question
+        case .multiply:
+            gameState = currentQuestion + 1 == totalQuestions ? .restart : .next
         case .restart:
             gameState = .start
             currentQuestion = 0
-        default:
+        default: // .next
+            gameState = .multiply
+            currentQuestion += 1  // Change to next question
             return
         }
     }
     
-    mutating func guessedAnswer(guess: Int) {
+    mutating func checkCorrectGuess(guess: Int) {
         let correctAnswer: Int = multiplicationProblems[currentQuestion].correctAnswer
         if correctAnswer == guess {
-            gameState = .next
             questionsAnswered[currentQuestion] = .correct
             // Correct Answer
         } else {
-            gameState = .next
             questionsAnswered[currentQuestion] = .incorrect
             // Wrong answer
         }
+        
+        advanceGameState()
     }
     
     let totalQuestions: Int = 5
@@ -85,7 +86,7 @@ struct SkillsModel {
     
     var multiplicand: Int {
         switch gameState {
-        case .start, .restart:
+        case .start:
             return 0
         default:
             return multiplicationProblems[currentQuestion].multiplicand
@@ -94,7 +95,7 @@ struct SkillsModel {
     
     var multiplier: Int {
         switch gameState {
-        case .start, .restart:
+        case .start:
             return 0
         default:
             return multiplicationProblems[currentQuestion].multiplier
@@ -103,7 +104,7 @@ struct SkillsModel {
     
     var answers: [Int] {
         switch gameState {
-        case .start, .restart:
+        case .start:
             return []
         default:
             return multiplicationProblems[currentQuestion].answers

@@ -29,7 +29,14 @@ class MultiplicationClass {
         let answerEndRange: Int = correctAnswer + 5
         
         for _ in 0..<totalAnswers-1 {
-            tempArray.append(Int.random(in: answerStartRange...answerEndRange))
+            var temp: Int = Int.random(in: answerStartRange...answerEndRange)
+            
+            // Don't add duplicate value
+            while tempArray.contains(temp) || (temp == correctAnswer) {
+                temp = Int.random(in: answerStartRange...answerEndRange)
+            }
+            
+            tempArray.append(temp)
         }
         
         // Inject correct answer
