@@ -12,43 +12,67 @@ struct MainView: View {
     @ObservedObject var skillsViewModel = SkillsViewModel()
     
     var body: some View {
-        ZStack {
-            Color(ViewConstants.backgroundColor)
-            
-            VStack(spacing: 10) {
-                Text("Tap the start button to test your skills if you dare....")
-                    .font(ViewConstants.titleFont)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 60.0)
-                
-                Image("dareYou")
-                    .scaleEffect(0.7)
-                    .frame(width: 200, height: 246)
-            }
-            
-            VStack(spacing: 30) {
-                Text("Multiplication Skills")
+        NavigationView {
+            ZStack {
+                Color(ViewConstants.backgroundColor)
+                VStack(spacing: 10) {
+                    Text("Multiplication Skills")
                     .font(ViewConstants.titleFont)
                     .fontWeight(.heavy)
                     .padding(20)
+                    
+                    Text("Tap the start button to test your skills if you dare....")
+                        .font(ViewConstants.titleFont)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 60.0)
+                    
+                    Image("dareYou")
+                        .scaleEffect(0.7)
+                        .frame(width: 200, height: 246)
+                    
+                    NavigationLink(destination: GameRootView(skillsViewModel: skillsViewModel)) {
+                        Text("Start").padding(.vertical, 10.0)
+                            .padding(.horizontal, 20)
+                            .font(.system(size:24, weight: .semibold))
+                            .background(ViewConstants.defaultButtonColor)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }.simultaneousGesture(TapGesture().onEnded({
+                        self.skillsViewModel.advanceGameState()
+                    }))
+                    
+                }
                 
-                VStack(spacing: 40) {
-                    UserProgress()
-                    Multiplication()
-                    Answers().disabled(disableAnswers)
-                }.padding(10)
-                    .background(ViewConstants.secondaryBackground)
-                    .opacity(showProblem)
-                
-                ButtonTemplate().opacity(showNextButton)
-            }
-            
-        }.edgesIgnoringSafeArea(.all)
-            .environmentObject(skillsViewModel)
+            }.edgesIgnoringSafeArea(.all)
+        }
     }
+}
+
+struct GameRootView: View {
+    @ObservedObject var skillsViewModel : SkillsViewModel
     
-    var showProblem: Double {
-        return skillsViewModel.gameState == .start ? 0.0 : 1.0
+    var body: some View {
+        ZStack {
+            Color(ViewConstants.backgroundColor)
+                    VStack(spacing: 20) {
+                        Text("Multiplication Skills")
+                            .font(ViewConstants.titleFont)
+                            .fontWeight(.heavy)
+                            .padding(20)
+            
+                        VStack(spacing: 40) {
+                            UserProgress()
+                            Multiplication()
+                            Answers().disabled(disableAnswers)
+                        }.padding(10)
+                            .background(ViewConstants.secondaryBackground)
+                        
+                        ButtonTemplate().opacity(showNextButton)
+                    }.environmentObject(skillsViewModel)
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+        }
     }
     
     var showNextButton: Double {
@@ -59,8 +83,6 @@ struct MainView: View {
         return skillsViewModel.gameState == .next || skillsViewModel.gameState == .restart
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

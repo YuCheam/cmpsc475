@@ -30,7 +30,8 @@ struct SkillsModel {
         case .multiply:
             gameState = currentQuestion + 1 == totalQuestions ? .restart : .next
         case .restart:
-            gameState = .start
+            generateNewProblemSet()
+            gameState = .multiply
             currentQuestion = 0
         default: // .next
             gameState = .multiply
