@@ -11,7 +11,7 @@ import SwiftUI
 
 extension Color {
     static func answerButtonBackground(
-        state: State, select userSelectedAnswer: Int, currentAnswer: Int, correctAnswer: Int
+        state: GameState, select userSelectedAnswer: Int, currentAnswer: Int, correctAnswer: Int
     ) -> Color {
         switch state {
         case .next, .restart:

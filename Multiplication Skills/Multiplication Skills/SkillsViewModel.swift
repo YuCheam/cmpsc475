@@ -12,7 +12,7 @@ class SkillsViewModel: ObservableObject {
     @Published var skillsModel = SkillsModel()
     
     // Intents from view
-    var gameState: State {skillsModel.gameState}
+    var gameState: GameState {skillsModel.gameState}
     var totalQuestions: Int {skillsModel.totalQuestions}
     var totalCorrect: Int {
         var total: Int = 0

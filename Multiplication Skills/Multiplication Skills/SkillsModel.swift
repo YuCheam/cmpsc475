@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum State {
+enum GameState {
     case start, multiply, next, restart
 }
 
@@ -17,7 +17,7 @@ enum AnswerState {
 }
 
 struct SkillsModel {
-    var gameState: State = .start
+    var gameState: GameState = .start
     var currentQuestion: Int = 0
     let totalQuestions: Int = 5
     let totalAnswers: Int = 4

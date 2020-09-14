@@ -9,22 +9,32 @@
 import SwiftUI
 
 struct UserProgress: View {
-    @EnvironmentObject var skillsViewModel: SkillsViewModel
-    
-    var totalQuestions: Int {skillsViewModel.totalQuestions}
+    let totalQuestions: Int
+    let questionsAnswered : [AnswerState]
+    var totalCorrect: Int {
+        var total: Int = 0
+        for question in questionsAnswered {
+            if question == .correct { total += 1 }
+        }
+        return total
+    }
     
     var body: some View {
         VStack(spacing: 10) {
             HStack {
                 ForEach(0..<totalQuestions) {index in
-                    QuestionNumber(index: index)
+                    QuestionNumber(index: index, questionsAnswered: self.questionsAnswered)
                 }
             }.padding(10)
             
-            Text("You got \(skillsViewModel.totalCorrect) out of 5 correct!")
+            Text("You got \(totalCorrect) out of 5 correct!")
         }
     }
     
+    init(totalQuestions: Int, questionsAnswered: [AnswerState]) {
+        self.totalQuestions = totalQuestions
+        self.questionsAnswered = questionsAnswered
+    }
 }
 
 

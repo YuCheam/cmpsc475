@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct Multiplication: View {
-    @EnvironmentObject var skillsViewModel: SkillsViewModel
+    @Binding var skillsModel: SkillsModel
     
-    var numberOne: Int {skillsViewModel.multiplicand}
-    var numberTwo: Int {skillsViewModel.multiplier}
-    var answers: [Int] {skillsViewModel.answers}
-    var currentQuestion: Int {skillsViewModel.currentQuestion + 1}
+    var numberOne: Int { skillsModel.multiplicand }
+    var numberTwo: Int { skillsModel.multiplier }
+    var answers: [Int] {skillsModel.answers}
+    var currentQuestion: Int {skillsModel.currentQuestion + 1}
     
-    var symbol: String {skillsViewModel.symbol}
+    var symbol: String {skillsModel.symbol}
     
     var body: some View {
         VStack(alignment: .trailing) {
@@ -32,7 +32,6 @@ struct Multiplication: View {
             Rectangle().frame(width: ViewConstants.multiplicationWidth, height: 5)
         }.font(.system(size: 55))
     }
-    
 }
 
 struct Multiplication_Previews: PreviewProvider {

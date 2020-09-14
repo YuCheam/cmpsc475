@@ -9,9 +9,11 @@
 import SwiftUI
 
 struct QuestionNumber: View {
-    @EnvironmentObject var skillsViewModel: SkillsViewModel
     var index: Int
-    var answerState: AnswerState {skillsViewModel.getAnswerState(question: index)}
+    let questionsAnswered : [AnswerState]
+    var answerState: AnswerState {
+        questionsAnswered.count == 0 ? .unknown : questionsAnswered[index]
+    }
     
     var body: some View {
         Text("\(index+1)").overlay(
@@ -21,5 +23,10 @@ struct QuestionNumber: View {
             .foregroundColor(Color.questionNumberBackground(answerState: answerState))
             .frame(width:50, height:50)
             .font(.system(size: 16, weight: .bold))
+    }
+    
+    init(index: Int, questionsAnswered: [AnswerState]) {
+        self.index = index
+        self.questionsAnswered = questionsAnswered
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var skillsViewModel = SkillsViewModel()
+    @State private var skillsModel : SkillsModel = SkillsModel()
     
     var body: some View {
         NavigationView {
@@ -30,7 +31,7 @@ struct MainView: View {
                         .scaleEffect(0.7)
                         .frame(width: 200, height: 246)
                     
-                    NavigationLink(destination: GameRootView(skillsViewModel: skillsViewModel)) {
+                    NavigationLink(destination: GameRootView(skillsModel: $skillsModel)) {
                         Text("Start").padding(.vertical, 10.0)
                             .padding(.horizontal, 20)
                             .font(.system(size:24, weight: .semibold))
@@ -38,7 +39,7 @@ struct MainView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }.simultaneousGesture(TapGesture().onEnded({
-                        self.skillsViewModel.advanceGameState()
+                        self.skillsModel.advanceGameState()
                     }))
                     
                 }
@@ -49,7 +50,7 @@ struct MainView: View {
 }
 
 struct GameRootView: View {
-    @ObservedObject var skillsViewModel : SkillsViewModel
+    @Binding var skillsModel : SkillsModel
     
     var body: some View {
         ZStack {
@@ -61,26 +62,25 @@ struct GameRootView: View {
                             .padding(20)
             
                         VStack(spacing: 40) {
-                            UserProgress()
-                            Multiplication()
+                            UserProgress(totalQuestions: skillsModel.totalQuestions, questionsAnswered: skillsModel.questionsAnswered)
+                            Multiplication(skillsModel: $skillsModel)
                             Answers().disabled(disableAnswers)
                         }.padding(10)
                             .background(ViewConstants.secondaryBackground)
                         
                         ButtonTemplate().opacity(showNextButton)
-                    }.environmentObject(skillsViewModel)
-                    .navigationBarBackButtonHidden(true)
+                    }.navigationBarBackButtonHidden(true)
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
         }
     }
     
     var showNextButton: Double {
-        skillsViewModel.gameState == .multiply ? 0.0 : 1.0
+        skillsModel.gameState == .multiply ? 0.0 : 1.0
     }
     
     var disableAnswers: Bool {
-        return skillsViewModel.gameState == .next || skillsViewModel.gameState == .restart
+        return skillsModel.gameState == .next || skillsModel.gameState == .restart
     }
 }
 
