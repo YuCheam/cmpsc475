@@ -14,6 +14,8 @@
 		2827825124FC17F600257043 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2827825024FC17F600257043 /* Preview Assets.xcassets */; };
 		2827825424FC17F600257043 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2827825224FC17F600257043 /* LaunchScreen.storyboard */; };
 		2827825F24FC17F600257043 /* Multiplication_SkillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827825E24FC17F600257043 /* Multiplication_SkillsTests.swift */; };
+		282D96CA25110053008A32BE /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D96C925110053008A32BE /* Preferences.swift */; };
+		282D96CC251101B8008A32BE /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D96CB251101B8008A32BE /* PreferenceButton.swift */; };
 		2838C60A2509CEFE00682A1B /* Color+colorChangingAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838C6092509CEFE00682A1B /* Color+colorChangingAdditions.swift */; };
 		285E949C2505699C00620968 /* MultiplicationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285E949B2505699C00620968 /* MultiplicationClass.swift */; };
 		2862B4AA25046D5000490848 /* SkillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4A925046D5000490848 /* SkillsModel.swift */; };
@@ -47,6 +49,8 @@
 		2827825A24FC17F600257043 /* Multiplication SkillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Multiplication SkillsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2827825E24FC17F600257043 /* Multiplication_SkillsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication_SkillsTests.swift; sourceTree = "<group>"; };
 		2827826024FC17F600257043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		282D96C925110053008A32BE /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		282D96CB251101B8008A32BE /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		2838C6092509CEFE00682A1B /* Color+colorChangingAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+colorChangingAdditions.swift"; sourceTree = "<group>"; };
 		285E949B2505699C00620968 /* MultiplicationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationClass.swift; sourceTree = "<group>"; };
 		2862B4A925046D5000490848 /* SkillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsModel.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				2862B4B0250471E300490848 /* Answers.swift */,
 				2862B4B22504721D00490848 /* ButtonTemplate.swift */,
 				2862B4B425047E7200490848 /* ViewConstants.swift */,
+				282D96C925110053008A32BE /* Preferences.swift */,
+				282D96CB251101B8008A32BE /* PreferenceButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,7 +265,9 @@
 				2862B4B32504721D00490848 /* ButtonTemplate.swift in Sources */,
 				2862B4B1250471E300490848 /* Answers.swift in Sources */,
 				28A37733250A5C82002DBD6F /* QuestionNumber.swift in Sources */,
+				282D96CC251101B8008A32BE /* PreferenceButton.swift in Sources */,
 				2862B4AA25046D5000490848 /* SkillsModel.swift in Sources */,
+				282D96CA25110053008A32BE /* Preferences.swift in Sources */,
 				2838C60A2509CEFE00682A1B /* Color+colorChangingAdditions.swift in Sources */,
 				2827824C24FC17F300257043 /* MainView.swift in Sources */,
 				2862B4AD2504709300490848 /* UserProgress.swift in Sources */,

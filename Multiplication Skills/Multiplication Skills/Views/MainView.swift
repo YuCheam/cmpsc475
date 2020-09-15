@@ -40,9 +40,13 @@ struct MainView: View {
                     }.simultaneousGesture(TapGesture().onEnded({
                         self.skillsModel.advanceGameState()
                     }))
+                 
+                    HStack {
+                        Spacer()
+                        PreferenceButton(skillsModel: $skillsModel)
+                    }
                     
                 }
-                
             }.edgesIgnoringSafeArea(.all)
         }
     }
