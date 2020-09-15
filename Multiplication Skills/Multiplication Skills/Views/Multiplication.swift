@@ -33,9 +33,3 @@ struct Multiplication: View {
         }.font(.system(size: 55))
     }
 }
-
-struct Multiplication_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView().environmentObject(SkillsViewModel())
-    }
-}

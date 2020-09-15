@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var skillsViewModel = SkillsViewModel()
     @State private var skillsModel : SkillsModel = SkillsModel()
     
     var body: some View {
@@ -86,7 +85,7 @@ struct GameRootView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView().environmentObject(SkillsViewModel())
+        MainView()
     }
 }
 

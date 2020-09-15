@@ -40,6 +40,6 @@ struct UserProgress: View {
 
 struct UserProgress_Previews: PreviewProvider {
     static var previews: some View {
-        MainView().environmentObject(SkillsViewModel())
+        MainView()
     }
 }
