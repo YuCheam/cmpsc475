@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct ButtonTemplate: View {
-    @EnvironmentObject var skillsViewModel: SkillsViewModel
+    @Binding var skillsModel: SkillsModel
     
     var body: some View {
-        Button(skillsViewModel.buttonLabel){
-            self.skillsViewModel.advanceGameState()
+        Button(skillsModel.buttonLabel){
+            self.skillsModel.advanceGameState()
         }
         .padding(.vertical, 10.0)
         .padding(.horizontal, 20)

@@ -64,11 +64,11 @@ struct GameRootView: View {
                         VStack(spacing: 40) {
                             UserProgress(totalQuestions: skillsModel.totalQuestions, questionsAnswered: skillsModel.questionsAnswered)
                             Multiplication(skillsModel: $skillsModel)
-                            Answers().disabled(disableAnswers)
+                            Answers(skillsModel: $skillsModel).disabled(disableAnswers)
                         }.padding(10)
                             .background(ViewConstants.secondaryBackground)
                         
-                        ButtonTemplate().opacity(showNextButton)
+                        ButtonTemplate(skillsModel: $skillsModel).opacity(showNextButton)
                     }.navigationBarBackButtonHidden(true)
                     .navigationBarTitle("")
                     .navigationBarHidden(true)

@@ -40,8 +40,11 @@ struct SkillsModel {
         }
     }
     
+    var selectedAnswer: Int = 0
     mutating func checkCorrectGuess(guess: Int) {
         let correctAnswer: Int = multiplicationProblems[currentQuestion].correctAnswer
+        selectedAnswer = guess
+        
         if correctAnswer == guess {
             questionsAnswered[currentQuestion] = .correct
             // Correct Answer
@@ -110,4 +113,12 @@ struct SkillsModel {
         }
     }
     
+    var correctAnswer: Int {
+        switch gameState {
+        case .start:
+            return 0
+        default:
+            return multiplicationProblems[currentQuestion].correctAnswer
+        }
+    }
 }
