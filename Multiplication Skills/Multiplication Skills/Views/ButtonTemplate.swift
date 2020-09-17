@@ -12,15 +12,14 @@ struct ButtonTemplate: View {
     @Binding var skillsModel: SkillsModel
     
     var body: some View {
-        Button(skillsModel.buttonLabel){
-            self.skillsModel.advanceGameState()
+        Button(action: {self.skillsModel.advanceGameState()}){
+            Text("\(skillsModel.buttonLabel)").padding(.vertical, 10.0)
+                .padding(.horizontal, 20)
+                .font(.system(size:24, weight: .semibold))
+                .background(ViewConstants.defaultButtonColor)
+                .foregroundColor(.white)
+                .cornerRadius(10)
         }
-        .padding(.vertical, 10.0)
-        .padding(.horizontal, 20)
-        .font(.system(size:24, weight: .semibold))
-        .background(ViewConstants.defaultButtonColor)
-        .foregroundColor(.white)
-        .cornerRadius(10)
     }
     
 }

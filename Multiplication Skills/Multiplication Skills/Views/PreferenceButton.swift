@@ -13,14 +13,15 @@ struct PreferenceButton: View {
     @State private var isShowingPreferenceView = false
     
     var body: some View {
-        Button("Preferences", action: { self.isShowingPreferenceView.toggle() }).padding(.vertical, 10.0)
-            .padding(.horizontal, 20)
-            .font(.system(size:24, weight: .semibold))
-            .background(ViewConstants.defaultButtonColor)
-            .foregroundColor(.white)
-            .cornerRadius(10)
-            .sheet(isPresented: $isShowingPreferenceView) {
-                Preferences(totalQuestions: self.$skillsModel.totalQuestions, difficultySettings: self.$skillsModel.difficultySettings, isShowingPreferenceView: self.$isShowingPreferenceView)
+        Button(action: { self.isShowingPreferenceView.toggle() }){
+            Text("Preferences").padding(.vertical, 10.0)
+                .padding(.horizontal, 20)
+                .font(.system(size:24, weight: .semibold))
+                .background(ViewConstants.defaultButtonColor)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+        }.sheet(isPresented: $isShowingPreferenceView) {
+            Preferences(totalQuestions: self.$skillsModel.totalQuestions, difficultySettings: self.$skillsModel.difficultySettings, isShowingPreferenceView: self.$isShowingPreferenceView)
         }
     }
 }

@@ -17,15 +17,15 @@ struct Answers: View {
         HStack {
             ForEach(answers, id: \.self) {answer in
                 
-                Button("\(answer)"){
-                    self.skillsModel.checkCorrectGuess(guess: answer)
+                Button(action: {self.skillsModel.checkCorrectGuess(guess: answer)}){
+                    Text("\(answer)")
+                        .frame(width: 65, height: 40)
+                        .background(Color.answerButtonBackground(
+                            state: self.skillsModel.gameState, select: self.skillsModel.selectedAnswer, currentAnswer: answer, correctAnswer: self.correctAnswer))
+                        .foregroundColor(Color.black)
+                        .cornerRadius(5)
+                        .font(.system(size: 16, weight: .bold))
                 }
-                .frame(width: 65, height: 40)
-                .background(Color.answerButtonBackground(
-                    state: self.skillsModel.gameState, select: self.skillsModel.selectedAnswer, currentAnswer: answer, correctAnswer: self.correctAnswer))
-                    .foregroundColor(Color.black)
-                    .cornerRadius(5)
-                    .font(.system(size: 16, weight: .bold))
             }
         }.padding(10)
     }
