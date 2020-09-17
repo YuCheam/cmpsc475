@@ -20,7 +20,7 @@ struct PreferenceButton: View {
             .foregroundColor(.white)
             .cornerRadius(10)
             .sheet(isPresented: $isShowingPreferenceView) {
-                Preferences(totalQuestions: self.$skillsModel.totalQuestions, isShowingPreferenceView: self.$isShowingPreferenceView)
+                Preferences(totalQuestions: self.$skillsModel.totalQuestions, difficultySettings: self.$skillsModel.difficultySettings, isShowingPreferenceView: self.$isShowingPreferenceView)
         }
     }
 }

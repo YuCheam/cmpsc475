@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Preferences: View {
     @Binding var totalQuestions: Int
+    @Binding var difficultySettings: DifficultySettings
     @Binding var isShowingPreferenceView: Bool
     
     var body: some View {
@@ -20,7 +21,11 @@ struct Preferences: View {
                 }
                 
                 Section(header: Text("Difficulty")) {
-                    Text("Difficulty stuff goes here")
+                    Picker("Difficulty", selection: $difficultySettings.currentDifficulty) {
+                        Text("Easy").tag(Difficulty.easy)
+                        Text("Medium").tag(Difficulty.medium)
+                        Text("Hard").tag(Difficulty.hard)
+                    }
                 }
                 
                 Section(header: Text("Number of Questions")) {

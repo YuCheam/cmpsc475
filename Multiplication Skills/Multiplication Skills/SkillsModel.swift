@@ -16,12 +16,16 @@ enum AnswerState {
     case correct, incorrect, unknown
 }
 
-enum Difficulty {
+enum Difficulty: String {
     case easy, medium, hard
+    
+    var id: String {self.rawValue}
 }
 
-enum Arithmetic {
+enum Arithmetic: String {
     case multiplication, addition
+    
+    var id: String {self.rawValue}
 }
 
 struct SkillsModel {
