@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Preferences: View {
-    @Binding var skillsModel: SkillsModel
+    @Binding var totalQuestions: Int
     @Binding var isShowingPreferenceView: Bool
     
     var body: some View {
@@ -24,15 +24,13 @@ struct Preferences: View {
                 }
                 
                 Section(header: Text("Number of Questions")) {
-                    Text("Number of Question stuff goes here")
+                    Stepper("\(totalQuestions)", value: $totalQuestions, in: 3...7)
                 }
-                
                 Section() {
                     Button("Dismiss"){self.isShowingPreferenceView.toggle()}
                 }
             }
         }.navigationBarTitle("Preferences")
-        
     }
 }
 

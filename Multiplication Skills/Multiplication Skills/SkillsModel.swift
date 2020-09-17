@@ -16,10 +16,18 @@ enum AnswerState {
     case correct, incorrect, unknown
 }
 
+enum Difficulty {
+    case easy, medium, hard
+}
+
+enum Arithmetic {
+    case multiplication, addition
+}
+
 struct SkillsModel {
     var gameState: GameState = .start
     var currentQuestion: Int = 0
-    let totalQuestions: Int = 5
+    var totalQuestions: Int = 5
     let totalAnswers: Int = 4
     
     mutating func advanceGameState() {
@@ -70,8 +78,9 @@ struct SkillsModel {
     }
     
     // Generate Multiplication Problems and AnswerStates
-    let startRange: Int = 1
-    let endRange: Int = 15
+    var difficultySettings = DifficultySettings()
+    var startRange: Int {difficultySettings.startRange}
+    var endRange: Int {difficultySettings.endRange}
     let symbol: String = "x"
     var multiplicationProblems: [MultiplicationClass] = Array()
     var questionsAnswered: [AnswerState] = Array()
