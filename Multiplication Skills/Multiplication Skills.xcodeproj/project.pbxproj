@@ -17,8 +17,9 @@
 		282D96CA25110053008A32BE /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D96C925110053008A32BE /* Preferences.swift */; };
 		282D96CC251101B8008A32BE /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D96CB251101B8008A32BE /* PreferenceButton.swift */; };
 		282D96CE2513A1FD008A32BE /* PreferenceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D96CD2513A1FD008A32BE /* PreferenceSettings.swift */; };
+		282D96D02513B883008A32BE /* AdditionProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D96CF2513B883008A32BE /* AdditionProblem.swift */; };
 		2838C60A2509CEFE00682A1B /* Color+colorChangingAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838C6092509CEFE00682A1B /* Color+colorChangingAdditions.swift */; };
-		285E949C2505699C00620968 /* MultiplicationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285E949B2505699C00620968 /* MultiplicationClass.swift */; };
+		285E949C2505699C00620968 /* MultiplicationProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285E949B2505699C00620968 /* MultiplicationProblem.swift */; };
 		2862B4AA25046D5000490848 /* SkillsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4A925046D5000490848 /* SkillsModel.swift */; };
 		2862B4AD2504709300490848 /* UserProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4AC2504709300490848 /* UserProgress.swift */; };
 		2862B4AF2504715E00490848 /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862B4AE2504715E00490848 /* Multiplication.swift */; };
@@ -53,8 +54,9 @@
 		282D96C925110053008A32BE /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		282D96CB251101B8008A32BE /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		282D96CD2513A1FD008A32BE /* PreferenceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSettings.swift; sourceTree = "<group>"; };
+		282D96CF2513B883008A32BE /* AdditionProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionProblem.swift; sourceTree = "<group>"; };
 		2838C6092509CEFE00682A1B /* Color+colorChangingAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+colorChangingAdditions.swift"; sourceTree = "<group>"; };
-		285E949B2505699C00620968 /* MultiplicationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationClass.swift; sourceTree = "<group>"; };
+		285E949B2505699C00620968 /* MultiplicationProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationProblem.swift; sourceTree = "<group>"; };
 		2862B4A925046D5000490848 /* SkillsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsModel.swift; sourceTree = "<group>"; };
 		2862B4AC2504709300490848 /* UserProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProgress.swift; sourceTree = "<group>"; };
 		2862B4AE2504715E00490848 /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
@@ -136,9 +138,10 @@
 		285E949A2505697D00620968 /* Types+Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				285E949B2505699C00620968 /* MultiplicationClass.swift */,
+				285E949B2505699C00620968 /* MultiplicationProblem.swift */,
 				2838C6092509CEFE00682A1B /* Color+colorChangingAdditions.swift */,
 				282D96CD2513A1FD008A32BE /* PreferenceSettings.swift */,
+				282D96CF2513B883008A32BE /* AdditionProblem.swift */,
 			);
 			path = "Types+Extensions";
 			sourceTree = "<group>";
@@ -260,7 +263,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				285E949C2505699C00620968 /* MultiplicationClass.swift in Sources */,
+				285E949C2505699C00620968 /* MultiplicationProblem.swift in Sources */,
+				282D96D02513B883008A32BE /* AdditionProblem.swift in Sources */,
 				2862B4B525047E7200490848 /* ViewConstants.swift in Sources */,
 				2827824824FC17F300257043 /* AppDelegate.swift in Sources */,
 				2862B4AF2504715E00490848 /* Multiplication.swift in Sources */,

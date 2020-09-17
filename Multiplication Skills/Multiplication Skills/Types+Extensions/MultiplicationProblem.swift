@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MultiplicationClass {
+class MultiplicationProblem {
     let answerRange: Int = 5 // Amount by which answers can vary
     
     var multiplicand: Int

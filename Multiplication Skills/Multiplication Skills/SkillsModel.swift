@@ -48,7 +48,6 @@ struct SkillsModel {
         default: // .next
             gameState = .multiply
             currentQuestion += 1  // Change to next question
-            return
         }
     }
     
@@ -85,8 +84,8 @@ struct SkillsModel {
     var difficultySettings = DifficultySettings()
     var startRange: Int {difficultySettings.startRange}
     var endRange: Int {difficultySettings.endRange}
-    let symbol: String = "x"
-    var multiplicationProblems: [MultiplicationClass] = Array()
+    let symbol: String = "+"
+    var multiplicationProblems: [MultiplicationProblem] = Array()
     var questionsAnswered: [AnswerState] = Array()
     
     mutating func generateNewProblemSet() {
@@ -94,7 +93,8 @@ struct SkillsModel {
         questionsAnswered.removeAll()
         
         for _ in 0..<totalQuestions {
-            multiplicationProblems.append(MultiplicationClass(startRange, endRange, totalAnswers))
+            multiplicationProblems.append(MultiplicationProblem(startRange, endRange, totalAnswers))
+            //additionProblems.append(additionProblems(startRange, endRange, totalAnswers))
             questionsAnswered.append(.unknown)
         }
     }
@@ -109,12 +109,7 @@ struct SkillsModel {
     }
     
     var multiplier: Int {
-        switch gameState {
-        case .start:
-            return 0
-        default:
-            return multiplicationProblems[currentQuestion].multiplier
-        }
+        return multiplicationProblems[currentQuestion].multiplier
     }
     
     var answers: [Int] {
