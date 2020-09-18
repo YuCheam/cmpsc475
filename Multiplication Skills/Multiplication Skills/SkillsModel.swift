@@ -43,7 +43,20 @@ struct SkillsModel {
             }
         }
     }
-
+    
+    // Generate Multiplication Problems and AnswerStates
+    var difficultySettings = DifficultySettings() {
+        didSet {
+            generateNewProblemSet()
+            currentQuestion = 0
+            gameState = gameState == .start ? .start : .multiply // restart only if progress
+        }
+    }
+    var startRange: Int {difficultySettings.startRange}
+    var endRange: Int {difficultySettings.endRange}
+    var additionProblems: [AdditionProblem] = Array()
+    var multiplicationProblems: [MultiplicationProblem] = Array()
+    var questionsAnswered: [AnswerState] = Array()
     let totalAnswers: Int = 4
     
     mutating func advanceGameState() {
@@ -74,36 +87,8 @@ struct SkillsModel {
             questionsAnswered[currentQuestion] = .incorrect
             // Wrong answer
         }
-        
         advanceGameState()
     }
-    
-    var buttonLabel: String {
-        switch gameState {
-        case .start:
-            return "Start"
-        case .next:
-            return "Next"
-        case .restart:
-            return "Restart"
-        default:
-            return "Next"
-        }
-    }
-    
-    // Generate Multiplication Problems and AnswerStates
-    var difficultySettings = DifficultySettings() {
-        didSet {
-            generateNewProblemSet()
-            currentQuestion = 0
-            gameState = gameState == .start ? .start : .multiply // restart only if progress
-        }
-    }
-    var startRange: Int {difficultySettings.startRange}
-    var endRange: Int {difficultySettings.endRange}
-    var additionProblems: [AdditionProblem] = Array()
-    var multiplicationProblems: [MultiplicationProblem] = Array()
-    var questionsAnswered: [AnswerState] = Array()
     
     mutating func generateNewProblemSet() {
         multiplicationProblems.removeAll()

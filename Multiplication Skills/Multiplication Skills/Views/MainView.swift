@@ -75,8 +75,8 @@ struct GameRootView: View {
                         }.padding(15)
             
                         VStack(spacing: 40) {
-                            UserProgress(totalQuestions: $skillsModel.totalQuestions, questionsAnswered: skillsModel.questionsAnswered)
-                            Problem(skillsModel: $skillsModel)
+                            UserProgress(totalQuestions: skillsModel.totalQuestions, questionsAnswered: skillsModel.questionsAnswered)
+                            Problem(difficultySettings: skillsModel.difficultySettings, numberOne: skillsModel.numberOne, numberTwo: skillsModel.numberTwo,answers: skillsModel.answers, currentQ: skillsModel.currentQuestion)
                             Answers(skillsModel: $skillsModel).disabled(disableAnswers)
                         }.padding(10)
                             .background(ViewConstants.secondaryBackground)

@@ -10,12 +10,10 @@ import SwiftUI
 
 struct Answers: View {
     @Binding var skillsModel: SkillsModel
-    var answers : [Int] {skillsModel.answers}
     
-    var correctAnswer: Int {skillsModel.correctAnswer}
     var body: some View {
         HStack {
-            ForEach(answers, id: \.self) {answer in
+            ForEach(skillsModel.answers, id: \.self) {answer in
                 
                 Button(action: {
                     self.skillsModel.checkCorrectGuess(guess: answer)
@@ -23,7 +21,7 @@ struct Answers: View {
                     Text("\(answer)")
                         .frame(width: 65, height: 40)
                         .background(Color.answerButtonBackground(
-                            state: self.skillsModel.gameState, select: self.skillsModel.selectedAnswer, currentAnswer: answer, correctAnswer: self.correctAnswer))
+                            state: self.skillsModel.gameState, select: self.skillsModel.selectedAnswer, currentAnswer: answer, correctAnswer: self.skillsModel.correctAnswer))
                         .foregroundColor(Color.black)
                         .cornerRadius(5)
                         .font(.system(size: 16, weight: .bold))

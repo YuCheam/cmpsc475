@@ -135,6 +135,19 @@
 			path = "Multiplication SkillsTests";
 			sourceTree = "<group>";
 		};
+		283B33292514FEF7001B7493 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2862B4B0250471E300490848 /* Answers.swift */,
+				28A37732250A5C82002DBD6F /* QuestionNumber.swift */,
+				2862B4AC2504709300490848 /* UserProgress.swift */,
+				282D96CB251101B8008A32BE /* PreferenceButton.swift */,
+				2862B4B22504721D00490848 /* ButtonTemplate.swift */,
+				2862B4AE2504715E00490848 /* Problem.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		285E949A2505697D00620968 /* Types+Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,15 +162,10 @@
 		2862B4AB25046E0C00490848 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				283B33292514FEF7001B7493 /* Components */,
 				2827824B24FC17F300257043 /* MainView.swift */,
-				2862B4AC2504709300490848 /* UserProgress.swift */,
-				28A37732250A5C82002DBD6F /* QuestionNumber.swift */,
-				2862B4AE2504715E00490848 /* Problem.swift */,
-				2862B4B0250471E300490848 /* Answers.swift */,
-				2862B4B22504721D00490848 /* ButtonTemplate.swift */,
-				2862B4B425047E7200490848 /* ViewConstants.swift */,
 				282D96C925110053008A32BE /* Preferences.swift */,
-				282D96CB251101B8008A32BE /* PreferenceButton.swift */,
+				2862B4B425047E7200490848 /* ViewConstants.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

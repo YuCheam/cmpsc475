@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct QuestionNumber: View {
-    var answerState: AnswerState
+    let answerState: AnswerState
     var symbol: String {
         switch answerState {
         case .correct:

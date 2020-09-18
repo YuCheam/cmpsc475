@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct UserProgress: View {
-    @Binding var totalQuestions: Int
+    let totalQuestions: Int
     let questionsAnswered : [AnswerState]
     var totalCorrect: Int {
         questionsAnswered.filter{$0 == .correct}.count

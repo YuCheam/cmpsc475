@@ -9,15 +9,14 @@
 import SwiftUI
 
 struct Problem: View {
-    @Binding var skillsModel: SkillsModel
-    
-    var numberOne: Int { skillsModel.numberOne}
-    var numberTwo: Int { skillsModel.numberTwo }
-    var answers: [Int] {skillsModel.answers}
-    var currentQuestion: Int {skillsModel.currentQuestion + 1}
-    
+    let difficultySettings: DifficultySettings
+    let numberOne: Int
+    let numberTwo: Int
+    let answers: [Int]
+    let currentQ: Int
+    var currentQuestion: Int {currentQ + 1}
     var symbol: String {
-        skillsModel.difficultySettings.currentArithmetic == .addition ? "+" : "x"
+        difficultySettings.currentArithmetic == .addition ? "+" : "x"
     }
     
     var body: some View {
