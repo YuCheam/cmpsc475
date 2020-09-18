@@ -17,7 +17,9 @@ struct Answers: View {
         HStack {
             ForEach(answers, id: \.self) {answer in
                 
-                Button(action: {self.skillsModel.checkCorrectGuess(guess: answer)}){
+                Button(action: {
+                    self.skillsModel.checkCorrectGuess(guess: answer)
+                }){
                     Text("\(answer)")
                         .frame(width: 65, height: 40)
                         .background(Color.answerButtonBackground(

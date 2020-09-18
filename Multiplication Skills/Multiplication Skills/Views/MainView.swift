@@ -48,12 +48,15 @@ struct MainView: View {
                     
                 }
             }.edgesIgnoringSafeArea(.all)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
     }
 }
 
 struct GameRootView: View {
     @Binding var skillsModel : SkillsModel
+    @State var isRestart = false
     
     var body: some View {
         ZStack {
@@ -66,7 +69,7 @@ struct GameRootView: View {
             
                         VStack(spacing: 40) {
                             UserProgress(totalQuestions: skillsModel.totalQuestions, questionsAnswered: skillsModel.questionsAnswered)
-                            Multiplication(skillsModel: $skillsModel)
+                            Problem(skillsModel: $skillsModel)
                             Answers(skillsModel: $skillsModel).disabled(disableAnswers)
                         }.padding(10)
                             .background(ViewConstants.secondaryBackground)

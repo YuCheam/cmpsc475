@@ -42,8 +42,7 @@ struct SkillsModel {
         case .multiply:
             gameState = currentQuestion + 1 == totalQuestions ? .restart : .next
         case .restart:
-            generateNewProblemSet()
-            gameState = .multiply
+            gameState = .start
             currentQuestion = 0
         default: // .next
             gameState = .multiply
@@ -53,7 +52,7 @@ struct SkillsModel {
     
     var selectedAnswer: Int = 0
     mutating func checkCorrectGuess(guess: Int) {
-        let correctAnswer: Int = multiplicationProblems[currentQuestion].correctAnswer
+        let correctAnswer: Int = difficultySettings.currentArithmetic == .addition ? additionProblems[currentQuestion].correctAnswer : multiplicationProblems[currentQuestion].correctAnswer
         selectedAnswer = guess
         
         if correctAnswer == guess {
@@ -84,48 +83,56 @@ struct SkillsModel {
     var difficultySettings = DifficultySettings()
     var startRange: Int {difficultySettings.startRange}
     var endRange: Int {difficultySettings.endRange}
-    let symbol: String = "+"
+    let symbol: String = "x"
+    var additionProblems: [AdditionProblem] = Array()
     var multiplicationProblems: [MultiplicationProblem] = Array()
     var questionsAnswered: [AnswerState] = Array()
     
     mutating func generateNewProblemSet() {
         multiplicationProblems.removeAll() // Clear out old problem set
         questionsAnswered.removeAll()
+        additionProblems.removeAll()
         
         for _ in 0..<totalQuestions {
             multiplicationProblems.append(MultiplicationProblem(startRange, endRange, totalAnswers))
-            //additionProblems.append(additionProblems(startRange, endRange, totalAnswers))
+            additionProblems.append(AdditionProblem(startRange: startRange, endRange: endRange, totalAnswers: totalAnswers))
             questionsAnswered.append(.unknown)
         }
     }
     
-    var multiplicand: Int {
-        switch gameState {
-        case .start:
-            return 0
-        default:
+    var numberOne: Int {
+        switch difficultySettings.currentArithmetic {
+        case .addition:
+            return additionProblems[currentQuestion].firstAdddend
+        default: // multiplication
             return multiplicationProblems[currentQuestion].multiplicand
         }
     }
     
-    var multiplier: Int {
-        return multiplicationProblems[currentQuestion].multiplier
+    var numberTwo: Int {
+        switch difficultySettings.currentArithmetic {
+        case .addition:
+            return additionProblems[currentQuestion].secondAddend
+        default: // multiplication
+            return multiplicationProblems[currentQuestion].multiplier
+        }
     }
+
     
     var answers: [Int] {
-        switch gameState {
-        case .start:
-            return []
-        default:
+        switch difficultySettings.currentArithmetic {
+        case .addition:
+            return additionProblems[currentQuestion].answers
+        default: // multiplication
             return multiplicationProblems[currentQuestion].answers
         }
     }
     
     var correctAnswer: Int {
-        switch gameState {
-        case .start:
-            return 0
-        default:
+        switch difficultySettings.currentArithmetic {
+        case .addition:
+            return additionProblems[currentQuestion].correctAnswer
+        default: // multiplication
             return multiplicationProblems[currentQuestion].correctAnswer
         }
     }

@@ -8,17 +8,16 @@
 
 import Foundation
 
-class MultiplicationProblem {
+struct MultiplicationProblem {
+    let totalAnswers: Int
     let answerRange: Int = 5 // Amount by which answers can vary
     
-    var multiplicand: Int
-    var multiplier: Int
-    var correctAnswer: Int
-    var totalAnswers: Int
-    lazy var answers: [Int] = generateAnswers()
+    let multiplicand: Int
+    let multiplier: Int
+    let correctAnswer: Int
+    var answers: [Int] = Array()
     
-    func generateAnswers() -> [Int] {
-        var tempArray: [Int] = Array()
+    mutating func generateAnswers(_ correctAnswer: Int) {
         let answerStartRange: Int = correctAnswer - 5 <= 1 ? 1 : correctAnswer - 5
         let answerEndRange: Int = correctAnswer + 5
         
@@ -26,23 +25,23 @@ class MultiplicationProblem {
             var temp: Int = Int.random(in: answerStartRange...answerEndRange)
             
             // Check for duplicate value
-            while tempArray.contains(temp) || (temp == correctAnswer) {
+            while answers.contains(temp) || (temp == correctAnswer) {
                 temp = Int.random(in: answerStartRange...answerEndRange)
             }
             
-            tempArray.append(temp)
+            answers.append(temp)
         }
         
         // Inject correct answer
-        tempArray.insert(correctAnswer, at: Int.random(in: 0...totalAnswers-2))
-        
-        return tempArray
+        answers.insert(correctAnswer, at: Int.random(in: 0...totalAnswers-2))
     }
     
     init(_ startRange: Int, _ endRange: Int, _ totalAnswers: Int) {
+        self.totalAnswers = totalAnswers
+        
         self.multiplicand = Int.random(in: startRange...endRange)
         self.multiplier = Int.random(in: startRange...endRange)
         self.correctAnswer = multiplicand * multiplier
-        self.totalAnswers = totalAnswers
+        generateAnswers(self.correctAnswer)
     }
 }

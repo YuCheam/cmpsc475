@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-struct Multiplication: View {
+struct Problem: View {
     @Binding var skillsModel: SkillsModel
     
-    var numberOne: Int { skillsModel.multiplicand }
-    var numberTwo: Int { skillsModel.multiplier }
+    var numberOne: Int { skillsModel.numberOne}
+    var numberTwo: Int { skillsModel.numberTwo }
     var answers: [Int] {skillsModel.answers}
     var currentQuestion: Int {skillsModel.currentQuestion + 1}
     

@@ -9,9 +9,7 @@
 import Foundation
 
 struct AdditionProblem {
-    var startRange: Int
-    var endRange: Int
-    var totalAnswers: Int
+    let totalAnswers: Int
     
     let firstAdddend: Int
     let secondAddend: Int
@@ -39,18 +37,12 @@ struct AdditionProblem {
     }
     
     init(startRange: Int, endRange: Int, totalAnswers: Int) {
-        self.startRange = startRange
-        self.endRange = endRange
         self.totalAnswers = totalAnswers
         
-        let temp = Int.random(in: startRange...endRange)
-        let temp2 = Int.random(in: startRange...endRange)
+        self.firstAdddend = Int.random(in: startRange...endRange)
+        self.secondAddend = Int.random(in: startRange...endRange)
+        self.correctAnswer = firstAdddend + secondAddend
         
-        self.firstAdddend = temp
-        self.secondAddend = temp2
-        self.correctAnswer = temp + temp2
-        generateAnswers(temp + temp2)
-        
+        generateAnswers(self.correctAnswer)
     }
-
 }
