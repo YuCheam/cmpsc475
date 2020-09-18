@@ -16,22 +16,34 @@ enum AnswerState {
     case correct, incorrect, unknown
 }
 
-enum Difficulty: String {
+enum Difficulty: String, Identifiable {
     case easy, medium, hard
     
-    var id: String {self.rawValue}
+    var id: String {self.rawValue.capitalized}
 }
 
-enum Arithmetic: String {
+enum Arithmetic: String, Identifiable {
     case multiplication, addition
     
-    var id: String {self.rawValue}
+    var id: String {self.rawValue.capitalized}
 }
 
 struct SkillsModel {
     var gameState: GameState = .start
     var currentQuestion: Int = 0
-    var totalQuestions: Int = 5
+    var totalQuestions: Int = 5 {
+        didSet {
+            switch gameState{
+            case .start:
+                generateNewProblemSet()
+            default:
+                currentQuestion = 0
+                generateNewProblemSet()
+                gameState = .multiply
+            }
+        }
+    }
+
     let totalAnswers: Int = 4
     
     mutating func advanceGameState() {
@@ -80,22 +92,26 @@ struct SkillsModel {
     }
     
     // Generate Multiplication Problems and AnswerStates
-    var difficultySettings = DifficultySettings()
+    var difficultySettings = DifficultySettings() {
+        didSet {
+            generateNewProblemSet()
+            currentQuestion = 0
+            gameState = gameState == .start ? .start : .multiply // restart only if progress
+        }
+    }
     var startRange: Int {difficultySettings.startRange}
     var endRange: Int {difficultySettings.endRange}
-    let symbol: String = "x"
     var additionProblems: [AdditionProblem] = Array()
     var multiplicationProblems: [MultiplicationProblem] = Array()
     var questionsAnswered: [AnswerState] = Array()
     
     mutating func generateNewProblemSet() {
-        multiplicationProblems.removeAll() // Clear out old problem set
+        multiplicationProblems.removeAll()
         questionsAnswered.removeAll()
         additionProblems.removeAll()
         
         for _ in 0..<totalQuestions {
-            multiplicationProblems.append(MultiplicationProblem(startRange, endRange, totalAnswers))
-            additionProblems.append(AdditionProblem(startRange: startRange, endRange: endRange, totalAnswers: totalAnswers))
+            difficultySettings.currentArithmetic == .addition ? additionProblems.append(AdditionProblem(startRange: startRange, endRange: endRange, totalAnswers: totalAnswers)) : multiplicationProblems.append(MultiplicationProblem(startRange, endRange, totalAnswers))
             questionsAnswered.append(.unknown)
         }
     }

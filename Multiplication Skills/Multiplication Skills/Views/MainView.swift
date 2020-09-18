@@ -13,13 +13,13 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
+            ZStack() {
                 Color(ViewConstants.backgroundColor)
+                
                 VStack(spacing: 10) {
-                    Text("Multiplication Skills")
-                    .font(ViewConstants.titleFont)
-                    .fontWeight(.heavy)
-                    .padding(20)
+                    Text("\(skillsModel.difficultySettings.currentArithmetic.id) skills")
+                        .font(ViewConstants.titleFont)
+                        .fontWeight(.heavy)
                     
                     Text("Tap the start button to test your skills if you dare....")
                         .font(ViewConstants.titleFont)
@@ -30,23 +30,25 @@ struct MainView: View {
                         .scaleEffect(0.7)
                         .frame(width: 200, height: 246)
                     
-                    NavigationLink(destination: GameRootView(skillsModel: $skillsModel)) {
-                        Text("Start").padding(.vertical, 10.0)
-                            .padding(.horizontal, 20)
-                            .font(.system(size:24, weight: .semibold))
-                            .background(ViewConstants.defaultButtonColor)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }.simultaneousGesture(TapGesture().onEnded({
-                        self.skillsModel.advanceGameState()
-                    }))
-                 
                     HStack {
-                        Spacer()
-                        PreferenceButton(skillsModel: $skillsModel)
+                        NavigationLink(destination: GameRootView(skillsModel: $skillsModel)) {
+                            Text("Start").padding(.vertical, 10.0)
+                                .padding(.horizontal, 20)
+                                .font(.system(size:24, weight: .semibold))
+                                .background(ViewConstants.defaultButtonColor)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }.simultaneousGesture(TapGesture().onEnded({
+                            self.skillsModel.advanceGameState()
+                        }))
+                        
                     }
                     
+                    PreferenceButton(skillsModel: $skillsModel).alignmentGuide(HorizontalAlignment.center, computeValue: {d in
+                        d[HorizontalAlignment.center] - 150 })
+                        .offset(y: 20)
                 }
+                
             }.edgesIgnoringSafeArea(.all)
             .navigationBarTitle("")
             .navigationBarHidden(true)
@@ -61,23 +63,33 @@ struct GameRootView: View {
     var body: some View {
         ZStack {
             Color(ViewConstants.backgroundColor)
-                    VStack(spacing: 20) {
-                        Text("Multiplication Skills")
+
+                    VStack(spacing: 10) {
+                        VStack(spacing: 0) {
+                            Text("\(skillsModel.difficultySettings.currentArithmetic.id) skills")
                             .font(ViewConstants.titleFont)
                             .fontWeight(.heavy)
-                            .padding(20)
+                            
+                            Text("\(skillsModel.difficultySettings.currentDifficulty.id)")
+                                .frame(alignment: .leading)
+                        }.padding(15)
             
                         VStack(spacing: 40) {
-                            UserProgress(totalQuestions: skillsModel.totalQuestions, questionsAnswered: skillsModel.questionsAnswered)
+                            UserProgress(totalQuestions: $skillsModel.totalQuestions, questionsAnswered: skillsModel.questionsAnswered)
                             Problem(skillsModel: $skillsModel)
                             Answers(skillsModel: $skillsModel).disabled(disableAnswers)
                         }.padding(10)
                             .background(ViewConstants.secondaryBackground)
                         
                         ButtonTemplate(skillsModel: $skillsModel).opacity(showNextButton)
+                        
+                        PreferenceButton(skillsModel: $skillsModel)
+                            .alignmentGuide(HorizontalAlignment.center, computeValue: {d in
+                                d[HorizontalAlignment.center] - 150 })
+                            .offset(y: -20)
                     }.navigationBarBackButtonHidden(true)
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true)
         }
     }
     

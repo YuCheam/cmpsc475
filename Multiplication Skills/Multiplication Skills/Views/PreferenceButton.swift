@@ -10,18 +10,15 @@ import SwiftUI
 
 struct PreferenceButton: View {
     @Binding var skillsModel : SkillsModel
-    @State private var isShowingPreferenceView = false
+    @State private var isShowingPreferenceView: Bool = false
     
     var body: some View {
         Button(action: { self.isShowingPreferenceView.toggle() }){
-            Text("Preferences").padding(.vertical, 10.0)
-                .padding(.horizontal, 20)
-                .font(.system(size:24, weight: .semibold))
-                .background(ViewConstants.defaultButtonColor)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-        }.sheet(isPresented: $isShowingPreferenceView) {
-            Preferences(totalQuestions: self.$skillsModel.totalQuestions, difficultySettings: self.$skillsModel.difficultySettings, isShowingPreferenceView: self.$isShowingPreferenceView)
+            Text("⚙️")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        }.sheet(isPresented: self.$isShowingPreferenceView) {
+            Preferences(totalQuestions: self.$skillsModel.totalQuestions, difficultySettings: self.$skillsModel.difficultySettings, isShowingPreferenceView: self.$isShowingPreferenceView,
+                gameState: self.$skillsModel.gameState)
         }
     }
 }

@@ -17,13 +17,13 @@ struct DifficultySettings {
     static let mediumAddition = [7, 99]
     static let hardAddition = [50, 999]
     
-    var currentDifficulty: Difficulty = .easy
+    var currentDifficulty: Difficulty = .easy 
     var currentArithmetic: Arithmetic = .multiplication
     
     var range: [Int] {
         switch currentDifficulty {
         case .easy:
-            return currentArithmetic == .multiplication ? DifficultySettings.easyMultiplication : DifficultySettings.hardMultiplication
+            return currentArithmetic == .multiplication ? DifficultySettings.easyMultiplication : DifficultySettings.easyAddition
         case .medium:
             return currentArithmetic == .multiplication ? DifficultySettings.mediumMultiplication : DifficultySettings.mediumAddition
         default: // hard

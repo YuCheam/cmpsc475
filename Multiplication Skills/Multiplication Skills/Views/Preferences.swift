@@ -12,12 +12,16 @@ struct Preferences: View {
     @Binding var totalQuestions: Int
     @Binding var difficultySettings: DifficultySettings
     @Binding var isShowingPreferenceView: Bool
+    @Binding var gameState: GameState
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Arithmetic Type")) {
-                    Text("Arithmetic Stuff Goes here")
+                    Picker("Arithmetic Type", selection: $difficultySettings.currentArithmetic) {
+                        Text("Addition").tag(Arithmetic.addition)
+                        Text("Multiplication").tag(Arithmetic.multiplication)
+                    }.pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section(header: Text("Difficulty")) {
@@ -25,14 +29,16 @@ struct Preferences: View {
                         Text("Easy").tag(Difficulty.easy)
                         Text("Medium").tag(Difficulty.medium)
                         Text("Hard").tag(Difficulty.hard)
-                    }
+                    }.pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section(header: Text("Number of Questions")) {
                     Stepper("\(totalQuestions)", value: $totalQuestions, in: 3...7)
                 }
                 Section() {
-                    Button("Dismiss"){self.isShowingPreferenceView.toggle()}
+                    Button("Dismiss"){
+                        self.isShowingPreferenceView.toggle()
+                    }
                 }
             }
         }.navigationBarTitle("Preferences")

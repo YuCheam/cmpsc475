@@ -16,7 +16,9 @@ struct Problem: View {
     var answers: [Int] {skillsModel.answers}
     var currentQuestion: Int {skillsModel.currentQuestion + 1}
     
-    var symbol: String {skillsModel.symbol}
+    var symbol: String {
+        skillsModel.difficultySettings.currentArithmetic == .addition ? "+" : "x"
+    }
     
     var body: some View {
         VStack(alignment: .trailing) {

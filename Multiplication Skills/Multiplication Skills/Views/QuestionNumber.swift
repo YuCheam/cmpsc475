@@ -9,14 +9,20 @@
 import SwiftUI
 
 struct QuestionNumber: View {
-    var index: Int
-    let questionsAnswered : [AnswerState]
-    var answerState: AnswerState {
-        questionsAnswered.count == 0 ? .unknown : questionsAnswered[index]
+    var answerState: AnswerState
+    var symbol: String {
+        switch answerState {
+        case .correct:
+            return "✓"
+        case .incorrect:
+            return "𝖷"
+        default:
+            return ""
+        }
     }
     
     var body: some View {
-        Text("\(index+1)").overlay(
+        Text("\(symbol)").overlay(
             Circle()
                 .stroke(Color.questionNumberBackground(answerState: answerState), lineWidth: 2)
                 .frame(width:50, height:50))
@@ -25,8 +31,4 @@ struct QuestionNumber: View {
             .font(.system(size: 16, weight: .bold))
     }
     
-    init(index: Int, questionsAnswered: [AnswerState]) {
-        self.index = index
-        self.questionsAnswered = questionsAnswered
-    }
 }

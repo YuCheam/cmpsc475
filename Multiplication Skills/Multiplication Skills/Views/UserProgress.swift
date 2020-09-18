@@ -9,31 +9,23 @@
 import SwiftUI
 
 struct UserProgress: View {
-    let totalQuestions: Int
+    @Binding var totalQuestions: Int
     let questionsAnswered : [AnswerState]
     var totalCorrect: Int {
-        var total: Int = 0
-        for question in questionsAnswered {
-            if question == .correct { total += 1 }
-        }
-        return total
+        questionsAnswered.filter{$0 == .correct}.count
     }
+    
     
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                ForEach(0..<totalQuestions) {index in
-                    QuestionNumber(index: index, questionsAnswered: self.questionsAnswered)
+                ForEach(questionsAnswered, id: \.self) {answerState in
+                    QuestionNumber(answerState: answerState)
                 }
             }.padding(10)
             
-            Text("You got \(totalCorrect) out of 5 correct!")
+            Text("You got \(totalCorrect) out of \(questionsAnswered.count) correct!")
         }
-    }
-    
-    init(totalQuestions: Int, questionsAnswered: [AnswerState]) {
-        self.totalQuestions = totalQuestions
-        self.questionsAnswered = questionsAnswered
     }
 }
 
