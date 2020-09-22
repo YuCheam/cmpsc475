@@ -2,18 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../../../Downloads/pokedex-files.zip">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/kyuch/Documents/xcode2020/cmpsc475/Pokedex/Color+PokemonType.swift">
-   </FileRef>
-   <FileRef
-      location = "group:pokedex.json">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/kyuch/Documents/xcode2020/cmpsc475/Pokedex/PokemonType.swift">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>
