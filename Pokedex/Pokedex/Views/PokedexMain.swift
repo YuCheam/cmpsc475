@@ -15,11 +15,13 @@ struct PokedexMain: View {
         NavigationView{
             List{
                 ForEach(pokedex.allPokemon.indices) { index in
-                    //Text("\(pokedex.allPokemon[index].name)")
-                    PokemonRowView(pokemon: pokedex.allPokemon[index])
+                    NavigationLink(
+                        destination: PokemonDetailView(pokemon: self.pokedex.allPokemon[index])){
+                        PokemonRowView(pokemon: pokedex.allPokemon[index])
+                    }
                 }
-            }
-        }.navigationBarTitle("Pokedex")
+            }.navigationBarTitle("Pokedex")
+        }
     }
     
 }

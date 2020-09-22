@@ -18,7 +18,8 @@ struct PokemonRowView: View {
             Text(idNumber)
             Spacer()
             Image(idNumber).resizable()
-                .frame(width:100)
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 50)
         }
     }
     
