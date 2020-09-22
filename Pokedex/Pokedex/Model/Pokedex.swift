@@ -14,7 +14,7 @@ struct Pokemon: Codable {
     let types: [PokemonType]
     let height: Float
     let weight: Float
-    let weaknesses: [String]
+    let weaknesses: [PokemonType]
     let prev_evolution: [Int]?
     let next_evolution: [Int]?
     
