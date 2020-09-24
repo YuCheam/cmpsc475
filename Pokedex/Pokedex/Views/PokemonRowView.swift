@@ -13,14 +13,16 @@ struct PokemonRowView: View {
     var idNumber: String
     
     var body: some View {
-        HStack{
-            Text("\(pokemon.name)")
-            Text(idNumber)
-            Spacer()
+        VStack{
             Image(idNumber).resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(height: 64)
+                .frame(width: 260, height: 300)
+            Text("\(pokemon.name) \(idNumber)")
         }.font(.system(.body, design: .monospaced))
+        .padding(10)
+        .background(Color(red: 0.22, green: 0.24, blue: 0.27))
+        .cornerRadius(30.0)
+        .foregroundColor(.white)
     }
     
     init(pokemon : Pokemon) {
