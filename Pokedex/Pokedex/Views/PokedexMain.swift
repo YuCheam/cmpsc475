@@ -13,14 +13,20 @@ struct PokedexMain: View {
     
     var body: some View {
         NavigationView{
-            List{
-                ForEach(pokedex.allPokemon.indices) { index in
-                    NavigationLink(
-                        destination: PokemonDetailView(pokemon: self.pokedex.allPokemon[index])){
-                        PokemonRowView(pokemon: pokedex.allPokemon[index])
-                    }
+            ZStack{
+                Color(red: 0.13, green: 0.16, blue: 0.19)
+                
+                List{
+                    ForEach(pokedex.allPokemon.indices) { index in
+                        NavigationLink(
+                            destination: PokemonDetailView(pokemon: self.pokedex.allPokemon[index])){
+                            PokemonRowView(pokemon: pokedex.allPokemon[index])
+                        }
+                    }.listRowBackground(Color(red: 0.93, green: 0.93, blue: 0.93))
                 }
-            }.navigationBarTitle("Pokedex")
+                
+            }.edgesIgnoringSafeArea(.all)
+            .navigationBarTitle("Pokedex")
         }
     }
     

@@ -19,8 +19,8 @@ struct PokemonRowView: View {
             Spacer()
             Image(idNumber).resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(height: 50)
-        }
+                .frame(height: 64)
+        }.font(.system(.body, design: .monospaced))
     }
     
     init(pokemon : Pokemon) {

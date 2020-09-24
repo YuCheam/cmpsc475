@@ -17,17 +17,6 @@ struct Pokemon: Codable {
     let weaknesses: [PokemonType]
     let prev_evolution: [Int]?
     let next_evolution: [Int]?
-    
-//    enum CodingKeys: String, CodingKey {
-//        case id
-//        case name
-//        case types
-//        case height
-//        case weight
-//        case weaknesses
-//        case prev_evolution
-//        case next_evolution
-//    }
 }
 
 typealias AllPokemon = [Pokemon]
@@ -48,5 +37,9 @@ struct Pokedex {
             print("Error info: \(error)")
             allPokemon = []
         }
+    }
+    
+    func getPokemon(index: Int) -> Pokemon {
+        return allPokemon[index]
     }
 }

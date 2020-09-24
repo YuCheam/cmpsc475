@@ -14,30 +14,27 @@ struct PokemonDetailView: View {
     
     
     var body: some View {
-        List {
-            Text("\(pokemon.name)")
-            Image(idNumber).resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 200)
-            Section(header: Text("Stats")) {
-                Text("Height: \(pokemon.height)")
-                Text("Weight: \(pokemon.weight)")
-            }
+        ZStack{
+            Color(red: 0.13, green: 0.16, blue: 0.19)
             
-            Section(header: Text("Weaknesses")){
-                ForEach(pokemon.weaknesses, id:\.self) { weakness in
-                    Text("\(weakness.id)").foregroundColor(Color(pokemonType: weakness))
-                }
-            }
+            VStack {
+                ZStack(alignment: .bottomTrailing){
+                    Image(idNumber).resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 260)
+                    Text("\(idNumber)")
+                        .font(.system(.body, design: .monospaced))
+                        .foregroundColor(.white)
+                        .offset(x: 0, y: 12)
+                }.frame(width: 320, height: 320)
+                .background(Color(red: 0.22, green: 0.24, blue: 0.27))
+                .cornerRadius(30.0)
+                
+                DetailInformationView(pokemon: pokemon)
+            }.padding(.top, 28)
             
-            Section(header: Text("Types")){
-                ForEach(pokemon.types, id: \.self){ type in
-                    Text("\(type.id)").foregroundColor(Color(pokemonType: type))
-                }
-            }
-
-        }
-        
+        }.navigationBarTitle("\(pokemon.name)", displayMode: .inline)
+        .edgesIgnoringSafeArea(.all)
     }
     
     init(pokemon : Pokemon) {
@@ -46,8 +43,9 @@ struct PokemonDetailView: View {
     }
 }
 
+
 struct PokemonDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PokedexMain()
+        PokemonDetailView(pokemon: Pokedex().getPokemon(index: 11))
     }
 }
