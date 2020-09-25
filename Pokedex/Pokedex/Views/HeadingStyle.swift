@@ -12,7 +12,7 @@ struct HeadingStyle: View {
     let heading: String
     var body: some View {
         Text(heading).font(.system(size: 20, weight: .bold, design: .monospaced))
-            .foregroundColor(Color(red: 0.71, green: 0.33, blue: 0.00))
+            .foregroundColor(ViewConstants.accentColor)
             .padding(.top, 16)
     }
 }

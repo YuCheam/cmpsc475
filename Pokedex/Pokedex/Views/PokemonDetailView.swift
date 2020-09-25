@@ -15,13 +15,14 @@ struct PokemonDetailView: View {
     
     var body: some View {
         ZStack{
-            Color(red: 0.13, green: 0.16, blue: 0.19).edgesIgnoringSafeArea(.all)
+            ViewConstants.backgroundColor.edgesIgnoringSafeArea(.all)
             
             ScrollView(.vertical){
                 VStack {
                     Text("\(pokemon.name)")
                         .font(.system(size: 36, weight: .bold, design: .monospaced))
-                        .foregroundColor(.white)
+                        .foregroundColor(ViewConstants.accentColor)
+                    
                     ZStack(alignment: .bottomTrailing){
                         Image(idNumber).resizable()
                             .aspectRatio(contentMode: .fit)
@@ -31,7 +32,7 @@ struct PokemonDetailView: View {
                             .foregroundColor(.white)
                             .offset(x: 0, y: 12)
                     }.frame(width: 320, height: 320)
-                    .background(Color(red: 0.22, green: 0.24, blue: 0.27))
+                    .background(ViewConstants.secondaryColor)
                     .cornerRadius(30.0)
                     
                     PokemonInfo(pokemon: pokemon)

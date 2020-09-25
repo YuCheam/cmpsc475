@@ -9,18 +9,19 @@
 import SwiftUI
 
 struct PokemonItem: View {
-    var pokemon : Pokemon
-    var idNumber: String
+    let pokemon : Pokemon
+    let idNumber: String
+    let pokemonImageSize: CGFloat = 200
     
     var body: some View {
         VStack{
             Image(idNumber).resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
+                .frame(width: pokemonImageSize, height: pokemonImageSize)
             Text("\(pokemon.name) \(idNumber)")
         }.font(.system(.body, design: .monospaced))
         .padding(10)
-        .background(Color(red: 0.22, green: 0.24, blue: 0.27))
+        .background(ViewConstants.secondaryColor)
         .cornerRadius(30.0)
         .foregroundColor(.white)
     }

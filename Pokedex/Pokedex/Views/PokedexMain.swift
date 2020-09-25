@@ -15,12 +15,13 @@ struct PokedexMain: View {
     var body: some View {
         NavigationView{
             ZStack{
-                Color(red: 0.13, green: 0.16, blue: 0.19).edgesIgnoringSafeArea(.all)
+                ViewConstants.backgroundColor.edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     Text("\(gameTitle)")
                         .font(.system(size: 36, weight: .bold, design: .monospaced))
-                        .foregroundColor(.white)
+                        .foregroundColor(ViewConstants.accentColor)
+                    
                     ScrollView(.horizontal) {
                         HStack(spacing: 30) {
                             ForEach(pokedex.allPokemon.indices) { index in
@@ -30,14 +31,12 @@ struct PokedexMain: View {
                                 }
                             }
                         }
-                    }.frame(height: 400)
+                    }
                 }
-                
             }.navigationBarTitle("")
             .navigationBarHidden(true)
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
