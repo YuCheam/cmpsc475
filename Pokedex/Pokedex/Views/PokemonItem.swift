@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct PokemonRowView: View {
+struct PokemonItem: View {
     var pokemon : Pokemon
     var idNumber: String
     
@@ -16,7 +16,7 @@ struct PokemonRowView: View {
         VStack{
             Image(idNumber).resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 260, height: 300)
+                .frame(width: 200, height: 200)
             Text("\(pokemon.name) \(idNumber)")
         }.font(.system(.body, design: .monospaced))
         .padding(10)

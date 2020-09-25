@@ -8,40 +8,38 @@
 
 import SwiftUI
 
-struct DetailInformationView: View {
+struct PokemonInfo: View {
     let pokemon: Pokemon
     
     var body: some View {
         VStack(alignment: .leading) {
-            DetailTitleStyle(title: "Stats")
+            HeadingStyle(heading: "Stats")
             Text("Height: \(pokemon.height, specifier: "%.2f") m")
             Text("Weight: \(pokemon.weight, specifier: "%.2f") kg")
             
-            DetailTitleStyle(title: "Weaknesses")
+            HeadingStyle(heading: "Weaknesses")
             ScrollView(.horizontal){
                 HStack{
                     ForEach(pokemon.weaknesses, id:\.self) { weakness in
-                        TypeStyle(label: weakness.id, color: Color(pokemonType: weakness))
+                        PokemonTypeStyle(label: weakness.id, color: Color(pokemonType: weakness))
                     }
                 }
             }
             
-            DetailTitleStyle(title: "Types")
+            HeadingStyle(heading: "Types")
             ScrollView(.horizontal){
                 HStack{
                     ForEach(pokemon.types, id: \.self){ type in
-                        TypeStyle(label: type.id, color: Color(pokemonType: type))
+                        PokemonTypeStyle(label: type.id, color: Color(pokemonType: type))
                     }
                 }
             }
         }.frame(minWidth: 0,
                 maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity,
                 alignment: .topLeading)
         .font(.system(.body, design: .monospaced))
         .foregroundColor(.white)
-        .padding()
+        .padding(20)
     }
 }
 

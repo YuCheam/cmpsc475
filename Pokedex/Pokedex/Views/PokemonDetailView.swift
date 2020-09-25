@@ -34,7 +34,7 @@ struct PokemonDetailView: View {
                     .background(Color(red: 0.22, green: 0.24, blue: 0.27))
                     .cornerRadius(30.0)
                     
-                    DetailInformationView(pokemon: pokemon)
+                    PokemonInfo(pokemon: pokemon)
                 }.padding(.top, 28)
             }
             

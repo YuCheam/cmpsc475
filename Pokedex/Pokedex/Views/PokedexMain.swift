@@ -26,7 +26,7 @@ struct PokedexMain: View {
                             ForEach(pokedex.allPokemon.indices) { index in
                                 NavigationLink(
                                     destination: PokemonDetailView(pokemon: self.pokedex.allPokemon[index])){
-                                    PokemonRowView(pokemon: pokedex.allPokemon[index])
+                                    PokemonItem(pokemon: pokedex.allPokemon[index])
                                 }
                             }
                         }
