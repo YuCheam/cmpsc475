@@ -34,7 +34,9 @@ struct PokedexMain: View {
                     }
                 }
             }.navigationBarTitle("")
-            .navigationBarHidden(true)
+            .navigationBarItems(trailing: NavigationLink(destination: PokemonListView()){
+                Text("List")
+            })
         }
     }
 }
