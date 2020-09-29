@@ -10,24 +10,37 @@ import SwiftUI
 
 struct PokemonListView: View {
     @EnvironmentObject var pokedex: Pokedex
+    @State var pokemonType: PokemonType?
+    @State var showFilterList: Bool = false
     
     var body: some View {
-        List {
-            ForEach(pokedex.allPokemon.indices, id: \.self) { index in
-                NavigationLink(destination: PokemonDetailView(pokemon: pokedex.allPokemon[index])){
-                    HStack {
-                        Text(pokedex.allPokemon[index].id.formatString)
-                        Text(pokedex.allPokemon[index].name)
-                        Spacer()
-                        Image(pokedex.allPokemon[index].id.formatString).resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 72)
+        VStack {
+            Form {
+                Picker(selection: $pokemonType, label: Text("Type")){
+                    Text("No Filter").tag(nil as PokemonType?)
+                    ForEach(PokemonType.allCases) { type in
+                        Text(type.id).tag(type as PokemonType?)
                     }
                 }
-            }.listRowBackground(ViewConstants.backgroundColor)
-        }.foregroundColor(.white)
-        .navigationBarTitle("All Pokemon", displayMode: .inline)
-        .font(.system(.body, design: .monospaced))
+            }
+            List {
+                ForEach(pokedex.allPokemon.indices, id: \.self) { index in
+                    NavigationLink(destination: PokemonDetailView(pokemon: pokedex.allPokemon[index])){
+                        HStack {
+                            Text(pokedex.allPokemon[index].id.formatString)
+                            Text(pokedex.allPokemon[index].name)
+                            Spacer()
+                            Image(pokedex.allPokemon[index].id.formatString).resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 72)
+                        }
+                    }
+                }.listRowBackground(ViewConstants.backgroundColor)
+            }.navigationBarTitle("All Pokemon", displayMode: .inline)
+            .foregroundColor(.white)
+            .font(.system(.body, design: .monospaced))
+
+        }
     }
 }
 
