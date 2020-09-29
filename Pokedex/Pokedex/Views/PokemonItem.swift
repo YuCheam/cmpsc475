@@ -32,8 +32,8 @@ struct PokemonItem: View {
     }
 }
 
-struct PokemonRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        PokedexMain()
-    }
-}
+//struct PokemonRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PokedexMain()
+//    }
+//}

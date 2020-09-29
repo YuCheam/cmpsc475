@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PokedexMain: View {
-    @State var pokedex = Pokedex()
+    @EnvironmentObject var pokedex : Pokedex
     let gameTitle = "Pokedex"
     
     var body: some View {
@@ -39,8 +39,11 @@ struct PokedexMain: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        PokedexMain()
-    }
-}
+
+//struct ContentView_Previews: PreviewProvider {
+//    @State var pokedex = Pokedex()
+//
+//    static var previews: some View {
+//        PokedexMain(pokedex: $pokedex)
+//    }
+//}
