@@ -10,10 +10,55 @@ import SwiftUI
 struct PokemonEvolution: View {
     @EnvironmentObject var pokedex: Pokedex
     let pokemon: Pokemon
+    let previousEvolution : [Pokemon]
+    let nextEvolution : [Pokemon]
+    let imageSize : CGFloat = 100
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        HeadingStyle(heading: "Previous Evolution")
+        ScrollView(.horizontal){
+            HStack{
+                ForEach(previousEvolution, id: \.self) { pokemon in
+                    NavigationLink(
+                        destination: PokemonDetailView(pokemon: pokemon)){
+                        PokemonItem(pokemon: pokemon, size: imageSize)
+                    }
+                }
+            }
+        }
+        
+        HeadingStyle(heading: "Next Evolution")
+        ScrollView(.horizontal){
+            HStack{
+                ForEach(nextEvolution, id: \.self) { pokemon in
+                    NavigationLink(
+                        destination: PokemonDetailView(pokemon: pokemon)){
+                        PokemonItem(pokemon: pokemon, size: imageSize)
+                    }
+
+                }
+            }
+        }
+        
     }
+    
+    init(_ pokedex: Pokedex, pokemon: Pokemon) {
+        self.pokemon = pokemon
+        
+        if let array = pokemon.prev_evolution {
+            self.previousEvolution = pokedex.filterPokemon(for: {array.contains($0.id)})
+        } else {
+            self.previousEvolution =  []
+        }
+        
+        if let array = pokemon.next_evolution {
+            self.nextEvolution = pokedex.filterPokemon(for: {array.contains($0.id)})
+        } else {
+            self.nextEvolution =  []
+        }
+    }
+    
 }
 
 //struct PokemonEvolution_Previews: PreviewProvider {

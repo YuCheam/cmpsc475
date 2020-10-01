@@ -11,7 +11,7 @@ import SwiftUI
 struct PokemonItem: View {
     let pokemon : Pokemon
     let idNumber : String
-    let pokemonImageSize: CGFloat = 200
+    let pokemonImageSize: CGFloat
     
     var body: some View {
         VStack{
@@ -26,9 +26,10 @@ struct PokemonItem: View {
         .foregroundColor(.white)
     }
     
-    init(pokemon: Pokemon) {
+    init(pokemon: Pokemon, size: CGFloat) {
         self.pokemon = pokemon
         self.idNumber = pokemon.id.formatString
+        self.pokemonImageSize = size
     }
 }
 

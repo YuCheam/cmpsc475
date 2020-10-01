@@ -12,7 +12,6 @@ struct PokemonDetailView: View {
     var pokemon : Pokemon
     var idNumber : String
     
-    
     var body: some View {
         ZStack{
             ViewConstants.backgroundColor.edgesIgnoringSafeArea(.all)

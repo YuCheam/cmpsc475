@@ -10,6 +10,7 @@ import SwiftUI
 struct PokedexMain: View {
     @EnvironmentObject var pokedex : Pokedex
     let gameTitle = "Pokedex"
+    let pokemonImageSize : CGFloat = 200
     
     var body: some View {
         NavigationView{
@@ -26,7 +27,7 @@ struct PokedexMain: View {
                             ForEach(pokedex.allPokemon.indices) { index in
                                 NavigationLink(
                                     destination: PokemonDetailView(pokemon: self.pokedex.allPokemon[index])){
-                                    PokemonItem(pokemon: pokedex.allPokemon[index])
+                                    PokemonItem(pokemon: pokedex.allPokemon[index], size: pokemonImageSize)
                                 }
                             }
                         }

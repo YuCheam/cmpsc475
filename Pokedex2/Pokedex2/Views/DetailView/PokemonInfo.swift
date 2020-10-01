@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct PokemonInfo: View {
+    @EnvironmentObject var pokedex: Pokedex
     let pokemon: Pokemon
     
     var body: some View {
@@ -35,7 +36,7 @@ struct PokemonInfo: View {
                 }
             }
             
-            
+            PokemonEvolution(pokedex, pokemon: pokemon)
         }.frame(minWidth: 0,
                 maxWidth: .infinity,
                 alignment: .topLeading)
