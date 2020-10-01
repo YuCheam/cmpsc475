@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PokemonItem: View {
     let pokemon : Pokemon
-    let idNumber: String
+    let idNumber : String
     let pokemonImageSize: CGFloat = 200
     
     var body: some View {
@@ -26,9 +26,9 @@ struct PokemonItem: View {
         .foregroundColor(.white)
     }
     
-    init(pokemon : Pokemon) {
+    init(pokemon: Pokemon) {
         self.pokemon = pokemon
-        self.idNumber = String(format: "%03d", pokemon.id)
+        self.idNumber = pokemon.id.formatString
     }
 }
 

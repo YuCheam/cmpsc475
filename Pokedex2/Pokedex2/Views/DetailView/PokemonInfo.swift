@@ -34,6 +34,8 @@ struct PokemonInfo: View {
                     }
                 }
             }
+            
+            
         }.frame(minWidth: 0,
                 maxWidth: .infinity,
                 alignment: .topLeading)

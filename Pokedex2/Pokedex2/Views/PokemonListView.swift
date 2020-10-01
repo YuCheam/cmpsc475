@@ -11,7 +11,9 @@ import SwiftUI
 struct PokemonListView: View {
     @EnvironmentObject var pokedex: Pokedex
     @State var pokemonType: PokemonType?
-    var pokemonList : [Pokemon] {pokedex.filterPokemon(for: pokemonType)}
+    var pokemonList : [Pokemon] {
+        pokemonType != nil ? pokedex.filterPokemon(for: {$0.types.contains(pokemonType!)}) : pokedex.allPokemon
+    }
     var title : String {
         if pokemonType != nil {
             return pokemonType!.id

@@ -57,10 +57,8 @@ class Pokedex: ObservableObject {
         }
     }
     
-    func filterPokemon(for type: PokemonType?) -> [Pokemon] {
-        if type == nil { return allPokemon }
-        
-        return allPokemon.filter({$0.types.contains(type!)})
+    func filterPokemon(for property: (Pokemon)-> Bool ) -> [Pokemon] {
+        return allPokemon.filter(property)
     }
     
     func getPokemon(index: Int) -> Pokemon {
