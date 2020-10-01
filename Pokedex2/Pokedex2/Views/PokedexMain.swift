@@ -10,6 +10,7 @@ import SwiftUI
 struct PokedexMain: View {
     @EnvironmentObject var pokedex : Pokedex
     let gameTitle = "Pokedex"
+    var isEmpty: Bool {pokedex.allPokemon.filter({$0.captured == true}).count == 0 ? true : false }
     
     var body: some View {
         NavigationView{
@@ -22,9 +23,12 @@ struct PokedexMain: View {
                             .font(.system(size: 36, weight: .bold, design: .monospaced))
                             .foregroundColor(ViewConstants.accentColor)
                         
-                        PokemonRow(rowTitle: "All Pokemon", pokemonType: nil)
+                        if !isEmpty {
+                            PokemonRow(rowTitle: "Captured Pokemon", property: {$0.captured == true})
+                        }
+                        
                         ForEach(PokemonType.allCases) { type in
-                            PokemonRow(rowTitle: type.id, pokemonType: type)
+                            PokemonRow(rowTitle: type.id, property: {$0.types.contains(type)})
                         }
                     }
                 }

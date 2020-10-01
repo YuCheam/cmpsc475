@@ -10,15 +10,9 @@ import SwiftUI
 struct PokemonRow: View {
     @EnvironmentObject var pokedex: Pokedex
     let rowTitle : String
-    let pokemonType: PokemonType?
+    let property : (Pokemon) -> Bool
     let pokemonImageSize : CGFloat = 120
-    var pokemonIndices: [Int] {
-        if let type = pokemonType {
-            return pokedex.filterPokemon(for: {$0.types.contains(type)})
-        } else {
-            return pokedex.allPokemon.map({$0.id - 1})
-        }
-    }
+    var pokemonIndices: [Int] { pokedex.filterPokemon(for: property)}
     
     var body: some View {
         

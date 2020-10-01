@@ -30,6 +30,7 @@ struct PokemonListView: View {
                         HStack {
                             Text(pokedex.allPokemon[index].id.formatString)
                             Text(pokedex.allPokemon[index].name)
+                            isCapturedColor(pokedex.allPokemon[index])
                             Spacer()
                             Image(pokedex.allPokemon[index].id.formatString).resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -50,6 +51,10 @@ struct PokemonListView: View {
             .font(.system(.body, design: .monospaced))
 
         }
+    }
+    
+    func isCapturedColor(_ pokemon: Pokemon) -> Text {
+        pokemon.captured ? Text("✓").foregroundColor(ViewConstants.capturedColor) : Text("𝖷").foregroundColor(ViewConstants.freeColor)
     }
 }
 
