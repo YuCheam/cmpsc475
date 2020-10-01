@@ -10,30 +10,26 @@ import SwiftUI
 struct PokedexMain: View {
     @EnvironmentObject var pokedex : Pokedex
     let gameTitle = "Pokedex"
-    let pokemonImageSize : CGFloat = 200
     
     var body: some View {
         NavigationView{
             ZStack{
                 ViewConstants.backgroundColor.edgesIgnoringSafeArea(.all)
                 
-                VStack {
-                    Text("\(gameTitle)")
-                        .font(.system(size: 36, weight: .bold, design: .monospaced))
-                        .foregroundColor(ViewConstants.accentColor)
-                    
-                    ScrollView(.horizontal) {
-                        HStack(spacing: 30) {
-                            ForEach(pokedex.allPokemon.indices) { index in
-                                NavigationLink(
-                                    destination: PokemonDetailView(pokemon: $pokedex.allPokemon[index])){
-                                    PokemonItem(pokemon: $pokedex.allPokemon[index], size: pokemonImageSize)
-                                }
-                            }
+                ScrollView(.vertical) {
+                    VStack {
+                        Text("\(gameTitle)")
+                            .font(.system(size: 36, weight: .bold, design: .monospaced))
+                            .foregroundColor(ViewConstants.accentColor)
+                        
+                        PokemonRow(rowTitle: "All Pokemon", pokemonType: nil)
+                        ForEach(PokemonType.allCases) { type in
+                            PokemonRow(rowTitle: type.id, pokemonType: type)
                         }
                     }
                 }
-            }.navigationBarTitle("")
+                
+            }.navigationBarTitle("\(gameTitle)", displayMode: .inline)
             .navigationBarItems(trailing: NavigationLink(destination: PokemonListView()){
                 Text("List")
             })

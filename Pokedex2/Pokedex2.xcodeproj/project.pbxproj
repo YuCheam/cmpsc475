@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28065722252663D100C634EC /* PokemonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28065721252663D100C634EC /* PokemonRow.swift */; };
 		281199EF25241F9600BE794C /* Pokedex2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281199EE25241F9600BE794C /* Pokedex2App.swift */; };
 		281199F325241FB200BE794C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 281199F225241FB200BE794C /* Assets.xcassets */; };
 		281199F625241FB200BE794C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 281199F525241FB200BE794C /* Preview Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28065721252663D100C634EC /* PokemonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRow.swift; sourceTree = "<group>"; };
 		281199EB25241F9600BE794C /* Pokedex2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		281199EE25241F9600BE794C /* Pokedex2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokedex2App.swift; sourceTree = "<group>"; };
 		281199F225241FB200BE794C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				28119A42252423AD00BE794C /* HeadingStyle.swift */,
 				28119A4C252423B300BE794C /* PokemonItem.swift */,
 				28119A342524238000BE794C /* PokedexMain.swift */,
+				28065721252663D100C634EC /* PokemonRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				28119A5E2524243F00BE794C /* PokemonDetailView.swift in Sources */,
 				28119A392524238600BE794C /* Pokedex.swift in Sources */,
 				28119A4D252423B300BE794C /* PokemonItem.swift in Sources */,
+				28065722252663D100C634EC /* PokemonRow.swift in Sources */,
 				281199EF25241F9600BE794C /* Pokedex2App.swift in Sources */,
 				28119A43252423AD00BE794C /* HeadingStyle.swift in Sources */,
 				28119A2B2524214900BE794C /* Color+PokemonType.swift in Sources */,
