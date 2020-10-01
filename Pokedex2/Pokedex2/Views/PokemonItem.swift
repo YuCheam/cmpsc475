@@ -9,27 +9,27 @@
 import SwiftUI
 
 struct PokemonItem: View {
-    let pokemon : Pokemon
-    let idNumber : String
-    let pokemonImageSize: CGFloat
+    @Binding var pokemon : Pokemon
+    var idNumber : String {pokemon.id.formatString}
+    let size: CGFloat
+    var isCapturedColor : Color {pokemon.captured ? ViewConstants.capturedColor : ViewConstants.freeColor}
+    var frameSize : CGFloat {size + 40}
     
     var body: some View {
-        VStack{
-            Image(idNumber).resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: pokemonImageSize, height: pokemonImageSize)
-            Text("\(pokemon.name) \(idNumber)")
+        ZStack(alignment: .top){
+            VStack{
+                Image(idNumber).resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: size, height: size)
+                Text("\(pokemon.name) \(idNumber)")
+            }
+            Rectangle().foregroundColor(.clear)
+                .background(RadialGradient(gradient: Gradient(colors: [.clear, isCapturedColor]), center: .center, startRadius: 0, endRadius: 300))
         }.font(.system(.body, design: .monospaced))
-        .padding(10)
+        .frame(width: frameSize, height: frameSize)
         .background(ViewConstants.secondaryColor)
         .cornerRadius(30.0)
         .foregroundColor(.white)
-    }
-    
-    init(pokemon: Pokemon, size: CGFloat) {
-        self.pokemon = pokemon
-        self.idNumber = pokemon.id.formatString
-        self.pokemonImageSize = size
     }
 }
 

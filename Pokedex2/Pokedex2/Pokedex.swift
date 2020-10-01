@@ -17,13 +17,13 @@ struct Pokemon: Codable, Hashable {
     let weaknesses: [PokemonType]
     let prev_evolution: [Int]?
     let next_evolution: [Int]?
-    let captured: Bool
+    var captured: Bool
 }
 
 typealias AllPokemon = [Pokemon]
 
 class Pokedex: ObservableObject {
-    var allPokemon: [Pokemon]
+    @Published var allPokemon: [Pokemon]
     let destinationURL : URL
     
     init() {

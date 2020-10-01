@@ -22,7 +22,7 @@ struct PokemonEvolution: View {
                 ForEach(previousEvolution, id: \.self) { index in
                     NavigationLink(
                         destination: PokemonDetailView(pokemon: $pokedex.allPokemon[index])){
-                        PokemonItem(pokemon: pokedex.allPokemon[index], size: imageSize)
+                        PokemonItem(pokemon: $pokedex.allPokemon[index], size: imageSize)
                     }
                 }
             }
@@ -34,7 +34,7 @@ struct PokemonEvolution: View {
                 ForEach(nextEvolution, id: \.self) { index in
                     NavigationLink(
                         destination: PokemonDetailView(pokemon: $pokedex.allPokemon[index])){
-                        PokemonItem(pokemon: pokedex.allPokemon[index], size: imageSize)
+                        PokemonItem(pokemon: $pokedex.allPokemon[index], size: imageSize)
                     }
 
                 }

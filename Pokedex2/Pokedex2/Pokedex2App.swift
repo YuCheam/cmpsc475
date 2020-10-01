@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Pokedex2App: App {
-    let pokedex = Pokedex()
+    @ObservedObject var pokedex = Pokedex()
     
     @Environment(\.scenePhase) private var scenePhase
     

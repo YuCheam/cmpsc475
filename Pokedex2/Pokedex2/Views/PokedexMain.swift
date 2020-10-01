@@ -26,8 +26,8 @@ struct PokedexMain: View {
                         HStack(spacing: 30) {
                             ForEach(pokedex.allPokemon.indices) { index in
                                 NavigationLink(
-                                    destination: PokemonDetailView(pokemon: self.$pokedex.allPokemon[index])){
-                                    PokemonItem(pokemon: pokedex.allPokemon[index], size: pokemonImageSize)
+                                    destination: PokemonDetailView(pokemon: $pokedex.allPokemon[index])){
+                                    PokemonItem(pokemon: $pokedex.allPokemon[index], size: pokemonImageSize)
                                 }
                             }
                         }
