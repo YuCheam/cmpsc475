@@ -11,8 +11,8 @@ import SwiftUI
 struct PokemonListView: View {
     @EnvironmentObject var pokedex: Pokedex
     @State var pokemonType: PokemonType?
-    var pokemonList : [Pokemon] {
-        pokemonType != nil ? pokedex.filterPokemon(for: {$0.types.contains(pokemonType!)}) : pokedex.allPokemon
+    var pokemonList : [Int] {
+        pokemonType != nil ? pokedex.filterPokemon(for: {$0.types.contains(pokemonType!)}) : pokedex.allPokemon.map({$0.id-1})
     }
     var title : String {
         if pokemonType != nil {
@@ -25,13 +25,13 @@ struct PokemonListView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(pokemonList, id: \.self) { pokemon in
-                    NavigationLink(destination: PokemonDetailView(pokemon: pokemon)){
+                ForEach(pokemonList, id: \.self) { index in
+                    NavigationLink(destination: PokemonDetailView(pokemon: self.$pokedex.allPokemon[index])){
                         HStack {
-                            Text(pokemon.id.formatString)
-                            Text(pokemon.name)
+                            Text(pokedex.allPokemon[index].id.formatString)
+                            Text(pokedex.allPokemon[index].name)
                             Spacer()
-                            Image(pokemon.id.formatString).resizable()
+                            Image(pokedex.allPokemon[index].id.formatString).resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(height: 72)
                         }

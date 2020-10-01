@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct PokemonDetailView: View {
-    var pokemon : Pokemon
-    var idNumber : String
+    @Binding var pokemon : Pokemon
+    var idNumber : String { pokemon.id.formatString }
     
     var body: some View {
         ZStack{
@@ -40,16 +40,11 @@ struct PokemonDetailView: View {
             
         }.navigationBarTitle("", displayMode: .inline)
     }
-    
-    init(pokemon : Pokemon) {
-        self.pokemon = pokemon
-        self.idNumber = String(format: "%03d", pokemon.id)
-    }
 }
 
 
-struct PokemonDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonDetailView(pokemon: Pokedex().getPokemon(index: 11))
-    }
-}
+//struct PokemonDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PokemonDetailView(pokemon: Pokedex().getPokemon(index: 11))
+//    }
+//}

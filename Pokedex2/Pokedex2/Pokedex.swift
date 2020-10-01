@@ -57,8 +57,8 @@ class Pokedex: ObservableObject {
         }
     }
     
-    func filterPokemon(for property: (Pokemon)-> Bool ) -> [Pokemon] {
-        return allPokemon.filter(property)
+    func filterPokemon(for property: (Pokemon)-> Bool ) -> [Int] {
+        return allPokemon.filter(property).map({$0.id - 1})
     }
     
     func getPokemon(index: Int) -> Pokemon {

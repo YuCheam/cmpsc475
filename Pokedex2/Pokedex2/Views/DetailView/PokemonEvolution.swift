@@ -10,8 +10,8 @@ import SwiftUI
 struct PokemonEvolution: View {
     @EnvironmentObject var pokedex: Pokedex
     let pokemon: Pokemon
-    let previousEvolution : [Pokemon]
-    let nextEvolution : [Pokemon]
+    let previousEvolution : [Int]
+    let nextEvolution : [Int]
     let imageSize : CGFloat = 100
     
     var body: some View {
@@ -19,10 +19,10 @@ struct PokemonEvolution: View {
         HeadingStyle(heading: "Previous Evolution")
         ScrollView(.horizontal){
             HStack{
-                ForEach(previousEvolution, id: \.self) { pokemon in
+                ForEach(previousEvolution, id: \.self) { index in
                     NavigationLink(
-                        destination: PokemonDetailView(pokemon: pokemon)){
-                        PokemonItem(pokemon: pokemon, size: imageSize)
+                        destination: PokemonDetailView(pokemon: $pokedex.allPokemon[index])){
+                        PokemonItem(pokemon: pokedex.allPokemon[index], size: imageSize)
                     }
                 }
             }
@@ -31,10 +31,10 @@ struct PokemonEvolution: View {
         HeadingStyle(heading: "Next Evolution")
         ScrollView(.horizontal){
             HStack{
-                ForEach(nextEvolution, id: \.self) { pokemon in
+                ForEach(nextEvolution, id: \.self) { index in
                     NavigationLink(
-                        destination: PokemonDetailView(pokemon: pokemon)){
-                        PokemonItem(pokemon: pokemon, size: imageSize)
+                        destination: PokemonDetailView(pokemon: $pokedex.allPokemon[index])){
+                        PokemonItem(pokemon: pokedex.allPokemon[index], size: imageSize)
                     }
 
                 }
