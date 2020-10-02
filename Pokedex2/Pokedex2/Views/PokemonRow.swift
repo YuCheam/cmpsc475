@@ -11,7 +11,7 @@ struct PokemonRow: View {
     @EnvironmentObject var pokedex: Pokedex
     let rowTitle : String
     let property : (Pokemon) -> Bool
-    let pokemonImageSize : CGFloat = 120
+    let pokemonImageSize : CGFloat = 96
     var pokemonIndices: [Int] { pokedex.filterPokemon(for: property)}
     
     var body: some View {
@@ -19,16 +19,15 @@ struct PokemonRow: View {
         VStack {
             HeadingStyle(heading: rowTitle)
             ScrollView(.horizontal) {
-                HStack(spacing: 30) {
+                HStack(spacing: 10) {
                     ForEach(pokemonIndices, id: \.self) { index in
                         NavigationLink(
                             destination: PokemonDetailView(pokemon: $pokedex.allPokemon[index])){
-                            PokemonItem(pokemon: $pokedex.allPokemon[index], size: pokemonImageSize)
+                            PokemonItem(pokemon: $pokedex.allPokemon[index], imageSize: pokemonImageSize)
                         }
                     }
                 }
-            }
-            
+            }.padding(.init(top: 0, leading: 10, bottom: 0, trailing: 10))
         }
         
     }

@@ -41,7 +41,7 @@ struct PokemonDetailView: View {
                 }.padding(.top, 28)
             }
             
-        }.navigationBarTitle("", displayMode: .inline)
+        }.navigationBarTitle("\(pokemon.name)", displayMode: .inline)
         .navigationBarItems(trailing: Button(action: {pokemon.captured.toggle()}){
             Text(buttonText)
         })

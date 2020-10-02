@@ -18,11 +18,7 @@ struct PokedexMain: View {
                 ViewConstants.backgroundColor.edgesIgnoringSafeArea(.all)
                 
                 ScrollView(.vertical) {
-                    VStack {
-                        Text("\(gameTitle)")
-                            .font(.system(size: 36, weight: .bold, design: .monospaced))
-                            .foregroundColor(ViewConstants.accentColor)
-                        
+                    VStack(spacing: 8) {
                         if !isEmpty {
                             PokemonRow(rowTitle: "Captured Pokemon", property: {$0.captured == true})
                         }
@@ -35,7 +31,7 @@ struct PokedexMain: View {
                 
             }.navigationBarTitle("\(gameTitle)", displayMode: .inline)
             .navigationBarItems(trailing: NavigationLink(destination: PokemonListView()){
-                Text("List")
+                Text("List →").bold()
             })
         }
     }

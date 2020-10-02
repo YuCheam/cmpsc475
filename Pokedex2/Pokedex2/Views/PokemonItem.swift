@@ -11,24 +11,28 @@ import SwiftUI
 struct PokemonItem: View {
     @Binding var pokemon : Pokemon
     var idNumber : String {pokemon.id.formatString}
-    let size: CGFloat
+    let imageSize: CGFloat
     var isCapturedColor : Color {pokemon.captured ? ViewConstants.capturedColor : ViewConstants.freeColor}
-    var frameSize : CGFloat {size + 40}
+    var frameWidth : CGFloat {imageSize + 20}
+    var frameHeight : CGFloat {imageSize + 60}
     
     var body: some View {
-        ZStack(alignment: .top){
+        ZStack{
+            
             VStack{
                 Image(idNumber).resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: size, height: size)
+                    .frame(width: imageSize)
                 Text("\(pokemon.name) \(idNumber)")
             }
+            
             Rectangle().foregroundColor(.clear)
                 .background(RadialGradient(gradient: Gradient(colors: [.clear, isCapturedColor]), center: .center, startRadius: 0, endRadius: 300))
-        }.font(.system(.body, design: .monospaced))
-        .frame(width: frameSize, height: frameSize)
+            
+        }.font(.system(size: 14, design: .monospaced))
+        .frame(width: frameWidth, height: frameHeight)
         .background(ViewConstants.secondaryColor)
-        .cornerRadius(30.0)
+        .cornerRadius(16)
         .foregroundColor(.white)
     }
 }

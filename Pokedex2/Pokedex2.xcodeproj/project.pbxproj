@@ -175,12 +175,12 @@
 			isa = PBXGroup;
 			children = (
 				28119A6D2524246D00BE794C /* DetailView */,
-				28119A51252423B700BE794C /* ViewConstants.swift */,
 				28119A56252423BA00BE794C /* PokemonListView.swift */,
 				28119A42252423AD00BE794C /* HeadingStyle.swift */,
 				28119A4C252423B300BE794C /* PokemonItem.swift */,
-				28119A342524238000BE794C /* PokedexMain.swift */,
 				28065721252663D100C634EC /* PokemonRow.swift */,
+				28119A342524238000BE794C /* PokedexMain.swift */,
+				28119A51252423B700BE794C /* ViewConstants.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,9 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				28119A41252423A900BE794C /* PokemonTypeStyle.swift */,
+				28119A89252555BB00BE794C /* PokemonEvolution.swift */,
 				28119A40252423A900BE794C /* PokemonInfo.swift */,
 				28119A3F252423A900BE794C /* PokemonDetailView.swift */,
-				28119A89252555BB00BE794C /* PokemonEvolution.swift */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
