@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
+import MapKit
 
-struct CampusView: View {
+struct CampusMainView: View {
+    @EnvironmentObject var locationsManager : LocationsManager
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Map(coordinateRegion: $locationsManager.region)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CampusView()
+        CampusMainView()
     }
 }

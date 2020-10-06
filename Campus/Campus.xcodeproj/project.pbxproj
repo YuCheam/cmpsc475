@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		28215352252CBFBE00249CDD /* CampusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28215351252CBFBE00249CDD /* CampusApp.swift */; };
-		28215354252CBFBE00249CDD /* CampusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28215353252CBFBE00249CDD /* CampusView.swift */; };
+		28215354252CBFBE00249CDD /* CampusMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28215353252CBFBE00249CDD /* CampusMainView.swift */; };
 		28215356252CBFCC00249CDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28215355252CBFCC00249CDD /* Assets.xcassets */; };
 		28215359252CBFCC00249CDD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28215358252CBFCC00249CDD /* Preview Assets.xcassets */; };
 		28215364252CBFCD00249CDD /* CampusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28215363252CBFCD00249CDD /* CampusTests.swift */; };
 		2821536F252CBFCD00249CDD /* CampusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821536E252CBFCD00249CDD /* CampusUITests.swift */; };
 		28215382252CC01500249CDD /* buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 28215380252CC01500249CDD /* buildings.json */; };
-		2821538E252CC19800249CDD /* CampusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821538D252CC19800249CDD /* CampusData.swift */; };
+		2821538E252CC19800249CDD /* LocationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821538D252CC19800249CDD /* LocationsManager.swift */; };
+		285EB91B252D18B90037386F /* CampusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EB91A252D18B90037386F /* CampusData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 /* Begin PBXFileReference section */
 		2821534E252CBFBE00249CDD /* Campus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Campus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28215351252CBFBE00249CDD /* CampusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusApp.swift; sourceTree = "<group>"; };
-		28215353252CBFBE00249CDD /* CampusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusView.swift; sourceTree = "<group>"; };
+		28215353252CBFBE00249CDD /* CampusMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusMainView.swift; sourceTree = "<group>"; };
 		28215355252CBFCC00249CDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28215358252CBFCC00249CDD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2821535A252CBFCC00249CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,7 +49,8 @@
 		2821536E252CBFCD00249CDD /* CampusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusUITests.swift; sourceTree = "<group>"; };
 		28215370252CBFCD00249CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28215380252CC01500249CDD /* buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = buildings.json; sourceTree = "<group>"; };
-		2821538D252CC19800249CDD /* CampusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusData.swift; sourceTree = "<group>"; };
+		2821538D252CC19800249CDD /* LocationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsManager.swift; sourceTree = "<group>"; };
+		285EB91A252D18B90037386F /* CampusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +103,7 @@
 			children = (
 				2821538C252CC08900249CDD /* Model */,
 				28215351252CBFBE00249CDD /* CampusApp.swift */,
-				28215353252CBFBE00249CDD /* CampusView.swift */,
+				28215353252CBFBE00249CDD /* CampusMainView.swift */,
 				28215355252CBFCC00249CDD /* Assets.xcassets */,
 				2821535A252CBFCC00249CDD /* Info.plist */,
 				28215357252CBFCC00249CDD /* Preview Content */,
@@ -139,7 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				28215380252CC01500249CDD /* buildings.json */,
-				2821538D252CC19800249CDD /* CampusData.swift */,
+				2821538D252CC19800249CDD /* LocationsManager.swift */,
+				285EB91A252D18B90037386F /* CampusData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,8 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28215354252CBFBE00249CDD /* CampusView.swift in Sources */,
-				2821538E252CC19800249CDD /* CampusData.swift in Sources */,
+				28215354252CBFBE00249CDD /* CampusMainView.swift in Sources */,
+				2821538E252CC19800249CDD /* LocationsManager.swift in Sources */,
+				285EB91B252D18B90037386F /* CampusData.swift in Sources */,
 				28215352252CBFBE00249CDD /* CampusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

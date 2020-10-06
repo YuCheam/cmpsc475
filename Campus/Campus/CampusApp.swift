@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct CampusApp: App {
-    let campusData = CampusData()
+    let campusData = LocationsManager()
     @Environment(\.scenePhase) private var scenePhase
     
     var body: some Scene {
         WindowGroup {
-            CampusView().environmentObject(campusData)
+            CampusMainView().environmentObject(campusData)
         }.onChange(of: scenePhase){ phase in
             switch phase {
             case .inactive:
