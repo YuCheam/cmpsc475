@@ -13,10 +13,12 @@ struct BuildingListView: View {
     var body: some View {
         List{
             ForEach(locationsManager.allBuildings.indices){ index in
-                HStack{
-                    Text(locationsManager.allBuildings[index].name)
-                    Spacer()
-                    Text(isFavorited(for: locationsManager.allBuildings[index].favorited))
+                NavigationLink(destination: BuildingView(building: $locationsManager.allBuildings[index])){
+                    HStack{
+                        Text(locationsManager.allBuildings[index].name)
+                        Spacer()
+                        Text(isFavorited(for: locationsManager.allBuildings[index].favorited))
+                    }
                 }
             }
         }

@@ -10,9 +10,14 @@ import MapKit
 
 struct CampusMap: View {
     @EnvironmentObject var locationsManager: LocationsManager
+    var shownBuildings: [Building] {
+        locationsManager.allBuildings.filter({ building in
+            building.favorited
+        })
+    }
     
     var body: some View {
-        Map(coordinateRegion: $locationsManager.region, annotationItems: locationsManager.allBuildings) { building in
+        Map(coordinateRegion: $locationsManager.region, annotationItems: shownBuildings) { building in
             MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)){
                 Circle().stroke(Color.blue)
                     .frame(width: 15, height: 15)

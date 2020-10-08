@@ -42,6 +42,8 @@ struct Building: Codable, Identifiable {
 
 class LocationsManager: ObservableObject {
     @Published var allBuildings : [Building]
+    
+    
     var destinationURL: URL {
         didSet {
             saveData()
