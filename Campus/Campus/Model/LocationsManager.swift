@@ -40,16 +40,18 @@ struct Building: Codable, Identifiable, Hashable {
     }
 }
 
+
 class LocationsManager: ObservableObject {
     @Published var allBuildings : [Building]
     @Published var plottedBuildings: [Building] = []
+    @Published var region = MKCoordinateRegion(center: CampusData.initialCoordinate, span: MKCoordinateSpan(latitudeDelta: CampusData.span, longitudeDelta: CampusData.span))
+    
+    
     var destinationURL: URL {
         didSet {
             saveData()
         }
     }
-    
-    @Published var region = MKCoordinateRegion(center: CampusData.initialCoordinate, span: MKCoordinateSpan(latitudeDelta: CampusData.span, longitudeDelta: CampusData.span))
     
     init() {
         let filename = "buildings"
@@ -73,6 +75,12 @@ class LocationsManager: ObservableObject {
             print("Error Info: \(error)")
             allBuildings = []
         }
+    }
+    
+    func centerToPlot(for building: Building) {
+        let buildingCoordinate = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
+        region.center = buildingCoordinate
+        region.span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
     }
     
     func saveData() {

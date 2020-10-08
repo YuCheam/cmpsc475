@@ -25,7 +25,7 @@ struct CampusMainView: View {
                         Text("Campus Map")
                     }
                     .tag(0)
-                BuildingListView()
+                BuildingListView(tab: $selectedTab)
                     .tabItem {
                         Image(systemName: "line.horizontal.3")
                         Text("All Buildings")
@@ -33,7 +33,7 @@ struct CampusMainView: View {
                     .tag(1)
             }.navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
-                                    Menu("Filter"){
+                                    Menu("Filter"){ 
                                         Toggle("Favorites", isOn: $showFavorites)
                                         Button("Clear Plotted Buildings"){
                                             locationsManager.plottedBuildings.removeAll()

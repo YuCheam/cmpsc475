@@ -9,11 +9,12 @@ import SwiftUI
 
 struct BuildingListView: View {
     @EnvironmentObject var locationsManager : LocationsManager
+    @Binding var tab : Int
     
     var body: some View {
         List{
             ForEach(locationsManager.allBuildings.indices){ index in
-                NavigationLink(destination: BuildingView(building: $locationsManager.allBuildings[index])){
+                NavigationLink(destination: BuildingView(building: $locationsManager.allBuildings[index], tab: $tab)){
                     HStack{
                         Text(locationsManager.allBuildings[index].name)
                         Spacer()
@@ -29,8 +30,8 @@ struct BuildingListView: View {
     }
 }
 
-struct BuildingListView_Previews: PreviewProvider {
-    static var previews: some View {
-        BuildingListView()
-    }
-}
+//struct BuildingListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BuildingListView()
+//    }
+//}
