@@ -13,9 +13,7 @@ struct CampusMap: View {
     @Binding var showFavorites: Bool
     var shownBuildings: [Building] {
         if (showFavorites) {
-            let favoritedBuilding = locationsManager.allBuildings.filter({ building in
-                building.favorited
-            })
+            let favoritedBuilding = locationsManager.allBuildings.filter({ $0.favorited })
             let buildingSet = Set(favoritedBuilding).union(Set(locationsManager.plottedBuildings))
             return Array(buildingSet)
         } else {
@@ -26,9 +24,20 @@ struct CampusMap: View {
     var body: some View {
         Map(coordinateRegion: $locationsManager.region, annotationItems: shownBuildings) { building in
             MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)){
-                Circle().stroke(Color.blue)
-                    .frame(width: 15, height: 15)
+                annotationForType(for: building)
             }
+        }
+    }
+    
+    func annotationForType(for building: Building) -> some View {
+        if building.favorited {
+            return Circle()
+                .foregroundColor(.yellow)
+                .frame(width: 15)
+        } else {
+            return Circle()
+                .foregroundColor(.blue)
+                .frame(width: 15)
         }
     }
 }
