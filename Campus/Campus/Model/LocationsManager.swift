@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-struct Building: Codable, Identifiable {
+struct Building: Codable, Identifiable, Hashable {
     let id = UUID()
     let latitude: CLLocationDegrees
     let longitude: CLLocationDegrees
@@ -42,8 +42,7 @@ struct Building: Codable, Identifiable {
 
 class LocationsManager: ObservableObject {
     @Published var allBuildings : [Building]
-    
-    
+    @Published var plottedBuildings: [Building] = []
     var destinationURL: URL {
         didSet {
             saveData()

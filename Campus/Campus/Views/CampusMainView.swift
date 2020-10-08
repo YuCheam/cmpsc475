@@ -11,11 +11,12 @@ import MapKit
 struct CampusMainView: View {
     @EnvironmentObject var locationsManager : LocationsManager
     @State var selectedTab : Int = 0
+    @State var showFavorites : Bool = true
     
     var body: some View {
         NavigationView {
             TabView(selection: $selectedTab) {
-                CampusMap()
+                CampusMap(showFavorites: $showFavorites)
                     .tabItem {
                         Text("Campus Map")
                     }
@@ -26,6 +27,14 @@ struct CampusMainView: View {
                     }
                     .tag(1)
             }.navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading:
+                                    Menu("Filter"){
+                                        Toggle("Favorites", isOn: $showFavorites)
+                                        Button(action: {}){
+                                            Text("Clear Plotted Buildings")
+                                        }
+                                    }
+            )
         }
        
     }

@@ -10,10 +10,17 @@ import MapKit
 
 struct CampusMap: View {
     @EnvironmentObject var locationsManager: LocationsManager
+    @Binding var showFavorites: Bool
     var shownBuildings: [Building] {
-        locationsManager.allBuildings.filter({ building in
-            building.favorited
-        })
+        if (showFavorites) {
+            let favoritedBuilding = locationsManager.allBuildings.filter({ building in
+                building.favorited
+            })
+            let buildingSet = Set(favoritedBuilding).union(Set(locationsManager.plottedBuildings))
+            return Array(buildingSet)
+        } else {
+            return locationsManager.plottedBuildings
+        }
     }
     
     var body: some View {
@@ -26,8 +33,9 @@ struct CampusMap: View {
     }
 }
 
-struct CampusMap_Previews: PreviewProvider {
-    static var previews: some View {
-        CampusMap()
-    }
-}
+//struct CampusMap_Previews: PreviewProvider {
+//    @State var showFavorites: Bool = true
+//    static var previews: some View {
+//        CampusMap(showFavorites: $showFavorites)
+//    }
+//}
