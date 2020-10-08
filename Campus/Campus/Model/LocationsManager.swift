@@ -83,6 +83,11 @@ class LocationsManager: ObservableObject {
         region.span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
     }
     
+    func resetMap() {
+        region.center = CampusData.initialCoordinate
+        region.span = MKCoordinateSpan(latitudeDelta: CampusData.span, longitudeDelta: CampusData.span)
+    }
+    
     func saveData() {
         let encoder = JSONEncoder()
         do {

@@ -20,6 +20,7 @@ struct CampusMap: View {
             return locationsManager.plottedBuildings
         }
     }
+    let pinSize: CGFloat = 24
     
     var body: some View {
         Map(coordinateRegion: $locationsManager.region, annotationItems: shownBuildings) { building in
@@ -31,13 +32,15 @@ struct CampusMap: View {
     
     func annotationForType(for building: Building) -> some View {
         if building.favorited {
-            return Circle()
+            return Image(systemName: "star.fill")
+                .resizable()
                 .foregroundColor(.yellow)
-                .frame(width: 15)
+                .frame(width: pinSize, height: pinSize)
         } else {
-            return Circle()
+            return Image(systemName: "mappin.and.ellipse")
+                .resizable()
                 .foregroundColor(.blue)
-                .frame(width: 15)
+                .frame(width: pinSize, height: pinSize)
         }
     }
 }

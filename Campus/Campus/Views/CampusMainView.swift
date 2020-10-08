@@ -12,8 +12,12 @@ struct CampusMainView: View {
     @EnvironmentObject var locationsManager : LocationsManager
     @State var selectedTab : Int = 0
     @State var showFavorites : Bool = true
-    var showMenu : Bool {
+    var showMapOptions : Bool {
         selectedTab == 0 ? true : false
+    }
+    
+    var navBarTitle : String {
+        selectedTab == 0 ? "Campus Map" : "All Buildings"
     }
     
     var body: some View {
@@ -25,23 +29,38 @@ struct CampusMainView: View {
                         Text("Campus Map")
                     }
                     .tag(0)
+                
                 BuildingListView(tab: $selectedTab)
                     .tabItem {
-                        Image(systemName: "line.horizontal.3")
+                        Image(systemName: "list.dash")
                         Text("All Buildings")
                     }
                     .tag(1)
-            }.navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading:
-                                    Menu("Filter"){ 
-                                        Toggle("Favorites", isOn: $showFavorites)
-                                        Button("Clear Plotted Buildings"){
-                                            locationsManager.plottedBuildings.removeAll()
-                                        }
-                                    }.opacity(showMenu ? 1 : 0)
-            )
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar(){
+                ToolbarItem(placement: .navigationBarLeading){
+                    Menu{
+                        Toggle(isOn: $showFavorites){
+                            Label("Favorites", systemImage: "star")
+                        }
+                        
+                        Button(action: {locationsManager.plottedBuildings.removeAll()}){
+                            Label("Clear Plotted Building", systemImage: "clear")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                    }.opacity(showMapOptions ? 1 : 0)
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Center Map"){
+                        locationsManager.resetMap()
+                    }.opacity(showMapOptions ? 1 : 0)
+                }
+            }
         }
-       
+        
     }
     
 }
