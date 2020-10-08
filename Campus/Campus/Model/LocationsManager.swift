@@ -8,7 +8,8 @@
 import Foundation
 import MapKit
 
-struct Building: Codable {
+struct Building: Codable, Identifiable {
+    let id = UUID()
     let latitude: CLLocationDegrees
     let longitude: CLLocationDegrees
     let name: String
@@ -64,6 +65,9 @@ class LocationsManager: ObservableObject {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
             allBuildings = try decoder.decode([Building].self, from: data)
+            allBuildings.sort { (b1, b2) -> Bool in
+                return b1.name < b2.name
+            }
         } catch {
             print("Error Info: \(error)")
             allBuildings = []

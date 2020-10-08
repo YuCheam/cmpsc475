@@ -12,8 +12,25 @@ struct CampusMainView: View {
     @EnvironmentObject var locationsManager : LocationsManager
     
     var body: some View {
-        Map(coordinateRegion: $locationsManager.region)
+        NavigationView {
+            VStack{
+                
+                CampusMap()
+                
+                
+            }.navigationBarItems(trailing: NavigationLink(destination: BuildingListView()){
+                Text("All Buildings").bold()
+            })
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar() {
+                ToolbarItem(placement: .principal){
+                    Text("Campus")
+                }
+            }
+            
+        }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
