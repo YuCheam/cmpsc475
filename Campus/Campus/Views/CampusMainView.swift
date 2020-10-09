@@ -38,27 +38,23 @@ struct CampusMainView: View {
                     .tag(1)
             }
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar(){
-                ToolbarItem(placement: .navigationBarLeading){
-                    Menu{
-                        Toggle(isOn: $showFavorites){
-                            Label("Favorites", systemImage: "star")
-                        }
-                        
-                        Button(action: {locationsManager.plottedBuildings.removeAll()}){
-                            Label("Clear Plotted Building", systemImage: "clear")
-                        }
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
-                    }.opacity(showMapOptions ? 1 : 0)
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Center Map"){
-                        locationsManager.resetMap()
-                    }.opacity(showMapOptions ? 1 : 0)
-                }
-            }
+            .navigationBarItems(leading:
+                                    Menu{
+                                        Toggle(isOn: $showFavorites){
+                                            Label("Favorites", systemImage: "star")
+                                        }
+                                        
+                                        Button(action: {locationsManager.plottedBuildings.removeAll()}){
+                                            Label("Clear Plotted Building", systemImage: "clear")
+                                        }
+                                    } label: {
+                                        Image(systemName: "ellipsis.circle")
+                                    }.opacity(showMapOptions ? 1 : 0),
+                                trailing:
+                                    Button("Center Map"){
+                                        locationsManager.resetMap()
+                                    }.opacity(showMapOptions ? 1 : 0)
+            )
         }
         
     }

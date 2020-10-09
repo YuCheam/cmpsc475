@@ -20,41 +20,59 @@ struct BuildingView: View {
         ZStack {
             ViewConstants.backgroundColor
             
-            ScrollView {
+            VStack{
+                if (building.photo != nil) {
+                    Image(building.photo!).resizable()
+                        .frame(height: 240)
+                }
+                
                 VStack() {
-                    if (building.photo != nil) {
-                        Image(building.photo!).resizable()
-                            .frame(height: 240)
+                    Text(heading).font(.system(size: 24, weight: .bold))
+                    
+                    BuildingInfoComponent(building: $building, tab: $tab)
+                    
+                    Spacer()
+                    
+                    Button(action: {building.favorited.toggle()}){
+                        HStack{
+                            Text("Favorite")
+                            Image(systemName: "star")
+                        }.padding(.horizontal, 20)
+                        .padding(.vertical, 12)
+                        .background(Color.black)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
                     }
-                    
-                    VStack {
-                        Text(heading).font(.system(size: 24, weight: .bold))
-                        
-                        BuildingInfoComponent(building: $building, tab: $tab)
-                    }.padding()
-                    
-                }
+                }.padding()
             }
-        }.toolbar {
-            ToolbarItem{
-                Button("Plot"){
-                    locationsManager.plottedBuildings.append(building)
-                    
-                    // Change to Map View
-                    tab = 0
-                    self.presentation.wrappedValue.dismiss()
-                    
-                    // Center View
-                    locationsManager.centerToPlot(for: building)
-                }
-            }
-        }
+            
+        }.navigationBarItems(trailing:
+                                Button(action: {plotBuilding(for: building)}){
+                                    HStack {
+                                        Text("Plot")
+                                        Image(systemName: "mappin")
+                                    }
+                                }
+        )
+        
+    }
+    
+    func plotBuilding(for building: Building) {
+        locationsManager.plottedBuildings.append(building)
+        
+        // Change to Map View
+        tab = 0
+        self.presentation.wrappedValue.dismiss()
+        
+        // Center View
+        locationsManager.centerToPlot(for: building)
     }
     
 }
 
 //struct BuildingView_Previews: PreviewProvider {
+//
 //    static var previews: some View {
-//        BuildingView()
+//        BuildingView(building: locationsManager.$allBuildings[2], tab: 0)
 //    }
 //}

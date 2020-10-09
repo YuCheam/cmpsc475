@@ -15,7 +15,6 @@
 		2821536F252CBFCD00249CDD /* CampusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821536E252CBFCD00249CDD /* CampusUITests.swift */; };
 		28215382252CC01500249CDD /* buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 28215380252CC01500249CDD /* buildings.json */; };
 		2821538E252CC19800249CDD /* LocationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821538D252CC19800249CDD /* LocationsManager.swift */; };
-		285EB91B252D18B90037386F /* CampusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EB91A252D18B90037386F /* CampusData.swift */; };
 		285EB923252E990B0037386F /* CampusMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EB922252E990B0037386F /* CampusMap.swift */; };
 		285EB928252E9B370037386F /* BuildingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EB927252E9B370037386F /* BuildingListView.swift */; };
 		285EB93E252EB14B0037386F /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EB93D252EB14B0037386F /* BuildingView.swift */; };
@@ -56,7 +55,6 @@
 		28215370252CBFCD00249CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28215380252CC01500249CDD /* buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = buildings.json; sourceTree = "<group>"; };
 		2821538D252CC19800249CDD /* LocationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsManager.swift; sourceTree = "<group>"; };
-		285EB91A252D18B90037386F /* CampusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusData.swift; sourceTree = "<group>"; };
 		285EB922252E990B0037386F /* CampusMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusMap.swift; sourceTree = "<group>"; };
 		285EB927252E9B370037386F /* BuildingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingListView.swift; sourceTree = "<group>"; };
 		285EB93D252EB14B0037386F /* BuildingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingView.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 			children = (
 				28215380252CC01500249CDD /* buildings.json */,
 				2821538D252CC19800249CDD /* LocationsManager.swift */,
-				285EB91A252D18B90037386F /* CampusData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,7 +313,6 @@
 				285EB93E252EB14B0037386F /* BuildingView.swift in Sources */,
 				285EB948252FC3690037386F /* ViewConstants.swift in Sources */,
 				285EB923252E990B0037386F /* CampusMap.swift in Sources */,
-				285EB91B252D18B90037386F /* CampusData.swift in Sources */,
 				285EB943252FB3450037386F /* Int+toYear.swift in Sources */,
 				285EB94E252FC4920037386F /* BuildingInfoComponent.swift in Sources */,
 				285EB928252E9B370037386F /* BuildingListView.swift in Sources */,

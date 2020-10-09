@@ -12,23 +12,12 @@ struct BuildingInfoComponent: View {
     @Binding var building: Building
     @Binding var tab: Int
     
-    
     var body: some View {
-        GeometryReader{ geo in
-            VStack(alignment: .leading) {
-                Text("Building Code: \(String(format: "%06d", building.buildingCode))")
-                Text("Year Constructed: \(getYear(for: building))" )
-                Text("Coordinate Location: \(building.latitude), \(building.longitude)")
-                
-                Spacer()
-                
-                Toggle(isOn: $building.favorited) {
-                    Text("Favorite "+isFavorited(for: building.favorited))
-                }
-            }.padding()
-            .background(ViewConstants.secondaryColor)
-            .cornerRadius(10)
-            .frame(width: geo.size.width)
+        VStack {
+            Text("Building Code: \(String(format: "%06d", building.buildingCode))")
+            Text("Year Constructed: \(getYear(for: building))" )
+            Text("Latitude: \(building.latitude)")
+            Text("Longitude: \(building.longitude)")
         }
     }
     
@@ -38,10 +27,6 @@ struct BuildingInfoComponent: View {
         } else {
             return "unknown"
         }
-    }
-    
-    func isFavorited(for favorited: Bool) -> String {
-        return favorited ? "★" : "☆"
     }
 
 }

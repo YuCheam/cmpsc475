@@ -44,7 +44,11 @@ struct Building: Codable, Identifiable, Hashable {
 class LocationsManager: ObservableObject {
     @Published var allBuildings : [Building]
     @Published var plottedBuildings: [Building] = []
-    @Published var region = MKCoordinateRegion(center: CampusData.initialCoordinate, span: MKCoordinateSpan(latitudeDelta: CampusData.span, longitudeDelta: CampusData.span))
+    let initialCoordinate = CLLocationCoordinate2D(latitude: 40.800448, longitude: -77.861278)
+    let span: CLLocationDegrees = 0.01
+    @Published var region : MKCoordinateRegion
+    
+    
     
     
     var destinationURL: URL {
@@ -54,6 +58,7 @@ class LocationsManager: ObservableObject {
     }
     
     init() {
+        region = MKCoordinateRegion(center: initialCoordinate, span: MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span))
         let filename = "buildings"
         let mainBundle = Bundle.main
         let bundleURL = mainBundle.url(forResource: filename, withExtension: "json")!
@@ -80,12 +85,12 @@ class LocationsManager: ObservableObject {
     func centerToPlot(for building: Building) {
         let buildingCoordinate = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
         region.center = buildingCoordinate
-        region.span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+        region.span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
     }
     
     func resetMap() {
-        region.center = CampusData.initialCoordinate
-        region.span = MKCoordinateSpan(latitudeDelta: CampusData.span, longitudeDelta: CampusData.span)
+        region.center = initialCoordinate
+        region.span = MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
     }
     
     func saveData() {
