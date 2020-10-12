@@ -41,15 +41,16 @@ struct Building: Codable, Identifiable, Hashable {
 }
 
 
-class LocationsManager: ObservableObject {
+class LocationsManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var allBuildings : [Building]
     @Published var plottedBuildings: [Building] = []
+    
     let initialCoordinate = CLLocationCoordinate2D(latitude: 40.800448, longitude: -77.861278)
     let span: CLLocationDegrees = 0.01
     @Published var region : MKCoordinateRegion
     
-    
-    
+    let locationManager: CLLocationManager
+    var showUserLocation: Bool = true
     
     var destinationURL: URL {
         didSet {
@@ -57,7 +58,9 @@ class LocationsManager: ObservableObject {
         }
     }
     
-    init() {
+    
+    
+    override init() {
         region = MKCoordinateRegion(center: initialCoordinate, span: MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span))
         let filename = "buildings"
         let mainBundle = Bundle.main
@@ -68,20 +71,49 @@ class LocationsManager: ObservableObject {
         destinationURL = documentURL.appendingPathComponent(filename + ".json")
         let fileExists = fileManager.fileExists(atPath: destinationURL.path)
         
+        
         do {
             let url = fileExists ? destinationURL : bundleURL
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
             allBuildings = try decoder.decode([Building].self, from: data)
-            allBuildings.sort { (b1, b2) -> Bool in
-                return b1.name < b2.name
-            }
         } catch {
             print("Error Info: \(error)")
             allBuildings = []
         }
+        locationManager = CLLocationManager()
+        super.init()
+        
+        allBuildings.sort { (b1, b2) -> Bool in
+            return b1.name < b2.name
+        }
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
+    // CLLocationManager Delegate
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+            showUserLocation = true
+        default:
+            locationManager.stopUpdatingLocation()
+            showUserLocation = false
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let newLocation = locations.map({$0.coordinate})
+        if let coordinate = newLocation.first {
+            region.center = coordinate
+        }
+    }
+    
+    // Map Functions
     func centerToPlot(for building: Building) {
         let buildingCoordinate = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
         region.center = buildingCoordinate
@@ -89,7 +121,9 @@ class LocationsManager: ObservableObject {
     }
     
     func resetMap() {
-        region.center = initialCoordinate
+        if let coordinate = locationManager.location?.coordinate {
+            region.center = coordinate
+        } else { region.center = initialCoordinate }
         region.span = MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
     }
     
