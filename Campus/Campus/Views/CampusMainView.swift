@@ -34,8 +34,14 @@ struct CampusMainView: View {
                     .tabItem {
                         Image(systemName: "list.dash")
                         Text("All Buildings")
-                    }
-                    .tag(1)
+                    }.tag(1)
+                
+                DirectionTabView(tab: $selectedTab)
+                    .navigationBarTitle("Directions", displayMode: .large)
+                    .tabItem {
+                        Image(systemName: "arrow.right")
+                        Text("Directions")
+                    }.tag(2)
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
