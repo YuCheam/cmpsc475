@@ -21,6 +21,7 @@
 		285EB943252FB3450037386F /* Int+toYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EB942252FB3450037386F /* Int+toYear.swift */; };
 		285EB948252FC3690037386F /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EB947252FC3690037386F /* ViewConstants.swift */; };
 		285EB94E252FC4920037386F /* BuildingInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285EB94D252FC4920037386F /* BuildingInfoComponent.swift */; };
+		28DBE3BB25355B86007D3255 /* DirectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBE3BA25355B86007D3255 /* DirectionSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		285EB942252FB3450037386F /* Int+toYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+toYear.swift"; sourceTree = "<group>"; };
 		285EB947252FC3690037386F /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		285EB94D252FC4920037386F /* BuildingInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingInfoComponent.swift; sourceTree = "<group>"; };
+		28DBE3BA25355B86007D3255 /* DirectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				285EB93D252EB14B0037386F /* BuildingView.swift */,
 				285EB94D252FC4920037386F /* BuildingInfoComponent.swift */,
+				28DBE3BA25355B86007D3255 /* DirectionSheet.swift */,
 			);
 			path = BuildingView;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				285EB923252E990B0037386F /* CampusMap.swift in Sources */,
 				285EB943252FB3450037386F /* Int+toYear.swift in Sources */,
 				285EB94E252FC4920037386F /* BuildingInfoComponent.swift in Sources */,
+				28DBE3BB25355B86007D3255 /* DirectionSheet.swift in Sources */,
 				285EB928252E9B370037386F /* BuildingListView.swift in Sources */,
 				28215352252CBFBE00249CDD /* CampusApp.swift in Sources */,
 			);

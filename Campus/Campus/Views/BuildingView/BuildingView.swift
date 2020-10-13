@@ -10,6 +10,7 @@ import SwiftUI
 struct BuildingView: View {
     @EnvironmentObject var locationsManager : LocationsManager
     @Environment(\.presentationMode) var presentation
+    @State var isShowingSheet: Bool = false
     @Binding var building : Building
     @Binding var tab: Int
     var heading: String {
@@ -35,8 +36,19 @@ struct BuildingView: View {
                     
                     Button(action: {building.favorited.toggle()}){
                         HStack{
-                            Text("Favorite")
+                            Text(building.favorited ? "Unfavorite" : "Favorite")
                             Image(systemName: "star")
+                        }.padding(.horizontal, 20)
+                        .padding(.vertical, 12)
+                        .background(Color.black)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
+                    }
+                    
+                    Button(action: {isShowingSheet.toggle()}){
+                        HStack{
+                            Text("Get Directions")
+                            Image(systemName: "map")
                         }.padding(.horizontal, 20)
                         .padding(.vertical, 12)
                         .background(Color.black)
@@ -46,14 +58,19 @@ struct BuildingView: View {
                 }.padding()
             }
             
-        }.navigationBarItems(trailing:
+        }.sheet(isPresented: $isShowingSheet){
+            DirectionSheet(isShowingSheet: $isShowingSheet)
+        }
+        .navigationBarItems(trailing:
                                 Button(action: {plotBuilding(for: building)}){
                                     HStack {
                                         Text("Plot")
                                         Image(systemName: "mappin")
                                     }
-                                }
-        )
+                                })
+    }
+    
+    func getDirections() {
         
     }
     

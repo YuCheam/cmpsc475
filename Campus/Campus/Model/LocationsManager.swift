@@ -48,6 +48,7 @@ class LocationsManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     let initialCoordinate = CLLocationCoordinate2D(latitude: 40.800448, longitude: -77.861278)
     let span: CLLocationDegrees = 0.01
     @Published var region : MKCoordinateRegion
+    @Published var route : MKRoute?
     
     let locationManager: CLLocationManager
     var showUserLocation: Bool = true
@@ -92,7 +93,7 @@ class LocationsManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    // CLLocationManager Delegate
+    //MARK: CLLocationManager Delegate
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .notDetermined:
@@ -113,7 +114,36 @@ class LocationsManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    // Map Functions
+    //MARK: Directions
+    func getDirections(from: Building?, to: Building?) -> MKRoute? {
+        let request = MKDirections.Request()
+        
+        if from == nil {
+            request.source = MKMapItem.forCurrentLocation()
+        } else if to == nil {
+            request.destination = MKMapItem.forCurrentLocation()
+        } else {
+            let sourceCoordinate = CLLocationCoordinate2D(latitude: from!.latitude, longitude: from!.longitude)
+            let destinationCoordinate = CLLocationCoordinate2D(latitude: to!.latitude, longitude: to!.longitude)
+            request.source = MKMapItem(placemark: MKPlacemark(coordinate: sourceCoordinate))
+            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destinationCoordinate))
+        }
+        
+        request.transportType = .walking
+        request.requestsAlternateRoutes = true
+        
+        let directions = MKDirections(request: request)
+        directions.calculate(completionHandler: { (response, error) in
+            guard (error == nil) else {print(error!.localizedDescription); return}
+            if let route = response?.routes.first {
+                self.route = route
+            }
+        })
+        
+        return route
+    }
+    
+    //MARK: Map Functions
     func centerToPlot(for building: Building) {
         let buildingCoordinate = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
         region.center = buildingCoordinate
