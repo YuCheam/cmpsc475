@@ -43,17 +43,6 @@ struct BuildingView: View {
                         .foregroundColor(Color.white)
                         .cornerRadius(10)
                     }
-                    
-//                    Button(action: {isShowingSheet.toggle()}){
-//                        HStack{
-//                            Text("Get Directions")
-//                            Image(systemName: "map")
-//                        }.padding(.horizontal, 20)
-//                        .padding(.vertical, 12)
-//                        .background(Color.black)
-//                        .foregroundColor(Color.white)
-//                        .cornerRadius(10)
-//                    }
                 }.padding()
             }
             

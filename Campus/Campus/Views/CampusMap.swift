@@ -32,7 +32,6 @@ struct CampusMap: View {
             MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)){
                 annotationForType(for: building)
             }
-            
         }
     }
     

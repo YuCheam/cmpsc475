@@ -28,6 +28,7 @@ struct CampusMainView: View {
                         Image(systemName: "map")
                         Text("Campus Map")
                     }
+                    .navigationBarTitleDisplayMode(.inline)
                     .tag(0)
                 
                 BuildingListView(tab: $selectedTab)
@@ -37,32 +38,65 @@ struct CampusMainView: View {
                     }.tag(1)
                 
                 DirectionTabView(tab: $selectedTab)
-                    .navigationBarTitle("Directions", displayMode: .large)
                     .tabItem {
                         Image(systemName: "arrow.right")
                         Text("Directions")
                     }.tag(2)
+            }.toolbar(){
+                ToolbarItem(placement: .navigationBarLeading){ toolbarLeadingContent }
+                ToolbarItem(placement: .navigationBarTrailing, content: { toolbarTrailingContent })
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading:
-                                    Menu{
-                                        Toggle(isOn: $showFavorites){
-                                            Label("Favorites", systemImage: "star")
-                                        }
-                                        
-                                        Button(action: {locationsManager.plottedBuildings.removeAll()}){
-                                            Label("Clear Plotted Building", systemImage: "clear")
-                                        }
-                                    } label: {
-                                        Image(systemName: "ellipsis.circle")
-                                    }.opacity(showMapOptions ? 1 : 0),
-                                trailing:
-                                    Button("Center Map"){
-                                        locationsManager.resetMap()
-                                    }.opacity(showMapOptions ? 1 : 0)
-            )
+            .navigationBarTitle(toolbarTitle, displayMode: .inline)
         }
         
+    }
+    
+    var toolbarTitle: Text {
+        var title = ""
+        
+        switch selectedTab {
+        case 1:
+            title = "All Buildings"
+        case 2:
+            title = "Directions"
+        default:
+            title = "Campus Map"
+        }
+        
+        return Text(title)
+    }
+    
+    var toolbarLeadingContent: some View {
+        switch selectedTab {
+        case 1,2:
+            return AnyView(EmptyView())
+        default:
+            return AnyView(
+                Menu{
+                    Toggle(isOn: $showFavorites){
+                        Label("Favorites", systemImage: "star")
+                    }
+                    
+                    Button(action: {locationsManager.plottedBuildings.removeAll()}){
+                        Label("Clear Plotted Building", systemImage: "clear")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                }
+            )
+        }
+    }
+    
+    var toolbarTrailingContent: some View {
+        switch selectedTab {
+        case 1,2:
+            return AnyView(EmptyView())
+        default:
+            return AnyView(
+                Button("Center Map"){
+                locationsManager.resetMap()
+            }
+)        }
     }
     
 }
