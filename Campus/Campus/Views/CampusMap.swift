@@ -10,6 +10,7 @@ import MapKit
 
 struct CampusMap: View {
     @EnvironmentObject var locationsManager: LocationsManager
+    @State var userMapInteractionMode: MapUserTrackingMode = .follow
     @Binding var showFavorites: Bool
     var shownBuildings: [Building] {
         if (showFavorites) {
@@ -23,10 +24,15 @@ struct CampusMap: View {
     let pinSize: CGFloat = 24
     
     var body: some View {
-        Map(coordinateRegion: $locationsManager.region, annotationItems: shownBuildings) { building in
+        Map(coordinateRegion: $locationsManager.region,
+            interactionModes: .all,
+            showsUserLocation: locationsManager.showUserLocation,
+            userTrackingMode: $userMapInteractionMode,
+            annotationItems: shownBuildings){ building in
             MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)){
                 annotationForType(for: building)
             }
+            
         }
     }
     
