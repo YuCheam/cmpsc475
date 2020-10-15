@@ -48,7 +48,8 @@ class LocationsManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     let initialCoordinate = CLLocationCoordinate2D(latitude: 40.800448, longitude: -77.861278)
     let span: CLLocationDegrees = 0.01
     @Published var region : MKCoordinateRegion
-    @Published var route : MKRoute? 
+    @Published var route : MKRoute?
+    @Published var eta: String?
     
     let locationManager: CLLocationManager
     var showUserLocation: Bool = true
@@ -117,6 +118,8 @@ class LocationsManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     //MARK: Directions
     func getDirections(fromIndex: Int, toIndex: Int){
         let request = MKDirections.Request()
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
         
         if fromIndex == -1 {
             let destinationCoordinate = CLLocationCoordinate2D(latitude: allBuildings[toIndex].latitude, longitude: allBuildings[toIndex].longitude)
@@ -141,6 +144,8 @@ class LocationsManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             
             if let route = response?.routes.first {
                 self.route = route
+                let date = Date(timeInterval: route.expectedTravelTime, since: Date())
+                self.eta = dateFormatter.string(from: date)
             }
         })
     }

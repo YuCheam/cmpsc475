@@ -54,14 +54,13 @@ struct DirectionTabView: View {
                         locationsManager.getDirections(fromIndex: startIndex, toIndex: destinationIndex)
                     }.disabled(disableGetDirections)
                     Button("Reset"){
-                        locationsManager.route = nil
-                        startIndex = -1
-                        destinationIndex = -1
+                        resetDirections()
                     }.disabled(disableClearDirections)
                 }
                 
                 Section(header: Text("Directions")) {
                     List {
+                        Text("ETA: \(locationsManager.eta ?? "")")
                         ForEach(locationsManager.route?.steps ?? [], id: \.instructions) { step in
                             HStack{
                                 Text(step.instructions)
@@ -76,6 +75,13 @@ struct DirectionTabView: View {
         }
     }
     
+    
+    func resetDirections() {
+        locationsManager.route = nil
+        locationsManager.eta = ""
+        startIndex = -1
+        destinationIndex = -1
+    }
 }
 
 //struct DirectionTabView_Previews: PreviewProvider {
