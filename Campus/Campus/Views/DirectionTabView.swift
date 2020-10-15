@@ -53,15 +53,21 @@ struct DirectionTabView: View {
                     Button("Get Directions"){
                         locationsManager.getDirections(fromIndex: startIndex, toIndex: destinationIndex)
                     }.disabled(disableGetDirections)
-                    Button("Clear Directions"){
+                    Button("Reset"){
                         locationsManager.route = nil
+                        startIndex = -1
+                        destinationIndex = -1
                     }.disabled(disableClearDirections)
                 }
                 
                 Section(header: Text("Directions")) {
-                    VStack {
+                    List {
                         ForEach(locationsManager.route?.steps ?? [], id: \.instructions) { step in
-                            Text(step.instructions)
+                            HStack{
+                                Text(step.instructions)
+                                Spacer()
+                                Text("\(step.distance, specifier: "%.1f")m")
+                            }
                         }
                     }
                 }
