@@ -27,40 +27,49 @@ struct DirectionTabView: View {
     @EnvironmentObject var locationsManager: LocationsManager
     @State private var startIndex: Int = -1
     @State private var destinationIndex: Int = -1
+    private var disableGetDirections: Bool { startIndex == destinationIndex }
+    private var disableClearDirections: Bool {
+        startIndex == destinationIndex || locationsManager.route == nil
+    }
     
     var body: some View {
         VStack {
             Form {
-                Picker("From", selection: $startIndex){
-                    Text("Current Location").tag(-1)
-                    ForEach(0 ..< locationsManager.allBuildings.count) { index in
-                        Text(locationsManager.allBuildings[index].name).tag(index)
+                Section(header: Text("Where to")){
+                    Picker("From", selection: $startIndex){
+                        Text("Current Location").tag(-1)
+                        ForEach(0 ..< locationsManager.allBuildings.count) { index in
+                            Text(locationsManager.allBuildings[index].name).tag(index)
+                        }
                     }
+                    
+                    Picker("To", selection: $destinationIndex){
+                        Text("Current Location").tag(-1)
+                        ForEach(0 ..< locationsManager.allBuildings.count) {
+                            Text(locationsManager.allBuildings[$0].name).tag($0)
+                        }
+                    }
+                    
+                    Button("Get Directions"){
+                        locationsManager.getDirections(fromIndex: startIndex, toIndex: destinationIndex)
+                    }.disabled(disableGetDirections)
+                    Button("Clear Directions"){
+                        locationsManager.route = nil
+                    }.disabled(disableClearDirections)
                 }
                 
-                Picker("To", selection: $destinationIndex){
-                    Text("Current Location").tag(-1)
-                    ForEach(0 ..< locationsManager.allBuildings.count) {
-                        Text(locationsManager.allBuildings[$0].name).tag($0)
+                Section(header: Text("Directions")) {
+                    VStack {
+                        ForEach(locationsManager.route?.steps ?? [], id: \.instructions) { step in
+                            Text(step.instructions)
+                        }
                     }
-                }
-                Button("Get Directions"){
-                    getDirections()
                 }
             }
             
-            VStack {
-                Text("Directions")
-                ForEach(locationsManager.route?.steps ?? [], id: \.instructions) { step in
-                    Text(step.instructions)
-                }
-            }
         }
     }
     
-    func getDirections() {
-        locationsManager.getDirections(fromIndex: startIndex, toIndex: destinationIndex)
-    }
 }
 
 //struct DirectionTabView_Previews: PreviewProvider {
