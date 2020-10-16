@@ -47,7 +47,7 @@ struct CampusMainView: View {
                 ToolbarItem(placement: .navigationBarTrailing, content: { toolbarTrailingContent })
             }
             .navigationBarTitle(toolbarTitle, displayMode: .inline)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         
     }
     
@@ -93,7 +93,7 @@ struct CampusMainView: View {
             return AnyView(EmptyView())
         default:
             return AnyView(
-                Button("Center Map"){
+                Button("Center"){
                 locationsManager.resetMap()
             }
 )        }

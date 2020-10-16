@@ -108,12 +108,9 @@ class LocationsManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let newLocation = locations.map({$0.coordinate})
-        if let coordinate = newLocation.first {
-            region.center = coordinate
-        }
-    }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        
+//    }
     
     //MARK: Directions
     func getDirections(fromIndex: Int, toIndex: Int){
