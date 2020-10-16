@@ -65,7 +65,7 @@ struct DirectionTabView: View {
                             HStack{
                                 Text(step.instructions)
                                 Spacer()
-                                Text("\(step.distance, specifier: "%f") m")
+                                Text("\(step.distance, specifier: "%.0f") m")
                             }
                         }
                     }
