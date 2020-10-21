@@ -17,6 +17,10 @@ class ShelfModel: ObservableObject {
         booksManager = _booksManager
     }
     
+    func filteredBooksIndex(filterOn property: (Book) -> Bool ) -> [Int] {
+        return books.enumerated().filter({property($0.element)}).map({$0.offset})
+    }
+    
     func saveData() {
         booksManager.saveData()
     }

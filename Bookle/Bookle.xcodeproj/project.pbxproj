@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28D5A032253FDF6B002AC979 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5A031253FDF6B002AC979 /* ListRowView.swift */; };
 		28D9A9EA253E800C006D723E /* BookleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9A9E9253E800C006D723E /* BookleApp.swift */; };
-		28D9A9EC253E800C006D723E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9A9EB253E800C006D723E /* ContentView.swift */; };
+		28D9A9EC253E800C006D723E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9A9EB253E800C006D723E /* MainView.swift */; };
 		28D9A9EE253E8014006D723E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28D9A9ED253E8014006D723E /* Assets.xcassets */; };
 		28D9A9F1253E8014006D723E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28D9A9F0253E8014006D723E /* Preview Assets.xcassets */; };
 		28D9A9FC253E8014006D723E /* BookleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9A9FB253E8014006D723E /* BookleTests.swift */; };
@@ -36,9 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28D5A031253FDF6B002AC979 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		28D9A9E6253E800C006D723E /* Bookle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D9A9E9253E800C006D723E /* BookleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookleApp.swift; sourceTree = "<group>"; };
-		28D9A9EB253E800C006D723E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		28D9A9EB253E800C006D723E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		28D9A9ED253E8014006D723E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28D9A9F0253E8014006D723E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		28D9A9F2253E8014006D723E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,7 +105,8 @@
 			children = (
 				28D9AA24253E84B4006D723E /* Model */,
 				28D9A9E9253E800C006D723E /* BookleApp.swift */,
-				28D9A9EB253E800C006D723E /* ContentView.swift */,
+				28D9A9EB253E800C006D723E /* MainView.swift */,
+				28D5A031253FDF6B002AC979 /* ListRowView.swift */,
 				28D9A9ED253E8014006D723E /* Assets.xcassets */,
 				28D9A9F2253E8014006D723E /* Info.plist */,
 				28D9A9EF253E8014006D723E /* Preview Content */,
@@ -278,7 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				28D9AA1D253E81E3006D723E /* BooksManager.swift in Sources */,
-				28D9A9EC253E800C006D723E /* ContentView.swift in Sources */,
+				28D9A9EC253E800C006D723E /* MainView.swift in Sources */,
+				28D5A032253FDF6B002AC979 /* ListRowView.swift in Sources */,
 				28D9AA2C253E84D0006D723E /* ShelfModel.swift in Sources */,
 				28D9A9EA253E800C006D723E /* BookleApp.swift in Sources */,
 			);

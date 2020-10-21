@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Book : Codable, Identifiable {
+struct Book : Identifiable, Hashable {
     let author: String?
     let country: String
     let image: String
@@ -18,6 +18,38 @@ struct Book : Codable, Identifiable {
     let year: Int
     
     var id: String {title}
+    
+    var isReading: Bool
+    var isCompleted: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case author
+        case country
+        case image
+        case language
+        case link
+        case pages
+        case title
+        case year
+        case isReading
+        case isCompleted
+    }
+}
+
+extension Book: Codable {
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        author = try values.decodeIfPresent(String.self, forKey: .author)
+        country = try values.decode(String.self, forKey: .country)
+        image = try values.decode(String.self, forKey: .image)
+        language = try values.decode(String.self, forKey: .language)
+        link = try values.decode(String.self, forKey: .link)
+        pages = try values.decode(Int.self, forKey: .pages)
+        title = try values.decode(String.self, forKey: .title)
+        year = try values.decode(Int.self, forKey: .year)
+        isReading = try values.decodeIfPresent(Bool.self, forKey: .isReading) ?? true
+        isCompleted = try values.decodeIfPresent(Bool.self, forKey: .isCompleted) ?? true
+    }
 }
 
 class BooksManager {

@@ -13,7 +13,7 @@ struct BookleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(shelfModel)
+            MainView().environmentObject(shelfModel)
         }
     }
 }
