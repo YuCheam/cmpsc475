@@ -21,6 +21,7 @@
 		28D9AA2C253E84D0006D723E /* ShelfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9AA2B253E84D0006D723E /* ShelfModel.swift */; };
 		28EB6A542543726300DBFEDB /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB6A532543726300DBFEDB /* BookDetailView.swift */; };
 		28EB6A59254372B300DBFEDB /* BookNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB6A58254372B300DBFEDB /* BookNotesView.swift */; };
+		28EB6A612543856500DBFEDB /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB6A602543856500DBFEDB /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		28D9AA2B253E84D0006D723E /* ShelfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfModel.swift; sourceTree = "<group>"; };
 		28EB6A532543726300DBFEDB /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		28EB6A58254372B300DBFEDB /* BookNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNotesView.swift; sourceTree = "<group>"; };
+		28EB6A602543856500DBFEDB /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				28D9AA1C253E81E3006D723E /* BooksManager.swift */,
 				28D9AA17253E8061006D723E /* books.json */,
 				28D9AA2B253E84D0006D723E /* ShelfModel.swift */,
+				28EB6A602543856500DBFEDB /* Note.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				28D9A9EC253E800C006D723E /* MainView.swift in Sources */,
 				28D5A032253FDF6B002AC979 /* ListRowView.swift in Sources */,
 				28EB6A59254372B300DBFEDB /* BookNotesView.swift in Sources */,
+				28EB6A612543856500DBFEDB /* Note.swift in Sources */,
 				28D9AA2C253E84D0006D723E /* ShelfModel.swift in Sources */,
 				28BFBA212542797900B26342 /* GridView.swift in Sources */,
 				28BFBA2D25427E5900B26342 /* BookView.swift in Sources */,
