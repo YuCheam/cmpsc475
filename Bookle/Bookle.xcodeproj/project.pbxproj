@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28BFBA212542797900B26342 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFBA202542797900B26342 /* GridView.swift */; };
+		28BFBA2D25427E5900B26342 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFBA2C25427E5900B26342 /* BookView.swift */; };
 		28D5A032253FDF6B002AC979 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5A031253FDF6B002AC979 /* ListRowView.swift */; };
 		28D9A9EA253E800C006D723E /* BookleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9A9E9253E800C006D723E /* BookleApp.swift */; };
 		28D9A9EC253E800C006D723E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9A9EB253E800C006D723E /* MainView.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		28BFBA202542797900B26342 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		28BFBA2C25427E5900B26342 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		28D5A031253FDF6B002AC979 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		28D9A9E6253E800C006D723E /* Bookle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D9A9E9253E800C006D723E /* BookleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookleApp.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				28BFBA202542797900B26342 /* GridView.swift */,
 				28D5A031253FDF6B002AC979 /* ListRowView.swift */,
 				28D9A9EB253E800C006D723E /* MainView.swift */,
+				28BFBA2C25427E5900B26342 /* BookView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				28D5A032253FDF6B002AC979 /* ListRowView.swift in Sources */,
 				28D9AA2C253E84D0006D723E /* ShelfModel.swift in Sources */,
 				28BFBA212542797900B26342 /* GridView.swift in Sources */,
+				28BFBA2D25427E5900B26342 /* BookView.swift in Sources */,
 				28D9A9EA253E800C006D723E /* BookleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
