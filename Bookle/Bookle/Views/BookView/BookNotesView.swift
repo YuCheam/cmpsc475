@@ -9,10 +9,22 @@ import SwiftUI
 
 struct BookNotesView: View {
     @Binding var book: Book
+    let note: Note = Note(page: 10, text: "I'm a Note")
     
     var body: some View {
-        Text("Notes")
+        VStack {
+            DisclosureGroup {
+                Text("Text Content")
+            } label: {
+                HStack{
+                    Text("\(note.formattedDate)")
+                    Spacer()
+                    Text("\(note.pageProgress, specifier: "%.0f")/\(book.pages, specifier: "%.0f")")
+                }
+            }
+        }.padding()
     }
+    
 }
 
 //struct BookNotesView_Previews: PreviewProvider {

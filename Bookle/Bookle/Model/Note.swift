@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Note: Identifiable, Hashable {
+struct Note: Codable, Identifiable, Hashable {
     let id: Date
     let timeOfCreation: Date
     let pageProgress: Float
     var noteText: String
+    var isExpanded: Bool = false
     
     var formattedDate: String {
         let formatter = DateFormatter()

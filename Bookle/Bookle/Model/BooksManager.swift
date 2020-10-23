@@ -22,6 +22,7 @@ struct Book : Identifiable, Hashable {
     var isReading: Bool
     var isCompleted: Bool
     var pagesRead: Float
+    var notes: [Note]
     
     enum CodingKeys: String, CodingKey {
         case author
@@ -35,6 +36,7 @@ struct Book : Identifiable, Hashable {
         case isReading
         case isCompleted
         case pagesRead
+        case notes
     }
 }
 
@@ -52,6 +54,7 @@ extension Book: Codable {
         isReading = try values.decodeIfPresent(Bool.self, forKey: .isReading) ?? false
         isCompleted = try values.decodeIfPresent(Bool.self, forKey: .isCompleted) ?? false
         pagesRead = try values.decodeIfPresent(Float.self, forKey: .pagesRead) ?? 0
+        notes = try values.decodeIfPresent(Array.self, forKey: .notes) ?? []
     }
 }
 
