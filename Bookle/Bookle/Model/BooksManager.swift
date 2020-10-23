@@ -48,7 +48,7 @@ extension Book: Codable {
         title = try values.decode(String.self, forKey: .title)
         year = try values.decode(Int.self, forKey: .year)
         isReading = try values.decodeIfPresent(Bool.self, forKey: .isReading) ?? true
-        isCompleted = try values.decodeIfPresent(Bool.self, forKey: .isCompleted) ?? true
+        isCompleted = try values.decodeIfPresent(Bool.self, forKey: .isCompleted) ?? false
     }
 }
 

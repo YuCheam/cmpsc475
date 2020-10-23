@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28BFBA212542797900B26342 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFBA202542797900B26342 /* GridView.swift */; };
 		28D5A032253FDF6B002AC979 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5A031253FDF6B002AC979 /* ListRowView.swift */; };
 		28D9A9EA253E800C006D723E /* BookleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9A9E9253E800C006D723E /* BookleApp.swift */; };
 		28D9A9EC253E800C006D723E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D9A9EB253E800C006D723E /* MainView.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28BFBA202542797900B26342 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		28D5A031253FDF6B002AC979 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		28D9A9E6253E800C006D723E /* Bookle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D9A9E9253E800C006D723E /* BookleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookleApp.swift; sourceTree = "<group>"; };
@@ -80,6 +82,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28BFBA252542798A00B26342 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28D9A9E9253E800C006D723E /* BookleApp.swift */,
+				28BFBA202542797900B26342 /* GridView.swift */,
+				28D5A031253FDF6B002AC979 /* ListRowView.swift */,
+				28D9A9EB253E800C006D723E /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		28D9A9DD253E800C006D723E = {
 			isa = PBXGroup;
 			children = (
@@ -103,10 +116,8 @@
 		28D9A9E8253E800C006D723E /* Bookle */ = {
 			isa = PBXGroup;
 			children = (
+				28BFBA252542798A00B26342 /* Views */,
 				28D9AA24253E84B4006D723E /* Model */,
-				28D9A9E9253E800C006D723E /* BookleApp.swift */,
-				28D9A9EB253E800C006D723E /* MainView.swift */,
-				28D5A031253FDF6B002AC979 /* ListRowView.swift */,
 				28D9A9ED253E8014006D723E /* Assets.xcassets */,
 				28D9A9F2253E8014006D723E /* Info.plist */,
 				28D9A9EF253E8014006D723E /* Preview Content */,
@@ -284,6 +295,7 @@
 				28D9A9EC253E800C006D723E /* MainView.swift in Sources */,
 				28D5A032253FDF6B002AC979 /* ListRowView.swift in Sources */,
 				28D9AA2C253E84D0006D723E /* ShelfModel.swift in Sources */,
+				28BFBA212542797900B26342 /* GridView.swift in Sources */,
 				28D9A9EA253E800C006D723E /* BookleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
