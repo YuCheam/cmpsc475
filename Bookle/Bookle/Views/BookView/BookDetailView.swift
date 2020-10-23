@@ -1,17 +1,17 @@
 //
-//  BookView.swift
+//  BookDetailView.swift
 //  Bookle
 //
-//  Created by Kha-Yu Cheam on 10/22/20.
+//  Created by Kha-Yu Cheam on 10/23/20.
 //
 
 import SwiftUI
 
-struct BookView: View {
+struct BookDetailView: View {
     @Binding var book: Book
     
     var body: some View {
-        VStack() {
+        VStack {
             Toggle("Currently Reading", isOn: $book.isReading)
             Toggle("Finished Reading", isOn: $book.isCompleted)
             Image(book.image).resizable()
@@ -26,8 +26,8 @@ struct BookView: View {
     }
 }
 
-//struct BookView_Previews: PreviewProvider {
+//struct BookDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        BookView()
+//        BookDetailView()
 //    }
 //}
