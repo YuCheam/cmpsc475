@@ -22,6 +22,7 @@ class ShelfModel: ObservableObject {
     }
     
     func saveData() {
+        booksManager.books = books
         booksManager.saveData()
     }
 }

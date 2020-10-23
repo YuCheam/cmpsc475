@@ -13,7 +13,7 @@ struct Book : Identifiable, Hashable {
     let image: String
     let language: String
     let link: String
-    let pages: Int
+    var pages: Float
     let title: String
     let year: Int
     
@@ -21,6 +21,7 @@ struct Book : Identifiable, Hashable {
     
     var isReading: Bool
     var isCompleted: Bool
+    var pagesRead: Float
     
     enum CodingKeys: String, CodingKey {
         case author
@@ -33,6 +34,7 @@ struct Book : Identifiable, Hashable {
         case year
         case isReading
         case isCompleted
+        case pagesRead
     }
 }
 
@@ -44,17 +46,18 @@ extension Book: Codable {
         image = try values.decode(String.self, forKey: .image)
         language = try values.decode(String.self, forKey: .language)
         link = try values.decode(String.self, forKey: .link)
-        pages = try values.decode(Int.self, forKey: .pages)
+        pages = try values.decode(Float.self, forKey: .pages)
         title = try values.decode(String.self, forKey: .title)
         year = try values.decode(Int.self, forKey: .year)
-        isReading = try values.decodeIfPresent(Bool.self, forKey: .isReading) ?? true
+        isReading = try values.decodeIfPresent(Bool.self, forKey: .isReading) ?? false
         isCompleted = try values.decodeIfPresent(Bool.self, forKey: .isCompleted) ?? false
+        pagesRead = try values.decodeIfPresent(Float.self, forKey: .pagesRead) ?? 0
     }
 }
 
 class BooksManager {
     private let destinationURL: URL
-    let books : [Book]
+    var books : [Book]
     
     init() {
         let filename = "books"
