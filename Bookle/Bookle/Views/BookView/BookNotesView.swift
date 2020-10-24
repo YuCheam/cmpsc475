@@ -9,27 +9,45 @@ import SwiftUI
 
 struct BookNotesView: View {
     @Binding var book: Book
-    let note: Note = Note(page: 10, text: "I'm a Note")
+    @State var isEditing: Bool = false
+    @State var editingText: String = ""
     
     var body: some View {
         VStack {
             ForEach(book.notes.indices, id: \.self) { index in
                 DisclosureGroup {
-                    Text("\(book.notes[index].noteText)")
+//                    VStack {
+//                        TextEditor(text: $book.notes[index].noteText)
+//                            .foregroundColor(isEditing ? Color.gray : Color.black)
+//                            .disabled(!isEditing)
+//                        Spacer()
+//                        HStack{
+//                            Button(isEditing ? "done" : "edit", action: {isEditing.toggle()})
+//                                .cornerRadius(10)
+//                                .padding()
+//                                .background(Color("cyan"))
+//                        }
+//                    }
+                    NoteView(index: index, book: $book)
                 } label: {
                     HStack{
                         Text("\(book.notes[index].formattedDate)")
                         Spacer()
                         Text("\(book.notes[index].pageProgress, specifier: "%.0f")/\(book.pages, specifier: "%.0f")")
                         Button(action: {
-                            book.deleteNote(index: index)
+                            delete(index: index)
+//                            book.deleteNote(index: index)
                         }, label: {Label("", systemImage: "trash")})
                     }
                 }
             }
+
         }.padding()
     }
     
+    func delete (index: Int){
+        book.deleteNote(index: index)
+    }
 }
 
 //struct BookNotesView_Previews: PreviewProvider {

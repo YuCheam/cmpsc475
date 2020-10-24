@@ -46,6 +46,10 @@ struct Book : Identifiable, Hashable {
     mutating func deleteNote(index: Int) {
         notes.remove(at: index)
     }
+    
+    func getNoteIndex(note: Note) -> Int {
+        notes.firstIndex(of: note)!
+    }
 }
 
 extension Book: Codable {
