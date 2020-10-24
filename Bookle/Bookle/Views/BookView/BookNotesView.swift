@@ -13,13 +13,18 @@ struct BookNotesView: View {
     
     var body: some View {
         VStack {
-            DisclosureGroup {
-                Text("Text Content")
-            } label: {
-                HStack{
-                    Text("\(note.formattedDate)")
-                    Spacer()
-                    Text("\(note.pageProgress, specifier: "%.0f")/\(book.pages, specifier: "%.0f")")
+            ForEach(book.notes.indices, id: \.self) { index in
+                DisclosureGroup {
+                    Text("\(book.notes[index].noteText)")
+                } label: {
+                    HStack{
+                        Text("\(book.notes[index].formattedDate)")
+                        Spacer()
+                        Text("\(book.notes[index].pageProgress, specifier: "%.0f")/\(book.pages, specifier: "%.0f")")
+                        Button(action: {
+                            book.deleteNote(index: index)
+                        }, label: {Label("", systemImage: "trash")})
+                    }
                 }
             }
         }.padding()
