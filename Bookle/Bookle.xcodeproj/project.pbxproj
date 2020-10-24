@@ -24,6 +24,7 @@
 		28EB6A612543856500DBFEDB /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB6A602543856500DBFEDB /* Note.swift */; };
 		28EB6A6625438D8600DBFEDB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB6A6525438D8600DBFEDB /* Book.swift */; };
 		28EB6A6F2544532000DBFEDB /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB6A6E2544532000DBFEDB /* NoteView.swift */; };
+		28EB6A7425447B2A00DBFEDB /* RowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB6A7325447B2A00DBFEDB /* RowItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		28EB6A602543856500DBFEDB /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		28EB6A6525438D8600DBFEDB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		28EB6A6E2544532000DBFEDB /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		28EB6A7325447B2A00DBFEDB /* RowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				28D9A9EB253E800C006D723E /* MainView.swift */,
 				28BFBA202542797900B26342 /* GridView.swift */,
 				28D5A031253FDF6B002AC979 /* ListRowView.swift */,
+				28EB6A7325447B2A00DBFEDB /* RowItem.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				28EB6A6F2544532000DBFEDB /* NoteView.swift in Sources */,
 				28D9A9EC253E800C006D723E /* MainView.swift in Sources */,
 				28EB6A6625438D8600DBFEDB /* Book.swift in Sources */,
+				28EB6A7425447B2A00DBFEDB /* RowItem.swift in Sources */,
 				28D5A032253FDF6B002AC979 /* ListRowView.swift in Sources */,
 				28EB6A59254372B300DBFEDB /* BookNotesView.swift in Sources */,
 				28EB6A612543856500DBFEDB /* Note.swift in Sources */,

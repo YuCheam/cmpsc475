@@ -12,26 +12,44 @@ struct BookDetailView: View {
     let formatter: NumberFormatter
     
     var body: some View {
-        VStack {
-            Toggle("Currently Reading", isOn: $book.isReading)
-            Toggle("Finished Reading", isOn: $book.isCompleted)
-            Image(book.image).resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 232)
-            Text(book.title)
-            Text("Author: \(book.author ?? " ")")
-            Text("Year: \(book.year)")
-            Text("Country: \(book.country)")
-            Text("Language: \(book.language)")
-            ProgressView(value: book.pagesRead, total: book.pages)
-            HStack {
-                Text("Current Page:")
-                TextField("Current Page Number...", value: $book.pagesRead, formatter: formatter)
-                    .frame(width: 72)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Text("of \(book.pages, specifier: "%.0f")")
+        List {
+            
+            Section {
+                HStack() {
+                    Image(book.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 164)
+                        
+                    VStack(alignment: .leading) {
+                        Text(book.title)
+                        Text("Author: \(book.author ?? " ")")
+                        Text("Year: \(book.year)")
+                        Text("Country: \(book.country)")
+                        Text("Language: \(book.language)")
+                    }
+                }
             }
-        }
+            
+            Section(header: Text("List")) {
+                VStack{
+                    Toggle("Currently Reading", isOn: $book.isReading)
+                    Toggle("Finished Reading", isOn: $book.isCompleted)
+                }
+            }
+            
+            Section(header: Text("Reading Progress")) {
+                ProgressView(value: book.pagesRead, total: book.pages)
+                
+                HStack {
+                    Text("Current Page:")
+                    TextField("Current Page Number...", value: $book.pagesRead, formatter: formatter)
+                        .frame(width: 72)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Text("of \(book.pages, specifier: "%.0f")")
+                }
+            }
+        }.listStyle(InsetGroupedListStyle())
     }
     
     init(book: Binding<Book>) {

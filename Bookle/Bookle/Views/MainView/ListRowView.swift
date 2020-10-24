@@ -25,7 +25,7 @@ struct ListRowView: View {
         List {
             ForEach(bookIndices, id: \.self){ index in
                 NavigationLink(destination: BookView(book: $shelfModel.books[index])) {
-                    Text(shelfModel.books[index].title)
+                    RowItem(book: $shelfModel.books[index])
                 }
             }
         }

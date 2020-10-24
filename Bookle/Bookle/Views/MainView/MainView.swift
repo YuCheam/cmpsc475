@@ -35,20 +35,19 @@ struct MainView: View {
                 }
             }.navigationBarTitleDisplayMode(.inline)
             .toolbar(){
-                ToolbarItem(placement: .navigationBarTrailing){
+                ToolbarItemGroup(placement: .navigationBarTrailing){
+                    Picker("View Mode", selection: $viewMode){
+                        Label("", systemImage: "square.grid.2x2.fill").tag(ViewMode.grid)
+                        Label("", systemImage: "list.dash").tag(ViewMode.list)
+                    }
                     Menu {
-                        Picker("View Mode", selection: $viewMode){
-                            Text("Grid").tag(ViewMode.grid)
-                            Text("List").tag(ViewMode.list)
-                        }
-                        
                         Picker("Filter List", selection: $bookListMode) {
                             Text("All Books").tag(BookListMode.all)
-                            Text("Is Completed").tag(BookListMode.completed)
-                            Text("Is Reading").tag(BookListMode.isReading)
+                            Text("Reading").tag(BookListMode.isReading)
+                            Text("Completed").tag(BookListMode.completed)
                         }
                     } label: {
-                        Label("menu", systemImage: "gear")
+                        Label("menu", systemImage: "slider.horizontal.3")
                     }
                 }
             }
