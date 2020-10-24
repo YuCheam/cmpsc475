@@ -17,12 +17,15 @@ struct NoteView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if book.notes.indices.contains(index) {
-                Text("\(book.notes[index].noteText)")
-                TextField("", text: $editingText, onEditingChanged: {_ in}){
-                    book.notes[index].noteText = editingText
-                    isEditing = false
-                }.opacity(isEditing ? 1 : 0)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                if isEditing {
+                    TextField("", text: $editingText, onEditingChanged: {_ in}){
+                        book.notes[index].noteText = editingText
+                        isEditing = false
+                    }
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                } else {
+                    Text("\(book.notes[index].noteText)")
+                }
             }
             Button(isEditing ? "done" : "edit", action: {
                 book.notes[index].noteText = editingText
