@@ -15,7 +15,7 @@ struct NoteView: View {
     
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             if book.notes.indices.contains(index) {
                 Text("\(book.notes[index].noteText)")
                 TextField("", text: $editingText, onEditingChanged: {_ in}){
@@ -24,16 +24,13 @@ struct NoteView: View {
                 }.opacity(isEditing ? 1 : 0)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             }
-            Spacer()
-            HStack{
-                Button(isEditing ? "done" : "edit", action: {
-                    book.notes[index].noteText = editingText
-                    isEditing.toggle()
-                })
-                .cornerRadius(10)
-                .padding()
-                .background(Color.blue)
-            }
+            Button(isEditing ? "done" : "edit", action: {
+                book.notes[index].noteText = editingText
+                isEditing.toggle()
+            }).padding(5)
+            .background(Color.blue)
+            .cornerRadius(8)
+            .foregroundColor(Color.white)
         }
     }
 }

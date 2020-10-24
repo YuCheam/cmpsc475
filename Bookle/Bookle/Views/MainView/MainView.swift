@@ -33,7 +33,7 @@ struct MainView: View {
                 default:
                     ListRowView(bookListMode: $bookListMode)
                 }
-            }.navigationBarTitleDisplayMode(.inline)
+            }.navigationBarTitle("Bookle", displayMode: .inline)
             .toolbar(){
                 ToolbarItemGroup(placement: .navigationBarTrailing){
                     Picker("View Mode", selection: $viewMode){
