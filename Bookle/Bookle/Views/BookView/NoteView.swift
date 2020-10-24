@@ -30,9 +30,9 @@ struct NoteView: View {
                     book.notes[index].noteText = editingText
                     isEditing.toggle()
                 })
-                    .cornerRadius(10)
-                    .padding()
-                    .background(Color("cyan"))
+                .cornerRadius(10)
+                .padding()
+                .background(Color.blue)
             }
         }
     }

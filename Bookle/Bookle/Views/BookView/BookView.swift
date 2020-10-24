@@ -26,7 +26,9 @@ struct BookView: View {
             }.tag(1)
         }.toolbar() {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("+") {isAdding.toggle()}.opacity(currentTab == 0 ? 0 : 1)
+                if currentTab == 1 {
+                    Button("+") {isAdding.toggle()}
+                }
             }
         }.sheet(isPresented: $isAdding){
             Form {
@@ -36,12 +38,11 @@ struct BookView: View {
                     addingText = ""
                     isAdding = false
                 }
-                Spacer()
                 Button("Clear Note"){
                     isAdding = false
                     addingText = ""
                 }
-            }.navigationTitle("Add Note")
+            }.navigationBarTitle("Add Note")
         }
     }
 }

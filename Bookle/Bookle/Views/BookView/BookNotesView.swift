@@ -13,21 +13,9 @@ struct BookNotesView: View {
     @State var editingText: String = ""
     
     var body: some View {
-        VStack {
+        List {
             ForEach(book.notes.indices, id: \.self) { index in
                 DisclosureGroup {
-//                    VStack {
-//                        TextEditor(text: $book.notes[index].noteText)
-//                            .foregroundColor(isEditing ? Color.gray : Color.black)
-//                            .disabled(!isEditing)
-//                        Spacer()
-//                        HStack{
-//                            Button(isEditing ? "done" : "edit", action: {isEditing.toggle()})
-//                                .cornerRadius(10)
-//                                .padding()
-//                                .background(Color("cyan"))
-//                        }
-//                    }
                     NoteView(index: index, book: $book)
                 } label: {
                     HStack{
@@ -35,18 +23,13 @@ struct BookNotesView: View {
                         Spacer()
                         Text("\(book.notes[index].pageProgress, specifier: "%.0f")/\(book.pages, specifier: "%.0f")")
                         Button(action: {
-                            delete(index: index)
-//                            book.deleteNote(index: index)
+                            book.deleteNote(index: index)
                         }, label: {Label("", systemImage: "trash")})
                     }
                 }
             }
 
         }.padding()
-    }
-    
-    func delete (index: Int){
-        book.deleteNote(index: index)
     }
 }
 
