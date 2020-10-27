@@ -15,7 +15,7 @@ struct Book : Identifiable, Hashable {
     let link: String
     var pages: Float
     let title: String
-    let year: Int
+    let year: Int32
     
     var id: String {title}
     
@@ -62,7 +62,7 @@ extension Book: Codable {
         link = try values.decode(String.self, forKey: .link)
         pages = try values.decode(Float.self, forKey: .pages)
         title = try values.decode(String.self, forKey: .title)
-        year = try values.decode(Int.self, forKey: .year)
+        year = try values.decode(Int32.self, forKey: .year)
         isReading = try values.decodeIfPresent(Bool.self, forKey: .isReading) ?? false
         isCompleted = try values.decodeIfPresent(Bool.self, forKey: .isCompleted) ?? false
         pagesRead = try values.decodeIfPresent(Float.self, forKey: .pagesRead) ?? 0

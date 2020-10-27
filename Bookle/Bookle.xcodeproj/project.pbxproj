@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28435F5125485F0100930118 /* Bookle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28435F4F25485F0100930118 /* Bookle.xcdatamodeld */; };
+		28435F57254861D700930118 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28435F56254861D700930118 /* Persistance.swift */; };
 		28BFBA212542797900B26342 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFBA202542797900B26342 /* GridView.swift */; };
 		28BFBA2D25427E5900B26342 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFBA2C25427E5900B26342 /* BookView.swift */; };
 		28D5A032253FDF6B002AC979 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5A031253FDF6B002AC979 /* ListRowView.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		28435F5025485F0100930118 /* Bookle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bookle.xcdatamodel; sourceTree = "<group>"; };
+		28435F56254861D700930118 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		28BFBA202542797900B26342 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		28BFBA2C25427E5900B26342 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		28D5A031253FDF6B002AC979 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				28435F4F25485F0100930118 /* Bookle.xcdatamodeld */,
+				28435F56254861D700930118 /* Persistance.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				28EB6A6625438D8600DBFEDB /* Book.swift in Sources */,
 				28EB6A7425447B2A00DBFEDB /* RowItem.swift in Sources */,
 				28D5A032253FDF6B002AC979 /* ListRowView.swift in Sources */,
+				28435F57254861D700930118 /* Persistance.swift in Sources */,
 				28EB6A59254372B300DBFEDB /* BookNotesView.swift in Sources */,
 				28EB6A612543856500DBFEDB /* Note.swift in Sources */,
 				28D9AA2C253E84D0006D723E /* ShelfModel.swift in Sources */,

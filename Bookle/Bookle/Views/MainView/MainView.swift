@@ -20,6 +20,11 @@ enum BookListMode: CaseIterable {
 
 struct MainView: View {
     @EnvironmentObject var shelfModel: ShelfModel
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \BookMO.title, ascending: true)], animation: .default)
+        private var books: FetchedResults<BookMO>
+    
     @State var viewMode: ViewMode = .grid
     @State var bookListMode: BookListMode = .all
     
@@ -52,6 +57,57 @@ struct MainView: View {
                 }
             }
             
+        }.onAppear(
+            self.loadBooks()
+        )
+    }
+    
+    //MARK: Core Data
+    let alreadyLoadedKey = "AlreadyLoaded"
+    func loadBooks() {
+        let userDefaults = UserDefaults.standard
+        let alreadyLoaded = userDefaults.bool(forKey: alreadyLoadedKey)
+        if !alreadyLoaded {
+            //TODO: Create Player managed objects
+            shelfModel.books.forEach {book in
+                addBook(book: book)
+                save()  // need this here so fetch results get updated!
+            }
+            
+            userDefaults.set(true, forKey: alreadyLoadedKey)
+            userDefaults.synchronize()
+        }
+    }
+    
+    func addBook(book: Book) {
+        let newBook = BookMO(context: viewContext)
+        newBook.author = book.author
+        newBook.country = book.country
+        newBook.image = book.image
+        newBook.isCompleted = book.isCompleted
+        newBook.isReading = book.isReading
+        newBook.language = book.language
+        newBook.link = book.link
+        newBook.pages = book.pages
+        newBook.pagesRead = book.pagesRead
+        newBook.title = book.title
+        newBook.year = book.year
+        
+        book.notes.forEach { note in
+            let newNote = NoteMO(context: viewContext)
+            newNote.book = newBook
+            newNote.noteText = note.noteText
+            newNote.pageProgress = note.pageProgress
+            newNote.timeOfCreation = note.timeOfCreation
+        }
+    }
+    
+    func save() {
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
 }
