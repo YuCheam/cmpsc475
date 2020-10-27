@@ -15,7 +15,7 @@ struct NoteView: View {
     
     
     var body: some View {
-        VStack(alignment: .leading) {
+        HStack{
             if book.notes.indices.contains(index) {
                 if isEditing {
                     TextField("", text: $editingText, onEditingChanged: {_ in}){
@@ -27,6 +27,9 @@ struct NoteView: View {
                     Text("\(book.notes[index].noteText)")
                 }
             }
+            
+            Spacer()
+            
             Button(isEditing ? "done" : "edit", action: {
                 book.notes[index].noteText = editingText
                 isEditing.toggle()
