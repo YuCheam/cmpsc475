@@ -25,7 +25,7 @@ struct ListRowView: View {
     var body: some View {
         List {
             ForEach(bookIndices, id: \.self){ index in
-                NavigationLink(destination: BookView(book: $shelfModel.books[index])) {
+                NavigationLink(destination: BookView(book: books[index])) {
                     RowItem(book: books[index])
                 }
             }

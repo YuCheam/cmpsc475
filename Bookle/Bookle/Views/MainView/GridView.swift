@@ -28,8 +28,8 @@ struct GridView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(bookIndices, id:\.self) { index in
-                    NavigationLink(destination: BookView(book: $shelfModel.books[index])){
-                        Image(books[index].image!).resizable()
+                    NavigationLink(destination: BookView(book: books[index])){
+                        Image(books[index].image).resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 180)
                     }

@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct BookView: View {
-    @Binding var book: Book
+    @ObservedObject var book: BookMO
+    
+    //@Binding var book: Book
     @State var isAdding: Bool = false
     @State var addingText: String = ""
     @State var currentTab: Int = 0
     
     var body: some View {
         TabView(selection: $currentTab) {
-            BookDetailView(book: $book).tabItem {
+            BookDetailView(book: _book).tabItem {
                 Image(systemName: "book")
                 Text("Book")
             }.tag(0)
             
-            BookNotesView(book: $book).tabItem {
+            BookNotesView(book: book).tabItem {
                 Image(systemName: "square.and.pencil")
                 Text("Notes")
             }.tag(1)
@@ -30,20 +32,21 @@ struct BookView: View {
                     Button("+") {isAdding.toggle()}
                 }
             }
-        }.sheet(isPresented: $isAdding){
-            Form {
-                TextField("Add", text: $addingText, onEditingChanged: { _ in }) {
-                    let note = Note(page: book.pagesRead, text: addingText)
-                    book.addNote(note: note)
-                    addingText = ""
-                    isAdding = false
-                }
-                Button("Clear Note"){
-                    isAdding = false
-                    addingText = ""
-                }
-            }.navigationBarTitle("Add Note")
         }
+//        .sheet(isPresented: $isAdding){
+//            Form {
+//                TextField("Add", text: $addingText, onEditingChanged: { _ in }) {
+//                    let note = Note(page: book.pagesRead, text: addingText)
+//                    book.addNote(note: note)
+//                    addingText = ""
+//                    isAdding = false
+//                }
+//                Button("Clear Note"){
+//                    isAdding = false
+//                    addingText = ""
+//                }
+//            }.navigationBarTitle("Add Note")
+//        }
     }
 }
 

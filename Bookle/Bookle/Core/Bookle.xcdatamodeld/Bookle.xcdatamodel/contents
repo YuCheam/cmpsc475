@@ -14,7 +14,7 @@
         <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteMO" inverseName="book" inverseEntity="NoteMO"/>
     </entity>
-    <entity name="NoteMO" representedClassName="NoteMO" syncable="YES" codeGenerationType="class">
+    <entity name="NoteMO" representedClassName="NoteMO" syncable="YES">
         <attribute name="noteText" optional="YES" attributeType="String"/>
         <attribute name="pageProgress" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="timeOfCreation" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

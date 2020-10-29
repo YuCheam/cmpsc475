@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct BookDetailView: View {
-    @Binding var book: Book
+    @ObservedObject var book: BookMO
+    //@Binding var book: Book
     let formatter: NumberFormatter
     
     var body: some View {
@@ -52,11 +53,11 @@ struct BookDetailView: View {
         }.listStyle(InsetGroupedListStyle())
     }
     
-    init(book: Binding<Book>) {
+    init(book: ObservedObject<BookMO>) {
         self._book = book
         formatter = NumberFormatter()
         formatter.minimum = 0
-        formatter.maximum = NSNumber(value: book.pages.wrappedValue)
+        formatter.maximum = NSNumber(value: book.wrappedValue.pages)
         formatter.allowsFloats = false
     }
 }
