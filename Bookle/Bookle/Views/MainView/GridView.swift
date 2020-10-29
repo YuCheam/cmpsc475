@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GridView: View {
+    var books: FetchedResults<BookMO>
     @EnvironmentObject var shelfModel: ShelfModel
     @Binding var bookListMode: BookListMode
     var bookIndices: [Int] {
@@ -28,7 +29,7 @@ struct GridView: View {
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(bookIndices, id:\.self) { index in
                     NavigationLink(destination: BookView(book: $shelfModel.books[index])){
-                        Image(shelfModel.books[index].image).resizable()
+                        Image(books[index].image!).resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 180)
                     }

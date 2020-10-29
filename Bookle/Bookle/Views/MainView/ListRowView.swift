@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ListRowView: View {
+    var books: FetchedResults<BookMO>
     @EnvironmentObject var shelfModel: ShelfModel
     @Binding var bookListMode: BookListMode
     var bookIndices: [Int] {
@@ -25,7 +26,7 @@ struct ListRowView: View {
         List {
             ForEach(bookIndices, id: \.self){ index in
                 NavigationLink(destination: BookView(book: $shelfModel.books[index])) {
-                    RowItem(book: $shelfModel.books[index])
+                    RowItem(book: books[index])
                 }
             }
         }

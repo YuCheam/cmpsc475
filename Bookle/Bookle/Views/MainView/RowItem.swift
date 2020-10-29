@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RowItem: View {
-    @Binding var book : Book
+    var book : BookMO
     var body: some View {
         HStack {
             VStack(alignment: .leading) {

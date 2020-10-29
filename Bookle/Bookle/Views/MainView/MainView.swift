@@ -34,9 +34,9 @@ struct MainView: View {
             VStack {
                 switch viewMode {
                 case .grid:
-                    GridView(bookListMode: $bookListMode)
+                    GridView(books: books, bookListMode: $bookListMode)
                 default:
-                    ListRowView(bookListMode: $bookListMode)
+                    ListRowView(books: books, bookListMode: $bookListMode)
                 }
             }.navigationBarTitle("Bookle", displayMode: .inline)
             .toolbar(){
@@ -57,9 +57,9 @@ struct MainView: View {
                 }
             }
             
-        }.onAppear(
-            self.loadBooks()
-        )
+        }.onAppear{
+            loadBooks()
+        }
     }
     
     //MARK: Core Data
@@ -68,7 +68,6 @@ struct MainView: View {
         let userDefaults = UserDefaults.standard
         let alreadyLoaded = userDefaults.bool(forKey: alreadyLoadedKey)
         if !alreadyLoaded {
-            //TODO: Create Player managed objects
             shelfModel.books.forEach {book in
                 addBook(book: book)
                 save()  // need this here so fetch results get updated!
