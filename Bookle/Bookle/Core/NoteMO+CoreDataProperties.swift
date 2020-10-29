@@ -16,11 +16,19 @@ extension NoteMO {
         return NSFetchRequest<NoteMO>(entityName: "NoteMO")
     }
 
-    @NSManaged public var noteText: String?
+    @NSManaged public var noteText: String
     @NSManaged public var pageProgress: Float
-    @NSManaged public var timeOfCreation: Date?
-    @NSManaged public var book: BookMO?
+    @NSManaged public var timeOfCreation: Date
+    @NSManaged public var book: BookMO
 
+}
+
+extension NoteMO {
+    var formattedDate: String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        return formatter.string(from: timeOfCreation)
+    }
 }
 
 extension NoteMO : Identifiable {

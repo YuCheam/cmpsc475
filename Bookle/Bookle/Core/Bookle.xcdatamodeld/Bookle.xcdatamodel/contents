@@ -12,7 +12,7 @@
         <attribute name="pagesRead" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteMO" inverseName="book" inverseEntity="NoteMO"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NoteMO" inverseName="book" inverseEntity="NoteMO"/>
     </entity>
     <entity name="NoteMO" representedClassName="NoteMO" syncable="YES">
         <attribute name="noteText" optional="YES" attributeType="String"/>
@@ -21,7 +21,7 @@
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BookMO" inverseName="notes" inverseEntity="BookMO"/>
     </entity>
     <elements>
-        <element name="BookMO" positionX="-63" positionY="-18" width="128" height="223"/>
-        <element name="NoteMO" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="BookMO" positionX="-63" positionY="-18" width="128" height="28"/>
+        <element name="NoteMO" positionX="216.734375" positionY="62.1015625" width="128" height="103"/>
     </elements>
 </model>

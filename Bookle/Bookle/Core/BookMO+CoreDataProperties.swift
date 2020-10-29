@@ -27,8 +27,22 @@ extension BookMO {
     @NSManaged public var pagesRead: Float
     @NSManaged public var title: String
     @NSManaged public var year: Int32
-    @NSManaged public var notes: NoteMO
+    @NSManaged public var notes: Set<NoteMO>
 
+}
+
+extension BookMO {
+    @objc(addNotesObject:)
+    @NSManaged public func addToNotes(_ value: NoteMO)
+    
+    @objc(removeNotesObject:)
+    @NSManaged public func deleteFromNotes(_ value: NoteMO)
+    
+    @objc(addNotes:)
+    @NSManaged public func addToNotes(_ values: NSSet)
+
+    @objc(removeNotes:)
+    @NSManaged public func deleteFromNotes(_ values: NSSet)
 }
 
 extension BookMO : Identifiable {

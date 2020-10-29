@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BookView: View {
     @ObservedObject var book: BookMO
-    
+    @Environment(\.managedObjectContext) private var viewContext
     //@Binding var book: Book
     @State var isAdding: Bool = false
     @State var addingText: String = ""
@@ -33,20 +33,25 @@ struct BookView: View {
                 }
             }
         }
-//        .sheet(isPresented: $isAdding){
-//            Form {
-//                TextField("Add", text: $addingText, onEditingChanged: { _ in }) {
-//                    let note = Note(page: book.pagesRead, text: addingText)
-//                    book.addNote(note: note)
-//                    addingText = ""
-//                    isAdding = false
-//                }
-//                Button("Clear Note"){
-//                    isAdding = false
-//                    addingText = ""
-//                }
-//            }.navigationBarTitle("Add Note")
-//        }
+        .sheet(isPresented: $isAdding){
+            Form {
+                TextField("Add", text: $addingText, onEditingChanged: { _ in }) {
+                    let newNote = NoteMO(context: viewContext)
+                    newNote.book = book
+                    newNote.noteText = addingText
+                    newNote.pageProgress = book.pagesRead
+                    newNote.timeOfCreation = Date()
+                    
+                    book.addToNotes(newNote)
+                    addingText = ""
+                    isAdding = false
+                }
+                Button("Clear Note"){
+                    isAdding = false
+                    addingText = ""
+                }
+            }.navigationBarTitle("Add Note")
+        }
     }
 }
 

@@ -9,29 +9,29 @@ import SwiftUI
 
 struct NoteView: View {
     var index: Int
-    @Binding var book: Book
+    @ObservedObject var book: BookMO
+    @ObservedObject var note: NoteMO
+    //@Binding var book: Book
     @State var isEditing: Bool = false
     @State var editingText: String = ""
     
     
     var body: some View {
         HStack{
-            if book.notes.indices.contains(index) {
-                if isEditing {
-                    TextField("", text: $editingText, onEditingChanged: {_ in}){
-                        book.notes[index].noteText = editingText
-                        isEditing = false
-                    }
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                } else {
-                    Text("\(book.notes[index].noteText)")
+            if isEditing {
+                TextField("", text: $editingText, onEditingChanged: {_ in}){
+                    note.noteText = editingText
+                    isEditing = false
                 }
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            } else {
+                Text("\(note.noteText)")
             }
             
             Spacer()
             
             Button(isEditing ? "done" : "edit", action: {
-                book.notes[index].noteText = editingText
+//                book.notes[index].noteText = editingText
                 isEditing.toggle()
             }).padding(5)
             .background(Color.blue)

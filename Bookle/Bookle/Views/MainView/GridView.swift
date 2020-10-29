@@ -14,11 +14,11 @@ struct GridView: View {
     var bookIndices: [Int] {
         switch bookListMode {
         case .all:
-            return shelfModel.filteredBooksIndex(filterOn: {$0 == $0})
+            return filteredBooksIndex(filterOn: {$0 == $0})
         case .isReading:
-            return shelfModel.filteredBooksIndex(filterOn: {$0.isReading})
+            return filteredBooksIndex(filterOn: {$0.isReading})
         default:
-            return shelfModel.filteredBooksIndex(filterOn: {$0.isCompleted})
+            return filteredBooksIndex(filterOn: {$0.isCompleted})
         }
     }
     
@@ -36,6 +36,10 @@ struct GridView: View {
                 }
             }
         }
+    }
+    
+    func filteredBooksIndex(filterOn property: (BookMO) -> Bool ) -> [Int] {
+        return books.enumerated().filter({property($0.element)}).map({$0.offset})
     }
 }
 

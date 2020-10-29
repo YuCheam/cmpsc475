@@ -98,6 +98,8 @@ struct MainView: View {
             newNote.noteText = note.noteText
             newNote.pageProgress = note.pageProgress
             newNote.timeOfCreation = note.timeOfCreation
+            
+            newBook.addToNotes(newNote)
         }
     }
     
