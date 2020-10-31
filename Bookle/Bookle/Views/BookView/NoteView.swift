@@ -8,35 +8,36 @@
 import SwiftUI
 
 struct NoteView: View {
-    var index: Int
+    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var book: BookMO
     @ObservedObject var note: NoteMO
-    //@Binding var book: Book
     @State var isEditing: Bool = false
-    @State var editingText: String = ""
     
     
     var body: some View {
-        HStack{
-            if isEditing {
-                TextField("", text: $editingText, onEditingChanged: {_ in}){
-                    note.noteText = editingText
-                    isEditing = false
-                }
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            } else {
-                Text("\(note.noteText)")
+        VStack{
+            TextEditor(text: $note.noteText)
+                .foregroundColor(isEditing ? Color.gray : .black)
+                .disabled(!isEditing)
+            
+            HStack {
+                Spacer()
+                
+                Button(action: { isEditing.toggle()},
+                       label: {
+                        Text(isEditing ? "done" : "edit")
+                       }).padding(5)
+                .background(Color.blue)
+                .cornerRadius(8)
+                .foregroundColor(Color.white)
+                .buttonStyle(BorderlessButtonStyle())
+                
+                Button(action: {
+                    book.deleteFromNotes(note)
+                }, label: {Label("", systemImage: "trash")})
+                .buttonStyle(BorderlessButtonStyle())
             }
-            
-            Spacer()
-            
-            Button(isEditing ? "done" : "edit", action: {
-//                book.notes[index].noteText = editingText
-                isEditing.toggle()
-            }).padding(5)
-            .background(Color.blue)
-            .cornerRadius(8)
-            .foregroundColor(Color.white)
+                            
         }
     }
 }

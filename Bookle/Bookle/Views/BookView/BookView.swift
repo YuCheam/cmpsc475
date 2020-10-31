@@ -10,9 +10,8 @@ import SwiftUI
 struct BookView: View {
     @ObservedObject var book: BookMO
     @Environment(\.managedObjectContext) private var viewContext
-    //@Binding var book: Book
     @State var isAdding: Bool = false
-    @State var addingText: String = ""
+    //@Binding var book: Book
     @State var currentTab: Int = 0
     
     var body: some View {
@@ -26,7 +25,8 @@ struct BookView: View {
                 Image(systemName: "square.and.pencil")
                 Text("Notes")
             }.tag(1)
-        }.toolbar() {
+        }.navigationBarTitle(book.title)
+        .toolbar() {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if currentTab == 1 {
                     Button("+") {isAdding.toggle()}
@@ -34,23 +34,7 @@ struct BookView: View {
             }
         }
         .sheet(isPresented: $isAdding){
-            Form {
-                TextField("Add", text: $addingText, onEditingChanged: { _ in }) {
-                    let newNote = NoteMO(context: viewContext)
-                    newNote.book = book
-                    newNote.noteText = addingText
-                    newNote.pageProgress = book.pagesRead
-                    newNote.timeOfCreation = Date()
-                    
-                    book.addToNotes(newNote)
-                    addingText = ""
-                    isAdding = false
-                }
-                Button("Clear Note"){
-                    isAdding = false
-                    addingText = ""
-                }
-            }.navigationBarTitle("Add Note")
+            AddNoteView(book: book, isAdding: $isAdding)
         }
     }
 }

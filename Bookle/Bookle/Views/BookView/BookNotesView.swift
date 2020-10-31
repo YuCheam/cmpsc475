@@ -22,15 +22,12 @@ struct BookNotesView: View {
         List {
             ForEach(notes.indices, id: \.self) { index in
                 DisclosureGroup {
-                    NoteView(index: index, book: book, note: notes[index])
+                    NoteView(book: book, note: notes[index])
                 } label: {
                     HStack{
                         Text("\(notes[index].formattedDate)")
                         Spacer()
                         Text("\(notes[index].pageProgress, specifier: "%.0f")/\(book.pages, specifier: "%.0f")")
-                        Button(action: {
-                            book.deleteFromNotes(notes[index])
-                        }, label: {Label("", systemImage: "trash")})
                     }
                 }
             }

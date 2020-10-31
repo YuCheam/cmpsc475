@@ -9,12 +9,10 @@ import SwiftUI
 
 struct BookDetailView: View {
     @ObservedObject var book: BookMO
-    //@Binding var book: Book
     let formatter: NumberFormatter
     
     var body: some View {
         List {
-            
             Section {
                 HStack() {
                     Image(book.image)
@@ -23,9 +21,9 @@ struct BookDetailView: View {
                         .frame(width: 164)
                         
                     VStack(alignment: .leading) {
-                        Text(book.title)
+                        Text(book.title).fontWeight(.bold)
                         Text("Author: \(book.author ?? " ")")
-                        Text("Year: \(book.year)")
+                        Text("Year: \(String(book.year))")
                         Text("Country: \(book.country)")
                         Text("Language: \(book.language)")
                     }
