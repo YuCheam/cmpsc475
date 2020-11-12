@@ -19,6 +19,8 @@
 		282D7FF1255A3B4700E9D873 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FF0255A3B4700E9D873 /* JournalView.swift */; };
 		282D7FF6255A3B5B00E9D873 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FF5255A3B5B00E9D873 /* ProfileView.swift */; };
 		282D7FFB255A3C7A00E9D873 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FFA255A3C7A00E9D873 /* TodayView.swift */; };
+		28A01240255D8DA800E529E9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0123F255D8DA800E529E9 /* Persistence.swift */; };
+		28A01246255D8DF600E529E9 /* HeadwayDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28A01244255D8DF600E529E9 /* HeadwayDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		282D7FF0255A3B4700E9D873 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		282D7FF5255A3B5B00E9D873 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		282D7FFA255A3C7A00E9D873 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		28A0123F255D8DA800E529E9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		28A01245255D8DF600E529E9 /* HeadwayDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HeadwayDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		282D7FB3255A3AA400E9D873 /* Headway */ = {
 			isa = PBXGroup;
 			children = (
+				28A0123E255D8D8D00E529E9 /* Core Data */,
 				282D7FE7255A3AF400E9D873 /* Views */,
 				282D7FB4255A3AA400E9D873 /* AppDelegate.swift */,
 				282D7FB6255A3AA400E9D873 /* SceneDelegate.swift */,
@@ -154,6 +159,15 @@
 				282D7FFA255A3C7A00E9D873 /* TodayView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		28A0123E255D8D8D00E529E9 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				28A0123F255D8DA800E529E9 /* Persistence.swift */,
+				28A01244255D8DF600E529E9 /* HeadwayDataModel.xcdatamodeld */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +301,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				282D7FE9255A3B3500E9D873 /* HealthView.swift in Sources */,
+				28A01246255D8DF600E529E9 /* HeadwayDataModel.xcdatamodeld in Sources */,
+				28A01240255D8DA800E529E9 /* Persistence.swift in Sources */,
 				282D7FFB255A3C7A00E9D873 /* TodayView.swift in Sources */,
 				282D7FF1255A3B4700E9D873 /* JournalView.swift in Sources */,
 				282D7FB5255A3AA400E9D873 /* AppDelegate.swift in Sources */,
@@ -621,6 +637,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		28A01244255D8DF600E529E9 /* HeadwayDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				28A01245255D8DF600E529E9 /* HeadwayDataModel.xcdatamodel */,
+			);
+			currentVersion = 28A01245255D8DF600E529E9 /* HeadwayDataModel.xcdatamodel */;
+			path = HeadwayDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 282D7FA9255A3AA400E9D873 /* Project object */;
 }

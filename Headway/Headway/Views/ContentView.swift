@@ -15,32 +15,33 @@ enum ViewState {
 }
 
 struct ContentView: View {
-    @State private var viewState: ViewState = .today
+    @State private var viewState = 0
+    
     var body: some View {
         TabView {
             TodayView().tabItem {
                 Image(systemName: "calendar")
                 Text("Today")
             }
-            .tag(ViewState.today)
+            .tag(0)
             
             HealthView().tabItem {
                 Image(systemName: "rectangle.3.offgrid")
                 Text("Health")
             }
-            .tag(ViewState.health)
+            .tag(1)
             
             JournalView().tabItem {
                 Image(systemName: "square.and.pencil")
                 Text("Journal")
             }
-            .tag(ViewState.journal)
+            .tag(2)
             
             ProfileView().tabItem {
                 Image(systemName: "person")
                 Text("My Stats")
             }
-            .tag(ViewState.profile)
+            .tag(3)
         }
     }
 }

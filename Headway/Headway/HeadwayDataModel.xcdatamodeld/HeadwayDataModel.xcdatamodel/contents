@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BodyMeasurements" representedClassName="BodyMeasurements" syncable="YES" codeGenerationType="class">
+        <attribute name="bust" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hip" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="waist" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="bodyMeasurements" inverseEntity="HealthStats"/>
+    </entity>
+    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
+        <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="endDate" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="goals" inverseEntity="User"/>
+    </entity>
+    <entity name="HealthStats" representedClassName="HealthStats" syncable="YES" codeGenerationType="class">
+        <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="bodyMeasurements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BodyMeasurements" inverseName="userHealthStats" inverseEntity="BodyMeasurements"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="userHealthStats" inverseEntity="Image"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="healthStats" inverseEntity="User"/>
+        <relationship name="weightHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weight" inverseName="userHealthStats" inverseEntity="Weight"/>
+    </entity>
+    <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="images" inverseEntity="HealthStats"/>
+    </entity>
+    <entity name="Journal" representedClassName="Journal" syncable="YES" codeGenerationType="class">
+        <relationship name="journalEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntry" inverseName="journal" inverseEntity="JournalEntry"/>
+        <relationship name="moodEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MoodEntry" inverseName="journal" inverseEntity="MoodEntry"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="journal" inverseEntity="User"/>
+    </entity>
+    <entity name="JournalEntry" representedClassName="JournalEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="journal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="journalEntries" inverseEntity="Journal"/>
+    </entity>
+    <entity name="MoodEntry" representedClassName="MoodEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="mood" optional="YES" attributeType="Integer 32" minValueString="0" maxValueString="10" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="journal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="moodEntries" inverseEntity="Journal"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="dob" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="user" inverseEntity="Goal"/>
+        <relationship name="healthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="user" inverseEntity="HealthStats"/>
+        <relationship name="journal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="user" inverseEntity="Journal"/>
+    </entity>
+    <entity name="Weight" representedClassName="Weight" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="weightHistory" inverseEntity="HealthStats"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-106.421875" positionY="-258.2421875" width="128" height="28"/>
+        <element name="Goal" positionX="-240.9296875" positionY="65.08203125" width="128" height="28"/>
+        <element name="HealthStats" positionX="-18" positionY="45" width="128" height="28"/>
+        <element name="Weight" positionX="107.59375" positionY="178.1328125" width="128" height="28"/>
+        <element name="BodyMeasurements" positionX="4.37109375" positionY="273.484375" width="128" height="28"/>
+        <element name="Image" positionX="-9" positionY="171" width="128" height="28"/>
+        <element name="Journal" positionX="-63" positionY="117" width="128" height="28"/>
+        <element name="JournalEntry" positionX="-54" positionY="126" width="128" height="28"/>
+        <element name="MoodEntry" positionX="-45" positionY="135" width="128" height="28"/>
+    </elements>
+</model>
