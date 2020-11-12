@@ -14,10 +14,10 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for i in 0..<10 {
-            let newItem = ToDoItem(context: viewContext)
-            newItem.timestamp = Date()
-            newItem.title = "Do item \(i)"
-            
+            let newItem = User(context: viewContext)
+            newItem.dob = Date()
+            newItem.firstName = "John"
+            newItem.lastName = "Deere"
         }
         do {
             try viewContext.save()
@@ -33,7 +33,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "DoItNow")
+        container = NSPersistentContainer(name: "Headway")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

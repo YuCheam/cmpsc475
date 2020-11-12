@@ -58,14 +58,14 @@
         <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="weightHistory" inverseEntity="HealthStats"/>
     </entity>
     <elements>
-        <element name="User" positionX="-106.421875" positionY="-258.2421875" width="128" height="28"/>
-        <element name="Goal" positionX="-240.9296875" positionY="65.08203125" width="128" height="28"/>
-        <element name="HealthStats" positionX="-18" positionY="45" width="128" height="28"/>
-        <element name="Weight" positionX="107.59375" positionY="178.1328125" width="128" height="28"/>
-        <element name="BodyMeasurements" positionX="4.37109375" positionY="273.484375" width="128" height="28"/>
-        <element name="Image" positionX="-9" positionY="171" width="128" height="28"/>
-        <element name="Journal" positionX="-63" positionY="117" width="128" height="28"/>
-        <element name="JournalEntry" positionX="-54" positionY="126" width="128" height="28"/>
-        <element name="MoodEntry" positionX="-45" positionY="135" width="128" height="28"/>
+        <element name="BodyMeasurements" positionX="72.6953125" positionY="203.75" width="128" height="118"/>
+        <element name="Goal" positionX="-255.06640625" positionY="-162.8125" width="128" height="118"/>
+        <element name="HealthStats" positionX="193.41015625" positionY="-121.34375" width="128" height="118"/>
+        <element name="Image" positionX="230.88671875" positionY="197.26171875" width="128" height="103"/>
+        <element name="Journal" positionX="-100.6953125" positionY="-25.7421875" width="128" height="88"/>
+        <element name="JournalEntry" positionX="-268.00390625" positionY="154.65625" width="128" height="103"/>
+        <element name="MoodEntry" positionX="-80.94921875" positionY="330.07421875" width="128" height="103"/>
+        <element name="User" positionX="-51.92578125" positionY="-217.07421875" width="128" height="133"/>
+        <element name="Weight" positionX="433.546875" positionY="63.2109375" width="128" height="88"/>
     </elements>
 </model>

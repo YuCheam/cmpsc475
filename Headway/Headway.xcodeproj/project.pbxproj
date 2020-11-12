@@ -7,78 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		282D7FB5255A3AA400E9D873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FB4255A3AA400E9D873 /* AppDelegate.swift */; };
-		282D7FB7255A3AA400E9D873 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FB6255A3AA400E9D873 /* SceneDelegate.swift */; };
-		282D7FB9255A3AA400E9D873 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FB8255A3AA400E9D873 /* ContentView.swift */; };
-		282D7FBB255A3AA500E9D873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282D7FBA255A3AA500E9D873 /* Assets.xcassets */; };
-		282D7FBE255A3AA500E9D873 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282D7FBD255A3AA500E9D873 /* Preview Assets.xcassets */; };
-		282D7FC1255A3AA500E9D873 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282D7FBF255A3AA500E9D873 /* LaunchScreen.storyboard */; };
-		282D7FCC255A3AA500E9D873 /* HeadwayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FCB255A3AA500E9D873 /* HeadwayTests.swift */; };
-		282D7FD7255A3AA600E9D873 /* HeadwayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FD6255A3AA600E9D873 /* HeadwayUITests.swift */; };
-		282D7FE9255A3B3500E9D873 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FE8255A3B3500E9D873 /* HealthView.swift */; };
-		282D7FF1255A3B4700E9D873 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FF0255A3B4700E9D873 /* JournalView.swift */; };
-		282D7FF6255A3B5B00E9D873 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FF5255A3B5B00E9D873 /* ProfileView.swift */; };
-		282D7FFB255A3C7A00E9D873 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D7FFA255A3C7A00E9D873 /* TodayView.swift */; };
-		28A01240255D8DA800E529E9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0123F255D8DA800E529E9 /* Persistence.swift */; };
-		28A01246255D8DF600E529E9 /* HeadwayDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28A01244255D8DF600E529E9 /* HeadwayDataModel.xcdatamodeld */; };
+		28775000255D97E7003C1C25 /* HeadwayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28774FFF255D97E7003C1C25 /* HeadwayApp.swift */; };
+		28775004255D97EA003C1C25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28775003255D97EA003C1C25 /* Assets.xcassets */; };
+		28775007255D97EA003C1C25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28775006255D97EA003C1C25 /* Preview Assets.xcassets */; };
+		28775012255D97EA003C1C25 /* HeadwayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28775011255D97EA003C1C25 /* HeadwayTests.swift */; };
+		2877501D255D97EA003C1C25 /* HeadwayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877501C255D97EA003C1C25 /* HeadwayUITests.swift */; };
+		28775035255D9882003C1C25 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28775034255D9882003C1C25 /* Persistence.swift */; };
+		2877503F255D9964003C1C25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877503E255D9964003C1C25 /* ContentView.swift */; };
+		28775044255D996C003C1C25 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28775043255D996C003C1C25 /* HealthView.swift */; };
+		28775049255D9971003C1C25 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28775048255D9971003C1C25 /* JournalView.swift */; };
+		28775051255D9973003C1C25 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877504D255D9973003C1C25 /* ProfileView.swift */; };
+		28775056255D9975003C1C25 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28775055255D9975003C1C25 /* TodayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		282D7FC8255A3AA500E9D873 /* PBXContainerItemProxy */ = {
+		2877500E255D97EA003C1C25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 282D7FA9255A3AA400E9D873 /* Project object */;
+			containerPortal = 28774FF4255D97E7003C1C25 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 282D7FB0255A3AA400E9D873;
+			remoteGlobalIDString = 28774FFB255D97E7003C1C25;
 			remoteInfo = Headway;
 		};
-		282D7FD3255A3AA500E9D873 /* PBXContainerItemProxy */ = {
+		28775019255D97EA003C1C25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 282D7FA9255A3AA400E9D873 /* Project object */;
+			containerPortal = 28774FF4255D97E7003C1C25 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 282D7FB0255A3AA400E9D873;
+			remoteGlobalIDString = 28774FFB255D97E7003C1C25;
 			remoteInfo = Headway;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		282D7FB1255A3AA400E9D873 /* Headway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Headway.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		282D7FB4255A3AA400E9D873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		282D7FB6255A3AA400E9D873 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		282D7FB8255A3AA400E9D873 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		282D7FBA255A3AA500E9D873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		282D7FBD255A3AA500E9D873 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		282D7FC0255A3AA500E9D873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		282D7FC2255A3AA500E9D873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		282D7FC7255A3AA500E9D873 /* HeadwayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeadwayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		282D7FCB255A3AA500E9D873 /* HeadwayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadwayTests.swift; sourceTree = "<group>"; };
-		282D7FCD255A3AA500E9D873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		282D7FD2255A3AA500E9D873 /* HeadwayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeadwayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		282D7FD6255A3AA600E9D873 /* HeadwayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadwayUITests.swift; sourceTree = "<group>"; };
-		282D7FD8255A3AA600E9D873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		282D7FE8255A3B3500E9D873 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
-		282D7FF0255A3B4700E9D873 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
-		282D7FF5255A3B5B00E9D873 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		282D7FFA255A3C7A00E9D873 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
-		28A0123F255D8DA800E529E9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		28A01245255D8DF600E529E9 /* HeadwayDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HeadwayDataModel.xcdatamodel; sourceTree = "<group>"; };
+		28774FFC255D97E7003C1C25 /* Headway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Headway.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28774FFF255D97E7003C1C25 /* HeadwayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadwayApp.swift; sourceTree = "<group>"; };
+		28775003255D97EA003C1C25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28775006255D97EA003C1C25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		28775008255D97EA003C1C25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2877500D255D97EA003C1C25 /* HeadwayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeadwayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28775011255D97EA003C1C25 /* HeadwayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadwayTests.swift; sourceTree = "<group>"; };
+		28775013255D97EA003C1C25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28775018255D97EA003C1C25 /* HeadwayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeadwayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2877501C255D97EA003C1C25 /* HeadwayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadwayUITests.swift; sourceTree = "<group>"; };
+		2877501E255D97EB003C1C25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28775033255D986F003C1C25 /* HeadwayDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HeadwayDataModel.xcdatamodel; sourceTree = "<group>"; };
+		28775034255D9882003C1C25 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		2877503E255D9964003C1C25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		28775043255D996C003C1C25 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		28775048255D9971003C1C25 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		2877504D255D9973003C1C25 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		28775055255D9975003C1C25 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		282D7FAE255A3AA400E9D873 /* Frameworks */ = {
+		28774FF9255D97E7003C1C25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		282D7FC4255A3AA500E9D873 /* Frameworks */ = {
+		2877500A255D97EA003C1C25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		282D7FCF255A3AA500E9D873 /* Frameworks */ = {
+		28775015255D97EA003C1C25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -88,98 +83,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		282D7FA8255A3AA400E9D873 = {
+		28774FF3255D97E7003C1C25 = {
 			isa = PBXGroup;
 			children = (
-				282D7FB3255A3AA400E9D873 /* Headway */,
-				282D7FCA255A3AA500E9D873 /* HeadwayTests */,
-				282D7FD5255A3AA500E9D873 /* HeadwayUITests */,
-				282D7FB2255A3AA400E9D873 /* Products */,
+				28774FFE255D97E7003C1C25 /* Headway */,
+				28775010255D97EA003C1C25 /* HeadwayTests */,
+				2877501B255D97EA003C1C25 /* HeadwayUITests */,
+				28774FFD255D97E7003C1C25 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		282D7FB2255A3AA400E9D873 /* Products */ = {
+		28774FFD255D97E7003C1C25 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				282D7FB1255A3AA400E9D873 /* Headway.app */,
-				282D7FC7255A3AA500E9D873 /* HeadwayTests.xctest */,
-				282D7FD2255A3AA500E9D873 /* HeadwayUITests.xctest */,
+				28774FFC255D97E7003C1C25 /* Headway.app */,
+				2877500D255D97EA003C1C25 /* HeadwayTests.xctest */,
+				28775018255D97EA003C1C25 /* HeadwayUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		282D7FB3255A3AA400E9D873 /* Headway */ = {
+		28774FFE255D97E7003C1C25 /* Headway */ = {
 			isa = PBXGroup;
 			children = (
-				28A0123E255D8D8D00E529E9 /* Core Data */,
-				282D7FE7255A3AF400E9D873 /* Views */,
-				282D7FB4255A3AA400E9D873 /* AppDelegate.swift */,
-				282D7FB6255A3AA400E9D873 /* SceneDelegate.swift */,
-				282D7FBA255A3AA500E9D873 /* Assets.xcassets */,
-				282D7FBF255A3AA500E9D873 /* LaunchScreen.storyboard */,
-				282D7FC2255A3AA500E9D873 /* Info.plist */,
-				282D7FBC255A3AA500E9D873 /* Preview Content */,
+				28774FFF255D97E7003C1C25 /* HeadwayApp.swift */,
+				28775032255D986F003C1C25 /* Headway.xcdatamodeld */,
+				2877503E255D9964003C1C25 /* ContentView.swift */,
+				28775043255D996C003C1C25 /* HealthView.swift */,
+				28775048255D9971003C1C25 /* JournalView.swift */,
+				2877504D255D9973003C1C25 /* ProfileView.swift */,
+				28775055255D9975003C1C25 /* TodayView.swift */,
+				28775034255D9882003C1C25 /* Persistence.swift */,
+				28775003255D97EA003C1C25 /* Assets.xcassets */,
+				28775008255D97EA003C1C25 /* Info.plist */,
+				28775005255D97EA003C1C25 /* Preview Content */,
 			);
 			path = Headway;
 			sourceTree = "<group>";
 		};
-		282D7FBC255A3AA500E9D873 /* Preview Content */ = {
+		28775005255D97EA003C1C25 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				282D7FBD255A3AA500E9D873 /* Preview Assets.xcassets */,
+				28775006255D97EA003C1C25 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		282D7FCA255A3AA500E9D873 /* HeadwayTests */ = {
+		28775010255D97EA003C1C25 /* HeadwayTests */ = {
 			isa = PBXGroup;
 			children = (
-				282D7FCB255A3AA500E9D873 /* HeadwayTests.swift */,
-				282D7FCD255A3AA500E9D873 /* Info.plist */,
+				28775011255D97EA003C1C25 /* HeadwayTests.swift */,
+				28775013255D97EA003C1C25 /* Info.plist */,
 			);
 			path = HeadwayTests;
 			sourceTree = "<group>";
 		};
-		282D7FD5255A3AA500E9D873 /* HeadwayUITests */ = {
+		2877501B255D97EA003C1C25 /* HeadwayUITests */ = {
 			isa = PBXGroup;
 			children = (
-				282D7FD6255A3AA600E9D873 /* HeadwayUITests.swift */,
-				282D7FD8255A3AA600E9D873 /* Info.plist */,
+				2877501C255D97EA003C1C25 /* HeadwayUITests.swift */,
+				2877501E255D97EB003C1C25 /* Info.plist */,
 			);
 			path = HeadwayUITests;
-			sourceTree = "<group>";
-		};
-		282D7FE7255A3AF400E9D873 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				282D7FB8255A3AA400E9D873 /* ContentView.swift */,
-				282D7FE8255A3B3500E9D873 /* HealthView.swift */,
-				282D7FF0255A3B4700E9D873 /* JournalView.swift */,
-				282D7FF5255A3B5B00E9D873 /* ProfileView.swift */,
-				282D7FFA255A3C7A00E9D873 /* TodayView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		28A0123E255D8D8D00E529E9 /* Core Data */ = {
-			isa = PBXGroup;
-			children = (
-				28A0123F255D8DA800E529E9 /* Persistence.swift */,
-				28A01244255D8DF600E529E9 /* HeadwayDataModel.xcdatamodeld */,
-			);
-			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		282D7FB0255A3AA400E9D873 /* Headway */ = {
+		28774FFB255D97E7003C1C25 /* Headway */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 282D7FDB255A3AA600E9D873 /* Build configuration list for PBXNativeTarget "Headway" */;
+			buildConfigurationList = 28775021255D97EB003C1C25 /* Build configuration list for PBXNativeTarget "Headway" */;
 			buildPhases = (
-				282D7FAD255A3AA400E9D873 /* Sources */,
-				282D7FAE255A3AA400E9D873 /* Frameworks */,
-				282D7FAF255A3AA400E9D873 /* Resources */,
+				28774FF8255D97E7003C1C25 /* Sources */,
+				28774FF9255D97E7003C1C25 /* Frameworks */,
+				28774FFA255D97E7003C1C25 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -187,68 +164,68 @@
 			);
 			name = Headway;
 			productName = Headway;
-			productReference = 282D7FB1255A3AA400E9D873 /* Headway.app */;
+			productReference = 28774FFC255D97E7003C1C25 /* Headway.app */;
 			productType = "com.apple.product-type.application";
 		};
-		282D7FC6255A3AA500E9D873 /* HeadwayTests */ = {
+		2877500C255D97EA003C1C25 /* HeadwayTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 282D7FDE255A3AA600E9D873 /* Build configuration list for PBXNativeTarget "HeadwayTests" */;
+			buildConfigurationList = 28775024255D97EB003C1C25 /* Build configuration list for PBXNativeTarget "HeadwayTests" */;
 			buildPhases = (
-				282D7FC3255A3AA500E9D873 /* Sources */,
-				282D7FC4255A3AA500E9D873 /* Frameworks */,
-				282D7FC5255A3AA500E9D873 /* Resources */,
+				28775009255D97EA003C1C25 /* Sources */,
+				2877500A255D97EA003C1C25 /* Frameworks */,
+				2877500B255D97EA003C1C25 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				282D7FC9255A3AA500E9D873 /* PBXTargetDependency */,
+				2877500F255D97EA003C1C25 /* PBXTargetDependency */,
 			);
 			name = HeadwayTests;
 			productName = HeadwayTests;
-			productReference = 282D7FC7255A3AA500E9D873 /* HeadwayTests.xctest */;
+			productReference = 2877500D255D97EA003C1C25 /* HeadwayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		282D7FD1255A3AA500E9D873 /* HeadwayUITests */ = {
+		28775017255D97EA003C1C25 /* HeadwayUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 282D7FE1255A3AA600E9D873 /* Build configuration list for PBXNativeTarget "HeadwayUITests" */;
+			buildConfigurationList = 28775027255D97EB003C1C25 /* Build configuration list for PBXNativeTarget "HeadwayUITests" */;
 			buildPhases = (
-				282D7FCE255A3AA500E9D873 /* Sources */,
-				282D7FCF255A3AA500E9D873 /* Frameworks */,
-				282D7FD0255A3AA500E9D873 /* Resources */,
+				28775014255D97EA003C1C25 /* Sources */,
+				28775015255D97EA003C1C25 /* Frameworks */,
+				28775016255D97EA003C1C25 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				282D7FD4255A3AA500E9D873 /* PBXTargetDependency */,
+				2877501A255D97EA003C1C25 /* PBXTargetDependency */,
 			);
 			name = HeadwayUITests;
 			productName = HeadwayUITests;
-			productReference = 282D7FD2255A3AA500E9D873 /* HeadwayUITests.xctest */;
+			productReference = 28775018255D97EA003C1C25 /* HeadwayUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		282D7FA9255A3AA400E9D873 /* Project object */ = {
+		28774FF4255D97E7003C1C25 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					282D7FB0255A3AA400E9D873 = {
+					28774FFB255D97E7003C1C25 = {
 						CreatedOnToolsVersion = 12.0;
 					};
-					282D7FC6255A3AA500E9D873 = {
+					2877500C255D97EA003C1C25 = {
 						CreatedOnToolsVersion = 12.0;
-						TestTargetID = 282D7FB0255A3AA400E9D873;
+						TestTargetID = 28774FFB255D97E7003C1C25;
 					};
-					282D7FD1255A3AA500E9D873 = {
+					28775017255D97EA003C1C25 = {
 						CreatedOnToolsVersion = 12.0;
-						TestTargetID = 282D7FB0255A3AA400E9D873;
+						TestTargetID = 28774FFB255D97E7003C1C25;
 					};
 				};
 			};
-			buildConfigurationList = 282D7FAC255A3AA400E9D873 /* Build configuration list for PBXProject "Headway" */;
+			buildConfigurationList = 28774FF7255D97E7003C1C25 /* Build configuration list for PBXProject "Headway" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -256,37 +233,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 282D7FA8255A3AA400E9D873;
-			productRefGroup = 282D7FB2255A3AA400E9D873 /* Products */;
+			mainGroup = 28774FF3255D97E7003C1C25;
+			productRefGroup = 28774FFD255D97E7003C1C25 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				282D7FB0255A3AA400E9D873 /* Headway */,
-				282D7FC6255A3AA500E9D873 /* HeadwayTests */,
-				282D7FD1255A3AA500E9D873 /* HeadwayUITests */,
+				28774FFB255D97E7003C1C25 /* Headway */,
+				2877500C255D97EA003C1C25 /* HeadwayTests */,
+				28775017255D97EA003C1C25 /* HeadwayUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		282D7FAF255A3AA400E9D873 /* Resources */ = {
+		28774FFA255D97E7003C1C25 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				282D7FC1255A3AA500E9D873 /* LaunchScreen.storyboard in Resources */,
-				282D7FBE255A3AA500E9D873 /* Preview Assets.xcassets in Resources */,
-				282D7FBB255A3AA500E9D873 /* Assets.xcassets in Resources */,
+				28775007255D97EA003C1C25 /* Preview Assets.xcassets in Resources */,
+				28775004255D97EA003C1C25 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		282D7FC5255A3AA500E9D873 /* Resources */ = {
+		2877500B255D97EA003C1C25 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		282D7FD0255A3AA500E9D873 /* Resources */ = {
+		28775016255D97EA003C1C25 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -296,66 +272,53 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		282D7FAD255A3AA400E9D873 /* Sources */ = {
+		28774FF8255D97E7003C1C25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				282D7FE9255A3B3500E9D873 /* HealthView.swift in Sources */,
-				28A01246255D8DF600E529E9 /* HeadwayDataModel.xcdatamodeld in Sources */,
-				28A01240255D8DA800E529E9 /* Persistence.swift in Sources */,
-				282D7FFB255A3C7A00E9D873 /* TodayView.swift in Sources */,
-				282D7FF1255A3B4700E9D873 /* JournalView.swift in Sources */,
-				282D7FB5255A3AA400E9D873 /* AppDelegate.swift in Sources */,
-				282D7FB7255A3AA400E9D873 /* SceneDelegate.swift in Sources */,
-				282D7FF6255A3B5B00E9D873 /* ProfileView.swift in Sources */,
-				282D7FB9255A3AA400E9D873 /* ContentView.swift in Sources */,
+				28775044255D996C003C1C25 /* HealthView.swift in Sources */,
+				28775049255D9971003C1C25 /* JournalView.swift in Sources */,
+				28775000255D97E7003C1C25 /* HeadwayApp.swift in Sources */,
+				28775056255D9975003C1C25 /* TodayView.swift in Sources */,
+				28775035255D9882003C1C25 /* Persistence.swift in Sources */,
+				28775051255D9973003C1C25 /* ProfileView.swift in Sources */,
+				2877503F255D9964003C1C25 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		282D7FC3255A3AA500E9D873 /* Sources */ = {
+		28775009255D97EA003C1C25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				282D7FCC255A3AA500E9D873 /* HeadwayTests.swift in Sources */,
+				28775012255D97EA003C1C25 /* HeadwayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		282D7FCE255A3AA500E9D873 /* Sources */ = {
+		28775014255D97EA003C1C25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				282D7FD7255A3AA600E9D873 /* HeadwayUITests.swift in Sources */,
+				2877501D255D97EA003C1C25 /* HeadwayUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		282D7FC9255A3AA500E9D873 /* PBXTargetDependency */ = {
+		2877500F255D97EA003C1C25 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 282D7FB0255A3AA400E9D873 /* Headway */;
-			targetProxy = 282D7FC8255A3AA500E9D873 /* PBXContainerItemProxy */;
+			target = 28774FFB255D97E7003C1C25 /* Headway */;
+			targetProxy = 2877500E255D97EA003C1C25 /* PBXContainerItemProxy */;
 		};
-		282D7FD4255A3AA500E9D873 /* PBXTargetDependency */ = {
+		2877501A255D97EA003C1C25 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 282D7FB0255A3AA400E9D873 /* Headway */;
-			targetProxy = 282D7FD3255A3AA500E9D873 /* PBXContainerItemProxy */;
+			target = 28774FFB255D97E7003C1C25 /* Headway */;
+			targetProxy = 28775019255D97EA003C1C25 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		282D7FBF255A3AA500E9D873 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				282D7FC0255A3AA500E9D873 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		282D7FD9255A3AA600E9D873 /* Debug */ = {
+		2877501F255D97EB003C1C25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -416,7 +379,7 @@
 			};
 			name = Debug;
 		};
-		282D7FDA255A3AA600E9D873 /* Release */ = {
+		28775020255D97EB003C1C25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -471,7 +434,7 @@
 			};
 			name = Release;
 		};
-		282D7FDC255A3AA600E9D873 /* Debug */ = {
+		28775022255D97EB003C1C25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -481,6 +444,7 @@
 				DEVELOPMENT_TEAM = A477U5FS98;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Headway/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -492,7 +456,7 @@
 			};
 			name = Debug;
 		};
-		282D7FDD255A3AA600E9D873 /* Release */ = {
+		28775023255D97EB003C1C25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -502,6 +466,7 @@
 				DEVELOPMENT_TEAM = A477U5FS98;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Headway/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,7 +478,7 @@
 			};
 			name = Release;
 		};
-		282D7FDF255A3AA600E9D873 /* Debug */ = {
+		28775025255D97EB003C1C25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -535,7 +500,7 @@
 			};
 			name = Debug;
 		};
-		282D7FE0255A3AA600E9D873 /* Release */ = {
+		28775026255D97EB003C1C25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -557,7 +522,7 @@
 			};
 			name = Release;
 		};
-		282D7FE2255A3AA600E9D873 /* Debug */ = {
+		28775028255D97EB003C1C25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -577,7 +542,7 @@
 			};
 			name = Debug;
 		};
-		282D7FE3255A3AA600E9D873 /* Release */ = {
+		28775029255D97EB003C1C25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -600,38 +565,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		282D7FAC255A3AA400E9D873 /* Build configuration list for PBXProject "Headway" */ = {
+		28774FF7255D97E7003C1C25 /* Build configuration list for PBXProject "Headway" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				282D7FD9255A3AA600E9D873 /* Debug */,
-				282D7FDA255A3AA600E9D873 /* Release */,
+				2877501F255D97EB003C1C25 /* Debug */,
+				28775020255D97EB003C1C25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		282D7FDB255A3AA600E9D873 /* Build configuration list for PBXNativeTarget "Headway" */ = {
+		28775021255D97EB003C1C25 /* Build configuration list for PBXNativeTarget "Headway" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				282D7FDC255A3AA600E9D873 /* Debug */,
-				282D7FDD255A3AA600E9D873 /* Release */,
+				28775022255D97EB003C1C25 /* Debug */,
+				28775023255D97EB003C1C25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		282D7FDE255A3AA600E9D873 /* Build configuration list for PBXNativeTarget "HeadwayTests" */ = {
+		28775024255D97EB003C1C25 /* Build configuration list for PBXNativeTarget "HeadwayTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				282D7FDF255A3AA600E9D873 /* Debug */,
-				282D7FE0255A3AA600E9D873 /* Release */,
+				28775025255D97EB003C1C25 /* Debug */,
+				28775026255D97EB003C1C25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		282D7FE1255A3AA600E9D873 /* Build configuration list for PBXNativeTarget "HeadwayUITests" */ = {
+		28775027255D97EB003C1C25 /* Build configuration list for PBXNativeTarget "HeadwayUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				282D7FE2255A3AA600E9D873 /* Debug */,
-				282D7FE3255A3AA600E9D873 /* Release */,
+				28775028255D97EB003C1C25 /* Debug */,
+				28775029255D97EB003C1C25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -639,17 +604,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		28A01244255D8DF600E529E9 /* HeadwayDataModel.xcdatamodeld */ = {
+		28775032255D986F003C1C25 /* Headway.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				28A01245255D8DF600E529E9 /* HeadwayDataModel.xcdatamodel */,
+				28775033255D986F003C1C25 /* HeadwayDataModel.xcdatamodel */,
 			);
-			currentVersion = 28A01245255D8DF600E529E9 /* HeadwayDataModel.xcdatamodel */;
-			path = HeadwayDataModel.xcdatamodeld;
+			currentVersion = 28775033255D986F003C1C25 /* HeadwayDataModel.xcdatamodel */;
+			path = Headway.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 282D7FA9255A3AA400E9D873 /* Project object */;
+	rootObject = 28774FF4255D97E7003C1C25 /* Project object */;
 }
