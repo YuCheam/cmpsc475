@@ -1,8 +1,8 @@
 //
 //  JournalView.swift
-//  Headway
+//  Fitspace
 //
-//  Created by Kha-Yu Cheam on 11/9/20.
+//  Created by Kha-Yu Cheam on 11/12/20.
 //
 
 import SwiftUI

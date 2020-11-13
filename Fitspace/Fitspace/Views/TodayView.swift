@@ -1,8 +1,8 @@
 //
-//  HomeView.swift
-//  Headway
+//  TodayView.swift
+//  Fitspace
 //
-//  Created by Kha-Yu Cheam on 11/9/20.
+//  Created by Kha-Yu Cheam on 11/12/20.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct TodayView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct TodayView_Previews: PreviewProvider {
     static var previews: some View {
         TodayView()
     }

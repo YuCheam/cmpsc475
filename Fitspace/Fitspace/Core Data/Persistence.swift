@@ -1,6 +1,6 @@
 //
 //  Persistence.swift
-//  Headway
+//  Fitspace
 //
 //  Created by Kha-Yu Cheam on 11/12/20.
 //
@@ -13,11 +13,11 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for i in 0..<10 {
-            let newItem = User(context: viewContext)
-            newItem.dob = Date()
+        for _ in 0..<10 {
+            let newItem = User()
             newItem.firstName = "John"
-            newItem.lastName = "Deere"
+            newItem.lastName = "Doe"
+            newItem.dob = Date()
         }
         do {
             try viewContext.save()
@@ -33,7 +33,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "Headway")
+        container = NSPersistentContainer(name: "Fitspace")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

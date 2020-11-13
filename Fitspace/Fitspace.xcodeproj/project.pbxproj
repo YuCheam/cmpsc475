@@ -1,0 +1,638 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19709255DBE2600C06703 /* FitspaceApp.swift */; };
+		28B1970C255DBE2600C06703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1970B255DBE2600C06703 /* ContentView.swift */; };
+		28B1970E255DBE2900C06703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B1970D255DBE2900C06703 /* Assets.xcassets */; };
+		28B19711255DBE2900C06703 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B19710255DBE2900C06703 /* Preview Assets.xcassets */; };
+		28B1971C255DBE2900C06703 /* FitspaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1971B255DBE2900C06703 /* FitspaceTests.swift */; };
+		28B19727255DBE2900C06703 /* FitspaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19726255DBE2900C06703 /* FitspaceUITests.swift */; };
+		28B19739255DBE5A00C06703 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19738255DBE5A00C06703 /* HealthView.swift */; };
+		28B19742255DBE7700C06703 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19741255DBE7700C06703 /* JournalView.swift */; };
+		28B1974A255DBE9700C06703 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19749255DBE9700C06703 /* ProfileView.swift */; };
+		28B1974F255DBEAD00C06703 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1974E255DBEAD00C06703 /* TodayView.swift */; };
+		28B19756255DBEF800C06703 /* Fitspace.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28B19754255DBEF800C06703 /* Fitspace.xcdatamodeld */; };
+		28B1975B255E29CC00C06703 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1975A255E29CC00C06703 /* Persistence.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28B19718255DBE2900C06703 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28B196FE255DBE2600C06703 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28B19705255DBE2600C06703;
+			remoteInfo = Fitspace;
+		};
+		28B19723255DBE2900C06703 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28B196FE255DBE2600C06703 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28B19705255DBE2600C06703;
+			remoteInfo = Fitspace;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		28B19706255DBE2600C06703 /* Fitspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B19709255DBE2600C06703 /* FitspaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitspaceApp.swift; sourceTree = "<group>"; };
+		28B1970B255DBE2600C06703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		28B1970D255DBE2900C06703 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28B19710255DBE2900C06703 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		28B19712255DBE2900C06703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28B19717255DBE2900C06703 /* FitspaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitspaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B1971B255DBE2900C06703 /* FitspaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitspaceTests.swift; sourceTree = "<group>"; };
+		28B1971D255DBE2900C06703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28B19722255DBE2900C06703 /* FitspaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitspaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B19726255DBE2900C06703 /* FitspaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitspaceUITests.swift; sourceTree = "<group>"; };
+		28B19728255DBE2900C06703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28B19738255DBE5A00C06703 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		28B19741255DBE7700C06703 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		28B19749255DBE9700C06703 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		28B1974E255DBEAD00C06703 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		28B19755255DBEF800C06703 /* Fitspace.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fitspace.xcdatamodel; sourceTree = "<group>"; };
+		28B1975A255E29CC00C06703 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28B19703255DBE2600C06703 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B19714255DBE2900C06703 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B1971F255DBE2900C06703 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28B196FD255DBE2600C06703 = {
+			isa = PBXGroup;
+			children = (
+				28B19708255DBE2600C06703 /* Fitspace */,
+				28B1971A255DBE2900C06703 /* FitspaceTests */,
+				28B19725255DBE2900C06703 /* FitspaceUITests */,
+				28B19707255DBE2600C06703 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28B19707255DBE2600C06703 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28B19706255DBE2600C06703 /* Fitspace.app */,
+				28B19717255DBE2900C06703 /* FitspaceTests.xctest */,
+				28B19722255DBE2900C06703 /* FitspaceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28B19708255DBE2600C06703 /* Fitspace */ = {
+			isa = PBXGroup;
+			children = (
+				28B19753255DBEE000C06703 /* Core Data */,
+				28B19737255DBE4600C06703 /* Views */,
+				28B19709255DBE2600C06703 /* FitspaceApp.swift */,
+				28B1970D255DBE2900C06703 /* Assets.xcassets */,
+				28B19712255DBE2900C06703 /* Info.plist */,
+				28B1970F255DBE2900C06703 /* Preview Content */,
+			);
+			path = Fitspace;
+			sourceTree = "<group>";
+		};
+		28B1970F255DBE2900C06703 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				28B19710255DBE2900C06703 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		28B1971A255DBE2900C06703 /* FitspaceTests */ = {
+			isa = PBXGroup;
+			children = (
+				28B1971B255DBE2900C06703 /* FitspaceTests.swift */,
+				28B1971D255DBE2900C06703 /* Info.plist */,
+			);
+			path = FitspaceTests;
+			sourceTree = "<group>";
+		};
+		28B19725255DBE2900C06703 /* FitspaceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				28B19726255DBE2900C06703 /* FitspaceUITests.swift */,
+				28B19728255DBE2900C06703 /* Info.plist */,
+			);
+			path = FitspaceUITests;
+			sourceTree = "<group>";
+		};
+		28B19737255DBE4600C06703 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28B19738255DBE5A00C06703 /* HealthView.swift */,
+				28B19741255DBE7700C06703 /* JournalView.swift */,
+				28B19749255DBE9700C06703 /* ProfileView.swift */,
+				28B1974E255DBEAD00C06703 /* TodayView.swift */,
+				28B1970B255DBE2600C06703 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		28B19753255DBEE000C06703 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				28B19754255DBEF800C06703 /* Fitspace.xcdatamodeld */,
+				28B1975A255E29CC00C06703 /* Persistence.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28B19705255DBE2600C06703 /* Fitspace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28B1972B255DBE2900C06703 /* Build configuration list for PBXNativeTarget "Fitspace" */;
+			buildPhases = (
+				28B19702255DBE2600C06703 /* Sources */,
+				28B19703255DBE2600C06703 /* Frameworks */,
+				28B19704255DBE2600C06703 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fitspace;
+			productName = Fitspace;
+			productReference = 28B19706255DBE2600C06703 /* Fitspace.app */;
+			productType = "com.apple.product-type.application";
+		};
+		28B19716255DBE2900C06703 /* FitspaceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28B1972E255DBE2900C06703 /* Build configuration list for PBXNativeTarget "FitspaceTests" */;
+			buildPhases = (
+				28B19713255DBE2900C06703 /* Sources */,
+				28B19714255DBE2900C06703 /* Frameworks */,
+				28B19715255DBE2900C06703 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28B19719255DBE2900C06703 /* PBXTargetDependency */,
+			);
+			name = FitspaceTests;
+			productName = FitspaceTests;
+			productReference = 28B19717255DBE2900C06703 /* FitspaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		28B19721255DBE2900C06703 /* FitspaceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28B19731255DBE2900C06703 /* Build configuration list for PBXNativeTarget "FitspaceUITests" */;
+			buildPhases = (
+				28B1971E255DBE2900C06703 /* Sources */,
+				28B1971F255DBE2900C06703 /* Frameworks */,
+				28B19720255DBE2900C06703 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28B19724255DBE2900C06703 /* PBXTargetDependency */,
+			);
+			name = FitspaceUITests;
+			productName = FitspaceUITests;
+			productReference = 28B19722255DBE2900C06703 /* FitspaceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28B196FE255DBE2600C06703 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					28B19705255DBE2600C06703 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					28B19716255DBE2900C06703 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 28B19705255DBE2600C06703;
+					};
+					28B19721255DBE2900C06703 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 28B19705255DBE2600C06703;
+					};
+				};
+			};
+			buildConfigurationList = 28B19701255DBE2600C06703 /* Build configuration list for PBXProject "Fitspace" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 28B196FD255DBE2600C06703;
+			productRefGroup = 28B19707255DBE2600C06703 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28B19705255DBE2600C06703 /* Fitspace */,
+				28B19716255DBE2900C06703 /* FitspaceTests */,
+				28B19721255DBE2900C06703 /* FitspaceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28B19704255DBE2600C06703 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28B19711255DBE2900C06703 /* Preview Assets.xcassets in Resources */,
+				28B1970E255DBE2900C06703 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B19715255DBE2900C06703 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B19720255DBE2900C06703 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28B19702255DBE2600C06703 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28B19739255DBE5A00C06703 /* HealthView.swift in Sources */,
+				28B1975B255E29CC00C06703 /* Persistence.swift in Sources */,
+				28B1970C255DBE2600C06703 /* ContentView.swift in Sources */,
+				28B1974A255DBE9700C06703 /* ProfileView.swift in Sources */,
+				28B19756255DBEF800C06703 /* Fitspace.xcdatamodeld in Sources */,
+				28B19742255DBE7700C06703 /* JournalView.swift in Sources */,
+				28B1974F255DBEAD00C06703 /* TodayView.swift in Sources */,
+				28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B19713255DBE2900C06703 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28B1971C255DBE2900C06703 /* FitspaceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B1971E255DBE2900C06703 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28B19727255DBE2900C06703 /* FitspaceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28B19719255DBE2900C06703 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28B19705255DBE2600C06703 /* Fitspace */;
+			targetProxy = 28B19718255DBE2900C06703 /* PBXContainerItemProxy */;
+		};
+		28B19724255DBE2900C06703 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28B19705255DBE2600C06703 /* Fitspace */;
+			targetProxy = 28B19723255DBE2900C06703 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		28B19729255DBE2900C06703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		28B1972A255DBE2900C06703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		28B1972C255DBE2900C06703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Fitspace/Preview Content\"";
+				DEVELOPMENT_TEAM = A477U5FS98;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Fitspace/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.cse.kac6294.Fitspace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28B1972D255DBE2900C06703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Fitspace/Preview Content\"";
+				DEVELOPMENT_TEAM = A477U5FS98;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Fitspace/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.cse.kac6294.Fitspace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		28B1972F255DBE2900C06703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A477U5FS98;
+				INFOPLIST_FILE = FitspaceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.cse.kac6294.FitspaceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fitspace.app/Fitspace";
+			};
+			name = Debug;
+		};
+		28B19730255DBE2900C06703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A477U5FS98;
+				INFOPLIST_FILE = FitspaceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.cse.kac6294.FitspaceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fitspace.app/Fitspace";
+			};
+			name = Release;
+		};
+		28B19732255DBE2900C06703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A477U5FS98;
+				INFOPLIST_FILE = FitspaceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.cse.kac6294.FitspaceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fitspace;
+			};
+			name = Debug;
+		};
+		28B19733255DBE2900C06703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A477U5FS98;
+				INFOPLIST_FILE = FitspaceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.cse.kac6294.FitspaceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fitspace;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28B19701255DBE2600C06703 /* Build configuration list for PBXProject "Fitspace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28B19729255DBE2900C06703 /* Debug */,
+				28B1972A255DBE2900C06703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28B1972B255DBE2900C06703 /* Build configuration list for PBXNativeTarget "Fitspace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28B1972C255DBE2900C06703 /* Debug */,
+				28B1972D255DBE2900C06703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28B1972E255DBE2900C06703 /* Build configuration list for PBXNativeTarget "FitspaceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28B1972F255DBE2900C06703 /* Debug */,
+				28B19730255DBE2900C06703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28B19731255DBE2900C06703 /* Build configuration list for PBXNativeTarget "FitspaceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28B19732255DBE2900C06703 /* Debug */,
+				28B19733255DBE2900C06703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		28B19754255DBEF800C06703 /* Fitspace.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				28B19755255DBEF800C06703 /* Fitspace.xcdatamodel */,
+			);
+			currentVersion = 28B19755255DBEF800C06703 /* Fitspace.xcdatamodel */;
+			path = Fitspace.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 28B196FE255DBE2600C06703 /* Project object */;
+}

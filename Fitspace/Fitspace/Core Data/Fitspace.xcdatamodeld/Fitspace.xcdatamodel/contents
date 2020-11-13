@@ -9,7 +9,7 @@
     </entity>
     <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
         <attribute name="details" optional="YES" attributeType="String"/>
-        <attribute name="endDate" optional="YES" attributeType="String"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="goals" inverseEntity="User"/>
@@ -18,7 +18,6 @@
         <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="bodyMeasurements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BodyMeasurements" inverseName="userHealthStats" inverseEntity="BodyMeasurements"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="userHealthStats" inverseEntity="Image"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="healthStats" inverseEntity="User"/>
         <relationship name="weightHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weight" inverseName="userHealthStats" inverseEntity="Weight"/>
     </entity>
     <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
@@ -29,8 +28,7 @@
     </entity>
     <entity name="Journal" representedClassName="Journal" syncable="YES" codeGenerationType="class">
         <relationship name="journalEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntry" inverseName="journal" inverseEntity="JournalEntry"/>
-        <relationship name="moodEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MoodEntry" inverseName="journal" inverseEntity="MoodEntry"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="journal" inverseEntity="User"/>
+        <relationship name="moodEntries" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoodEntry" inverseName="journal" inverseEntity="MoodEntry"/>
     </entity>
     <entity name="JournalEntry" representedClassName="JournalEntry" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -41,7 +39,7 @@
     <entity name="MoodEntry" representedClassName="MoodEntry" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="details" optional="YES" attributeType="String"/>
-        <attribute name="mood" optional="YES" attributeType="Integer 32" minValueString="0" maxValueString="10" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mood" optional="YES" attributeType="String"/>
         <relationship name="journal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="moodEntries" inverseEntity="Journal"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
@@ -49,23 +47,21 @@
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
         <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="user" inverseEntity="Goal"/>
-        <relationship name="healthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="user" inverseEntity="HealthStats"/>
-        <relationship name="journal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="user" inverseEntity="Journal"/>
     </entity>
     <entity name="Weight" representedClassName="Weight" syncable="YES" codeGenerationType="class">
-        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="weightHistory" inverseEntity="HealthStats"/>
     </entity>
     <elements>
-        <element name="BodyMeasurements" positionX="72.6953125" positionY="203.75" width="128" height="118"/>
-        <element name="Goal" positionX="-255.06640625" positionY="-162.8125" width="128" height="118"/>
-        <element name="HealthStats" positionX="193.41015625" positionY="-121.34375" width="128" height="118"/>
-        <element name="Image" positionX="230.88671875" positionY="197.26171875" width="128" height="103"/>
-        <element name="Journal" positionX="-100.6953125" positionY="-25.7421875" width="128" height="88"/>
-        <element name="JournalEntry" positionX="-268.00390625" positionY="154.65625" width="128" height="103"/>
-        <element name="MoodEntry" positionX="-80.94921875" positionY="330.07421875" width="128" height="103"/>
-        <element name="User" positionX="-51.92578125" positionY="-217.07421875" width="128" height="133"/>
-        <element name="Weight" positionX="433.546875" positionY="63.2109375" width="128" height="88"/>
+        <element name="User" positionX="-36" positionY="9" width="128" height="103"/>
+        <element name="HealthStats" positionX="0" positionY="72" width="128" height="103"/>
+        <element name="BodyMeasurements" positionX="27" positionY="90" width="128" height="118"/>
+        <element name="Goal" positionX="54" positionY="153" width="128" height="118"/>
+        <element name="Image" positionX="9" positionY="126" width="128" height="103"/>
+        <element name="Journal" positionX="18" positionY="135" width="128" height="73"/>
+        <element name="JournalEntry" positionX="27" positionY="144" width="128" height="103"/>
+        <element name="MoodEntry" positionX="36" positionY="153" width="128" height="103"/>
+        <element name="Weight" positionX="45" positionY="162" width="128" height="88"/>
     </elements>
 </model>

@@ -1,13 +1,13 @@
 //
-//  HeadwayUITests.swift
-//  HeadwayUITests
+//  FitspaceUITests.swift
+//  FitspaceUITests
 //
 //  Created by Kha-Yu Cheam on 11/12/20.
 //
 
 import XCTest
 
-class HeadwayUITests: XCTestCase {
+class FitspaceUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
