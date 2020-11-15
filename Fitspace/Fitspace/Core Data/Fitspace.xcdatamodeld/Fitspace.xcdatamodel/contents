@@ -17,14 +17,8 @@
     <entity name="HealthStats" representedClassName="HealthStats" syncable="YES" codeGenerationType="class">
         <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="bodyMeasurements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BodyMeasurements" inverseName="userHealthStats" inverseEntity="BodyMeasurements"/>
-        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="userHealthStats" inverseEntity="Image"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProgressPic" inverseName="userHealthStats" inverseEntity="ProgressPic"/>
         <relationship name="weightHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weight" inverseName="userHealthStats" inverseEntity="Weight"/>
-    </entity>
-    <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
-        <attribute name="category" optional="YES" attributeType="String"/>
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="imageName" optional="YES" attributeType="String"/>
-        <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="images" inverseEntity="HealthStats"/>
     </entity>
     <entity name="Journal" representedClassName="Journal" syncable="YES" codeGenerationType="class">
         <relationship name="journalEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntry" inverseName="journal" inverseEntity="JournalEntry"/>
@@ -42,10 +36,17 @@
         <attribute name="mood" optional="YES" attributeType="String"/>
         <relationship name="journal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="moodEntries" inverseEntity="Journal"/>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+    <entity name="ProgressPic" representedClassName="ProgressPic" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="images" inverseEntity="HealthStats"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="dob" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="profileImage" optional="YES" attributeType="String"/>
         <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="user" inverseEntity="Goal"/>
     </entity>
     <entity name="Weight" representedClassName="Weight" syncable="YES" codeGenerationType="class">
@@ -54,14 +55,14 @@
         <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="weightHistory" inverseEntity="HealthStats"/>
     </entity>
     <elements>
-        <element name="User" positionX="-36" positionY="9" width="128" height="103"/>
-        <element name="HealthStats" positionX="0" positionY="72" width="128" height="103"/>
         <element name="BodyMeasurements" positionX="27" positionY="90" width="128" height="118"/>
         <element name="Goal" positionX="54" positionY="153" width="128" height="118"/>
-        <element name="Image" positionX="9" positionY="126" width="128" height="103"/>
+        <element name="HealthStats" positionX="0" positionY="72" width="128" height="103"/>
+        <element name="ProgressPic" positionX="9" positionY="126" width="128" height="103"/>
         <element name="Journal" positionX="18" positionY="135" width="128" height="73"/>
         <element name="JournalEntry" positionX="27" positionY="144" width="128" height="103"/>
         <element name="MoodEntry" positionX="36" positionY="153" width="128" height="103"/>
+        <element name="User" positionX="-36" positionY="9" width="128" height="118"/>
         <element name="Weight" positionX="45" positionY="162" width="128" height="88"/>
     </elements>
 </model>
