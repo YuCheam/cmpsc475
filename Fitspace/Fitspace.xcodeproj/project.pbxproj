@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28473CAF2561B928005EE586 /* GoalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28473CAE2561B928005EE586 /* GoalComponent.swift */; };
+		28473CB82561BD4F005EE586 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28473CB72561BD4F005EE586 /* Color+Extension.swift */; };
 		28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19709255DBE2600C06703 /* FitspaceApp.swift */; };
 		28B1970C255DBE2600C06703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1970B255DBE2600C06703 /* ContentView.swift */; };
 		28B1970E255DBE2900C06703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B1970D255DBE2900C06703 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		28473CAE2561B928005EE586 /* GoalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalComponent.swift; sourceTree = "<group>"; };
+		28473CB72561BD4F005EE586 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		28B19706255DBE2600C06703 /* Fitspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B19709255DBE2600C06703 /* FitspaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitspaceApp.swift; sourceTree = "<group>"; };
 		28B1970B255DBE2600C06703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				28B19760255F326500C06703 /* UserManager.swift */,
+				28473CB72561BD4F005EE586 /* Color+Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				28B19742255DBE7700C06703 /* JournalView.swift in Sources */,
 				28B1974F255DBEAD00C06703 /* TodayView.swift in Sources */,
 				28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */,
+				28473CB82561BD4F005EE586 /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

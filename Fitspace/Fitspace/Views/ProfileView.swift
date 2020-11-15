@@ -23,7 +23,7 @@ struct ProfileView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 164, height: 164)
                         
-                        VStack {
+                        VStack(alignment: .leading) {
                             Text("First Name")
                             Text("Last Name")
                             Text("Weight: 135")
@@ -34,8 +34,9 @@ struct ProfileView: View {
                     }.background(Color.gray)
                     
                     VStack {
-                        GoalComponent(title: $goalTitle , text: $goalText)
-                    }
+//                        GoalComponent(title: $goalTitle , text: $goalText)
+                        GoalComponent()
+                    }.padding()
                     
                     Spacer()
                 }
