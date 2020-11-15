@@ -10,10 +10,19 @@ import SwiftUI
 @main
 struct FitspaceApp: App {
     let persistanceController = PersistenceController.shared
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environment(\.managedObjectContext, persistanceController.container.viewContext)
+            ContentView()
+                .environment(\.managedObjectContext, persistanceController.container.viewContext)
+        }.onChange(of: scenePhase){ phase in
+            switch phase {
+            case .inactive:
+                try? persistanceController.container.viewContext.save()
+            default:
+                break
+            }
         }
     }
 }

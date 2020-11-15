@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @AppStorage("needsUserCreation") private var needsUserCreation: Bool = true
+    
     var body: some View {
-        ZStack {
-            Color.offWhite
-            
+        if !needsUserCreation {
             TabView {
                 TodayView().tabItem{
                         Label("Today", systemImage: "calendar")
@@ -30,8 +31,11 @@ struct ContentView: View {
                     Label("My Stats", systemImage: "person")
                 }
             }
-        }.edgesIgnoringSafeArea(.all)
+        } else {
+            Onboarding()
+        }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
