@@ -1,5 +1,5 @@
 //
-//  User+CoreDataClass.swift
+//  JournalEntry+CoreDataClass.swift
 //  Fitspace
 //
 //  Created by Kha-Yu Cheam on 11/21/20.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(User)
-public class User: NSManagedObject {
+@objc(JournalEntry)
+public class JournalEntry: NSManagedObject {
 
 }

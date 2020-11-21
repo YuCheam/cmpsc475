@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct TodayView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @Binding var needsUserCreation: Bool
+    
+    @FetchRequest(entity: User.entity(), sortDescriptors: [])
+    var user: FetchedResults<User>
+    
     var body: some View {
-        Text("Today View")
+        Button("delete user"){
+            viewContext.delete(user[0])
+            try? viewContext.save()
+            
+            needsUserCreation = true
+        }
     }
 }
 
-struct TodayView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodayView()
-    }
-}
+//struct TodayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TodayView()
+//    }
+//}

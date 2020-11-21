@@ -12,6 +12,9 @@ struct ProfileView: View {
     @State var goalTitle = "Goal Title"
     @State var goalText = "text;lkajd dkei some more text and and"
     
+    @FetchRequest(entity: User.entity(), sortDescriptors: [])
+    var user: FetchedResults<User>
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -23,11 +26,15 @@ struct ProfileView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 164, height: 164)
                         
-                        VStack(alignment: .leading) {
-                            Text("First Name")
-                            Text("Last Name")
-                            Text("Weight: 135")
-                            Text("Height: 5'5''")
+                        //TODO: Remove once done with account deletion
+                        if user.count != 0 {
+                            let weight = Array(user[0].healthStats.weightHistory)[0]
+                            VStack(alignment: .leading) {
+                                Text("\(user[0].firstName)")
+                                Text("\(user[0].lastName)")
+                                Text("\(weight.amount)")
+                                Text("\(user[0].healthStats.heightFormatted)")
+                            }
                         }
                         
                         Spacer()

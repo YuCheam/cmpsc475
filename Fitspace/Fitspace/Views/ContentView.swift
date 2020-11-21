@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         if !needsUserCreation {
             TabView {
-                TodayView().tabItem{
+                TodayView(needsUserCreation: $needsUserCreation).tabItem{
                         Label("Today", systemImage: "calendar")
                     }
                     .tag(0)
@@ -33,6 +33,8 @@ struct ContentView: View {
             }
         } else {
             Onboarding()
+                .edgesIgnoringSafeArea(.all)
+                .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.primaryLight]), startPoint: .top, endPoint: .bottom))
         }
     }
     

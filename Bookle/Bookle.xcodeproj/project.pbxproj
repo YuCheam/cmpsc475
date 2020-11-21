@@ -11,7 +11,7 @@
 		28240A2B254A6C3B00A31140 /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28240A27254A6C3B00A31140 /* NoteMO+CoreDataProperties.swift */; };
 		28240A2C254A6C3B00A31140 /* BookMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28240A28254A6C3B00A31140 /* BookMO+CoreDataClass.swift */; };
 		28240A2D254A6C3B00A31140 /* BookMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28240A29254A6C3B00A31140 /* BookMO+CoreDataProperties.swift */; };
-		28279BB7254BA67700ED32C1 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28279BB6254BA67700ED32C1 /* AddNoteView.swift */; };
+		28279BB7254BA67700ED32C1 /*  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 28279BB6254BA67700ED32C1 /*  .swift */; };
 		28435F5125485F0100930118 /* Bookle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28435F4F25485F0100930118 /* Bookle.xcdatamodeld */; };
 		28435F57254861D700930118 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28435F56254861D700930118 /* Persistance.swift */; };
 		28BFBA212542797900B26342 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFBA202542797900B26342 /* GridView.swift */; };
@@ -56,7 +56,7 @@
 		28240A27254A6C3B00A31140 /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		28240A28254A6C3B00A31140 /* BookMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		28240A29254A6C3B00A31140 /* BookMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		28279BB6254BA67700ED32C1 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		28279BB6254BA67700ED32C1 /*  .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " .swift"; sourceTree = "<group>"; };
 		28435F5025485F0100930118 /* Bookle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bookle.xcdatamodel; sourceTree = "<group>"; };
 		28435F56254861D700930118 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		28BFBA202542797900B26342 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 				28EB6A532543726300DBFEDB /* BookDetailView.swift */,
 				28EB6A58254372B300DBFEDB /* BookNotesView.swift */,
 				28EB6A6E2544532000DBFEDB /* NoteView.swift */,
-				28279BB6254BA67700ED32C1 /* AddNoteView.swift */,
+				28279BB6254BA67700ED32C1 /*  .swift */,
 			);
 			path = BookView;
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 				28EB6A59254372B300DBFEDB /* BookNotesView.swift in Sources */,
 				28EB6A612543856500DBFEDB /* Note.swift in Sources */,
 				28240A2C254A6C3B00A31140 /* BookMO+CoreDataClass.swift in Sources */,
-				28279BB7254BA67700ED32C1 /* AddNoteView.swift in Sources */,
+				28279BB7254BA67700ED32C1 /*  .swift in Sources */,
 				28240A2A254A6C3B00A31140 /* NoteMO+CoreDataClass.swift in Sources */,
 				28D9AA2C253E84D0006D723E /* ShelfModel.swift in Sources */,
 				28BFBA212542797900B26342 /* GridView.swift in Sources */,

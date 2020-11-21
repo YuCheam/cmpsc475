@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Fitspace
 //
-//  Created by Kha-Yu Cheam on 11/13/20.
+//  Created by Kha-Yu Cheam on 11/21/20.
 //
 //
 
@@ -16,11 +16,13 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var dob: Date?
-    @NSManaged public var firstName: String?
-    @NSManaged public var lastName: String?
+    @NSManaged public var dob: Date
+    @NSManaged public var firstName: String
+    @NSManaged public var lastName: String
     @NSManaged public var profileImage: String?
-    @NSManaged public var goals: Set<Goal>
+    @NSManaged public var goals: Set<Goal>?
+    @NSManaged public var healthStats: HealthStats
+    @NSManaged public var journal: Journal?
 
 }
 
