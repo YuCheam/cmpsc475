@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct GoalComponent: View {
-//    @Binding var title: String
-//    @Binding var text: String
+    var user: User
     
     var title: String = "Goal Title"
     var text: String = "Text text text text text text text"
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -23,7 +23,7 @@ struct GoalComponent: View {
             Spacer()
         }
         .padding(10)
-        .background(LinearGradient(gradient: Gradient(colors: [Color.gray, Color.blue]), startPoint: .leading, endPoint: .trailing))
+        .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.primaryLight]), startPoint: .top, endPoint: .bottom))
         .cornerRadius(12)
         .lineLimit(6)
         .font(.footnote)
@@ -31,8 +31,8 @@ struct GoalComponent: View {
     }
 }
 
-struct GoalComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        GoalComponent()
-    }
-}
+//struct GoalComponent_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GoalComponent()
+//    }
+//}

@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct ProfileView: View {
-    var profileImage = "emma_watson"
+    @Environment(\.managedObjectContext) private var viewContext
+    @AppStorage("needsUserCreation") private var needsUserCreation: Bool = true
+//    @Binding var needsUserCreation: Bool 
     @State var goalTitle = "Goal Title"
     @State var goalText = "text;lkajd dkei some more text and and"
     @State var showEditMenu = false
+    
+    //TODO: Add custom profile picture
+    var profileImage = "emma_watson"
+    
     
     @FetchRequest(entity: User.entity(), sortDescriptors: [])
     var user: FetchedResults<User>
@@ -42,8 +48,7 @@ struct ProfileView: View {
                     }.background(Color.gray)
                     
                     VStack {
-//                        GoalComponent(title: $goalTitle , text: $goalText)
-                        GoalComponent()
+                        GoalComponent(user: user[0])
                     }.padding()
                     
                     Spacer()
@@ -59,13 +64,22 @@ struct ProfileView: View {
                         showEditMenu.toggle()
                     }
                 }
+                
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button("delete user"){
+                        viewContext.delete(user[0])
+                        try? viewContext.save()
+                        
+                        needsUserCreation = true
+                    }
+                }
             }
         }
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView()
+//    }
+//}

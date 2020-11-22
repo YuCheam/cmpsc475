@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         if !needsUserCreation {
             TabView {
-                TodayView(needsUserCreation: $needsUserCreation).tabItem{
+                TodayView().tabItem{
                         Label("Today", systemImage: "calendar")
                     }
                     .tag(0)
