@@ -77,7 +77,8 @@ extension HealthStats {
 
 extension HealthStats : Identifiable {
     var heightFormatted: String {
-        let heightMeasurement = Measurement(value: Double(height), unit: UnitLength.feet)
-        return MeasurementFormatter().string(from: heightMeasurement)
+        let inches = height % 12
+        let feet = (height-inches)/12
+        return "\(feet)'\(inches)''"
     }
 }

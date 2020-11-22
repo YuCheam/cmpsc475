@@ -49,12 +49,17 @@ struct Onboarding: View {
             HealthInfoForm(tabIndex: $tabIndex, currentWeight: $weight, height: $height)
                 .tag(2)
             
-            VStack(spacing: 16) {
+            VStack(spacing: 24) {
                 Text("Start your fitness journey!")
-                Text("\(firstName) \(lastName)")
-                Text("Date of Birth: \(dob)")
-                Text("Weight: \(weight)")
-                Text("Height: \(height)")
+                    .font(.headline)
+                
+                Group {
+                    Text("\(firstName) \(lastName)")
+                    Text("Date of Birth: \(dob)")
+                    Text("Weight: \(weight) lbs")
+                    Text("Height: \(height)")
+                }
+                
                 Button(action: {addUser()}){
                     Text("Create User")
                         .font(.headline)

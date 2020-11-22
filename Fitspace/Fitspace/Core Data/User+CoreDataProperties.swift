@@ -44,5 +44,10 @@ extension User {
 }
 
 extension User : Identifiable {
-
+    var age: Int {
+        let calendar = Calendar.current
+        let calcAge = calendar.dateComponents([.year], from: dob, to: Date())
+        return calcAge.year!
+    }
+    
 }

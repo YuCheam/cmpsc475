@@ -11,6 +11,7 @@ struct ProfileView: View {
     var profileImage = "emma_watson"
     @State var goalTitle = "Goal Title"
     @State var goalText = "text;lkajd dkei some more text and and"
+    @State var showEditMenu = false
     
     @FetchRequest(entity: User.entity(), sortDescriptors: [])
     var user: FetchedResults<User>
@@ -30,10 +31,10 @@ struct ProfileView: View {
                         if user.count != 0 {
                             let weight = Array(user[0].healthStats.weightHistory)[0]
                             VStack(alignment: .leading) {
-                                Text("\(user[0].firstName)")
-                                Text("\(user[0].lastName)")
-                                Text("\(weight.amount)")
-                                Text("\(user[0].healthStats.heightFormatted)")
+                                Text("\(user[0].firstName) \(user[0].lastName)")
+                                Text("Current Weight: \(weight.amount, specifier: "%.1f") lbs")
+                                Text("Height: \(user[0].healthStats.heightFormatted)")
+                                Text("Age: \(user[0].age)")
                             }
                         }
                         
@@ -49,10 +50,13 @@ struct ProfileView: View {
                 }
 
             }.navigationBarTitleDisplayMode(.inline)
+            .sheet(isPresented: $showEditMenu){
+                EditProfileView(user: user[0], sheet: $showEditMenu)
+            }
             .toolbar(){
                 ToolbarItem(placement: .navigationBarTrailing){
-                    Button("Add") {
-                        // Edit profile information
+                    Button("Edit") {
+                        showEditMenu.toggle()
                     }
                 }
             }

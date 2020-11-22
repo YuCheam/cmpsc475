@@ -47,7 +47,7 @@ struct UserInfoForm: View {
                 .foregroundColor(.white)
                 .padding()
                 .frame(width: 300, height: 50)
-                .background(Color.green)
+                .background(isValidTextField ? Color.green : Color.red)
                 .cornerRadius(15.0)
             }.disabled(!isValidTextField)
         }

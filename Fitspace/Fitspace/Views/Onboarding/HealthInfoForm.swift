@@ -22,12 +22,6 @@ struct HealthInfoForm: View {
                 .font(.largeTitle).foregroundColor(Color.white)
                 .padding([.top, .bottom], 24)
             
-//            Picker("Current Weight", selection: $currentWeight){
-//                ForEach(0..<400) { i in
-//                    Text("\(i) lbs").tag(i)
-//                }
-//            }
-            
             VStack(alignment: .leading) {
                 Slider(value: $currentWeight, in: 0...400, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("400"), label: {Text("Current Weight: \(currentWeight, specifier: ".1f")")})
                 Text("Current Weight: \(currentWeight, specifier: "%.1f") lbs")
@@ -47,7 +41,7 @@ struct HealthInfoForm: View {
                 .foregroundColor(.white)
                 .padding()
                 .frame(width: 300, height: 50)
-                .background(Color.green)
+                .background(isValidEntries ? Color.green : Color.red)
                 .cornerRadius(15.0)
             }.disabled(!isValidEntries)
         }
