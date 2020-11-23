@@ -45,7 +45,19 @@ struct ProfileView: View {
                         }.background(Color.gray)
                         
                         VStack {
-                            GoalComponent(user: user[0])
+                            ForEach(Array(user[0].goals ?? [])) { goal in
+                                GoalComponent(title: goal.title, text: goal.details)
+                            }
+                            
+                            NavigationLink(destination: AddGoalView(user: user[0])){
+                                Text("Add Goal +")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(width: 150, height: 50)
+                                    .background(Color.green)
+                                    .cornerRadius(15.0)
+                            }
                         }.padding()
                     }
                 }.navigationBarTitleDisplayMode(.inline)

@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct GoalComponent: View {
-    var user: User
-    
-    var title: String = "Goal Title"
-    var text: String = "Text text text text text text text"
+    var title: String
+    var text: String
     
     var body: some View {
         HStack {
@@ -22,7 +20,7 @@ struct GoalComponent: View {
             
             Spacer()
         }
-        .padding(10)
+        .padding(8)
         .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.primaryLight]), startPoint: .top, endPoint: .bottom))
         .cornerRadius(12)
         .lineLimit(6)

@@ -16,11 +16,11 @@ extension Goal {
         return NSFetchRequest<Goal>(entityName: "Goal")
     }
 
-    @NSManaged public var details: String?
+    @NSManaged public var details: String
     @NSManaged public var endDate: Date?
     @NSManaged public var startDate: Date?
-    @NSManaged public var title: String?
-    @NSManaged public var user: User?
+    @NSManaged public var title: String
+    @NSManaged public var user: User
 
 }
 
