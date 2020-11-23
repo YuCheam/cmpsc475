@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @AppStorage("needsUserCreation") private var needsUserCreation: Bool = true
+    @FetchRequest(entity: User.entity(), sortDescriptors: [])
+    var user: FetchedResults<User>
     
     var body: some View {
         if !needsUserCreation {
@@ -35,6 +37,7 @@ struct ContentView: View {
             Onboarding()
                 .edgesIgnoringSafeArea(.all)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.primaryLight]), startPoint: .top, endPoint: .bottom))
+                
         }
     }
     
