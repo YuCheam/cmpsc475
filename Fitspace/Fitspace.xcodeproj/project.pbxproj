@@ -44,7 +44,7 @@
 		28F733BE25696D2500F7C99D /* UserInfoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F733BD25696D2500F7C99D /* UserInfoForm.swift */; };
 		28F733C32569716500F7C99D /* HealthInfoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F733C22569716500F7C99D /* HealthInfoForm.swift */; };
 		28F733CB2569D4A300F7C99D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F733CA2569D4A300F7C99D /* EditProfileView.swift */; };
-		28F733D0256B49B100F7C99D /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F733CF256B49B100F7C99D /* AddGoalView.swift */; };
+		28F733D0256B49B100F7C99D /* AddEditGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F733CF256B49B100F7C99D /* AddEditGoal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +108,7 @@
 		28F733BD25696D2500F7C99D /* UserInfoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoForm.swift; sourceTree = "<group>"; };
 		28F733C22569716500F7C99D /* HealthInfoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInfoForm.swift; sourceTree = "<group>"; };
 		28F733CA2569D4A300F7C99D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
-		28F733CF256B49B100F7C99D /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
+		28F733CF256B49B100F7C99D /* AddEditGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditGoal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,9 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				28B19749255DBE9700C06703 /* ProfileView.swift */,
-				28473CAE2561B928005EE586 /* GoalComponent.swift */,
 				28F733CA2569D4A300F7C99D /* EditProfileView.swift */,
-				28F733CF256B49B100F7C99D /* AddGoalView.swift */,
+				28473CAE2561B928005EE586 /* GoalComponent.swift */,
+				28F733CF256B49B100F7C99D /* AddEditGoal.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -396,7 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28473CAF2561B928005EE586 /* GoalComponent.swift in Sources */,
-				28F733D0256B49B100F7C99D /* AddGoalView.swift in Sources */,
+				28F733D0256B49B100F7C99D /* AddEditGoal.swift in Sources */,
 				28B19761255F326500C06703 /* UserManager.swift in Sources */,
 				2861287C2569657F00F818D8 /* JournalEntry+CoreDataClass.swift in Sources */,
 				28F733CB2569D4A300F7C99D /* EditProfileView.swift in Sources */,

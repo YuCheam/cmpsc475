@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct AddGoalView: View {
+struct AddEditGoal: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    var goal : Goal?
     var user: User
     @State var goalTitle: String = ""
     @State var goalText: String =  ""
@@ -36,8 +36,8 @@ struct AddGoalView: View {
             }
             
             Section {
-                Button("Add Goal"){
-                    addGoal()
+                Button(goal == nil ? "Add Goal" : "Save Changes"){
+                    goal == nil ? addGoal() : editGoal()
                     self.presentationMode.wrappedValue.dismiss()
                 }
                 
@@ -45,8 +45,19 @@ struct AddGoalView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
-        }.navigationBarTitle("Add Goal")
+        }.navigationBarTitle(goal == nil ? "Add Goal" : "Edit Goal")
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            if goal != nil {
+                goalTitle = goal!.title
+                goalText = goal!.details
+                
+                if goal?.endDate != nil {
+                    endDate = goal!.endDate!
+                    isDateOn = true
+                }
+            }
+        }
     }
     
     func addGoal() {
@@ -64,6 +75,23 @@ struct AddGoalView: View {
             try viewContext.save()
         } catch {
             print("Goal could not be created")
+        }
+    }
+    
+    func editGoal() {
+        goal!.setValue(goalText, forKey: "details")
+        goal!.setValue(goalTitle, forKey: "title")
+        
+        if isDateOn {
+            goal!.setValue(endDate, forKey: "endDate")
+        } else {
+            goal!.setValue(nil, forKey: "endDate")
+        }
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("Goal could not be editted")
         }
     }
 }

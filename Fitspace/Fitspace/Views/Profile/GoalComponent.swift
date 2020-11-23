@@ -10,20 +10,21 @@ import SwiftUI
 struct GoalComponent: View {
     @Environment(\.managedObjectContext) private var viewContext
     var user: User
-    var goal: Goal
+    @ObservedObject var goal: Goal
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 Text(goal.title).font(.largeTitle)
                 Text(goal.details).font(.body)
+                Text("Complete in: \(goal.timeToCompletion)").font(.body)
             }
             
             Spacer()
             
             Button(action: {deleteGoal()}){
                 Label("", systemImage: "trash")
-            }
+            }.buttonStyle(PlainButtonStyle())
         }
         .padding(8)
         .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.primaryLight]), startPoint: .top, endPoint: .bottom))

@@ -46,10 +46,12 @@ struct ProfileView: View {
                         
                         VStack {
                             ForEach(Array(user[0].goals ?? [])) { goal in
-                                GoalComponent(user: user[0], goal: goal)
+                                NavigationLink(destination: AddEditGoal(goal: goal, user: user[0])) {
+                                    GoalComponent(user: user[0], goal: goal)
+                                }
                             }
                             
-                            NavigationLink(destination: AddGoalView(user: user[0])){
+                            NavigationLink(destination: AddEditGoal(user: user[0])){
                                 Text("Add Goal +")
                                     .font(.headline)
                                     .foregroundColor(.white)

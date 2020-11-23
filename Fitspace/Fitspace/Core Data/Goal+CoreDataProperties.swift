@@ -25,5 +25,12 @@ extension Goal {
 }
 
 extension Goal : Identifiable {
-
+    var timeToCompletion: String {
+        if endDate != nil {
+            let difference = Calendar.current.dateComponents([.year, .month, .day], from: Date(), to: self.endDate!)
+            return "\(difference.year ?? 0) years, \(difference.month ?? 0) months, \(difference.day ?? 0) days"
+        } else {
+            return ""
+        }
+    }
 }
