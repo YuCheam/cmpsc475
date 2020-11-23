@@ -42,7 +42,6 @@ struct EditProfileView: View {
                     .background(Color.white)
                     .cornerRadius(16)
                 
-                Spacer()
                 
                 HStack {
                     Button(action: {sheet.toggle()}){
@@ -53,7 +52,7 @@ struct EditProfileView: View {
                             .frame(width: 150, height: 50)
                             .background(Color.red)
                             .cornerRadius(15.0)
-                    }
+                    }.buttonStyle(PlainButtonStyle())
                     
                     Button(action: {updateUserInfo()}){
                         Text("Update Profile")
@@ -63,7 +62,7 @@ struct EditProfileView: View {
                             .frame(width: 150, height: 50)
                             .background(Color.green)
                             .cornerRadius(15.0)
-                    }
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }.navigationBarTitle("Edit Profile")
             .onAppear {

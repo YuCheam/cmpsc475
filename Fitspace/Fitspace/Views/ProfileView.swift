@@ -34,15 +34,11 @@ struct ProfileView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 164, height: 164)
                             
-                            //TODO: Remove once done with account deletion
-                            if user.count != 0 {
-                                let weight = Array(user[0].healthStats.weightHistory)[0]
-                                VStack(alignment: .leading) {
-                                    Text("\(user[0].firstName) \(user[0].lastName)")
-                                    Text("Current Weight: \(weight.amount, specifier: "%.1f") lbs")
-                                    Text("Height: \(user[0].healthStats.heightFormatted)")
-                                    Text("Age: \(user[0].age)")
-                                }
+                            VStack(alignment: .leading) {
+                                Text("\(user[0].firstName) \(user[0].lastName)")
+                                Text("Current Weight: \(user[0].weight, specifier: "%.1f") lbs")
+                                Text("Height: \(user[0].healthStats.heightFormatted)")
+                                Text("Age: \(user[0].age)")
                             }
                             
                             Spacer()
@@ -51,10 +47,7 @@ struct ProfileView: View {
                         VStack {
                             GoalComponent(user: user[0])
                         }.padding()
-                        
-                        Spacer()
                     }
-
                 }.navigationBarTitleDisplayMode(.inline)
                 .sheet(isPresented: $showEditMenu){
                     EditProfileView(user: user[0], sheet: $showEditMenu)

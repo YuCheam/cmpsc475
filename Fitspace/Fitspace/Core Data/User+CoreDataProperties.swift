@@ -50,4 +50,7 @@ extension User : Identifiable {
         return calcAge.year!
     }
     
+    var weight: Double {
+        Array(self.healthStats.weightHistory)[0].amount
+    }
 }
