@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct GoalComponent: View {
-    var title: String
-    var text: String
+    @Environment(\.managedObjectContext) private var viewContext
+    var user: User
+    var goal: Goal
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(title).font(.largeTitle)
-                Text(text).font(.body)
+                Text(goal.title).font(.largeTitle)
+                Text(goal.details).font(.body)
             }
             
             Spacer()
+            
+            Button(action: {deleteGoal()}){
+                Label("", systemImage: "trash")
+            }
         }
         .padding(8)
         .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.primaryLight]), startPoint: .top, endPoint: .bottom))
@@ -26,6 +31,16 @@ struct GoalComponent: View {
         .lineLimit(6)
         .font(.footnote)
         .foregroundColor(Color.white)
+    }
+    
+    func deleteGoal() {
+        user.removeFromGoals(goal)
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("Goal could not be removed")
+        }
     }
 }
 

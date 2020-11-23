@@ -46,7 +46,7 @@ struct ProfileView: View {
                         
                         VStack {
                             ForEach(Array(user[0].goals ?? [])) { goal in
-                                GoalComponent(title: goal.title, text: goal.details)
+                                GoalComponent(user: user[0], goal: goal)
                             }
                             
                             NavigationLink(destination: AddGoalView(user: user[0])){

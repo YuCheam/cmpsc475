@@ -13,15 +13,20 @@ struct AddGoalView: View {
     
     var user: User
     @State var goalTitle: String = ""
-    @State var goalText: String =  "details"
+    @State var goalText: String =  ""
     @State var endDate: Date = Date()
     @State var isDateOn: Bool = false
     
     var body: some View {
         Form {
-            Section(header: Text("Goal Details")){
+            Section(header: Text("Title")){
                 TextField("Goal Title", text: $goalTitle)
+            }
+            
+            Section(header: Text("Details")){
                 TextEditor(text: $goalText)
+                    .foregroundColor(Color.gray)
+                    .frame(height: 100)
             }
             
             Section(header: Text("Dates")){
@@ -41,6 +46,7 @@ struct AddGoalView: View {
                 }
             }
         }.navigationBarTitle("Add Goal")
+        .navigationBarBackButtonHidden(true)
     }
     
     func addGoal() {
