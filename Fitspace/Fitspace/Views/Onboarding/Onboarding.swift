@@ -18,6 +18,17 @@ struct Onboarding: View {
     @State var weight: Double = 0.0
     @State var height: Int = 0
     
+    var heightFormatted: String {
+        let inches = height % 12
+        let feet = (height-inches)/12
+        return "\(feet)'\(inches)''"
+    }
+    
+    var formatDOB: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        return dateFormatter.string(from: dob)
+    }
     
     var body: some View {
         TabView(selection: $tabIndex) {
@@ -51,13 +62,14 @@ struct Onboarding: View {
             
             VStack(spacing: 24) {
                 Text("Start your fitness journey!")
-                    .font(.headline)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
                 
                 Group {
                     Text("\(firstName) \(lastName)")
-                    Text("Date of Birth: \(dob)")
-                    Text("Weight: \(weight) lbs")
-                    Text("Height: \(height)")
+                    Text("Date of Birth: \(formatDOB)")
+                    Text("Weight: \(weight, specifier: "%.1f") lbs")
+                    Text("Height: \(heightFormatted)")
                 }
                 
                 Button(action: {addUser()}){

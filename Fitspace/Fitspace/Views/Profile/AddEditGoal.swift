@@ -35,17 +35,36 @@ struct AddEditGoal: View {
                     .opacity(isDateOn ? 1.0 : 0.0)
             }
             
-            Section {
-                Button(goal == nil ? "Add Goal" : "Save Changes"){
-                    goal == nil ? addGoal() : editGoal()
-                    self.presentationMode.wrappedValue.dismiss()
-                }
-                
-                Button("Cancel") {
-                    self.presentationMode.wrappedValue.dismiss()
+            Section(header: Text("Modify")) {
+                HStack {
+                    Button("Cancel") {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 150, height: 50)
+                    .background(Color.red)
+                    .cornerRadius(15.0)
+                    
+                    Spacer()
+                    
+                    Button(goal == nil ? "Add Goal" : "Save Changes"){
+                        goal == nil ? addGoal() : editGoal()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 150, height: 50)
+                    .background(Color.green)
+                    .cornerRadius(15.0)
                 }
             }
         }.navigationBarTitle(goal == nil ? "Add Goal" : "Edit Goal")
+        .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(true)
         .onAppear {
             if goal != nil {

@@ -68,7 +68,7 @@ struct ProfileView: View {
                 }
                 .toolbar(){
                     ToolbarItem(placement: .navigationBarTrailing){
-                        Button("Edit") {
+                        Button("Edit Profile") {
                             showEditMenu.toggle()
                         }
                     }
