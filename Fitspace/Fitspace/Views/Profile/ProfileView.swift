@@ -53,12 +53,7 @@ struct ProfileView: View {
                             
                             NavigationLink(destination: AddEditGoal(user: user[0])){
                                 Text("Add Goal +")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .frame(width: 150, height: 50)
-                                    .background(Color.green)
-                                    .cornerRadius(15.0)
+                                    .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
                             }
                         }.padding()
                     }

@@ -9,7 +9,10 @@ import SwiftUI
 
 struct JournalView: View {
     var body: some View {
-        Text("Journal View")
+        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Text("Add Entry")
+                .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+        })
     }
 }
 

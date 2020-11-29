@@ -37,12 +37,7 @@ struct HealthInfoForm: View {
                 tabIndex += 1
             }) {
               Text("Next")
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 300, height: 50)
-                .background(isValidEntries ? Color.green : Color.red)
-                .cornerRadius(15.0)
+                .modifier(ButtonStyle(isValidEntries ? ViewConstants.defaultButtonColor : ViewConstants.errorButtonColor))
             }.disabled(!isValidEntries)
         }
         .padding(.horizontal)

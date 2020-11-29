@@ -43,13 +43,10 @@ struct Onboarding: View {
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                 
-                Button(String("Next →")){
-                    tabIndex += 1
-                }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
-                .background(Color.white)
-                .cornerRadius(12)
+                Button(action: {tabIndex += 1}, label: {
+                    Text("Next →")
+                        .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+                })
                 
             }
             .tag(0)
@@ -74,12 +71,7 @@ struct Onboarding: View {
                 
                 Button(action: {addUser()}){
                     Text("Create User")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.green)
-                        .cornerRadius(15.0)
+                        .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
                 }
             }.tag(3)
         }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))

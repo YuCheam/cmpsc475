@@ -43,12 +43,7 @@ struct UserInfoForm: View {
                 tabIndex += 1
             }) {
               Text("Next")
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 300, height: 50)
-                .background(isValidTextField ? Color.green : Color.red)
-                .cornerRadius(15.0)
+                .modifier(ButtonStyle(isValidTextField ? ViewConstants.defaultButtonColor : ViewConstants.errorButtonColor))
             }.disabled(!isValidTextField)
         }
         .padding(.horizontal)
