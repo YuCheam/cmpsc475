@@ -28,6 +28,8 @@
 		286128802569657F00F818D8 /* ProgressPic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861286F2569657F00F818D8 /* ProgressPic+CoreDataProperties.swift */; };
 		2865FC72257339C8000D87C9 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC71257339C8000D87C9 /* CustomModifiers.swift */; };
 		2865FC7725733C8D000D87C9 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC7625733C8D000D87C9 /* ViewConstants.swift */; };
+		2865FC7D25733D90000D87C9 /* AddJournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC7C25733D90000D87C9 /* AddJournalEntry.swift */; };
+		2865FC8325734315000D87C9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC8225734315000D87C9 /* Date+Extension.swift */; };
 		28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19709255DBE2600C06703 /* FitspaceApp.swift */; };
 		28B1970C255DBE2600C06703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1970B255DBE2600C06703 /* ContentView.swift */; };
 		28B1970E255DBE2900C06703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B1970D255DBE2900C06703 /* Assets.xcassets */; };
@@ -88,6 +90,8 @@
 		2861286F2569657F00F818D8 /* ProgressPic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressPic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2865FC71257339C8000D87C9 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		2865FC7625733C8D000D87C9 /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
+		2865FC7C25733D90000D87C9 /* AddJournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntry.swift; sourceTree = "<group>"; };
+		2865FC8225734315000D87C9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		28B19706255DBE2600C06703 /* Fitspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B19709255DBE2600C06703 /* FitspaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitspaceApp.swift; sourceTree = "<group>"; };
 		28B1970B255DBE2600C06703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -161,6 +165,26 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		2865FC7B25733D72000D87C9 /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				28B19741255DBE7700C06703 /* JournalView.swift */,
+				2865FC7C25733D90000D87C9 /* AddJournalEntry.swift */,
+			);
+			path = Journal;
+			sourceTree = "<group>";
+		};
+		2865FC81257342DE000D87C9 /* ExtensionsModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				28473CB72561BD4F005EE586 /* Color+Extension.swift */,
+				2865FC7625733C8D000D87C9 /* ViewConstants.swift */,
+				2865FC71257339C8000D87C9 /* CustomModifiers.swift */,
+				2865FC8225734315000D87C9 /* Date+Extension.swift */,
+			);
+			path = ExtensionsModifiers;
+			sourceTree = "<group>";
+		};
 		28B196FD255DBE2600C06703 = {
 			isa = PBXGroup;
 			children = (
@@ -224,14 +248,13 @@
 		28B19737255DBE4600C06703 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2865FC81257342DE000D87C9 /* ExtensionsModifiers */,
+				2865FC7B25733D72000D87C9 /* Journal */,
 				28473CC12561DC1D005EE586 /* Onboarding */,
 				28473CB32561B92D005EE586 /* Profile */,
 				28B19738255DBE5A00C06703 /* HealthView.swift */,
-				28B19741255DBE7700C06703 /* JournalView.swift */,
 				28B1974E255DBEAD00C06703 /* TodayView.swift */,
 				28B1970B255DBE2600C06703 /* ContentView.swift */,
-				2865FC71257339C8000D87C9 /* CustomModifiers.swift */,
-				2865FC7625733C8D000D87C9 /* ViewConstants.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				28B19760255F326500C06703 /* UserManager.swift */,
-				28473CB72561BD4F005EE586 /* Color+Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,6 +440,7 @@
 				28B19756255DBEF800C06703 /* Fitspace.xcdatamodeld in Sources */,
 				28B19742255DBE7700C06703 /* JournalView.swift in Sources */,
 				28473CBD2561DA7D005EE586 /* Onboarding.swift in Sources */,
+				2865FC8325734315000D87C9 /* Date+Extension.swift in Sources */,
 				2861287D2569657F00F818D8 /* JournalEntry+CoreDataProperties.swift in Sources */,
 				28B1974F255DBEAD00C06703 /* TodayView.swift in Sources */,
 				286128792569657F00F818D8 /* Journal+CoreDataProperties.swift in Sources */,
@@ -437,6 +460,7 @@
 				286128712569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift in Sources */,
 				286128742569657F00F818D8 /* Weight+CoreDataClass.swift in Sources */,
 				28473CB82561BD4F005EE586 /* Color+Extension.swift in Sources */,
+				2865FC7D25733D90000D87C9 /* AddJournalEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

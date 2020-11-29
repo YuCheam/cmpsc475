@@ -12,12 +12,14 @@ struct ButtonStyle: ViewModifier {
     
     func body(content: Content) -> some View {
         content
+            .buttonStyle(PlainButtonStyle())
             .font(.headline)
             .foregroundColor(.white)
             .padding()
             .frame(width: 150, height: 50)
             .background(color)
             .cornerRadius(15.0)
+        
     }
     
     init(_ color: Color) {
