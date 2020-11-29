@@ -80,11 +80,13 @@ struct Onboarding: View {
     func addUser() {
         let newUser = User(context: viewContext)
         let newHealthStats = HealthStats(context: viewContext)
+        let journal = Journal(context: viewContext)
         
         newUser.firstName = firstName
         newUser.lastName = lastName
         newUser.dob = dob
         newUser.healthStats =  newHealthStats
+        newUser.journal = journal
         
         newHealthStats.height = height
         

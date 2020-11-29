@@ -22,7 +22,7 @@ extension User {
     @NSManaged public var profileImage: String?
     @NSManaged public var goals: Set<Goal>?
     @NSManaged public var healthStats: HealthStats
-    @NSManaged public var journal: Journal?
+    @NSManaged public var journal: Journal
 
 }
 

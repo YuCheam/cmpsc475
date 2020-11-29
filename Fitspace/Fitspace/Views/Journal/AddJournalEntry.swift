@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct AddJournalEntry: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    var user: User
+    
     @State var entryTitle: String = ""
     @State var entryText: String = "add text"
+    @State var showAlert: Bool = false
     var date = Date()
     
     var body: some View {
@@ -32,21 +36,45 @@ struct AddJournalEntry: View {
                     Button(action: {self.presentationMode.wrappedValue.dismiss()}){
                         Text("Cancel")
                             .modifier(ButtonStyle(ViewConstants.errorButtonColor))
-                    }
+                    }.buttonStyle(PlainButtonStyle())
                     
-                    Button(action: {}){
+                    Spacer()
+                    
+                    Button(action: {addJournalEntry()}){
                         Text("Add Entry")
                             .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
-                    }
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }
             
         }.navigationBarTitle("Add Journal Entry", displayMode: .large)
+        .alert(isPresented: $showAlert){
+            Alert(title: Text("Cannot Add"), message: Text("Title and text fields must have value"), dismissButton: .default(Text("dismiss")))
+        }
+    }
+    
+    func addJournalEntry() {
+        if entryTitle == "" || entryText == "add text" {
+            showAlert.toggle()
+        } else {
+            let newEntry = JournalEntry(context: viewContext)
+            newEntry.title = entryTitle
+            newEntry.text = entryText
+            newEntry.date = date
+            
+            user.journal.addToJournalEntries(newEntry)
+            
+            do {
+                try viewContext.save()
+            } catch {
+                print("Journal Entry could not be created")
+            }
+        }
     }
 }
 
-struct AddJournalEntry_Previews: PreviewProvider {
-    static var previews: some View {
-        AddJournalEntry()
-    }
-}
+//struct AddJournalEntry_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddJournalEntry()
+//    }
+//}

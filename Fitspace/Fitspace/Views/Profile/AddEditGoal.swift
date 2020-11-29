@@ -10,8 +10,10 @@ import SwiftUI
 struct AddEditGoal: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var goal : Goal?
     var user: User
+    
     @State var goalTitle: String = ""
     @State var goalText: String =  ""
     @State var endDate: Date = Date()

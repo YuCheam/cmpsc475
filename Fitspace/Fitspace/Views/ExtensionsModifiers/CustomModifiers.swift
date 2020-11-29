@@ -12,7 +12,6 @@ struct ButtonStyle: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .buttonStyle(PlainButtonStyle())
             .font(.headline)
             .foregroundColor(.white)
             .padding()

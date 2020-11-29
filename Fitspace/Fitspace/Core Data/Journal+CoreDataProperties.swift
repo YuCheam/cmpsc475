@@ -16,7 +16,7 @@ extension Journal {
         return NSFetchRequest<Journal>(entityName: "Journal")
     }
 
-    @NSManaged public var journalEntries: NSSet?
+    @NSManaged public var journalEntries: Set<JournalEntry>?
     @NSManaged public var moodEntries: MoodEntry?
     @NSManaged public var user: User?
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @AppStorage("needsUserCreation") private var needsUserCreation: Bool = true
-//    @Binding var needsUserCreation: Bool 
+
     @State var goalTitle = "Goal Title"
     @State var goalText = "text;lkajd dkei some more text and and"
     @State var showEditMenu = false

@@ -8,25 +8,29 @@
 import SwiftUI
 
 struct JournalView: View {
-    
+    @FetchRequest(entity: User.entity(), sortDescriptors: [])
+    var user: FetchedResults<User>
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack {
-                    NavigationLink(destination: AddJournalEntry()) {
-                        Text("Add Entry")
-                            .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+        if user.count != 0 {
+            NavigationView {
+                ScrollView{
+                    VStack {
+                        NavigationLink(destination: AddJournalEntry(user: user[0])) {
+                            Text("Add Entry")
+                                .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+                        }
+                        
+                        ForEach(Array(user[0].journal.journalEntries ?? [])) { entry in
+                            Text(entry.title)
+                        }
                     }
-                }
-            }.navigationBarTitle("Journal", displayMode: .large)
+                }.navigationBarTitle("Journal", displayMode: .large)
+            }
         }
     }
-    
-    func addJournalEntry() {
-        
-    }
 }
+
 
 struct JournalView_Previews: PreviewProvider {
     static var previews: some View {
