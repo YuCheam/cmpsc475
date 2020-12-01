@@ -15,22 +15,24 @@ struct ContentView: View {
     
     var body: some View {
         if !needsUserCreation {
-            TabView {
-                TodayView().tabItem{
-                        Label("Today", systemImage: "calendar")
+            if user.count != 0 {
+                TabView {
+                    TodayView().tabItem{
+                            Label("Today", systemImage: "calendar")
+                        }
+                        .tag(0)
+                    
+                    HealthView().tabItem{
+                        Label("Health", systemImage: "rectangle.3.offgrid")
+                    }.tag(1)
+                    
+                    JournalView(journal: user[0].journal).tabItem{
+                        Label("Journal", systemImage: "square.and.pencil")
+                    }.tag(2)
+                    
+                    ProfileView().tabItem {
+                        Label("My Stats", systemImage: "person")
                     }
-                    .tag(0)
-                
-                HealthView().tabItem{
-                    Label("Health", systemImage: "rectangle.3.offgrid")
-                }.tag(1)
-                
-                JournalView().tabItem{
-                    Label("Journal", systemImage: "square.and.pencil")
-                }.tag(2)
-                
-                ProfileView().tabItem {
-                    Label("My Stats", systemImage: "person")
                 }
             }
         } else {

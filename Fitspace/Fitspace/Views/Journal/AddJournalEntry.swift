@@ -63,13 +63,15 @@ struct AddJournalEntry: View {
             newEntry.date = date
             
             user.journal.addToJournalEntries(newEntry)
-            
+
             do {
                 try viewContext.save()
             } catch {
                 print("Journal Entry could not be created")
             }
         }
+        
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
