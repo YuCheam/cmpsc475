@@ -10,41 +10,25 @@ import CoreData
 
 struct JournalView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(entity: User.entity(), sortDescriptors: [])
-    var user: FetchedResults<User>
+    @ObservedObject var user: User
     @ObservedObject var journal: Journal
     
     var body: some View {
-        if user.count != 0 {
-            NavigationView {
-                ScrollView{
-                    VStack {
-                        NavigationLink(destination: AddJournalEntry(user: user[0])) {
-                            Text("Add Entry")
-                                .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
-                        }
-                        
-                        ForEach(Array(journal.journalEntries ?? []), id:\.self) { entry in
-                            HStack {
-                                Text(entry.title)
-                                Spacer()
-                                Button(action: {deleteEntry(for: entry)}) {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                            }
+        NavigationView {
+            ScrollView{
+                VStack {
+                    NavigationLink(destination: AddJournalEntry(user: user)) {
+                        Text("Add Entry")
+                            .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+                    }
+                    
+                    ForEach(Array(journal.journalEntries ?? []), id:\.self) { entry in
+                        NavigationLink(destination: JournalEntryView(journalEntry: entry)){
+                            JournalEntryComponent(journalEntry: entry)
                         }
                     }
-                }.navigationBarTitle("Journal", displayMode: .large)
-            }
-        }
-    }
-    
-    func deleteEntry(for entry: JournalEntry) {
-        user[0].journal.removeFromJournalEntries(entry)
-        do {
-            try viewContext.save()
-        } catch {
-            print("Could not save view context")
+                }
+            }.navigationBarTitle("Journal", displayMode: .large)
         }
     }
     

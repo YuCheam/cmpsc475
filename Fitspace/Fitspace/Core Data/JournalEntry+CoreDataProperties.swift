@@ -24,5 +24,5 @@ extension JournalEntry {
 }
 
 extension JournalEntry : Identifiable {
-
+    
 }

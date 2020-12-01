@@ -26,7 +26,7 @@ struct ContentView: View {
                         Label("Health", systemImage: "rectangle.3.offgrid")
                     }.tag(1)
                     
-                    JournalView(journal: user[0].journal).tabItem{
+                    JournalView(user: user[0], journal: user[0].journal).tabItem{
                         Label("Journal", systemImage: "square.and.pencil")
                     }.tag(2)
                     

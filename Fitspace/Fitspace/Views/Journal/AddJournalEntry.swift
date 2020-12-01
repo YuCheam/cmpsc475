@@ -10,7 +10,7 @@ import SwiftUI
 struct AddJournalEntry: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    var user: User
+    @ObservedObject var user: User
     
     @State var entryTitle: String = ""
     @State var entryText: String = "add text"
