@@ -14,13 +14,13 @@ struct BarView: View {
         case .happy:
             return 200
         case .semiHappy:
-            return 160
+            return 150
         case .meh:
-            return 120
+            return 100
         case .sad:
-            return 80
+            return 50
         default: //.terible
-            return 40
+            return 0
         }
     }
     

@@ -13,4 +13,5 @@ extension Color {
     // 28, 80, 84
     static let primary = Color(UIColor(hue: 0.55, saturation: 1, brightness: 0.79, alpha: 1.0))
     static let primaryLight = Color(UIColor(hue: 0.5194, saturation: 1, brightness: 0.81, alpha: 1.0))
+    static let graphColor = Color(UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00))
 }

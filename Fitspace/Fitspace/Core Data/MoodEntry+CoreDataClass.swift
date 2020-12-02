@@ -19,8 +19,8 @@ enum Mood: String, CaseIterable {
 
 @objc(MoodEntry)
 public class MoodEntry: NSManagedObject {
-    var moodType: Mood {
-        Mood(rawValue: mood)!
+    var moodType: Mood? {
+        Mood(rawValue: mood) ?? nil
     }
     
     var moodEmoji: String {

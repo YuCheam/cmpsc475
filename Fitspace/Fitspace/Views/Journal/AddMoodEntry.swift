@@ -24,7 +24,8 @@ struct AddMoodEntry: View {
                     ForEach(Mood.allCases, id: \.self) { mood in
                         Text(getEmoji(mood)).tag(mood)
                     }
-                }.pickerStyle(SegmentedPickerStyle())
+                }
+                .pickerStyle(SegmentedPickerStyle())
             }
             
             
@@ -74,7 +75,7 @@ struct AddMoodEntry: View {
     func addMoodEntry() {
         let newEntry = MoodEntry(context: viewContext)
         newEntry.mood = mood.rawValue
-        if text != "" || text != "add text" {
+        if text != "" && text != "add text" {
             newEntry.details = text
         }
         newEntry.date = date
