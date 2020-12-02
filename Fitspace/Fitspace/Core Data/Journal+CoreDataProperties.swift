@@ -17,8 +17,8 @@ extension Journal {
     }
 
     @NSManaged public var journalEntries: Set<JournalEntry>?
-    @NSManaged public var moodEntries: MoodEntry?
-    @NSManaged public var user: User?
+    @NSManaged public var moodEntries: Set<MoodEntry>?
+    @NSManaged public var user: User
 
 }
 
@@ -32,10 +32,10 @@ extension Journal {
     @NSManaged public func removeFromJournalEntries(_ value: JournalEntry)
 
     @objc(addJournalEntries:)
-    @NSManaged public func addToJournalEntries(_ values: NSSet)
+    @NSManaged public func addToJournalEntries(_ values: MoodEntry)
 
     @objc(removeJournalEntries:)
-    @NSManaged public func removeFromJournalEntries(_ values: NSSet)
+    @NSManaged public func removeFromJournalEntries(_ values: MoodEntry)
 
 }
 

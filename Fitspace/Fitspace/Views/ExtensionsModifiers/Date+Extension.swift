@@ -10,7 +10,7 @@ import SwiftUI
 extension Date {
     var formattedDate: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
+        dateFormatter.dateStyle = .medium
         
         return dateFormatter.string(from: self)
     }

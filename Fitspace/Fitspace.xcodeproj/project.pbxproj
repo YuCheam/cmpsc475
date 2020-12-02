@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,9 @@
 		28473CBD2561DA7D005EE586 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28473CBC2561DA7D005EE586 /* Onboarding.swift */; };
 		285679AC2576EE890047F2B2 /* JournalEntryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679AB2576EE890047F2B2 /* JournalEntryComponent.swift */; };
 		285679B12576F3DE0047F2B2 /* JournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679B02576F3DE0047F2B2 /* JournalEntryView.swift */; };
+		285679B72576FF090047F2B2 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 285679B62576FF090047F2B2 /* SwiftUICharts */; };
+		285679BD25772F5B0047F2B2 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679BC25772F5B0047F2B2 /* BarView.swift */; };
+		285679C8257734F20047F2B2 /* AddMoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679C7257734F20047F2B2 /* AddMoodEntry.swift */; };
 		286128702569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861285F2569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift */; };
 		286128712569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128602569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift */; };
 		286128722569657F00F818D8 /* MoodEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */; };
@@ -76,6 +79,8 @@
 		28473CBC2561DA7D005EE586 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		285679AB2576EE890047F2B2 /* JournalEntryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryComponent.swift; sourceTree = "<group>"; };
 		285679B02576F3DE0047F2B2 /* JournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryView.swift; sourceTree = "<group>"; };
+		285679BC25772F5B0047F2B2 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		285679C7257734F20047F2B2 /* AddMoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoodEntry.swift; sourceTree = "<group>"; };
 		2861285F2569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataClass.swift"; sourceTree = "<group>"; };
 		286128602569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285679B72576FF090047F2B2 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,13 +175,22 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		285679BB25772F470047F2B2 /* MoodChart */ = {
+			isa = PBXGroup;
+			children = (
+				285679BC25772F5B0047F2B2 /* BarView.swift */,
+			);
+			path = MoodChart;
+			sourceTree = "<group>";
+		};
 		2865FC7B25733D72000D87C9 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
 				28B19741255DBE7700C06703 /* JournalView.swift */,
-				2865FC7C25733D90000D87C9 /* AddJournalEntry.swift */,
 				285679AB2576EE890047F2B2 /* JournalEntryComponent.swift */,
 				285679B02576F3DE0047F2B2 /* JournalEntryView.swift */,
+				2865FC7C25733D90000D87C9 /* AddJournalEntry.swift */,
+				285679C7257734F20047F2B2 /* AddMoodEntry.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -254,6 +269,7 @@
 		28B19737255DBE4600C06703 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				285679BB25772F470047F2B2 /* MoodChart */,
 				2865FC81257342DE000D87C9 /* ExtensionsModifiers */,
 				2865FC7B25733D72000D87C9 /* Journal */,
 				28473CC12561DC1D005EE586 /* Onboarding */,
@@ -316,6 +332,9 @@
 			dependencies = (
 			);
 			name = Fitspace;
+			packageProductDependencies = (
+				285679B62576FF090047F2B2 /* SwiftUICharts */,
+			);
 			productName = Fitspace;
 			productReference = 28B19706255DBE2600C06703 /* Fitspace.app */;
 			productType = "com.apple.product-type.application";
@@ -387,6 +406,9 @@
 				Base,
 			);
 			mainGroup = 28B196FD255DBE2600C06703;
+			packageReferences = (
+				285679B52576FF090047F2B2 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 28B19707255DBE2600C06703 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -436,6 +458,7 @@
 				2861287C2569657F00F818D8 /* JournalEntry+CoreDataClass.swift in Sources */,
 				28F733CB2569D4A300F7C99D /* EditProfileView.swift in Sources */,
 				285679AC2576EE890047F2B2 /* JournalEntryComponent.swift in Sources */,
+				285679C8257734F20047F2B2 /* AddMoodEntry.swift in Sources */,
 				28B19739255DBE5A00C06703 /* HealthView.swift in Sources */,
 				286128772569657F00F818D8 /* HealthStats+CoreDataProperties.swift in Sources */,
 				28F733C32569716500F7C99D /* HealthInfoForm.swift in Sources */,
@@ -466,6 +489,7 @@
 				286128802569657F00F818D8 /* ProgressPic+CoreDataProperties.swift in Sources */,
 				286128732569657F00F818D8 /* MoodEntry+CoreDataProperties.swift in Sources */,
 				286128712569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift in Sources */,
+				285679BD25772F5B0047F2B2 /* BarView.swift in Sources */,
 				286128742569657F00F818D8 /* Weight+CoreDataClass.swift in Sources */,
 				28473CB82561BD4F005EE586 /* Color+Extension.swift in Sources */,
 				2865FC7D25733D90000D87C9 /* AddJournalEntry.swift in Sources */,
@@ -788,6 +812,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		285679B52576FF090047F2B2 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		285679B62576FF090047F2B2 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 285679B52576FF090047F2B2 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		28B19754255DBEF800C06703 /* Fitspace.xcdatamodeld */ = {

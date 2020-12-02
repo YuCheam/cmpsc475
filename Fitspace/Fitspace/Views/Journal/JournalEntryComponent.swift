@@ -10,13 +10,12 @@ import SwiftUI
 struct JournalEntryComponent: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var journalEntry: JournalEntry
-    var date: String
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 Text(journalEntry.title).font(.largeTitle)
-                Text(date)
+                Text(journalEntry.stringDate)
                 Text(journalEntry.text).font(.body)
             }
             
@@ -42,11 +41,6 @@ struct JournalEntryComponent: View {
         } catch {
             print("Could not save view context")
         }
-    }
-    
-    init(journalEntry: JournalEntry) {
-        self.journalEntry = journalEntry
-        self.date = journalEntry.date.formattedDate
     }
 }
 

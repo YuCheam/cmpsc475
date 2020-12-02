@@ -17,14 +17,26 @@ struct JournalView: View {
         NavigationView {
             ScrollView{
                 VStack {
-                    NavigationLink(destination: AddJournalEntry(user: user)) {
-                        Text("Add Entry")
-                            .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+                    HStack(spacing: 16) {
+                        BarView(value: 10)
+                        BarView(value: 20)
                     }
                     
                     ForEach(Array(journal.journalEntries ?? []), id:\.self) { entry in
                         NavigationLink(destination: JournalEntryView(journalEntry: entry)){
                             JournalEntryComponent(journalEntry: entry)
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    HStack(spacing: 10) {
+                        NavigationLink(destination: AddMoodEntry(journal: user.journal)){
+                            Text("Add Mood Entry")
+                        }
+                        
+                        NavigationLink(destination: AddJournalEntry(user: user)) {
+                            Text("Add Journal Entry")
                         }
                     }
                 }

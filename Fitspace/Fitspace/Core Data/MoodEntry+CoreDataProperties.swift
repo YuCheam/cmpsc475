@@ -16,10 +16,10 @@ extension MoodEntry {
         return NSFetchRequest<MoodEntry>(entityName: "MoodEntry")
     }
 
-    @NSManaged public var date: Date?
+    @NSManaged public var date: Date
     @NSManaged public var details: String?
-    @NSManaged public var mood: String?
-    @NSManaged public var journal: Journal?
+    @NSManaged public var mood: String
+    @NSManaged public var journal: Journal
 
 }
 

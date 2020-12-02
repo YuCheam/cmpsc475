@@ -11,5 +11,7 @@ import CoreData
 
 @objc(JournalEntry)
 public class JournalEntry: NSManagedObject {
-
+    lazy var stringDate: String = {
+        return date.formattedDate
+    }()
 }
