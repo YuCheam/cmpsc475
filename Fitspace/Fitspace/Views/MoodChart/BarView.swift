@@ -8,7 +8,21 @@
 import SwiftUI
 
 struct BarView: View {
-    var value: CGFloat
+    @ObservedObject var moodEntry: MoodEntry
+    var value: CGFloat {
+        switch moodEntry.moodType {
+        case .happy:
+            return 200
+        case .semiHappy:
+            return 160
+        case .meh:
+            return 120
+        case .sad:
+            return 80
+        default: //.terible
+            return 40
+        }
+    }
     
     var body: some View {
         
@@ -18,8 +32,10 @@ struct BarView: View {
                     .foregroundColor(Color.primary)
                 Capsule().frame(width: 30, height: value)
                     .foregroundColor(Color.primaryLight)
+                Text("\(moodEntry.moodEmoji)")
+                    .baselineOffset(value)
             }
-            Text("10/12").padding(.top, 8)
+            Text(moodEntry.stringDate).padding(.top, 8)
         }
     }
 }

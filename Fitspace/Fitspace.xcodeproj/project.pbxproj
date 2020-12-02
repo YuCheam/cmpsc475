@@ -15,6 +15,8 @@
 		285679B72576FF090047F2B2 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 285679B62576FF090047F2B2 /* SwiftUICharts */; };
 		285679BD25772F5B0047F2B2 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679BC25772F5B0047F2B2 /* BarView.swift */; };
 		285679C8257734F20047F2B2 /* AddMoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679C7257734F20047F2B2 /* AddMoodEntry.swift */; };
+		285679D4257745060047F2B2 /* Journal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679D2257745060047F2B2 /* Journal+CoreDataClass.swift */; };
+		285679D5257745060047F2B2 /* Journal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679D3257745060047F2B2 /* Journal+CoreDataProperties.swift */; };
 		286128702569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861285F2569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift */; };
 		286128712569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128602569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift */; };
 		286128722569657F00F818D8 /* MoodEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */; };
@@ -23,8 +25,6 @@
 		286128752569657F00F818D8 /* Weight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128642569657F00F818D8 /* Weight+CoreDataProperties.swift */; };
 		286128762569657F00F818D8 /* HealthStats+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128652569657F00F818D8 /* HealthStats+CoreDataClass.swift */; };
 		286128772569657F00F818D8 /* HealthStats+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128662569657F00F818D8 /* HealthStats+CoreDataProperties.swift */; };
-		286128782569657F00F818D8 /* Journal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128672569657F00F818D8 /* Journal+CoreDataClass.swift */; };
-		286128792569657F00F818D8 /* Journal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128682569657F00F818D8 /* Journal+CoreDataProperties.swift */; };
 		2861287A2569657F00F818D8 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128692569657F00F818D8 /* Goal+CoreDataClass.swift */; };
 		2861287B2569657F00F818D8 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861286A2569657F00F818D8 /* Goal+CoreDataProperties.swift */; };
 		2861287C2569657F00F818D8 /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861286B2569657F00F818D8 /* JournalEntry+CoreDataClass.swift */; };
@@ -81,6 +81,8 @@
 		285679B02576F3DE0047F2B2 /* JournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryView.swift; sourceTree = "<group>"; };
 		285679BC25772F5B0047F2B2 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		285679C7257734F20047F2B2 /* AddMoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoodEntry.swift; sourceTree = "<group>"; };
+		285679D2257745060047F2B2 /* Journal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Journal+CoreDataClass.swift"; path = "../../Journal+CoreDataClass.swift"; sourceTree = "<group>"; };
+		285679D3257745060047F2B2 /* Journal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Journal+CoreDataProperties.swift"; path = "../../Journal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2861285F2569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataClass.swift"; sourceTree = "<group>"; };
 		286128602569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -89,8 +91,6 @@
 		286128642569657F00F818D8 /* Weight+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weight+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		286128652569657F00F818D8 /* HealthStats+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthStats+CoreDataClass.swift"; sourceTree = "<group>"; };
 		286128662569657F00F818D8 /* HealthStats+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthStats+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		286128672569657F00F818D8 /* Journal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journal+CoreDataClass.swift"; sourceTree = "<group>"; };
-		286128682569657F00F818D8 /* Journal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		286128692569657F00F818D8 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2861286A2569657F00F818D8 /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2861286B2569657F00F818D8 /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -284,6 +284,8 @@
 		28B19753255DBEE000C06703 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				285679D2257745060047F2B2 /* Journal+CoreDataClass.swift */,
+				285679D3257745060047F2B2 /* Journal+CoreDataProperties.swift */,
 				2861285F2569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift */,
 				286128602569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift */,
 				286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */,
@@ -292,8 +294,6 @@
 				286128642569657F00F818D8 /* Weight+CoreDataProperties.swift */,
 				286128652569657F00F818D8 /* HealthStats+CoreDataClass.swift */,
 				286128662569657F00F818D8 /* HealthStats+CoreDataProperties.swift */,
-				286128672569657F00F818D8 /* Journal+CoreDataClass.swift */,
-				286128682569657F00F818D8 /* Journal+CoreDataProperties.swift */,
 				286128692569657F00F818D8 /* Goal+CoreDataClass.swift */,
 				2861286A2569657F00F818D8 /* Goal+CoreDataProperties.swift */,
 				2861286B2569657F00F818D8 /* JournalEntry+CoreDataClass.swift */,
@@ -459,12 +459,12 @@
 				28F733CB2569D4A300F7C99D /* EditProfileView.swift in Sources */,
 				285679AC2576EE890047F2B2 /* JournalEntryComponent.swift in Sources */,
 				285679C8257734F20047F2B2 /* AddMoodEntry.swift in Sources */,
+				285679D4257745060047F2B2 /* Journal+CoreDataClass.swift in Sources */,
 				28B19739255DBE5A00C06703 /* HealthView.swift in Sources */,
 				286128772569657F00F818D8 /* HealthStats+CoreDataProperties.swift in Sources */,
 				28F733C32569716500F7C99D /* HealthInfoForm.swift in Sources */,
 				28B1975B255E29CC00C06703 /* Persistence.swift in Sources */,
 				28B1970C255DBE2600C06703 /* ContentView.swift in Sources */,
-				286128782569657F00F818D8 /* Journal+CoreDataClass.swift in Sources */,
 				28F733B6256967F300F7C99D /* User+CoreDataProperties.swift in Sources */,
 				28F733B5256967F300F7C99D /* User+CoreDataClass.swift in Sources */,
 				28B1974A255DBE9700C06703 /* ProfileView.swift in Sources */,
@@ -474,7 +474,6 @@
 				2865FC8325734315000D87C9 /* Date+Extension.swift in Sources */,
 				2861287D2569657F00F818D8 /* JournalEntry+CoreDataProperties.swift in Sources */,
 				28B1974F255DBEAD00C06703 /* TodayView.swift in Sources */,
-				286128792569657F00F818D8 /* Journal+CoreDataProperties.swift in Sources */,
 				286128722569657F00F818D8 /* MoodEntry+CoreDataClass.swift in Sources */,
 				2861287B2569657F00F818D8 /* Goal+CoreDataProperties.swift in Sources */,
 				28F733BE25696D2500F7C99D /* UserInfoForm.swift in Sources */,
@@ -486,6 +485,7 @@
 				286128762569657F00F818D8 /* HealthStats+CoreDataClass.swift in Sources */,
 				286128702569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift in Sources */,
 				2865FC7725733C8D000D87C9 /* ViewConstants.swift in Sources */,
+				285679D5257745060047F2B2 /* Journal+CoreDataProperties.swift in Sources */,
 				286128802569657F00F818D8 /* ProgressPic+CoreDataProperties.swift in Sources */,
 				286128732569657F00F818D8 /* MoodEntry+CoreDataProperties.swift in Sources */,
 				286128712569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift in Sources */,

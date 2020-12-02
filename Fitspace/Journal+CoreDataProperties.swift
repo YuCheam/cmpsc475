@@ -2,7 +2,7 @@
 //  Journal+CoreDataProperties.swift
 //  Fitspace
 //
-//  Created by Kha-Yu Cheam on 11/21/20.
+//  Created by Kha-Yu Cheam on 12/1/20.
 //
 //
 
@@ -32,13 +32,29 @@ extension Journal {
     @NSManaged public func removeFromJournalEntries(_ value: JournalEntry)
 
     @objc(addJournalEntries:)
-    @NSManaged public func addToJournalEntries(_ values: MoodEntry)
+    @NSManaged public func addToJournalEntries(_ values: NSSet)
 
     @objc(removeJournalEntries:)
-    @NSManaged public func removeFromJournalEntries(_ values: MoodEntry)
+    @NSManaged public func removeFromJournalEntries(_ values: NSSet)
 
 }
 
+// MARK: Generated accessors for moodEntries
+extension Journal {
+
+    @objc(addMoodEntriesObject:)
+    @NSManaged public func addToMoodEntries(_ value: MoodEntry)
+
+    @objc(removeMoodEntriesObject:)
+    @NSManaged public func removeFromMoodEntries(_ value: MoodEntry)
+
+    @objc(addMoodEntries:)
+    @NSManaged public func addToMoodEntries(_ values: NSSet)
+
+    @objc(removeMoodEntries:)
+    @NSManaged public func removeFromMoodEntries(_ values: NSSet)
+
+}
 
 extension Journal : Identifiable {
 

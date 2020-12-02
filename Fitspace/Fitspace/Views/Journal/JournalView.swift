@@ -18,8 +18,9 @@ struct JournalView: View {
             ScrollView{
                 VStack {
                     HStack(spacing: 16) {
-                        BarView(value: 10)
-                        BarView(value: 20)
+                        ForEach(Array(journal.moodEntries ?? [])) { entry in
+                            BarView(moodEntry: entry)
+                        }
                     }
                     
                     ForEach(Array(journal.journalEntries ?? []), id:\.self) { entry in

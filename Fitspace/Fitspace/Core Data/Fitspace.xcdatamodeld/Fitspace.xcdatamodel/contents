@@ -23,7 +23,7 @@
     </entity>
     <entity name="Journal" representedClassName="Journal" syncable="YES">
         <relationship name="journalEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntry" inverseName="journal" inverseEntity="JournalEntry"/>
-        <relationship name="moodEntries" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoodEntry" inverseName="journal" inverseEntity="MoodEntry"/>
+        <relationship name="moodEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MoodEntry" inverseName="journal" inverseEntity="MoodEntry"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="journal" inverseEntity="User"/>
     </entity>
     <entity name="JournalEntry" representedClassName="JournalEntry" syncable="YES">

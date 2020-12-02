@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddMoodEntry: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var journal: Journal
     
     @State var mood: Mood = .meh
@@ -44,7 +45,7 @@ struct AddMoodEntry: View {
                     }.buttonStyle(PlainButtonStyle())
                     
                     
-                    Button(action: {}){
+                    Button(action: {addMoodEntry()}){
                         Text("Add Entry")
                             .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
                     }.buttonStyle(PlainButtonStyle())
@@ -68,6 +69,25 @@ struct AddMoodEntry: View {
         default: // .meh
             return "😐"
         }
+    }
+    
+    func addMoodEntry() {
+        let newEntry = MoodEntry(context: viewContext)
+        newEntry.mood = mood.rawValue
+        if text != "" || text != "add text" {
+            newEntry.details = text
+        }
+        newEntry.date = date
+        
+        journal.addToMoodEntries(newEntry)
+
+        do {
+            try viewContext.save()
+        } catch {
+            print("Mood Entry could not be created")
+        }
+        
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
