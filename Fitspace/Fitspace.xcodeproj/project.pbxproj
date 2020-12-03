@@ -12,13 +12,16 @@
 		28473CBD2561DA7D005EE586 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28473CBC2561DA7D005EE586 /* Onboarding.swift */; };
 		285679AC2576EE890047F2B2 /* JournalEntryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679AB2576EE890047F2B2 /* JournalEntryComponent.swift */; };
 		285679B12576F3DE0047F2B2 /* JournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679B02576F3DE0047F2B2 /* JournalEntryView.swift */; };
-		285679B72576FF090047F2B2 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 285679B62576FF090047F2B2 /* SwiftUICharts */; };
 		285679BD25772F5B0047F2B2 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679BC25772F5B0047F2B2 /* BarView.swift */; };
 		285679C8257734F20047F2B2 /* AddMoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679C7257734F20047F2B2 /* AddMoodEntry.swift */; };
 		285679D4257745060047F2B2 /* Journal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679D2257745060047F2B2 /* Journal+CoreDataClass.swift */; };
 		285679D5257745060047F2B2 /* Journal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679D3257745060047F2B2 /* Journal+CoreDataProperties.swift */; };
-		286128702569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861285F2569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift */; };
-		286128712569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128602569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift */; };
+		285679EB25782C110047F2B2 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285679E425782AC60047F2B2 /* Charts.framework */; };
+		285679EC25782C110047F2B2 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 285679E425782AC60047F2B2 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		28567A0C257840530047F2B2 /* BodyMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A0B257840520047F2B2 /* BodyMeasurementView.swift */; };
+		28567A16257874280047F2B2 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A15257874280047F2B2 /* AddView.swift */; };
+		28567A2D257876BE0047F2B2 /* BodyMeasurements+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A2B257876BD0047F2B2 /* BodyMeasurements+CoreDataProperties.swift */; };
+		28567A2E257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A2C257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift */; };
 		286128722569657F00F818D8 /* MoodEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */; };
 		286128732569657F00F818D8 /* MoodEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128622569657F00F818D8 /* MoodEntry+CoreDataProperties.swift */; };
 		286128742569657F00F818D8 /* Weight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128632569657F00F818D8 /* Weight+CoreDataClass.swift */; };
@@ -57,6 +60,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		285679E325782AC60047F2B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 285679DE25782AC60047F2B2 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		285679E525782AC60047F2B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 285679DE25782AC60047F2B2 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
 		28B19718255DBE2900C06703 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 28B196FE255DBE2600C06703 /* Project object */;
@@ -73,6 +90,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		285679ED25782C110047F2B2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				285679EC25782C110047F2B2 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		28473CAE2561B928005EE586 /* GoalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalComponent.swift; sourceTree = "<group>"; };
 		28473CB72561BD4F005EE586 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -83,8 +114,11 @@
 		285679C7257734F20047F2B2 /* AddMoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoodEntry.swift; sourceTree = "<group>"; };
 		285679D2257745060047F2B2 /* Journal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Journal+CoreDataClass.swift"; path = "../../Journal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		285679D3257745060047F2B2 /* Journal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Journal+CoreDataProperties.swift"; path = "../../Journal+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2861285F2569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataClass.swift"; sourceTree = "<group>"; };
-		286128602569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		285679DE25782AC60047F2B2 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		28567A0B257840520047F2B2 /* BodyMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMeasurementView.swift; sourceTree = "<group>"; };
+		28567A15257874280047F2B2 /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		28567A2B257876BD0047F2B2 /* BodyMeasurements+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		28567A2C257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
 		286128622569657F00F818D8 /* MoodEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		286128632569657F00F818D8 /* Weight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weight+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -113,7 +147,7 @@
 		28B19722255DBE2900C06703 /* FitspaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitspaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B19726255DBE2900C06703 /* FitspaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitspaceUITests.swift; sourceTree = "<group>"; };
 		28B19728255DBE2900C06703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28B19738255DBE5A00C06703 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		28B19738255DBE5A00C06703 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HealthView.swift; path = Fitspace/Views/HealthView.swift; sourceTree = SOURCE_ROOT; };
 		28B19741255DBE7700C06703 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		28B19749255DBE9700C06703 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		28B1974E255DBEAD00C06703 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
@@ -133,7 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				285679B72576FF090047F2B2 /* SwiftUICharts in Frameworks */,
+				285679EB25782C110047F2B2 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +217,32 @@
 			path = MoodChart;
 			sourceTree = "<group>";
 		};
+		285679DF25782AC60047F2B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				285679E425782AC60047F2B2 /* Charts.framework */,
+				285679E625782AC60047F2B2 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		285679EA25782C110047F2B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		285679F025782D950047F2B2 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				28567A15257874280047F2B2 /* AddView.swift */,
+				28B19738255DBE5A00C06703 /* HealthView.swift */,
+				28567A0B257840520047F2B2 /* BodyMeasurementView.swift */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
 		2865FC7B25733D72000D87C9 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,10 +269,12 @@
 		28B196FD255DBE2600C06703 = {
 			isa = PBXGroup;
 			children = (
+				285679DE25782AC60047F2B2 /* Charts.xcodeproj */,
 				28B19708255DBE2600C06703 /* Fitspace */,
 				28B1971A255DBE2900C06703 /* FitspaceTests */,
 				28B19725255DBE2900C06703 /* FitspaceUITests */,
 				28B19707255DBE2600C06703 /* Products */,
+				285679EA25782C110047F2B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -269,12 +331,12 @@
 		28B19737255DBE4600C06703 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				285679F025782D950047F2B2 /* Health */,
 				285679BB25772F470047F2B2 /* MoodChart */,
 				2865FC81257342DE000D87C9 /* ExtensionsModifiers */,
 				2865FC7B25733D72000D87C9 /* Journal */,
 				28473CC12561DC1D005EE586 /* Onboarding */,
 				28473CB32561B92D005EE586 /* Profile */,
-				28B19738255DBE5A00C06703 /* HealthView.swift */,
 				28B1974E255DBEAD00C06703 /* TodayView.swift */,
 				28B1970B255DBE2600C06703 /* ContentView.swift */,
 			);
@@ -284,10 +346,10 @@
 		28B19753255DBEE000C06703 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				28567A2C257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift */,
+				28567A2B257876BD0047F2B2 /* BodyMeasurements+CoreDataProperties.swift */,
 				285679D2257745060047F2B2 /* Journal+CoreDataClass.swift */,
 				285679D3257745060047F2B2 /* Journal+CoreDataProperties.swift */,
-				2861285F2569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift */,
-				286128602569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift */,
 				286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */,
 				286128622569657F00F818D8 /* MoodEntry+CoreDataProperties.swift */,
 				286128632569657F00F818D8 /* Weight+CoreDataClass.swift */,
@@ -326,6 +388,7 @@
 				28B19702255DBE2600C06703 /* Sources */,
 				28B19703255DBE2600C06703 /* Frameworks */,
 				28B19704255DBE2600C06703 /* Resources */,
+				285679ED25782C110047F2B2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,7 +396,6 @@
 			);
 			name = Fitspace;
 			packageProductDependencies = (
-				285679B62576FF090047F2B2 /* SwiftUICharts */,
 			);
 			productName = Fitspace;
 			productReference = 28B19706255DBE2600C06703 /* Fitspace.app */;
@@ -411,6 +473,12 @@
 			);
 			productRefGroup = 28B19707255DBE2600C06703 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 285679DF25782AC60047F2B2 /* Products */;
+					ProjectRef = 285679DE25782AC60047F2B2 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				28B19705255DBE2600C06703 /* Fitspace */,
@@ -419,6 +487,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		285679E425782AC60047F2B2 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 285679E325782AC60047F2B2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		285679E625782AC60047F2B2 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 285679E525782AC60047F2B2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		28B19704255DBE2600C06703 /* Resources */ = {
@@ -455,7 +540,9 @@
 				285679B12576F3DE0047F2B2 /* JournalEntryView.swift in Sources */,
 				28F733D0256B49B100F7C99D /* AddEditGoal.swift in Sources */,
 				28B19761255F326500C06703 /* UserManager.swift in Sources */,
+				28567A2D257876BE0047F2B2 /* BodyMeasurements+CoreDataProperties.swift in Sources */,
 				2861287C2569657F00F818D8 /* JournalEntry+CoreDataClass.swift in Sources */,
+				28567A0C257840530047F2B2 /* BodyMeasurementView.swift in Sources */,
 				28F733CB2569D4A300F7C99D /* EditProfileView.swift in Sources */,
 				285679AC2576EE890047F2B2 /* JournalEntryComponent.swift in Sources */,
 				285679C8257734F20047F2B2 /* AddMoodEntry.swift in Sources */,
@@ -478,17 +565,17 @@
 				2861287B2569657F00F818D8 /* Goal+CoreDataProperties.swift in Sources */,
 				28F733BE25696D2500F7C99D /* UserInfoForm.swift in Sources */,
 				286128752569657F00F818D8 /* Weight+CoreDataProperties.swift in Sources */,
+				28567A16257874280047F2B2 /* AddView.swift in Sources */,
 				2861287F2569657F00F818D8 /* ProgressPic+CoreDataClass.swift in Sources */,
 				2861287A2569657F00F818D8 /* Goal+CoreDataClass.swift in Sources */,
 				2865FC72257339C8000D87C9 /* CustomModifiers.swift in Sources */,
 				28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */,
 				286128762569657F00F818D8 /* HealthStats+CoreDataClass.swift in Sources */,
-				286128702569657F00F818D8 /* BodyMeasurements+CoreDataClass.swift in Sources */,
 				2865FC7725733C8D000D87C9 /* ViewConstants.swift in Sources */,
 				285679D5257745060047F2B2 /* Journal+CoreDataProperties.swift in Sources */,
 				286128802569657F00F818D8 /* ProgressPic+CoreDataProperties.swift in Sources */,
+				28567A2E257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift in Sources */,
 				286128732569657F00F818D8 /* MoodEntry+CoreDataProperties.swift in Sources */,
-				286128712569657F00F818D8 /* BodyMeasurements+CoreDataProperties.swift in Sources */,
 				285679BD25772F5B0047F2B2 /* BarView.swift in Sources */,
 				286128742569657F00F818D8 /* Weight+CoreDataClass.swift in Sources */,
 				28473CB82561BD4F005EE586 /* Color+Extension.swift in Sources */,
@@ -823,14 +910,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		285679B62576FF090047F2B2 /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 285679B52576FF090047F2B2 /* XCRemoteSwiftPackageReference "ChartView" */;
-			productName = SwiftUICharts;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		28B19754255DBEF800C06703 /* Fitspace.xcdatamodeld */ = {

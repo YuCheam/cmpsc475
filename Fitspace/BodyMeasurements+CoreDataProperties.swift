@@ -16,12 +16,12 @@ extension BodyMeasurements {
         return NSFetchRequest<BodyMeasurements>(entityName: "BodyMeasurements")
     }
 
-    @NSManaged public var date: Date?
+    @NSManaged public var date: Date
     @NSManaged public var hip: Float
     @NSManaged public var waist: Float
     @NSManaged public var thigh: Float
     @NSManaged public var arm: Float
     @NSManaged public var neck: Float
-    @NSManaged public var userHealthStats: HealthStats?
+    @NSManaged public var userHealthStats: HealthStats
 
 }

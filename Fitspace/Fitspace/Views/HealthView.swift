@@ -6,10 +6,47 @@
 //
 
 import SwiftUI
+import Charts
+
+enum HealthViewState: String, CaseIterable {
+    case weight = "Weight"
+    case bodyMeasurements = "Body Measurements"
+    case pictures = "Pictures"
+}
 
 struct HealthView: View {
+    @State var viewMode: HealthViewState = .bodyMeasurements
+    
     var body: some View {
-        Text("Health View")
+        NavigationView {
+            VStack {
+                Picker("Select Chart", selection: $viewMode){
+                    ForEach(HealthViewState.allCases, id: \.self) { mode in
+                        Text(mode.rawValue)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+                
+                whichView()
+                
+                Spacer()
+            }.navigationBarTitle("Health Stats")
+            .navigationBarItems(trailing:
+                                    NavigationLink(destination: AddView()){
+                                        Label("Add", systemImage: "plus")
+                                    }
+            )
+        }
+    }
+    
+    func whichView() -> some View {
+        switch viewMode {
+        case .weight:
+            return AnyView(Text("weight"))
+        case .bodyMeasurements:
+            return AnyView(BodyMeasurementView())
+        default: // .pictures
+            return AnyView(Text("pictures"))
+        }
     }
 }
 
