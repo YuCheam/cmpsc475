@@ -66,6 +66,7 @@ struct AddView: View {
                 }
             }
         }.navigationBarTitle("Add Health Stats")
+        .navigationBarBackButtonHidden(true)
     }
     
     func addBodyMeasurements() {
