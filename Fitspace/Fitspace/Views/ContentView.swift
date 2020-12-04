@@ -22,7 +22,7 @@ struct ContentView: View {
                         }
                         .tag(0)
                     
-                    HealthView().tabItem{
+                    HealthView(healthStats: user[0].healthStats).tabItem{
                         Label("Health", systemImage: "rectangle.3.offgrid")
                     }.tag(1)
                     

@@ -16,6 +16,7 @@ enum HealthViewState: String, CaseIterable {
 
 struct HealthView: View {
     @State var viewMode: HealthViewState = .bodyMeasurements
+    @ObservedObject var healthStats: HealthStats
     
     var body: some View {
         NavigationView {
@@ -31,7 +32,7 @@ struct HealthView: View {
                 Spacer()
             }.navigationBarTitle("Health Stats")
             .navigationBarItems(trailing:
-                                    NavigationLink(destination: AddView()){
+                                    NavigationLink(destination: AddView(healthStats: healthStats)){
                                         Label("Add", systemImage: "plus")
                                     }
             )
@@ -43,15 +44,15 @@ struct HealthView: View {
         case .weight:
             return AnyView(Text("weight"))
         case .bodyMeasurements:
-            return AnyView(BodyMeasurementView())
+            return AnyView(BodyMeasurementView(healthStats: healthStats))
         default: // .pictures
             return AnyView(Text("pictures"))
         }
     }
 }
 
-struct HealthView_Previews: PreviewProvider {
-    static var previews: some View {
-        HealthView()
-    }
-}
+//struct HealthView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HealthView()
+//    }
+//}

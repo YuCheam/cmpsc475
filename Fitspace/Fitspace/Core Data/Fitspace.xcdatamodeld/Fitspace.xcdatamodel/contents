@@ -3,7 +3,7 @@
     <entity name="BodyMeasurements" representedClassName="BodyMeasurements" syncable="YES">
         <attribute name="arm" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="hip" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="hips" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="neck" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="thigh" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="waist" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
@@ -61,14 +61,14 @@
         <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="weightHistory" inverseEntity="HealthStats"/>
     </entity>
     <elements>
-        <element name="BodyMeasurements" positionX="27" positionY="90" width="128" height="148"/>
-        <element name="Goal" positionX="54" positionY="153" width="128" height="118"/>
-        <element name="HealthStats" positionX="0" positionY="72" width="128" height="118"/>
-        <element name="Journal" positionX="18" positionY="135" width="128" height="88"/>
-        <element name="JournalEntry" positionX="27" positionY="144" width="128" height="103"/>
-        <element name="MoodEntry" positionX="36" positionY="153" width="128" height="103"/>
-        <element name="ProgressPic" positionX="9" positionY="126" width="128" height="103"/>
-        <element name="User" positionX="-36" positionY="9" width="128" height="148"/>
-        <element name="Weight" positionX="45" positionY="162" width="128" height="88"/>
+        <element name="BodyMeasurements" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Goal" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="HealthStats" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Journal" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="JournalEntry" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MoodEntry" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ProgressPic" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Weight" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

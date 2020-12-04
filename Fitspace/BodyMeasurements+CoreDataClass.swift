@@ -11,5 +11,10 @@ import CoreData
 
 @objc(BodyMeasurements)
 public class BodyMeasurements: NSManagedObject {
-
+    lazy var stringDate: String = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        
+        return dateFormatter.string(from: date)
+    }()
 }

@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../../../Downloads/Charts-master/Charts.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Charts">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

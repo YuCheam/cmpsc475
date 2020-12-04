@@ -17,7 +17,7 @@ extension BodyMeasurements {
     }
 
     @NSManaged public var date: Date
-    @NSManaged public var hip: Float
+    @NSManaged public var hips: Float
     @NSManaged public var waist: Float
     @NSManaged public var thigh: Float
     @NSManaged public var arm: Float
