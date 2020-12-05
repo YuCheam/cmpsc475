@@ -18,14 +18,14 @@
     </entity>
     <entity name="HealthStats" representedClassName="HealthStats" syncable="YES">
         <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="bodyMeasurements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BodyMeasurements" inverseName="userHealthStats" inverseEntity="BodyMeasurements"/>
+        <relationship name="bodyMeasurements" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="BodyMeasurements" inverseName="userHealthStats" inverseEntity="BodyMeasurements"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProgressPic" inverseName="userHealthStats" inverseEntity="ProgressPic"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="healthStats" inverseEntity="User"/>
-        <relationship name="weightHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weight" inverseName="userHealthStats" inverseEntity="Weight"/>
+        <relationship name="weightHistory" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Weight" inverseName="userHealthStats" inverseEntity="Weight"/>
     </entity>
     <entity name="Journal" representedClassName="Journal" syncable="YES">
-        <relationship name="journalEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntry" inverseName="journal" inverseEntity="JournalEntry"/>
-        <relationship name="moodEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MoodEntry" inverseName="journal" inverseEntity="MoodEntry"/>
+        <relationship name="journalEntries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="JournalEntry" inverseName="journal" inverseEntity="JournalEntry"/>
+        <relationship name="moodEntries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MoodEntry" inverseName="journal" inverseEntity="MoodEntry"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="journal" inverseEntity="User"/>
     </entity>
     <entity name="JournalEntry" representedClassName="JournalEntry" syncable="YES">

@@ -18,7 +18,7 @@ struct WeightForm: View {
     var body: some View {
         Form {
             Section(header: Text("Date")) {
-                DatePicker("Birthday", selection: $date, in: ...Date(),  displayedComponents: .date)
+                DatePicker("Date", selection: $date, in: ...Date(),  displayedComponents: .date)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(16)

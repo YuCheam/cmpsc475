@@ -52,6 +52,6 @@ extension User : Identifiable {
     
     var weight: Float {
         let weights = Array(self.healthStats.weightHistory)
-        return weights.sorted(by: {$0.date > $1.date}).first!.amount
+        return weights.sorted(by: {$0.date > $1.date}).first?.amount ?? 0
     }
 }

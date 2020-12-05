@@ -22,10 +22,10 @@ struct WeightView: View {
                     
                     Button(action: {deleteWeight(weight)}) {
                         Label("", systemImage: "trash")
-                    }.listStyle(PlainListStyle())
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }
-        }.listStyle(PlainListStyle())
+        }
     }
     
     func deleteWeight(_ weight: Weight) {

@@ -15,7 +15,7 @@ enum HealthViewState: String, CaseIterable {
 }
 
 struct HealthView: View {
-    @State var viewMode: HealthViewState = .bodyMeasurements
+    @State var viewMode: HealthViewState = .weight
     @ObservedObject var healthStats: HealthStats
     
     var body: some View {
@@ -40,7 +40,7 @@ struct HealthView: View {
     func whichView() -> some View {
         switch viewMode {
         case .weight:
-            return AnyView(Text("weight"))
+            return AnyView(WeightView(healthStats: healthStats))
         case .bodyMeasurements:
             return AnyView(BodyMeasurementRow(healthStats: healthStats))
         default: // .pictures
