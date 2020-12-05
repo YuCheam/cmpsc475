@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,6 +40,9 @@
 		2865FC8325734315000D87C9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC8225734315000D87C9 /* Date+Extension.swift */; };
 		28A686AA257C1A0300D6D56F /* WeightForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A686A9257C1A0300D6D56F /* WeightForm.swift */; };
 		28A686AE257C1E3B00D6D56F /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A686AD257C1E3B00D6D56F /* WeightView.swift */; };
+		28A686B5257C2B9000D6D56F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A686B4257C2B9000D6D56F /* ImagePicker.swift */; };
+		28A686BB257C2C5700D6D56F /* PhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A686BA257C2C5700D6D56F /* PhotosView.swift */; };
+		28A686CF257C3E9000D6D56F /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A686CE257C3E9000D6D56F /* LineGraph.swift */; };
 		28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19709255DBE2600C06703 /* FitspaceApp.swift */; };
 		28B1970C255DBE2600C06703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1970B255DBE2600C06703 /* ContentView.swift */; };
 		28B1970E255DBE2900C06703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B1970D255DBE2900C06703 /* Assets.xcassets */; };
@@ -139,6 +142,9 @@
 		2865FC8225734315000D87C9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		28A686A9257C1A0300D6D56F /* WeightForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightForm.swift; sourceTree = "<group>"; };
 		28A686AD257C1E3B00D6D56F /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
+		28A686B4257C2B9000D6D56F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		28A686BA257C2C5700D6D56F /* PhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosView.swift; sourceTree = "<group>"; };
+		28A686CE257C3E9000D6D56F /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
 		28B19706255DBE2600C06703 /* Fitspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B19709255DBE2600C06703 /* FitspaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitspaceApp.swift; sourceTree = "<group>"; };
 		28B1970B255DBE2600C06703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -240,11 +246,14 @@
 		285679F025782D950047F2B2 /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				28A686B4257C2B9000D6D56F /* ImagePicker.swift */,
 				28B19738255DBE5A00C06703 /* HealthView.swift */,
 				28567A15257874280047F2B2 /* BodyMeasurementForm.swift */,
 				28567A0B257840520047F2B2 /* BodyMeasurementRow.swift */,
 				28A686A9257C1A0300D6D56F /* WeightForm.swift */,
 				28A686AD257C1E3B00D6D56F /* WeightView.swift */,
+				28A686BA257C2C5700D6D56F /* PhotosView.swift */,
+				28A686CE257C3E9000D6D56F /* LineGraph.swift */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -475,7 +484,6 @@
 			);
 			mainGroup = 28B196FD255DBE2600C06703;
 			packageReferences = (
-				285679B52576FF090047F2B2 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 28B19707255DBE2600C06703 /* Products */;
 			projectDirPath = "";
@@ -543,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28473CAF2561B928005EE586 /* GoalComponent.swift in Sources */,
+				28A686B5257C2B9000D6D56F /* ImagePicker.swift in Sources */,
 				285679B12576F3DE0047F2B2 /* JournalEntryView.swift in Sources */,
 				28A686AE257C1E3B00D6D56F /* WeightView.swift in Sources */,
 				28F733D0256B49B100F7C99D /* AddEditGoal.swift in Sources */,
@@ -550,6 +559,7 @@
 				28567A2D257876BE0047F2B2 /* BodyMeasurements+CoreDataProperties.swift in Sources */,
 				2861287C2569657F00F818D8 /* JournalEntry+CoreDataClass.swift in Sources */,
 				28567A0C257840530047F2B2 /* BodyMeasurementRow.swift in Sources */,
+				28A686CF257C3E9000D6D56F /* LineGraph.swift in Sources */,
 				28F733CB2569D4A300F7C99D /* EditProfileView.swift in Sources */,
 				285679AC2576EE890047F2B2 /* JournalEntryComponent.swift in Sources */,
 				285679C8257734F20047F2B2 /* AddMoodEntry.swift in Sources */,
@@ -576,6 +586,7 @@
 				28567A16257874280047F2B2 /* BodyMeasurementForm.swift in Sources */,
 				2861287F2569657F00F818D8 /* ProgressPic+CoreDataClass.swift in Sources */,
 				2861287A2569657F00F818D8 /* Goal+CoreDataClass.swift in Sources */,
+				28A686BB257C2C5700D6D56F /* PhotosView.swift in Sources */,
 				2865FC72257339C8000D87C9 /* CustomModifiers.swift in Sources */,
 				28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */,
 				286128762569657F00F818D8 /* HealthStats+CoreDataClass.swift in Sources */,
@@ -907,17 +918,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		285679B52576FF090047F2B2 /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		28B19754255DBEF800C06703 /* Fitspace.xcdatamodeld */ = {

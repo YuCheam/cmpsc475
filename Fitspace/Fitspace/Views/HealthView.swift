@@ -44,7 +44,7 @@ struct HealthView: View {
         case .bodyMeasurements:
             return AnyView(BodyMeasurementRow(healthStats: healthStats))
         default: // .pictures
-            return AnyView(Text("pictures"))
+            return AnyView(PhotosView())
         }
     }
     
@@ -59,7 +59,7 @@ struct HealthView: View {
                 Label("Add", systemImage: "plus")
             })
         default: // .pictures
-            return AnyView(Text("pictures"))
+            return AnyView(Text("Add"))
         }
     }
 }

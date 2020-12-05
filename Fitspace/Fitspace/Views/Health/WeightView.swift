@@ -12,6 +12,8 @@ struct WeightView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
+        LineGraph()
+        
         List {
             ForEach(Array(healthStats.weightHistory), id: \.self) { weight in
                 HStack{
