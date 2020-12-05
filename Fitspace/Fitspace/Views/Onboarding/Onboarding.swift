@@ -15,7 +15,7 @@ struct Onboarding: View {
     @State var lastName: String = ""
     @State var dob: Date = Date()
     
-    @State var weight: Double = 0.0
+    @State var weight: Float = 0.0
     @State var height: Int = 0
     
     var heightFormatted: String {

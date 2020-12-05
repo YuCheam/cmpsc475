@@ -7,18 +7,23 @@
 
 import SwiftUI
 
-struct BodyMeasurementView: View {
+struct BodyMeasurementRow: View {
     @ObservedObject var healthStats: HealthStats
+    @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
-        Text("Hello")
         List {
             ForEach(Array(healthStats.bodyMeasurements ?? []), id: \.self) { measurement in
                 VStack(spacing:0) {
                     Text("\(measurement.stringDate)")
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading)
                         .background(Color.graphColor)
+                        
                     HStack {
+                        Button(action: {deleteMeasurement(measurement)}){
+                            Label("", systemImage: "trash")
+                        }.buttonStyle(PlainButtonStyle())
+                        
                         VStack {
                             Text("Neck")
                             Text("\(measurement.neck, specifier: "%.1f")")
@@ -64,7 +69,17 @@ struct BodyMeasurementView: View {
                     }
                 }
             }
-        }.padding(0)
+        }.listStyle(PlainListStyle())
+    }
+    
+    func deleteMeasurement(_ measurement: BodyMeasurements) {
+        viewContext.delete(measurement)
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("Could not save view context")
+        }
     }
 }
 

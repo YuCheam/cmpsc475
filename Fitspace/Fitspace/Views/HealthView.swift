@@ -32,9 +32,7 @@ struct HealthView: View {
                 Spacer()
             }.navigationBarTitle("Health Stats")
             .navigationBarItems(trailing:
-                                    NavigationLink(destination: AddView(healthStats: healthStats)){
-                                        Label("Add", systemImage: "plus")
-                                    }
+                               whichAddForm
             )
         }
     }
@@ -44,7 +42,22 @@ struct HealthView: View {
         case .weight:
             return AnyView(Text("weight"))
         case .bodyMeasurements:
-            return AnyView(BodyMeasurementView(healthStats: healthStats))
+            return AnyView(BodyMeasurementRow(healthStats: healthStats))
+        default: // .pictures
+            return AnyView(Text("pictures"))
+        }
+    }
+    
+    var whichAddForm: some View {
+        switch viewMode {
+        case .weight:
+            return AnyView(NavigationLink(destination: WeightForm(healthStats: healthStats)){
+                Label("Add", systemImage: "plus")
+            })
+        case .bodyMeasurements:
+            return AnyView(NavigationLink(destination: BodyMeasurementForm(healthStats: healthStats)){
+                Label("Add", systemImage: "plus")
+            })
         default: // .pictures
             return AnyView(Text("pictures"))
         }

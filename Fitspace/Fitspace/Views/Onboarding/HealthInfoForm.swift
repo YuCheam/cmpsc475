@@ -10,7 +10,7 @@ import Foundation
 
 struct HealthInfoForm: View {
     @Binding var tabIndex: Int
-    @Binding var currentWeight: Double
+    @Binding var currentWeight: Float
     @Binding var height: Int
     private var isValidEntries: Bool {
         currentWeight != 0 && height != 0

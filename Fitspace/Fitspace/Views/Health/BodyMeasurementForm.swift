@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddView: View {
+struct BodyMeasurementForm: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var healthStats: HealthStats

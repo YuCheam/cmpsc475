@@ -50,7 +50,8 @@ extension User : Identifiable {
         return calcAge.year!
     }
     
-    var weight: Double {
-        Array(self.healthStats.weightHistory)[0].amount
+    var weight: Float {
+        let weights = Array(self.healthStats.weightHistory)
+        return weights.sorted(by: {$0.date > $1.date}).first!.amount
     }
 }

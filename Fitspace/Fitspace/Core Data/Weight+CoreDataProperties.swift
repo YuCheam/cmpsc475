@@ -16,7 +16,7 @@ extension Weight {
         return NSFetchRequest<Weight>(entityName: "Weight")
     }
 
-    @NSManaged public var amount: Double
+    @NSManaged public var amount: Float
     @NSManaged public var date: Date
     @NSManaged public var userHealthStats: HealthStats
 

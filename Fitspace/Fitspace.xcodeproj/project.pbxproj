@@ -18,8 +18,8 @@
 		285679D5257745060047F2B2 /* Journal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285679D3257745060047F2B2 /* Journal+CoreDataProperties.swift */; };
 		285679EB25782C110047F2B2 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285679E425782AC60047F2B2 /* Charts.framework */; };
 		285679EC25782C110047F2B2 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 285679E425782AC60047F2B2 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		28567A0C257840530047F2B2 /* BodyMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A0B257840520047F2B2 /* BodyMeasurementView.swift */; };
-		28567A16257874280047F2B2 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A15257874280047F2B2 /* AddView.swift */; };
+		28567A0C257840530047F2B2 /* BodyMeasurementRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A0B257840520047F2B2 /* BodyMeasurementRow.swift */; };
+		28567A16257874280047F2B2 /* BodyMeasurementForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A15257874280047F2B2 /* BodyMeasurementForm.swift */; };
 		28567A2D257876BE0047F2B2 /* BodyMeasurements+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A2B257876BD0047F2B2 /* BodyMeasurements+CoreDataProperties.swift */; };
 		28567A2E257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A2C257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift */; };
 		286128722569657F00F818D8 /* MoodEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */; };
@@ -38,6 +38,8 @@
 		2865FC7725733C8D000D87C9 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC7625733C8D000D87C9 /* ViewConstants.swift */; };
 		2865FC7D25733D90000D87C9 /* AddJournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC7C25733D90000D87C9 /* AddJournalEntry.swift */; };
 		2865FC8325734315000D87C9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC8225734315000D87C9 /* Date+Extension.swift */; };
+		28A686AA257C1A0300D6D56F /* WeightForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A686A9257C1A0300D6D56F /* WeightForm.swift */; };
+		28A686AE257C1E3B00D6D56F /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A686AD257C1E3B00D6D56F /* WeightView.swift */; };
 		28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19709255DBE2600C06703 /* FitspaceApp.swift */; };
 		28B1970C255DBE2600C06703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1970B255DBE2600C06703 /* ContentView.swift */; };
 		28B1970E255DBE2900C06703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B1970D255DBE2900C06703 /* Assets.xcassets */; };
@@ -115,8 +117,8 @@
 		285679D2257745060047F2B2 /* Journal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Journal+CoreDataClass.swift"; path = "../../Journal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		285679D3257745060047F2B2 /* Journal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Journal+CoreDataProperties.swift"; path = "../../Journal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		285679DE25782AC60047F2B2 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
-		28567A0B257840520047F2B2 /* BodyMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMeasurementView.swift; sourceTree = "<group>"; };
-		28567A15257874280047F2B2 /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		28567A0B257840520047F2B2 /* BodyMeasurementRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMeasurementRow.swift; sourceTree = "<group>"; };
+		28567A15257874280047F2B2 /* BodyMeasurementForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyMeasurementForm.swift; sourceTree = "<group>"; };
 		28567A2B257876BD0047F2B2 /* BodyMeasurements+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		28567A2C257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -135,6 +137,8 @@
 		2865FC7625733C8D000D87C9 /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		2865FC7C25733D90000D87C9 /* AddJournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntry.swift; sourceTree = "<group>"; };
 		2865FC8225734315000D87C9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		28A686A9257C1A0300D6D56F /* WeightForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightForm.swift; sourceTree = "<group>"; };
+		28A686AD257C1E3B00D6D56F /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
 		28B19706255DBE2600C06703 /* Fitspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B19709255DBE2600C06703 /* FitspaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitspaceApp.swift; sourceTree = "<group>"; };
 		28B1970B255DBE2600C06703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -236,9 +240,11 @@
 		285679F025782D950047F2B2 /* Health */ = {
 			isa = PBXGroup;
 			children = (
-				28567A15257874280047F2B2 /* AddView.swift */,
 				28B19738255DBE5A00C06703 /* HealthView.swift */,
-				28567A0B257840520047F2B2 /* BodyMeasurementView.swift */,
+				28567A15257874280047F2B2 /* BodyMeasurementForm.swift */,
+				28567A0B257840520047F2B2 /* BodyMeasurementRow.swift */,
+				28A686A9257C1A0300D6D56F /* WeightForm.swift */,
+				28A686AD257C1E3B00D6D56F /* WeightView.swift */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -538,11 +544,12 @@
 			files = (
 				28473CAF2561B928005EE586 /* GoalComponent.swift in Sources */,
 				285679B12576F3DE0047F2B2 /* JournalEntryView.swift in Sources */,
+				28A686AE257C1E3B00D6D56F /* WeightView.swift in Sources */,
 				28F733D0256B49B100F7C99D /* AddEditGoal.swift in Sources */,
 				28B19761255F326500C06703 /* UserManager.swift in Sources */,
 				28567A2D257876BE0047F2B2 /* BodyMeasurements+CoreDataProperties.swift in Sources */,
 				2861287C2569657F00F818D8 /* JournalEntry+CoreDataClass.swift in Sources */,
-				28567A0C257840530047F2B2 /* BodyMeasurementView.swift in Sources */,
+				28567A0C257840530047F2B2 /* BodyMeasurementRow.swift in Sources */,
 				28F733CB2569D4A300F7C99D /* EditProfileView.swift in Sources */,
 				285679AC2576EE890047F2B2 /* JournalEntryComponent.swift in Sources */,
 				285679C8257734F20047F2B2 /* AddMoodEntry.swift in Sources */,
@@ -564,8 +571,9 @@
 				286128722569657F00F818D8 /* MoodEntry+CoreDataClass.swift in Sources */,
 				2861287B2569657F00F818D8 /* Goal+CoreDataProperties.swift in Sources */,
 				28F733BE25696D2500F7C99D /* UserInfoForm.swift in Sources */,
+				28A686AA257C1A0300D6D56F /* WeightForm.swift in Sources */,
 				286128752569657F00F818D8 /* Weight+CoreDataProperties.swift in Sources */,
-				28567A16257874280047F2B2 /* AddView.swift in Sources */,
+				28567A16257874280047F2B2 /* BodyMeasurementForm.swift in Sources */,
 				2861287F2569657F00F818D8 /* ProgressPic+CoreDataClass.swift in Sources */,
 				2861287A2569657F00F818D8 /* Goal+CoreDataClass.swift in Sources */,
 				2865FC72257339C8000D87C9 /* CustomModifiers.swift in Sources */,
