@@ -15,15 +15,10 @@ struct LineGraph: UIViewRepresentable {
     
     
     func makeUIView(context: Context) -> LineChartView  {
-        let set1 = LineChartDataSet(entries: entries, label: "Weights")
-        set1.mode = .cubicBezier
-        set1.drawCirclesEnabled = false
-        set1.lineWidth = 3
-        
-        let data = LineChartData(dataSet: set1)
         let chart: LineChartView = LineChartView()
+        chart.data = addData()
+
         
-        chart.data = data
         chart.backgroundColor = UIColor(Color.blue)
         
         // Customization of Chart
@@ -46,11 +41,21 @@ struct LineGraph: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        
+        uiView.data = addData()
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
+    }
+    
+    func addData() -> LineChartData {
+        
+        let dataSet = LineChartDataSet(entries: entries, label: "Weights")
+        dataSet.mode = .cubicBezier
+        //dataSet.drawCirclesEnabled = false
+        dataSet.lineWidth = 3
+        
+        return LineChartData(dataSet: dataSet)
     }
     
     class Coordinator: NSObject, ChartViewDelegate {

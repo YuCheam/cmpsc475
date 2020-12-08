@@ -17,4 +17,5 @@ public class BodyMeasurements: NSManagedObject {
         
         return dateFormatter.string(from: date)
     }()
+    
 }
