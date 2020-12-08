@@ -14,11 +14,7 @@ struct ProfileView: View {
     @State var goalTitle = "Goal Title"
     @State var goalText = "text;lkajd dkei some more text and and"
     @State var showEditMenu = false
-    
-    //TODO: Add custom profile picture
-    var profileImage = "emma_watson"
-    
-    
+ 
     @FetchRequest(entity: User.entity(), sortDescriptors: [])
     var user: FetchedResults<User>
     
@@ -28,7 +24,7 @@ struct ProfileView: View {
                 ScrollView {
                     VStack {
                         HStack(spacing: 10) {
-                            Image(profileImage)
+                            Image(uiImage: user[0].image)
                                 .resizable()
                                 .clipShape(Circle())
                                 .aspectRatio(contentMode: .fit)

@@ -16,6 +16,9 @@ struct EditProfileView: View {
     @State var lastName: String = ""
     @State var dob: Date = Date()
     
+    @State var isShowingLibrary: Bool = false
+    @State var image = UIImage()
+    
     var body: some View {
         NavigationView {
             Form {
@@ -42,6 +45,23 @@ struct EditProfileView: View {
                     .background(Color.white)
                     .cornerRadius(16)
                 
+                Section(header: Text("Profile Picture")) {
+                    HStack {
+                        Button(action: {image = UIImage()}){
+                            Text("Clear")
+                                .modifier(ButtonStyle(ViewConstants.errorButtonColor))
+                        }.buttonStyle(PlainButtonStyle())
+                        
+                        Button(action: {self.isShowingLibrary = true}){
+                            Text("Add Image")
+                                .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+                        }.buttonStyle(PlainButtonStyle())
+                    }
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 164, height: 164)
+                }
                 
                 HStack {
                     Button(action: {sheet.toggle()}){
@@ -70,6 +90,9 @@ struct EditProfileView: View {
                 self.lastName = user.lastName
                 self.dob = user.dob
             }
+            .sheet(isPresented: $isShowingLibrary) {
+                ImagePicker(selectedImage: $image, sourceType: .photoLibrary)
+            }
         }
     }
     
@@ -77,6 +100,7 @@ struct EditProfileView: View {
         user.firstName = firstName
         user.lastName = lastName
         user.dob = dob
+        user.profileImage = image.jpegData(compressionQuality: 1.0)
         sheet.toggle()
         
         do {
