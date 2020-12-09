@@ -57,6 +57,7 @@
 		28B19756255DBEF800C06703 /* Fitspace.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28B19754255DBEF800C06703 /* Fitspace.xcdatamodeld */; };
 		28B1975B255E29CC00C06703 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1975A255E29CC00C06703 /* Persistence.swift */; };
 		28B19761255F326500C06703 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19760255F326500C06703 /* UserManager.swift */; };
+		28D2DA52258040C100FEB9D6 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D2DA51258040C100FEB9D6 /* BarChart.swift */; };
 		28F733B5256967F300F7C99D /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F733B3256967F300F7C99D /* User+CoreDataClass.swift */; };
 		28F733B6256967F300F7C99D /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F733B4256967F300F7C99D /* User+CoreDataProperties.swift */; };
 		28F733BE25696D2500F7C99D /* UserInfoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F733BD25696D2500F7C99D /* UserInfoForm.swift */; };
@@ -166,6 +167,7 @@
 		28B19755255DBEF800C06703 /* Fitspace.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fitspace.xcdatamodel; sourceTree = "<group>"; };
 		28B1975A255E29CC00C06703 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		28B19760255F326500C06703 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		28D2DA51258040C100FEB9D6 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
 		28F733B3256967F300F7C99D /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		28F733B4256967F300F7C99D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		28F733BD25696D2500F7C99D /* UserInfoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoForm.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 		28B19737255DBE4600C06703 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				28D2DA4E258040A100FEB9D6 /* BarChart */,
 				28381F9F257C4E6C009CC074 /* LineChart */,
 				285679F025782D950047F2B2 /* Health */,
 				285679BB25772F470047F2B2 /* MoodChart */,
@@ -402,6 +405,14 @@
 				28B19760255F326500C06703 /* UserManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		28D2DA4E258040A100FEB9D6 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				28D2DA51258040C100FEB9D6 /* BarChart.swift */,
+			);
+			path = BarChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -598,6 +609,7 @@
 				2861287F2569657F00F818D8 /* ProgressPic+CoreDataClass.swift in Sources */,
 				2861287A2569657F00F818D8 /* Goal+CoreDataClass.swift in Sources */,
 				28A686BB257C2C5700D6D56F /* PhotosView.swift in Sources */,
+				28D2DA52258040C100FEB9D6 /* BarChart.swift in Sources */,
 				2865FC72257339C8000D87C9 /* CustomModifiers.swift in Sources */,
 				28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */,
 				286128762569657F00F818D8 /* HealthStats+CoreDataClass.swift in Sources */,

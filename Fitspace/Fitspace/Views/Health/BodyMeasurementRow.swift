@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Charts
 
 struct BodyMeasurementRow: View {
     @ObservedObject var healthStats: HealthStats
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
+        BarChart()
+        
         List {
             ForEach(Array(healthStats.bodyMeasurements ?? []), id: \.self) { measurement in
                 VStack(spacing:0) {

@@ -42,6 +42,7 @@ struct LineGraph: UIViewRepresentable {
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
         uiView.data = addData()
+        uiView.notifyDataSetChanged()
     }
     
     func makeCoordinator() -> Coordinator {
