@@ -61,6 +61,7 @@ struct BarChart: UIViewRepresentable {
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
         uiView.data = addData(chart: uiView)
+        uiView.notifyDataSetChanged()
     }
     
     func addData(chart: BarChartView) -> BarChartData {
@@ -94,10 +95,11 @@ struct BarChart: UIViewRepresentable {
         let data = BarChartData(dataSets: dataSets)
         
         // Setting Grouping Settings
-        // (0.3 + 0.05) * 2 + 0.3 = 1.0
-        let groupSpace = 0.1
-        let barSpace = 0.01
-        let barWidth = 0.17
+        // groupWidth = n * (barWidth + barSpace) + groupSpace
+        let groupSpace = 0.15
+        let barSpace = 0.02
+        let barWidth = groupSpace
+        
         let groupCount = dates.count
         let startDate = 0
         

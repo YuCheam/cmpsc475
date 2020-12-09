@@ -77,13 +77,18 @@ struct BodyMeasurementRow: View {
     
     func deleteMeasurement(_ measurement: BodyMeasurements) {
         viewContext.delete(measurement)
-        healthStats.setBodyMeasurementArrays()
         
         do {
             try viewContext.save()
         } catch {
             print("Could not save view context")
         }
+        healthStats.setBodyMeasurementArrays()
+    }
+    
+    init(healthStats: HealthStats) {
+        self.healthStats = healthStats
+        healthStats.setBodyMeasurementArrays()
     }
 }
 

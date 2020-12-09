@@ -29,7 +29,9 @@ public class HealthStats: NSManagedObject {
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "MM/dd"
         
+        
         if let bodyMeasurements = self.bodyMeasurements {
+            clearArrays()
             for measurement in Array(bodyMeasurements).sorted(by: {$0.date < $1.date}) {
                 date.append(dateFormatter.string(from: measurement.date))
                 hipsEntries.append(measurement.hips)
@@ -39,6 +41,15 @@ public class HealthStats: NSManagedObject {
                 neckEntries.append(measurement.neck)
             }
         }
+    }
+    
+    func clearArrays() {
+        date.removeAll()
+        hipsEntries.removeAll()
+        waistEntries.removeAll()
+        thighEntries.removeAll()
+        armEntries.removeAll()
+        neckEntries.removeAll()
     }
     
     //TODO: Create function to delete body measurement

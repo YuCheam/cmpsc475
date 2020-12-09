@@ -18,11 +18,15 @@ struct BodyMeasurementForm: View {
     @State var hipMeasurement: Double = 0.0
     @State var thighMeasurement: Double = 0.0
     @State var waistMeasurement: Double = 0.0
+    @State var date = Date()
     
     var body: some View {
         Form {
             Section(header: Text("Date")) {
-                Text("Date: \(Date().formattedDate)")
+                DatePicker("Date", selection: $date, in: ...Date(),  displayedComponents: .date)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(16)
             }
             
             Section(header: Text("Body Measurements")) {
@@ -76,10 +80,9 @@ struct BodyMeasurementForm: View {
         newEntry.neck = neckMeasurement
         newEntry.thigh = thighMeasurement
         newEntry.waist = waistMeasurement
-        newEntry.date = Date()
+        newEntry.date = date
         
         healthStats.addToBodyMeasurements(newEntry)
-        healthStats.setBodyMeasurementArrays()
 
         do {
             try viewContext.save()
@@ -87,6 +90,7 @@ struct BodyMeasurementForm: View {
             print("Body Measurements could not be created")
         }
         self.presentationMode.wrappedValue.dismiss()
+        healthStats.setBodyMeasurementArrays()
     }
 }
 
