@@ -22,7 +22,7 @@ struct BarChart: UIViewRepresentable {
     
     func makeUIView(context: Context) -> BarChartView {
         let chart = BarChartView()
-        
+        //chart.setScaleEnabled(true)
         
         // legend formatting
         let legend = chart.legend

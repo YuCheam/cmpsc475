@@ -24,6 +24,7 @@ struct BodyMeasurementForm: View {
         Form {
             Section(header: Text("Date")) {
                 DatePicker("Date", selection: $date, in: ...Date(),  displayedComponents: .date)
+                    .datePickerStyle(GraphicalDatePickerStyle())
                     .padding()
                     .background(Color.white)
                     .cornerRadius(16)
