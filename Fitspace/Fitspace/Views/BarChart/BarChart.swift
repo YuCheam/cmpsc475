@@ -87,18 +87,18 @@ struct BarChart: UIViewRepresentable {
         
         let barDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Neck")
         let barDataSet2 = BarChartDataSet(entries: dataEntries2, label: "Arm")
-        let barDataSet3 = BarChartDataSet(entries: dataEntries1, label: "Waist")
-        let barDataSet4 = BarChartDataSet(entries: dataEntries2, label: "Hip")
-        let barDataSet5 = BarChartDataSet(entries: dataEntries2, label: "Thigh")
+        let barDataSet3 = BarChartDataSet(entries: dataEntries3, label: "Waist")
+        let barDataSet4 = BarChartDataSet(entries: dataEntries4, label: "Hip")
+        let barDataSet5 = BarChartDataSet(entries: dataEntries5, label: "Thigh")
         let dataSets = [barDataSet1, barDataSet2, barDataSet3, barDataSet4, barDataSet5]
         
         let data = BarChartData(dataSets: dataSets)
         
         // Setting Grouping Settings
-        // groupWidth = n * (barWidth + barSpace) + groupSpace
-        let groupSpace = 0.15
-        let barSpace = 0.02
-        let barWidth = groupSpace
+        // groupWidth (1) = n * (barWidth + barSpace) + groupSpace
+        let groupSpace = 0.155
+        let barSpace = 0.015
+        let barWidth = 0.15
         
         let groupCount = dates.count
         let startDate = 0
