@@ -42,13 +42,13 @@ struct WeightView: View {
             print("Cannot delete weight")
         }
         
-        healthStats.updateDataEntries()
+        healthStats.updateWeightChartData()
     }
     
     init(healthStats: HealthStats){
         self.healthStats = healthStats
-        healthStats.updateDataEntries()
-        self.entries = healthStats.entries
+        healthStats.updateWeightChartData()
+        self.entries = healthStats.weightEntries
         self.xAxisFormatter = healthStats.xAxisFormatter
     }
 }

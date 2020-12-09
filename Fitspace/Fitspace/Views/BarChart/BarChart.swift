@@ -11,13 +11,18 @@ import UIKit
 import SwiftUI
 
 struct BarChart: UIViewRepresentable {
-    var wristMeasurements: [Double] = [5.0, 5.1, 4.9]
-    var waistMeasurements: [Double] = [26.5, 27, 27.1]
-    
-    let dates = ["11/01", "11/20", "12/01"]
+    var healthStats: HealthStats
+    var dates: [String]
+    var hipMeasurements: [Double]
+    var waistMeasurements: [Double]
+    var thighMeasurements: [Double]
+    var armMeasurements: [Double]
+    var neckMeasurements: [Double]
+
     
     func makeUIView(context: Context) -> BarChartView {
         let chart = BarChartView()
+        
         
         // legend formatting
         let legend = chart.legend
@@ -61,26 +66,38 @@ struct BarChart: UIViewRepresentable {
     func addData(chart: BarChartView) -> BarChartData {
         var dataEntries1: [BarChartDataEntry] = []
         var dataEntries2: [BarChartDataEntry] = []
+        var dataEntries3: [BarChartDataEntry] = []
+        var dataEntries4: [BarChartDataEntry] = []
+        var dataEntries5: [BarChartDataEntry] = []
         
         for i in 0..<dates.count {
-            let dataEntry1 = BarChartDataEntry(x: Double(i), y: wristMeasurements[i])
-            let dataEntry2 = BarChartDataEntry(x: Double(i), y: waistMeasurements[i])
+            let dataEntry1 = BarChartDataEntry(x: Double(i), y: neckMeasurements[i])
+            let dataEntry2 = BarChartDataEntry(x: Double(i), y: armMeasurements[i])
+            let dataEntry3 = BarChartDataEntry(x: Double(i), y: waistMeasurements[i])
+            let dataEntry4 = BarChartDataEntry(x: Double(i), y: hipMeasurements[i])
+            let dataEntry5 = BarChartDataEntry(x: Double(i), y: thighMeasurements[i])
             
             dataEntries1.append(dataEntry1)
             dataEntries2.append(dataEntry2)
+            dataEntries3.append(dataEntry3)
+            dataEntries4.append(dataEntry4)
+            dataEntries5.append(dataEntry5)
         }
         
-        let barDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Wrist Measurement")
-        let barDataSet2 = BarChartDataSet(entries: dataEntries2, label: "Waist Measurement")
-        let dataSets = [barDataSet1, barDataSet2]
+        let barDataSet1 = BarChartDataSet(entries: dataEntries1, label: "Neck")
+        let barDataSet2 = BarChartDataSet(entries: dataEntries2, label: "Arm")
+        let barDataSet3 = BarChartDataSet(entries: dataEntries1, label: "Waist")
+        let barDataSet4 = BarChartDataSet(entries: dataEntries2, label: "Hip")
+        let barDataSet5 = BarChartDataSet(entries: dataEntries2, label: "Thigh")
+        let dataSets = [barDataSet1, barDataSet2, barDataSet3, barDataSet4, barDataSet5]
         
         let data = BarChartData(dataSets: dataSets)
         
         // Setting Grouping Settings
         // (0.3 + 0.05) * 2 + 0.3 = 1.0
-        let groupSpace = 0.3
-        let barSpace = 0.05
-        let barWidth = 0.3
+        let groupSpace = 0.1
+        let barSpace = 0.01
+        let barWidth = 0.17
         let groupCount = dates.count
         let startDate = 0
         
@@ -92,6 +109,16 @@ struct BarChart: UIViewRepresentable {
         chart.notifyDataSetChanged()
         
         return data
+    }
+    
+    init(healthStats: HealthStats) {
+        self.healthStats = healthStats
+        self.dates = healthStats.date
+        self.hipMeasurements = healthStats.hipsEntries
+        self.waistMeasurements = healthStats.waistEntries
+        self.thighMeasurements = healthStats.thighEntries
+        self.armMeasurements = healthStats.armEntries
+        self.neckMeasurements = healthStats.neckEntries
     }
     
     typealias UIViewType = BarChartView

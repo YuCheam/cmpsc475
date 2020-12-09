@@ -13,11 +13,37 @@ import UIKit
 
 @objc(HealthStats)
 public class HealthStats: NSManagedObject {
-    var entries: [ChartDataEntry] = [ChartDataEntry]()
+    var weightEntries: [ChartDataEntry] = [ChartDataEntry]()
     var xAxisFormatter: ChartXAxisFormatter = ChartXAxisFormatter()
     
+    // Body Measurement Bar Arrays
+    var date: [String] = []
+    var hipsEntries: [Double] = []
+    var waistEntries: [Double] = []
+    var thighEntries: [Double] = []
+    var armEntries: [Double] = []
+    var neckEntries: [Double] = []
     
-    func updateDataEntries() {
+    func setBodyMeasurementArrays() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = "MM/dd"
+        
+        if let bodyMeasurements = self.bodyMeasurements {
+            for measurement in Array(bodyMeasurements).sorted(by: {$0.date < $1.date}) {
+                date.append(dateFormatter.string(from: measurement.date))
+                hipsEntries.append(measurement.hips)
+                waistEntries.append(measurement.waist)
+                thighEntries.append(measurement.thigh)
+                armEntries.append(measurement.arm)
+                neckEntries.append(measurement.neck)
+            }
+        }
+    }
+    
+    //TODO: Create function to delete body measurement
+    
+    func updateWeightChartData() {
         var referenceTimeInterval: TimeInterval = 0
         if let minTimeInterval  = (Array(weightHistory).map({$0.date.timeIntervalSince1970}).min()) {
             referenceTimeInterval = minTimeInterval
@@ -39,12 +65,13 @@ public class HealthStats: NSManagedObject {
             entries.append(entry)
         }
         
-        self.entries = entries
+        self.weightEntries = entries
         self.xAxisFormatter = xValuesNumberFormatter
     }
     
     convenience init() {
         self.init()
-        updateDataEntries()
+        updateWeightChartData()
+        setBodyMeasurementArrays()
     }
 }

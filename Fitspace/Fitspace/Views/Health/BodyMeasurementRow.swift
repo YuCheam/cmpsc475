@@ -13,7 +13,7 @@ struct BodyMeasurementRow: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
-        BarChart()
+        BarChart(healthStats: healthStats)
         
         List {
             ForEach(Array(healthStats.bodyMeasurements ?? []), id: \.self) { measurement in
@@ -77,6 +77,7 @@ struct BodyMeasurementRow: View {
     
     func deleteMeasurement(_ measurement: BodyMeasurements) {
         viewContext.delete(measurement)
+        healthStats.setBodyMeasurementArrays()
         
         do {
             try viewContext.save()

@@ -54,7 +54,7 @@ struct WeightForm: View {
         newWeight.date = date
         
         healthStats.addToWeightHistory(newWeight)
-        healthStats.updateDataEntries()
+        healthStats.updateWeightChartData()
         
         do {
             try viewContext.save()

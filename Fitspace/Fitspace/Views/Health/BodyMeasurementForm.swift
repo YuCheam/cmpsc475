@@ -13,11 +13,11 @@ struct BodyMeasurementForm: View {
     @ObservedObject var healthStats: HealthStats
     
     @State var showBodyMeasurements: Bool = true
-    @State var neckMeasurement: Float = 0.0
-    @State var armMeasurement: Float = 0.0
-    @State var hipMeasurement: Float = 0.0
-    @State var thighMeasurement: Float = 0.0
-    @State var waistMeasurement: Float = 0.0
+    @State var neckMeasurement: Double = 0.0
+    @State var armMeasurement: Double = 0.0
+    @State var hipMeasurement: Double = 0.0
+    @State var thighMeasurement: Double = 0.0
+    @State var waistMeasurement: Double = 0.0
     
     var body: some View {
         Form {
@@ -79,6 +79,7 @@ struct BodyMeasurementForm: View {
         newEntry.date = Date()
         
         healthStats.addToBodyMeasurements(newEntry)
+        healthStats.setBodyMeasurementArrays()
 
         do {
             try viewContext.save()

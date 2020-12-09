@@ -17,11 +17,11 @@ extension BodyMeasurements {
     }
 
     @NSManaged public var date: Date
-    @NSManaged public var hips: Float
-    @NSManaged public var waist: Float
-    @NSManaged public var thigh: Float
-    @NSManaged public var arm: Float
-    @NSManaged public var neck: Float
+    @NSManaged public var hips: Double
+    @NSManaged public var waist: Double
+    @NSManaged public var thigh: Double
+    @NSManaged public var arm: Double
+    @NSManaged public var neck: Double
     @NSManaged public var userHealthStats: HealthStats
 
 }
