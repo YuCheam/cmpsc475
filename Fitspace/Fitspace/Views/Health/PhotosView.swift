@@ -19,12 +19,15 @@ struct PhotosView: View {
         VStack {
             GeometryReader { geo in
                 ScrollView(){
-                    LazyVGrid(columns: columns, spacing: 6) {
-                        ForEach(Array(healthStats.images), id: \.self) {image in
-                            ImageView(image: image, size: geo.size.width/3)
-                                .onTapGesture {
-                                    image.isSelected.toggle()
-                                }
+                    ForEach(healthStats.imagesArray, id:\.self) { array in
+                        Text(array[0].date.formattedDate)
+                        LazyVGrid(columns: columns, spacing: 6) {
+                            ForEach(array, id:\.self) { image in
+                                ImageView(image: image, size: geo.size.width/3)
+                                    .onTapGesture {
+                                        image.isSelected.toggle()
+                                    }
+                            }
                         }
                     }
                 }.padding(4)
