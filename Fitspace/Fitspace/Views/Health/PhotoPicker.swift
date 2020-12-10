@@ -34,7 +34,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
     func addImage(image: UIImage) {
         let newProgressPic = ProgressPic(context: viewContext)
         newProgressPic.date = Date()
-        newProgressPic.imageData = image.jpegData(compressionQuality: 1.0)
+        //newProgressPic.imageData = image.jpegData(compressionQuality: 1.0)
         
         healthStats.addToImages(newProgressPic)
         DispatchQueue.main.sync {

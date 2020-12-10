@@ -24,12 +24,6 @@ public class HealthStats: NSManagedObject {
     var armEntries: [Double] = []
     var neckEntries: [Double] = []
     
-    var imageArray: [UIImage] {
-        Array(self.images).map({ image in
-            UIImage(data: image.imageData!)!
-        })
-    }
-    
     func setBodyMeasurementArrays() {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current

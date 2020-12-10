@@ -21,12 +21,12 @@ struct PhotosView: View {
             GeometryReader { geo in
                 ScrollView(){
                     LazyVGrid(columns: columns, spacing: 6) {
-                        ForEach(imageSelection.indices, id: \.self) { index in
-                            ImageView(imageSelected: $imageSelection[index], image: healthStats.imageArray[index], size: geo.size.width/3)
-                                .onTapGesture {
-                                    self.imageSelection[index].toggle()
-                                }
-                        }
+//                        ForEach(imageSelection.indices, id: \.self) { index in
+//                            ImageView(imageSelected: $imageSelection[index], image: healthStats.imageArray[index], size: geo.size.width/3)
+//                                .onTapGesture {
+//                                    self.imageSelection[index].toggle()
+//                                }
+//                        }
                     }
                 }.padding(4)
             }
@@ -49,9 +49,6 @@ struct PhotosView: View {
             }
         }.sheet(isPresented: $isShowingLibrary) {
             PhotoPicker(configuration: configuration, isPresented: $isShowingLibrary, imageSelection: $imageSelection, healthStats: healthStats)
-        }
-        .onAppear() {
-            self.imageSelection = healthStats.imageArray.map({_ in false})
         }
     }
     
