@@ -10,22 +10,25 @@ import UIKit
 import PhotosUI
 
 struct PhotosView: View {
+    @ObservedObject var healthStats: HealthStats
     @State var isShowingLibrary: Bool = false
-    @State var images: [UIImage] = []
+    @State var imageSelection: [Bool] = []
     var configuration: PHPickerConfiguration
-    
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+
     var body: some View {
         VStack {
-            ScrollView(.horizontal){
-                HStack {
-                    ForEach(images, id: \.self) { image in
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .edgesIgnoringSafeArea(.all)
+            GeometryReader { geo in
+                ScrollView(){
+                    LazyVGrid(columns: columns, spacing: 6) {
+                        ForEach(imageSelection.indices, id: \.self) { index in
+                            ImageView(imageSelected: $imageSelection[index], image: healthStats.imageArray[index], size: geo.size.width/3)
+                                .onTapGesture {
+                                    self.imageSelection[index].toggle()
+                                }
+                        }
                     }
-                }
+                }.padding(4)
             }
             
             Button(action: {
@@ -45,20 +48,40 @@ struct PhotosView: View {
                 .padding(.horizontal)
             }
         }.sheet(isPresented: $isShowingLibrary) {
-            PhotoPicker(configuration: configuration, pickerResults: $images, isPresented: $isShowingLibrary)
+            PhotoPicker(configuration: configuration, isPresented: $isShowingLibrary, imageSelection: $imageSelection, healthStats: healthStats)
+        }
+        .onAppear() {
+            self.imageSelection = healthStats.imageArray.map({_ in false})
         }
     }
     
-    init() {
+    init(healthStats: HealthStats) {
         self.configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
         configuration.selectionLimit = 0
         configuration.filter = .any(of: [.images])
+        
+        self.healthStats = healthStats
     }
 }
 
-
-struct PhotosView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotosView()
+struct ImageView: View {
+    @Binding var imageSelected: Bool
+    var image: UIImage
+    var size: CGFloat
+    var color: Color {
+        imageSelected ? Color.blue : Color.clear
+    }
+    
+    var body: some View {
+        Image(uiImage: image)
+            .resizable()
+            .frame(width: size, height: size)
+            .border(color, width: 2)
     }
 }
+
+//struct PhotosView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PhotosView()
+//    }
+//}

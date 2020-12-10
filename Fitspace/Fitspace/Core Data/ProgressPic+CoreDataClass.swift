@@ -8,8 +8,11 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 @objc(ProgressPic)
 public class ProgressPic: NSManagedObject {
-
+    var image: UIImage {
+        UIImage(data: imageData!) ?? UIImage()
+    }
 }

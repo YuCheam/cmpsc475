@@ -43,7 +43,7 @@
     <entity name="ProgressPic" representedClassName="ProgressPic" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
         <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="images" inverseEntity="HealthStats"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">

@@ -44,7 +44,7 @@ struct HealthView: View {
         case .bodyMeasurements:
             return AnyView(BodyMeasurementRow(healthStats: healthStats))
         default: // .pictures
-            return AnyView(PhotosView())
+            return AnyView(PhotosView(healthStats: healthStats))
         }
     }
     

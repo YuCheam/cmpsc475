@@ -16,10 +16,10 @@ extension ProgressPic {
         return NSFetchRequest<ProgressPic>(entityName: "ProgressPic")
     }
 
-    @NSManaged public var category: String?
-    @NSManaged public var date: Date?
-    @NSManaged public var imageName: String?
-    @NSManaged public var userHealthStats: HealthStats?
+    @NSManaged public var category: String
+    @NSManaged public var date: Date
+    @NSManaged public var imageData: Data?
+    @NSManaged public var userHealthStats: HealthStats
 
 }
 

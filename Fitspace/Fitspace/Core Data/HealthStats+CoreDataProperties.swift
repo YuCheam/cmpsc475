@@ -18,7 +18,7 @@ extension HealthStats {
 
     @NSManaged public var height: Int
     @NSManaged public var bodyMeasurements: Set<BodyMeasurements>?
-    @NSManaged public var images: NSSet?
+    @NSManaged public var images: Set<ProgressPic>
     @NSManaged public var weightHistory: Set<Weight>
     @NSManaged public var user: User
 

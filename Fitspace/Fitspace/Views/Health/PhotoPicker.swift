@@ -9,9 +9,12 @@ import SwiftUI
 import PhotosUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     let configuration: PHPickerConfiguration
-    @Binding var pickerResults: [UIImage]
     @Binding var isPresented: Bool
+    @Binding var imageSelection: [Bool]
+    var healthStats: HealthStats
     
     typealias UIViewControllerType = PHPickerViewController
     
@@ -28,6 +31,21 @@ struct PhotoPicker: UIViewControllerRepresentable {
         Coordinator(self)
     }
     
+    func addImage(image: UIImage) {
+        let newProgressPic = ProgressPic(context: viewContext)
+        newProgressPic.date = Date()
+        newProgressPic.imageData = image.jpegData(compressionQuality: 1.0)
+        
+        healthStats.addToImages(newProgressPic)
+        DispatchQueue.main.sync {
+            do {
+                try viewContext.save()
+            } catch {
+                print("Images could not be created")
+            }
+        }
+    }
+    
     class Coordinator: PHPickerViewControllerDelegate {
         private let parent: PhotoPicker
         
@@ -38,7 +56,8 @@ struct PhotoPicker: UIViewControllerRepresentable {
                         if let error = error {
                             print(error.localizedDescription)
                         } else {
-                            self.parent.pickerResults.append(newImage as! UIImage)
+                            self.parent.addImage(image: newImage as! UIImage)
+                            self.parent.imageSelection.append(false)
                         }
                     }
                 } else {

@@ -35,6 +35,7 @@ struct UserInfoForm: View {
                 .cornerRadius(16)
             
             DatePicker("Birthday", selection: $dob, in: ...Date(),  displayedComponents: .date)
+                .datePickerStyle(GraphicalDatePickerStyle())
                 .padding()
                 .background(Color.white)
                 .cornerRadius(16)
