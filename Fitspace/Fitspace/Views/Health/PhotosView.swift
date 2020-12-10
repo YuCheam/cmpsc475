@@ -7,19 +7,26 @@
 
 import SwiftUI
 import UIKit
+import PhotosUI
 
 struct PhotosView: View {
     @State var isShowingLibrary: Bool = false
-    @State var image = UIImage()
+    @State var images: [UIImage] = []
+    var configuration: PHPickerConfiguration
     
     var body: some View {
         VStack {
-            
-            Image(uiImage: self.image)
-                .resizable()
-                .scaledToFill()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .edgesIgnoringSafeArea(.all)
+            ScrollView(.horizontal){
+                HStack {
+                    ForEach(images, id: \.self) { image in
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .edgesIgnoringSafeArea(.all)
+                    }
+                }
+            }
             
             Button(action: {
                 self.isShowingLibrary = true
@@ -38,8 +45,14 @@ struct PhotosView: View {
                 .padding(.horizontal)
             }
         }.sheet(isPresented: $isShowingLibrary) {
-            ImagePicker(selectedImage: $image, sourceType: .photoLibrary)
+            PhotoPicker(configuration: configuration, pickerResults: $images, isPresented: $isShowingLibrary)
         }
+    }
+    
+    init() {
+        self.configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+        configuration.selectionLimit = 0
+        configuration.filter = .any(of: [.images])
     }
 }
 
