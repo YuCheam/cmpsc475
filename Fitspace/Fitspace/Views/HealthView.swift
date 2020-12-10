@@ -32,14 +32,9 @@ struct HealthView: View {
                 
                 Spacer()
             }.navigationBarTitle("Health Stats")
-            .toolbar(){
-                ToolbarItem(placement: .primaryAction) {
-                    whichAddForm
-                }
-            }
-//            .navigationBarItems(trailing:
-//                               whichAddForm
-//            )
+            .navigationBarItems(trailing:
+                               whichAddForm
+            )
         }
     }
     
@@ -50,7 +45,7 @@ struct HealthView: View {
         case .bodyMeasurements:
             return AnyView(BodyMeasurementRow(healthStats: healthStats))
         default: // .pictures
-            return AnyView(PhotosView(healthStats: healthStats))
+            return AnyView(PhotosView(healthStats: healthStats, showActionSheet: $showActionSheet))
         }
     }
     
@@ -58,25 +53,22 @@ struct HealthView: View {
         switch viewMode {
         case .weight:
             return AnyView(
-                //fixme:  KINDA HACKY MAYBE FIX LATER
-                HStack {
-                    Text("")
-                    NavigationLink(destination: WeightForm(healthStats: healthStats)){
-                        Label("Add", systemImage: "plus")
-                    }
+                NavigationLink(destination: WeightForm(healthStats: healthStats)){
+                    Label("Add", systemImage: "plus")
                 }
             )
         case .bodyMeasurements:
             return AnyView(
-                HStack {
-                    Text("")
-                    NavigationLink(destination: BodyMeasurementForm(healthStats: healthStats)){
-                        Label("Add", systemImage: "plus")
-                    }
+                NavigationLink(destination: BodyMeasurementForm(healthStats: healthStats)){
+                    Label("Add", systemImage: "plus")
                 }
             )
         default: // .pictures
-            return AnyView(EmptyView())
+            return AnyView(
+                Button(action: {showActionSheet.toggle()}){
+                    Label("Edit", systemImage: "plus")
+                }
+            )
         }
     }
 }

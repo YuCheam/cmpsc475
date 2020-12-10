@@ -11,7 +11,7 @@ import PhotosUI
 
 struct PhotosView: View {
     @ObservedObject var healthStats: HealthStats
-    @State var isShowingLibrary: Bool = false
+    @Binding var showActionSheet: Bool
     var configuration: PHPickerConfiguration
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
 
@@ -46,6 +46,13 @@ struct PhotosView: View {
                 .cornerRadius(20)
                 .padding(.horizontal)
             }
+        }.actionSheet(isPresented: $showActionSheet ){
+            ActionSheet(title: Text("Edit"), buttons: [
+                .destructive(Text("Delete")){},
+                .default(Text("Compare Photos")),
+                .default(Text("Change Date")),
+                    .default(Text("Dismiss"))
+            ])
         }
     }
     
@@ -53,12 +60,13 @@ struct PhotosView: View {
         UIImage(data: data)!
     }
     
-    init(healthStats: HealthStats) {
+    init(healthStats: HealthStats, showActionSheet: Binding<Bool>) {
         self.configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
         configuration.selectionLimit = 0
         configuration.filter = .any(of: [.images])
         
         self.healthStats = healthStats
+        self._showActionSheet = showActionSheet
     }
 }
 
