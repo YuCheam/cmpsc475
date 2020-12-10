@@ -13,7 +13,6 @@ struct PhotoPicker: UIViewControllerRepresentable {
     
     let configuration: PHPickerConfiguration
     @Binding var isPresented: Bool
-    @Binding var imageSelection: [Bool]
     var healthStats: HealthStats
     
     typealias UIViewControllerType = PHPickerViewController
@@ -35,6 +34,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
         let newProgressPic = ProgressPic(context: viewContext)
         newProgressPic.date = Date()
         newProgressPic.imageData = image.jpegData(compressionQuality: 1.0)
+        newProgressPic.isSelected = false
         
         healthStats.addToImages(newProgressPic)
         DispatchQueue.main.sync {
@@ -57,7 +57,6 @@ struct PhotoPicker: UIViewControllerRepresentable {
                             print(error.localizedDescription)
                         } else {
                             self.parent.addImage(image: newImage as! UIImage)
-                            self.parent.imageSelection.append(false)
                         }
                     }
                 } else {

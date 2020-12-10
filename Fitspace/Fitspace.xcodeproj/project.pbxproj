@@ -33,8 +33,6 @@
 		2861287B2569657F00F818D8 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861286A2569657F00F818D8 /* Goal+CoreDataProperties.swift */; };
 		2861287C2569657F00F818D8 /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861286B2569657F00F818D8 /* JournalEntry+CoreDataClass.swift */; };
 		2861287D2569657F00F818D8 /* JournalEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861286C2569657F00F818D8 /* JournalEntry+CoreDataProperties.swift */; };
-		2861287F2569657F00F818D8 /* ProgressPic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861286E2569657F00F818D8 /* ProgressPic+CoreDataClass.swift */; };
-		286128802569657F00F818D8 /* ProgressPic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861286F2569657F00F818D8 /* ProgressPic+CoreDataProperties.swift */; };
 		2865FC72257339C8000D87C9 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC71257339C8000D87C9 /* CustomModifiers.swift */; };
 		2865FC7725733C8D000D87C9 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC7625733C8D000D87C9 /* ViewConstants.swift */; };
 		2865FC7D25733D90000D87C9 /* AddJournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865FC7C25733D90000D87C9 /* AddJournalEntry.swift */; };
@@ -44,6 +42,8 @@
 		28A686B5257C2B9000D6D56F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A686B4257C2B9000D6D56F /* ImagePicker.swift */; };
 		28A686BB257C2C5700D6D56F /* PhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A686BA257C2C5700D6D56F /* PhotosView.swift */; };
 		28A686CF257C3E9000D6D56F /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A686CE257C3E9000D6D56F /* LineGraph.swift */; };
+		28A764C92582C16100160556 /* ProgressPic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A764C82582C15A00160556 /* ProgressPic+CoreDataProperties.swift */; };
+		28A764CA2582C16100160556 /* ProgressPic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A764C72582C15A00160556 /* ProgressPic+CoreDataClass.swift */; };
 		28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19709255DBE2600C06703 /* FitspaceApp.swift */; };
 		28B1970C255DBE2600C06703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1970B255DBE2600C06703 /* ContentView.swift */; };
 		28B1970E255DBE2900C06703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B1970D255DBE2900C06703 /* Assets.xcassets */; };
@@ -138,8 +138,6 @@
 		2861286A2569657F00F818D8 /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2861286B2569657F00F818D8 /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2861286C2569657F00F818D8 /* JournalEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2861286E2569657F00F818D8 /* ProgressPic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressPic+CoreDataClass.swift"; sourceTree = "<group>"; };
-		2861286F2569657F00F818D8 /* ProgressPic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressPic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2865FC71257339C8000D87C9 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		2865FC7625733C8D000D87C9 /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		2865FC7C25733D90000D87C9 /* AddJournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntry.swift; sourceTree = "<group>"; };
@@ -149,6 +147,8 @@
 		28A686B4257C2B9000D6D56F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		28A686BA257C2C5700D6D56F /* PhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosView.swift; sourceTree = "<group>"; };
 		28A686CE257C3E9000D6D56F /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
+		28A764C72582C15A00160556 /* ProgressPic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProgressPic+CoreDataClass.swift"; path = "../../ProgressPic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		28A764C82582C15A00160556 /* ProgressPic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProgressPic+CoreDataProperties.swift"; path = "../../ProgressPic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		28B19706255DBE2600C06703 /* Fitspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B19709255DBE2600C06703 /* FitspaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitspaceApp.swift; sourceTree = "<group>"; };
 		28B1970B255DBE2600C06703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -392,8 +392,8 @@
 				2861286A2569657F00F818D8 /* Goal+CoreDataProperties.swift */,
 				2861286B2569657F00F818D8 /* JournalEntry+CoreDataClass.swift */,
 				2861286C2569657F00F818D8 /* JournalEntry+CoreDataProperties.swift */,
-				2861286E2569657F00F818D8 /* ProgressPic+CoreDataClass.swift */,
-				2861286F2569657F00F818D8 /* ProgressPic+CoreDataProperties.swift */,
+				28A764C72582C15A00160556 /* ProgressPic+CoreDataClass.swift */,
+				28A764C82582C15A00160556 /* ProgressPic+CoreDataProperties.swift */,
 				28F733B3256967F300F7C99D /* User+CoreDataClass.swift */,
 				28F733B4256967F300F7C99D /* User+CoreDataProperties.swift */,
 				28B19754255DBEF800C06703 /* Fitspace.xcdatamodeld */,
@@ -578,6 +578,7 @@
 				28473CAF2561B928005EE586 /* GoalComponent.swift in Sources */,
 				28A686B5257C2B9000D6D56F /* ImagePicker.swift in Sources */,
 				285679B12576F3DE0047F2B2 /* JournalEntryView.swift in Sources */,
+				28A764CA2582C16100160556 /* ProgressPic+CoreDataClass.swift in Sources */,
 				28A686AE257C1E3B00D6D56F /* WeightView.swift in Sources */,
 				28F733D0256B49B100F7C99D /* AddEditGoal.swift in Sources */,
 				28B19761255F326500C06703 /* UserManager.swift in Sources */,
@@ -609,8 +610,8 @@
 				28A686AA257C1A0300D6D56F /* WeightForm.swift in Sources */,
 				286128752569657F00F818D8 /* Weight+CoreDataProperties.swift in Sources */,
 				28567A16257874280047F2B2 /* BodyMeasurementForm.swift in Sources */,
-				2861287F2569657F00F818D8 /* ProgressPic+CoreDataClass.swift in Sources */,
 				2861287A2569657F00F818D8 /* Goal+CoreDataClass.swift in Sources */,
+				28A764C92582C16100160556 /* ProgressPic+CoreDataProperties.swift in Sources */,
 				28D2DA5C25816AEF00FEB9D6 /* PhotoPicker.swift in Sources */,
 				28A686BB257C2C5700D6D56F /* PhotosView.swift in Sources */,
 				28D2DA52258040C100FEB9D6 /* BarChart.swift in Sources */,
@@ -619,7 +620,6 @@
 				286128762569657F00F818D8 /* HealthStats+CoreDataClass.swift in Sources */,
 				2865FC7725733C8D000D87C9 /* ViewConstants.swift in Sources */,
 				285679D5257745060047F2B2 /* Journal+CoreDataProperties.swift in Sources */,
-				286128802569657F00F818D8 /* ProgressPic+CoreDataProperties.swift in Sources */,
 				28381FA3257C4E94009CC074 /* XAxisExtension.swift in Sources */,
 				28567A2E257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift in Sources */,
 				286128732569657F00F818D8 /* MoodEntry+CoreDataProperties.swift in Sources */,

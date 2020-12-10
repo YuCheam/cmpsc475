@@ -12,7 +12,6 @@ import PhotosUI
 struct PhotosView: View {
     @ObservedObject var healthStats: HealthStats
     @State var isShowingLibrary: Bool = false
-    @State var imageSelection: [Bool] = []
     var configuration: PHPickerConfiguration
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
 
@@ -21,10 +20,10 @@ struct PhotosView: View {
             GeometryReader { geo in
                 ScrollView(){
                     LazyVGrid(columns: columns, spacing: 6) {
-                        ForEach(imageSelection.indices, id: \.self) { index in
-                            ImageView(imageSelected: $imageSelection[index], image: healthStats.imageArray[index], size: geo.size.width/3)
+                        ForEach(Array(healthStats.images), id: \.self) {image in
+                            ImageView(image: image, size: geo.size.width/3)
                                 .onTapGesture {
-                                    self.imageSelection[index].toggle()
+                                    image.isSelected.toggle()
                                 }
                         }
                     }
@@ -48,11 +47,12 @@ struct PhotosView: View {
                 .padding(.horizontal)
             }
         }.sheet(isPresented: $isShowingLibrary) {
-            PhotoPicker(configuration: configuration, isPresented: $isShowingLibrary, imageSelection: $imageSelection, healthStats: healthStats)
+            PhotoPicker(configuration: configuration, isPresented: $isShowingLibrary, healthStats: healthStats)
         }
-        .onAppear() {
-            self.imageSelection = healthStats.imageArray.map({_ in false})
-        }
+    }
+    
+    func getUIImage(_ data: Data) -> UIImage {
+        UIImage(data: data)!
     }
     
     init(healthStats: HealthStats) {
@@ -65,15 +65,14 @@ struct PhotosView: View {
 }
 
 struct ImageView: View {
-    @Binding var imageSelected: Bool
-    var image: UIImage
+    @ObservedObject var image: ProgressPic
     var size: CGFloat
     var color: Color {
-        imageSelected ? Color.blue : Color.clear
+        image.isSelected ? Color.blue : Color.clear
     }
     
     var body: some View {
-        Image(uiImage: image)
+        Image(uiImage: UIImage(data: image.imageData!)!)
             .resizable()
             .frame(width: size, height: size)
             .border(color, width: 2)
