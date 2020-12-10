@@ -16,6 +16,7 @@ enum HealthViewState: String, CaseIterable {
 
 struct HealthView: View {
     @State var viewMode: HealthViewState = .weight
+    @State var showActionSheet: Bool = false
     @ObservedObject var healthStats: HealthStats
     
     var body: some View {
@@ -31,9 +32,14 @@ struct HealthView: View {
                 
                 Spacer()
             }.navigationBarTitle("Health Stats")
-            .navigationBarItems(trailing:
-                               whichAddForm
-            )
+            .toolbar(){
+                ToolbarItem(placement: .primaryAction) {
+                    whichAddForm
+                }
+            }
+//            .navigationBarItems(trailing:
+//                               whichAddForm
+//            )
         }
     }
     
@@ -51,15 +57,26 @@ struct HealthView: View {
     var whichAddForm: some View {
         switch viewMode {
         case .weight:
-            return AnyView(NavigationLink(destination: WeightForm(healthStats: healthStats)){
-                Label("Add", systemImage: "plus")
-            })
+            return AnyView(
+                //fixme:  KINDA HACKY MAYBE FIX LATER
+                HStack {
+                    Text("")
+                    NavigationLink(destination: WeightForm(healthStats: healthStats)){
+                        Label("Add", systemImage: "plus")
+                    }
+                }
+            )
         case .bodyMeasurements:
-            return AnyView(NavigationLink(destination: BodyMeasurementForm(healthStats: healthStats)){
-                Label("Add", systemImage: "plus")
-            })
+            return AnyView(
+                HStack {
+                    Text("")
+                    NavigationLink(destination: BodyMeasurementForm(healthStats: healthStats)){
+                        Label("Add", systemImage: "plus")
+                    }
+                }
+            )
         default: // .pictures
-            return AnyView(Text("Add"))
+            return AnyView(EmptyView())
         }
     }
 }

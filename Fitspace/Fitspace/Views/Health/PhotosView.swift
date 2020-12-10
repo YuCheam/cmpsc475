@@ -33,24 +33,19 @@ struct PhotosView: View {
                 }.padding(4)
             }
             
-            Button(action: {
-                self.isShowingLibrary = true
-            }) {
+            NavigationLink(destination: PhotoPickerWrapper(configuration: configuration, healthStats: healthStats)){
                 HStack {
                     Image(systemName: "photo")
                         .font(.system(size: 20))
                     
                     Text("Photo library")
                         .font(.headline)
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
+                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
                 .background(Color.blue)
                 .foregroundColor(.white)
                 .cornerRadius(20)
                 .padding(.horizontal)
             }
-        }.sheet(isPresented: $isShowingLibrary) {
-            PhotoPicker(configuration: configuration, isPresented: $isShowingLibrary, healthStats: healthStats)
         }
     }
     

@@ -24,11 +24,11 @@ public class HealthStats: NSManagedObject {
     var armEntries: [Double] = []
     var neckEntries: [Double] = []
     
-    var imageArray: [UIImage] {
-        Array(self.images).map({ image in
-            UIImage(data: image.imageData!)!
-        })
-    }
+//    var imageArray: [UIImage] {
+//        Array(self.images).map({ image in
+//            UIImage(data: image.imageData!)!
+//        })
+//    }
     
     var imagesArray: [[ProgressPic]] {
         // Get array of different dates

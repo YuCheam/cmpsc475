@@ -8,11 +8,21 @@
 import SwiftUI
 import PhotosUI
 
+struct PhotoPickerWrapper: View {
+    let configuration: PHPickerConfiguration
+    @ObservedObject var healthStats: HealthStats
+    
+    var body: some View {
+        PhotoPicker(configuration: configuration, healthStats: healthStats)
+            .navigationBarHidden(true)
+    }
+}
+
 struct PhotoPicker: UIViewControllerRepresentable {
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let configuration: PHPickerConfiguration
-    @Binding var isPresented: Bool
     var healthStats: HealthStats
     
     typealias UIViewControllerType = PHPickerViewController
@@ -63,8 +73,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
                     print("Loaded Assets is not Image")
                 }
             }
-            
-            parent.isPresented = false
+            parent.presentationMode.wrappedValue.dismiss()
         }
         
         init(_ parent: PhotoPicker) {
