@@ -24,6 +24,29 @@ public class HealthStats: NSManagedObject {
     var armEntries: [Double] = []
     var neckEntries: [Double] = []
     
+//    var imageArray: [UIImage] {
+//        Array(self.images).map({ image in
+//            UIImage(data: image.imageData!)!
+//        })
+//    }
+    
+    var imagesArray: [[ProgressPic]] {
+        // Get array of different dates
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        var array: [[ProgressPic]] = []
+        
+        let dates = Array(Set(Array(images).map({dateFormatter.string(from: $0.date)})))
+        
+        for date in dates {
+            let imageArray = Array(images).filter({ image in
+                dateFormatter.string(from: image.date) == date
+            })
+            array.append(imageArray)
+        }
+        return array
+    }
+    
     func setBodyMeasurementArrays() {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current

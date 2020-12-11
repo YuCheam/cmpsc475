@@ -16,6 +16,7 @@ enum HealthViewState: String, CaseIterable {
 
 struct HealthView: View {
     @State var viewMode: HealthViewState = .weight
+    @State var showActionSheet: Bool = false
     @ObservedObject var healthStats: HealthStats
     
     var body: some View {
@@ -44,22 +45,30 @@ struct HealthView: View {
         case .bodyMeasurements:
             return AnyView(BodyMeasurementRow(healthStats: healthStats))
         default: // .pictures
-            return AnyView(PhotosView(healthStats: healthStats))
+            return AnyView(PhotosView(healthStats: healthStats, showActionSheet: $showActionSheet))
         }
     }
     
     var whichAddForm: some View {
         switch viewMode {
         case .weight:
-            return AnyView(NavigationLink(destination: WeightForm(healthStats: healthStats)){
-                Label("Add", systemImage: "plus")
-            })
+            return AnyView(
+                NavigationLink(destination: WeightForm(healthStats: healthStats)){
+                    Label("Add", systemImage: "plus")
+                }
+            )
         case .bodyMeasurements:
-            return AnyView(NavigationLink(destination: BodyMeasurementForm(healthStats: healthStats)){
-                Label("Add", systemImage: "plus")
-            })
+            return AnyView(
+                NavigationLink(destination: BodyMeasurementForm(healthStats: healthStats)){
+                    Label("Add", systemImage: "plus")
+                }
+            )
         default: // .pictures
-            return AnyView(Text("Add"))
+            return AnyView(
+                Button(action: {showActionSheet.toggle()}){
+                    Label("Edit", systemImage: "plus")
+                }
+            )
         }
     }
 }

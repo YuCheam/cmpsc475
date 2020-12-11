@@ -40,14 +40,10 @@
         <attribute name="mood" optional="YES" attributeType="String"/>
         <relationship name="journal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="moodEntries" inverseEntity="Journal"/>
     </entity>
-    <entity name="PP_Image" representedClassName="PP_Image" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="Binary"/>
-        <attribute name="isSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <relationship name="date" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProgressPic" inverseName="images" inverseEntity="ProgressPic"/>
-    </entity>
     <entity name="ProgressPic" representedClassName="ProgressPic" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PP_Image" inverseName="date" inverseEntity="PP_Image"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="isSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="images" inverseEntity="HealthStats"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
@@ -71,9 +67,8 @@
         <element name="Journal" positionX="0" positionY="0" width="128" height="88"/>
         <element name="JournalEntry" positionX="0" positionY="0" width="128" height="103"/>
         <element name="MoodEntry" positionX="0" positionY="0" width="128" height="103"/>
-        <element name="ProgressPic" positionX="0" positionY="0" width="128" height="88"/>
+        <element name="ProgressPic" positionX="0" positionY="0" width="128" height="103"/>
         <element name="User" positionX="0" positionY="0" width="128" height="148"/>
         <element name="Weight" positionX="0" positionY="0" width="128" height="88"/>
-        <element name="PP_Image" positionX="9" positionY="63" width="128" height="88"/>
     </elements>
 </model>
