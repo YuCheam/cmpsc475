@@ -24,7 +24,7 @@ public class HealthStats: NSManagedObject {
     var armEntries: [Double] = []
     var neckEntries: [Double] = []
     
-    var imagesArray: [[ProgressPic]] = [] 
+    var imagesArray: [[ProgressPic]] = []
     
     var selectedImages: [ProgressPic] {
         Array(self.images).filter({$0.isSelected})
@@ -36,8 +36,18 @@ public class HealthStats: NSManagedObject {
         dateFormatter.dateStyle = .long
         var array: [[ProgressPic]] = []
         
-        let dates = Array(Set(Array(images).map({dateFormatter.string(from: $0.date)})))
+        var dates = Array(images).sorted(by: { $0.date > $1.date }).map({dateFormatter.string(from: $0.date)})
         
+        // Preprocess dates to get unique dates
+        var tempArray: [String] = []
+        for i in 0..<dates.count {
+            if !tempArray.contains(dates[i]) {
+                tempArray.append(dates[i])
+            }
+        }
+        dates = tempArray
+        
+        // For every unique date get images
         for date in dates {
             let imageArray = Array(images).filter({ image in
                 dateFormatter.string(from: image.date) == date

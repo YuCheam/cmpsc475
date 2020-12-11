@@ -13,12 +13,15 @@ struct ComparePhotosView: View {
     var body: some View {
         GeometryReader { geo in
             ScrollView(.horizontal) {
-                HStack(spacing: 10) {
+                HStack(alignment: .center, spacing: 10) {
                     ForEach(healthStats.selectedImages, id: \.self) { image in
-                        Image(uiImage: UIImage(data: image.imageData!)!)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: geo.size.width - 28)
+                        VStack {
+                            Text(image.date.formattedDate)
+                            Image(uiImage: UIImage(data: image.imageData!)!)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geo.size.width - 28)
+                        }
                     }
                 }
             }

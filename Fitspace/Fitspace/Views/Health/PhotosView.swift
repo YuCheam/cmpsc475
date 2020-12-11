@@ -12,7 +12,9 @@ import PhotosUI
 struct PhotosView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var healthStats: HealthStats
+    @Binding var imagesArray: [[ProgressPic]]
     @Binding var showActionSheet: Bool
+    
     @State var showCalendar: Bool = false
     @State var date: Date = Date()
     @State var pushNavigationLink = false
@@ -23,7 +25,7 @@ struct PhotosView: View {
         VStack {
             GeometryReader { geo in
                 ScrollView(){
-                    ForEach(healthStats.imagesArray, id:\.self) { array in
+                    ForEach(imagesArray, id:\.self) { array in
                         Text(array[0].date.formattedDate)
                         LazyVGrid(columns: columns, spacing: 6) {
                             ForEach(array, id:\.self) { image in
@@ -119,13 +121,14 @@ struct PhotosView: View {
     }
     
     
-    init(healthStats: HealthStats, showActionSheet: Binding<Bool>) {
+    init(healthStats: HealthStats, imagesArray: Binding<[[ProgressPic]]>, showActionSheet: Binding<Bool>) {
         self.configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
         configuration.selectionLimit = 0
         configuration.filter = .any(of: [.images])
         
         healthStats.setImagesArray()
         
+        self._imagesArray = imagesArray
         self.healthStats = healthStats
         self._showActionSheet = showActionSheet
     }
@@ -141,7 +144,9 @@ struct ImageView: View {
     var body: some View {
         Image(uiImage: UIImage(data: image.imageData!)!)
             .resizable()
+            .aspectRatio(contentMode: .fill)
             .frame(width: size, height: size)
+            .clipped()
             .border(color, width: 2)
     }
 }

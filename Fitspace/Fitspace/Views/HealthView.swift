@@ -45,7 +45,8 @@ struct HealthView: View {
         case .bodyMeasurements:
             return AnyView(BodyMeasurementRow(healthStats: healthStats))
         default: // .pictures
-            return AnyView(PhotosView(healthStats: healthStats, showActionSheet: $showActionSheet))
+            return AnyView(PhotosView(healthStats: healthStats, imagesArray:
+                                        $healthStats.imagesArray,showActionSheet: $showActionSheet))
         }
     }
     
