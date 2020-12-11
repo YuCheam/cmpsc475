@@ -24,13 +24,17 @@ public class HealthStats: NSManagedObject {
     var armEntries: [Double] = []
     var neckEntries: [Double] = []
     
-//    var imageArray: [UIImage] {
-//        Array(self.images).map({ image in
-//            UIImage(data: image.imageData!)!
-//        })
-//    }
+    var imagesArray: [[ProgressPic]] = [] {
+        willSet {
+            self.objectWillChange.send()
+        }
+    }
     
-    var imagesArray: [[ProgressPic]] {
+    var selectedImages: [ProgressPic] {
+        Array(self.images).filter({$0.isSelected})
+    }
+    
+    func setImagesArray() {
         // Get array of different dates
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
@@ -44,7 +48,8 @@ public class HealthStats: NSManagedObject {
             })
             array.append(imageArray)
         }
-        return array
+        
+        self.imagesArray = array
     }
     
     func setBodyMeasurementArrays() {

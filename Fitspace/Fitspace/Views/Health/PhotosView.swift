@@ -10,8 +10,11 @@ import UIKit
 import PhotosUI
 
 struct PhotosView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var healthStats: HealthStats
     @Binding var showActionSheet: Bool
+    @State var showCalendar: Bool = false
+    @State var date: Date = Date()
     var configuration: PHPickerConfiguration
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
 
@@ -47,23 +50,76 @@ struct PhotosView: View {
                 .padding(.horizontal)
             }
         }.actionSheet(isPresented: $showActionSheet ){
-            ActionSheet(title: Text("Edit"), buttons: [
-                .destructive(Text("Delete")){},
-                .default(Text("Compare Photos")),
-                .default(Text("Change Date")),
+            ActionSheet(title: Text("Modify Images"), buttons: [
+                .destructive(Text("Delete Photos")){deleteImages()},
+                .default(Text("Compare Photos")){},
+                .default(Text("Change Date")){showCalendar.toggle()},
                     .default(Text("Dismiss"))
             ])
+        }.sheet(isPresented: $showCalendar) {
+            Form {
+                DatePicker("Change Date", selection: $date)
+                Section {
+                    HStack {
+                        Button(action: {showCalendar.toggle()}){
+                            Text("Cancel")
+                                .modifier(ButtonStyle(ViewConstants.errorButtonColor))
+                        }.buttonStyle(PlainButtonStyle())
+                        
+                        Spacer()
+                        
+                        Button(action: {changeDate()}){
+                            Text("Save")
+                                .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+                        }.buttonStyle(PlainButtonStyle())
+                    }
+                }
+            }
         }
+    }
+    
+    func changeDate() {
+        for image in healthStats.selectedImages {
+            image.date = date
+            image.isSelected = false
+        }
+        
+        showCalendar.toggle()
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("Could not change date")
+        }
+        
+        healthStats.setImagesArray()
     }
     
     func getUIImage(_ data: Data) -> UIImage {
         UIImage(data: data)!
     }
     
+    func deleteImages() {
+        for image in healthStats.selectedImages {
+            viewContext.delete(image)
+        }
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("Could not delete images")
+        }
+        
+        healthStats.setImagesArray()
+    }
+    
+    
     init(healthStats: HealthStats, showActionSheet: Binding<Bool>) {
         self.configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
         configuration.selectionLimit = 0
         configuration.filter = .any(of: [.images])
+        
+        healthStats.setImagesArray()
         
         self.healthStats = healthStats
         self._showActionSheet = showActionSheet
