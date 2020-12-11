@@ -23,6 +23,7 @@
 		28567A16257874280047F2B2 /* BodyMeasurementForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A15257874280047F2B2 /* BodyMeasurementForm.swift */; };
 		28567A2D257876BE0047F2B2 /* BodyMeasurements+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A2B257876BD0047F2B2 /* BodyMeasurements+CoreDataProperties.swift */; };
 		28567A2E257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28567A2C257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift */; };
+		2858B46E258320DF0056F1A4 /* ComparePhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B46D258320DF0056F1A4 /* ComparePhotosView.swift */; };
 		286128722569657F00F818D8 /* MoodEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */; };
 		286128732569657F00F818D8 /* MoodEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128622569657F00F818D8 /* MoodEntry+CoreDataProperties.swift */; };
 		286128742569657F00F818D8 /* Weight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128632569657F00F818D8 /* Weight+CoreDataClass.swift */; };
@@ -128,6 +129,7 @@
 		28567A15257874280047F2B2 /* BodyMeasurementForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyMeasurementForm.swift; sourceTree = "<group>"; };
 		28567A2B257876BD0047F2B2 /* BodyMeasurements+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		28567A2C257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyMeasurements+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		2858B46D258320DF0056F1A4 /* ComparePhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePhotosView.swift; sourceTree = "<group>"; };
 		286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
 		286128622569657F00F818D8 /* MoodEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		286128632569657F00F818D8 /* Weight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weight+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				28A686AD257C1E3B00D6D56F /* WeightView.swift */,
 				28A686BA257C2C5700D6D56F /* PhotosView.swift */,
 				28D2DA5B25816AEF00FEB9D6 /* PhotoPicker.swift */,
+				2858B46D258320DF0056F1A4 /* ComparePhotosView.swift */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				28473CAF2561B928005EE586 /* GoalComponent.swift in Sources */,
 				28A686B5257C2B9000D6D56F /* ImagePicker.swift in Sources */,
 				285679B12576F3DE0047F2B2 /* JournalEntryView.swift in Sources */,
+				2858B46E258320DF0056F1A4 /* ComparePhotosView.swift in Sources */,
 				28A764CA2582C16100160556 /* ProgressPic+CoreDataClass.swift in Sources */,
 				28A686AE257C1E3B00D6D56F /* WeightView.swift in Sources */,
 				28F733D0256B49B100F7C99D /* AddEditGoal.swift in Sources */,

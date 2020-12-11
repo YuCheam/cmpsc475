@@ -24,11 +24,7 @@ public class HealthStats: NSManagedObject {
     var armEntries: [Double] = []
     var neckEntries: [Double] = []
     
-    var imagesArray: [[ProgressPic]] = [] {
-        willSet {
-            self.objectWillChange.send()
-        }
-    }
+    var imagesArray: [[ProgressPic]] = [] 
     
     var selectedImages: [ProgressPic] {
         Array(self.images).filter({$0.isSelected})

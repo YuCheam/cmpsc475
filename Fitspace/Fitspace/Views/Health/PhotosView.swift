@@ -15,6 +15,7 @@ struct PhotosView: View {
     @Binding var showActionSheet: Bool
     @State var showCalendar: Bool = false
     @State var date: Date = Date()
+    @State var pushNavigationLink = false
     var configuration: PHPickerConfiguration
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
 
@@ -36,6 +37,10 @@ struct PhotosView: View {
                 }.padding(4)
             }
             
+            // Hidden Navigation Link
+            NavigationLink(destination: ComparePhotosView(healthStats: healthStats), isActive: $pushNavigationLink, label: {Text("")})
+                .hidden()
+            
             NavigationLink(destination: PhotoPickerWrapper(configuration: configuration, healthStats: healthStats)){
                 HStack {
                     Image(systemName: "photo")
@@ -52,7 +57,7 @@ struct PhotosView: View {
         }.actionSheet(isPresented: $showActionSheet ){
             ActionSheet(title: Text("Modify Images"), buttons: [
                 .destructive(Text("Delete Photos")){deleteImages()},
-                .default(Text("Compare Photos")){},
+                .default(Text("Compare Photots")){pushNavigationLink.toggle()},
                 .default(Text("Change Date")){showCalendar.toggle()},
                     .default(Text("Dismiss"))
             ])
