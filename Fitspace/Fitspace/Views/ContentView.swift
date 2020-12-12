@@ -17,7 +17,7 @@ struct ContentView: View {
         if !needsUserCreation {
             if user.count != 0 {
                 TabView {
-                    TodayView().tabItem{
+                    TodayView(user: user[0]).tabItem{
                             Label("Today", systemImage: "calendar")
                         }
                         .tag(0)

@@ -9,12 +9,14 @@ import SwiftUI
 
 struct TodayView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
-    @FetchRequest(entity: User.entity(), sortDescriptors: [])
-    var user: FetchedResults<User>
+    @ObservedObject var user: User
     
     var body: some View {
-        Text("Today")
+        NavigationView {
+            NavigationLink(destination: AddWidgetView(user: user)){
+                Text("Add Widgets")
+            }
+        }
     }
 }
 

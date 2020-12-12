@@ -49,16 +49,24 @@
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="dob" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="goalWeight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
         <attribute name="profileImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" customClassName="UIImage"/>
         <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="user" inverseEntity="Goal"/>
         <relationship name="healthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="user" inverseEntity="HealthStats"/>
         <relationship name="journal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="user" inverseEntity="Journal"/>
+        <relationship name="widgets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Widget" inverseName="user" inverseEntity="Widget"/>
     </entity>
     <entity name="Weight" representedClassName="Weight" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="userHealthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="weightHistory" inverseEntity="HealthStats"/>
+    </entity>
+    <entity name="Widget" representedClassName="Widget" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="widgets" inverseEntity="User"/>
     </entity>
     <elements>
         <element name="BodyMeasurements" positionX="0" positionY="0" width="128" height="148"/>
@@ -68,7 +76,8 @@
         <element name="JournalEntry" positionX="0" positionY="0" width="128" height="103"/>
         <element name="MoodEntry" positionX="0" positionY="0" width="128" height="103"/>
         <element name="ProgressPic" positionX="0" positionY="0" width="128" height="103"/>
-        <element name="User" positionX="0" positionY="0" width="128" height="148"/>
+        <element name="User" positionX="0" positionY="0" width="128" height="178"/>
         <element name="Weight" positionX="0" positionY="0" width="128" height="88"/>
+        <element name="Widget" positionX="9" positionY="72" width="128" height="103"/>
     </elements>
 </model>

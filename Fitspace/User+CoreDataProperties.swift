@@ -2,13 +2,12 @@
 //  User+CoreDataProperties.swift
 //  Fitspace
 //
-//  Created by Kha-Yu Cheam on 11/21/20.
+//  Created by Kha-Yu Cheam on 12/11/20.
 //
 //
 
 import Foundation
 import CoreData
-import UIKit
 
 
 extension User {
@@ -17,15 +16,15 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
+    @NSManaged public var dob: Date?
+    @NSManaged public var firstName: String?
+    @NSManaged public var lastName: String?
     @NSManaged public var profileImage: Data?
-    @NSManaged public var dob: Date
-    @NSManaged public var firstName: String
-    @NSManaged public var lastName: String
-    @NSManaged public var goals: Set<Goal>?
-    @NSManaged public var healthStats: HealthStats
-    @NSManaged public var journal: Journal
     @NSManaged public var goalWeight: Float
-    @NSManaged public var widgets: Set<Widget>
+    @NSManaged public var goals: NSSet?
+    @NSManaged public var healthStats: HealthStats?
+    @NSManaged public var journal: Journal?
+    @NSManaged public var widgets: NSSet?
 
 }
 
@@ -64,22 +63,5 @@ extension User {
 }
 
 extension User : Identifiable {
-    var age: Int {
-        let calendar = Calendar.current
-        let calcAge = calendar.dateComponents([.year], from: dob, to: Date())
-        return calcAge.year!
-    }
-    
-    var weight: Float {
-        let weights = Array(self.healthStats.weightHistory)
-        return weights.sorted(by: {$0.date > $1.date}).first?.amount ?? 0
-    }
-    
-    var image: UIImage {
-        if let data = profileImage {
-            return UIImage(data: data) ?? UIImage()
-        } else {
-            return UIImage()
-        }
-    }
+
 }

@@ -11,6 +11,7 @@ import Foundation
 struct HealthInfoForm: View {
     @Binding var tabIndex: Int
     @Binding var currentWeight: Float
+    @Binding var goalWeight: Float
     @Binding var height: Int
     private var isValidEntries: Bool {
         currentWeight != 0 && height != 0
@@ -25,6 +26,9 @@ struct HealthInfoForm: View {
             VStack(alignment: .leading) {
                 Slider(value: $currentWeight, in: 0...400, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("400"), label: {Text("Current Weight: \(currentWeight, specifier: ".1f")")})
                 Text("Current Weight: \(currentWeight, specifier: "%.1f") lbs")
+                
+                Slider(value: $goalWeight, in: 0...400, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("400"), label: {Text("Goal Weight: \(goalWeight, specifier: ".1f")")})
+                Text("Goal Weight: \(goalWeight, specifier: "%.1f") lbs")
             }
             
             Picker("Height", selection: $height) {

@@ -16,6 +16,7 @@ struct Onboarding: View {
     @State var dob: Date = Date()
     
     @State var weight: Float = 0.0
+    @State var goalWeight: Float = 0.0
     @State var height: Int = 0
     
     var heightFormatted: String {
@@ -54,7 +55,7 @@ struct Onboarding: View {
             UserInfoForm(tabIndex: $tabIndex, firstName: $firstName, lastName: $lastName, dob: $dob)
                 .tag(1)
             
-            HealthInfoForm(tabIndex: $tabIndex, currentWeight: $weight, height: $height)
+            HealthInfoForm(tabIndex: $tabIndex, currentWeight: $weight, goalWeight: $goalWeight, height: $height)
                 .tag(2)
             
             VStack(spacing: 24) {
@@ -87,6 +88,8 @@ struct Onboarding: View {
         newUser.dob = dob
         newUser.healthStats =  newHealthStats
         newUser.journal = journal
+        newUser.goalWeight = goalWeight
+        createWidgets(user: newUser)
         
         newHealthStats.height = height
         
@@ -102,6 +105,18 @@ struct Onboarding: View {
             userdefaults.set(false, forKey: key)
         } catch {
             print("User could not be created")
+        }
+    }
+    
+    func createWidgets(user: User) {
+        let widgets = WidgetType.allCases
+        for i in 0..<widgets.count {
+            let newWidget = Widget(context: viewContext)
+            newWidget.type = widgets[i].rawValue
+            newWidget.isSelected = false
+            newWidget.index = Int32(i)
+            
+            user.addToWidgets(newWidget)
         }
     }
 }
