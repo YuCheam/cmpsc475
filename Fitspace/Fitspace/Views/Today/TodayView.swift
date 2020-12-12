@@ -19,6 +19,9 @@ struct TodayView: View {
 //                }
                 
                 WeightWidget(user: user, healthStats: user.healthStats)
+                BodyMeasurementsWidget()
+                GalleryWidget()
+                MoodWidget()
                 NavigationLink(destination: AddWidgetView(user: user)){
                     Text("Add Widgets")
                 }

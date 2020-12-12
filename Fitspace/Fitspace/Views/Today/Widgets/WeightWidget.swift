@@ -10,6 +10,10 @@ import SwiftUI
 struct CardModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
+            .padding(10)
+            .foregroundColor(.white)
+            .background(Color(UIColor(red: 99/255, green: 110/255, blue: 114/255, alpha: 1.0)))
+            .frame(maxWidth: .infinity, alignment: .center)
             .cornerRadius(20)
         
             //.shadow(color: Color.black.opacity(0.6), radius: 20, x: 0, y: 0)
@@ -69,11 +73,7 @@ struct WeightWidget: View {
             }.font(.system(size: 16, weight: .bold, design: .default))
             
         }
-        .padding(10)
-        .foregroundColor(.white)
-        .background(Color(UIColor(red: 99/255, green: 110/255, blue: 114/255, alpha: 1.0)))
         .modifier(CardModifier())
-        .frame(maxWidth: .infinity, alignment: .center)
     }
 }
 

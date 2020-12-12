@@ -28,6 +28,9 @@
 		2858B47D25844FF80056F1A4 /* Widget+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B47B25844FF80056F1A4 /* Widget+CoreDataClass.swift */; };
 		2858B47E25844FF80056F1A4 /* Widget+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B47C25844FF80056F1A4 /* Widget+CoreDataProperties.swift */; };
 		2858B49025852A180056F1A4 /* WeightWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B48F25852A180056F1A4 /* WeightWidget.swift */; };
+		2858B4962585362F0056F1A4 /* BodyMeasurementsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B4952585362F0056F1A4 /* BodyMeasurementsWidget.swift */; };
+		2858B4A0258536E50056F1A4 /* GalleryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B49F258536E50056F1A4 /* GalleryWidget.swift */; };
+		2858B4A4258537290056F1A4 /* MoodWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B4A3258537290056F1A4 /* MoodWidget.swift */; };
 		286128722569657F00F818D8 /* MoodEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */; };
 		286128732569657F00F818D8 /* MoodEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128622569657F00F818D8 /* MoodEntry+CoreDataProperties.swift */; };
 		286128742569657F00F818D8 /* Weight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128632569657F00F818D8 /* Weight+CoreDataClass.swift */; };
@@ -138,6 +141,9 @@
 		2858B47B25844FF80056F1A4 /* Widget+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widget+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2858B47C25844FF80056F1A4 /* Widget+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widget+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2858B48F25852A180056F1A4 /* WeightWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightWidget.swift; sourceTree = "<group>"; };
+		2858B4952585362F0056F1A4 /* BodyMeasurementsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMeasurementsWidget.swift; sourceTree = "<group>"; };
+		2858B49F258536E50056F1A4 /* GalleryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryWidget.swift; sourceTree = "<group>"; };
+		2858B4A3258537290056F1A4 /* MoodWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodWidget.swift; sourceTree = "<group>"; };
 		286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
 		286128622569657F00F818D8 /* MoodEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		286128632569657F00F818D8 /* Weight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weight+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -298,6 +304,9 @@
 			isa = PBXGroup;
 			children = (
 				2858B48F25852A180056F1A4 /* WeightWidget.swift */,
+				2858B4952585362F0056F1A4 /* BodyMeasurementsWidget.swift */,
+				2858B49F258536E50056F1A4 /* GalleryWidget.swift */,
+				2858B4A3258537290056F1A4 /* MoodWidget.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -646,10 +655,13 @@
 				286128752569657F00F818D8 /* Weight+CoreDataProperties.swift in Sources */,
 				28567A16257874280047F2B2 /* BodyMeasurementForm.swift in Sources */,
 				2861287A2569657F00F818D8 /* Goal+CoreDataClass.swift in Sources */,
+				2858B4962585362F0056F1A4 /* BodyMeasurementsWidget.swift in Sources */,
+				2858B4A0258536E50056F1A4 /* GalleryWidget.swift in Sources */,
 				28A764C92582C16100160556 /* ProgressPic+CoreDataProperties.swift in Sources */,
 				28D2DA5C25816AEF00FEB9D6 /* PhotoPicker.swift in Sources */,
 				28A686BB257C2C5700D6D56F /* PhotosView.swift in Sources */,
 				28D2DA52258040C100FEB9D6 /* BarChart.swift in Sources */,
+				2858B4A4258537290056F1A4 /* MoodWidget.swift in Sources */,
 				2865FC72257339C8000D87C9 /* CustomModifiers.swift in Sources */,
 				28B1970A255DBE2600C06703 /* FitspaceApp.swift in Sources */,
 				286128762569657F00F818D8 /* HealthStats+CoreDataClass.swift in Sources */,
