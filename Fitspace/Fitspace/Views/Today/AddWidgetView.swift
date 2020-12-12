@@ -62,20 +62,21 @@ struct AddWidgetView: View {
             }
         }
         
-        for widget in user.widgetArray {
-            let doesContain = options.filter({$0.isSelected}).contains(where: {$0.type.rawValue == widget.type})
+        for i in 0..<user.widgetArray.count {
+            let doesContain = options.filter({$0.isSelected}).contains(where: {$0.type.rawValue == user.widgetArray[i].type})
             if  !doesContain {
-                viewContext.delete(widget)
+                viewContext.delete(user.widgetArray[i])
+                user.widgetArray.remove(at: i)
+                
+                do {
+                   try viewContext.save()
+                } catch {
+                    print("Can't delete widget")
+                }
             }
         }
         
-        user.updateWidgetIndex()
-        
-        do {
-           try viewContext.save()
-        } catch {
-            print("Can't add widget")
-        }
+        user.setWidgetArray()
     }
         
         //    private func onMove(source: IndexSet, destination: Int) {
