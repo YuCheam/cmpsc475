@@ -109,15 +109,22 @@ struct Onboarding: View {
     }
     
     func createWidgets(user: User) {
-        let widgets = WidgetType.allCases
-        for i in 0..<widgets.count {
-            let newWidget = Widget(context: viewContext)
-            newWidget.type = widgets[i].rawValue
-            newWidget.isSelected = false
-            newWidget.index = Int32(i)
-            
-            user.addToWidgets(newWidget)
-        }
+        let newWidget = Widget(context: viewContext)
+        newWidget.type = WidgetType.weight.rawValue
+        newWidget.isSelected = true
+        newWidget.index = Int32(0)
+        
+        user.addToWidgets(newWidget)
+        
+//        let widgets = WidgetType.allCases
+//        for i in 0..<widgets.count {
+//            let newWidget = Widget(context: viewContext)
+//            newWidget.type = widgets[i].rawValue
+//            newWidget.isSelected = false
+//            newWidget.index = Int32(i)
+//
+//            user.addToWidgets(newWidget)
+//        }
     }
 }
 

@@ -7,42 +7,81 @@
 
 import SwiftUI
 
+struct WidgetSelectionItem: Identifiable {
+    var type: WidgetType
+    var isSelected: Bool
+    var id = UUID()
+}
+
 struct AddWidgetView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var user: User
-    @State private var editMode = EditMode.inactive
+    @State var options: [WidgetSelectionItem] = []
     
     var body: some View {
         List {
-            ForEach(user.widgetArray, id: \.self) { widget in
-                WidgetItemRow(widget: widget)
+            ForEach(Array(options.enumerated()), id: \.element.id) {index, option in
+                Button(action: {options[index].isSelected.toggle()}){
+                    HStack {
+                        Text(option.type.rawValue)
+                        Spacer()
+                        Image(systemName: "checkmark")
+                            .opacity(options[index].isSelected ? 1.0 : 0.0)
+                    }
+                }
             }
-            .onMove(perform: onMove)
-            
-        }.navigationBarTitle("Add Widgets")
-        .navigationBarItems(trailing: EditButton())
-        .environment(\.editMode, $editMode)
-        
+        }.onAppear(){
+            let array = WidgetType.allCases
+            for i in 0..<array.count {
+                let newItem = WidgetSelectionItem(type: array[i], isSelected: user.containsWidget(array[i]))
+                options.append(newItem)
+            }
+        }
+        .onDisappear(){
+            self.updateWidgets()
+        }
     }
     
-    private func onMove(source: IndexSet, destination: Int) {
-        user.widgetArray.move(fromOffsets: source, toOffset: destination)
-        user.updateWidgetIndex()
+    func updateWidgets() {
+        // Add new widgets
+        for item in options.filter({$0.isSelected}) {
+            if !user.containsWidget(item.type) {
+                let newWidget = Widget(context: viewContext)
+                newWidget.type = item.type.rawValue
+                newWidget.isSelected = true
+                newWidget.index = Int32(user.widgetArray.count)
+                
+                user.addToWidgets(newWidget)
+                
+                do {
+                   try viewContext.save()
+                } catch {
+                    print("Can't add widget")
+                }
+            }
+        }
+        
+        for widget in user.widgetArray {
+            let doesContain = options.filter({$0.isSelected}).contains(where: {$0.type.rawValue == widget.type})
+            if  !doesContain {
+                viewContext.delete(widget)
+            }
+        }
+        
+        do {
+           try viewContext.save()
+        } catch {
+            print("Can't add widget")
+        }
     }
+        
+        //    private func onMove(source: IndexSet, destination: Int) {
+//        user.widgetArray.move(fromOffsets: source, toOffset: destination)
+//        user.updateWidgetIndex()
+//    }
     
 }
 
-struct WidgetItemRow: View {
-    @ObservedObject var widget: Widget
-    var body: some View {
-        Button(action: {widget.isSelected.toggle()}) {
-            HStack {
-                Text(widget.type)
-                Spacer()
-                Image(systemName: "checkmark").opacity(widget.isSelected ? 1.0 : 0.0)
-            }
-        }
-    }
-}
 
 //struct AddWidgetView_Previews: PreviewProvider {
 //    static var previews: some View {
