@@ -30,7 +30,8 @@ struct AddWidgetView: View {
                     }
                 }
             }
-        }.onAppear(){
+        }.navigationBarTitle("Select Widgets")
+        .onAppear(){
             let array = WidgetType.allCases
             for i in 0..<array.count {
                 let newItem = WidgetSelectionItem(type: array[i], isSelected: user.containsWidget(array[i]))
@@ -67,6 +68,8 @@ struct AddWidgetView: View {
                 viewContext.delete(widget)
             }
         }
+        
+        user.updateWidgetIndex()
         
         do {
            try viewContext.save()

@@ -14,13 +14,15 @@ struct TodayView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ForEach(Array(user.widgets), id: \.self) { widget in
-                    Text(widget.type)
-                }
+//                ForEach(user.widgetArray, id: \.self) { widget in
+//                    Text(widget.type)
+//                }
+                
+                WeightWidget(user: user, healthStats: user.healthStats)
                 NavigationLink(destination: AddWidgetView(user: user)){
                     Text("Add Widgets")
                 }
-            }
+            }.padding(10)
         }
     }
 }

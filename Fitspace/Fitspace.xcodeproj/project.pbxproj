@@ -27,6 +27,7 @@
 		2858B4762583D9AA0056F1A4 /* AddWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B4752583D9AA0056F1A4 /* AddWidgetView.swift */; };
 		2858B47D25844FF80056F1A4 /* Widget+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B47B25844FF80056F1A4 /* Widget+CoreDataClass.swift */; };
 		2858B47E25844FF80056F1A4 /* Widget+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B47C25844FF80056F1A4 /* Widget+CoreDataProperties.swift */; };
+		2858B49025852A180056F1A4 /* WeightWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858B48F25852A180056F1A4 /* WeightWidget.swift */; };
 		286128722569657F00F818D8 /* MoodEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */; };
 		286128732569657F00F818D8 /* MoodEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128622569657F00F818D8 /* MoodEntry+CoreDataProperties.swift */; };
 		286128742569657F00F818D8 /* Weight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286128632569657F00F818D8 /* Weight+CoreDataClass.swift */; };
@@ -136,6 +137,7 @@
 		2858B4752583D9AA0056F1A4 /* AddWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWidgetView.swift; sourceTree = "<group>"; };
 		2858B47B25844FF80056F1A4 /* Widget+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widget+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2858B47C25844FF80056F1A4 /* Widget+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widget+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2858B48F25852A180056F1A4 /* WeightWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightWidget.swift; sourceTree = "<group>"; };
 		286128612569657F00F818D8 /* MoodEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
 		286128622569657F00F818D8 /* MoodEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		286128632569657F00F818D8 /* Weight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weight+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -285,10 +287,19 @@
 		2858B4722583D9240056F1A4 /* Today */ = {
 			isa = PBXGroup;
 			children = (
+				2858B48C25852A030056F1A4 /* Widgets */,
 				28B1974E255DBEAD00C06703 /* TodayView.swift */,
 				2858B4752583D9AA0056F1A4 /* AddWidgetView.swift */,
 			);
 			path = Today;
+			sourceTree = "<group>";
+		};
+		2858B48C25852A030056F1A4 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				2858B48F25852A180056F1A4 /* WeightWidget.swift */,
+			);
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		2865FC7B25733D72000D87C9 /* Journal */ = {
@@ -646,6 +657,7 @@
 				285679D5257745060047F2B2 /* Journal+CoreDataProperties.swift in Sources */,
 				28381FA3257C4E94009CC074 /* XAxisExtension.swift in Sources */,
 				28567A2E257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift in Sources */,
+				2858B49025852A180056F1A4 /* WeightWidget.swift in Sources */,
 				286128732569657F00F818D8 /* MoodEntry+CoreDataProperties.swift in Sources */,
 				285679BD25772F5B0047F2B2 /* BarView.swift in Sources */,
 				286128742569657F00F818D8 /* Weight+CoreDataClass.swift in Sources */,
