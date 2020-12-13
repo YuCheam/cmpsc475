@@ -12,17 +12,19 @@ struct ContentView: View {
     @AppStorage("needsUserCreation") private var needsUserCreation: Bool = true
     @FetchRequest(entity: User.entity(), sortDescriptors: [])
     var user: FetchedResults<User>
+    @State var currentTab: Int = 0
+    @State var viewMode: HealthViewState = .weight
     
     var body: some View {
         if !needsUserCreation {
             if user.count != 0 {
-                TabView {
-                    TodayView(user: user[0]).tabItem{
+                TabView(selection: $currentTab) {
+                    TodayView(user: user[0], tabIndex: $currentTab, viewMode: $viewMode).tabItem{
                             Label("Today", systemImage: "calendar")
                         }
                         .tag(0)
                     
-                    HealthView(healthStats: user[0].healthStats).tabItem{
+                    HealthView(healthStats: user[0].healthStats, viewMode: $viewMode).tabItem{
                         Label("Health", systemImage: "rectangle.3.offgrid")
                     }.tag(1)
                     

@@ -15,9 +15,9 @@ enum HealthViewState: String, CaseIterable {
 }
 
 struct HealthView: View {
-    @State var viewMode: HealthViewState = .weight
     @State var showActionSheet: Bool = false
     @ObservedObject var healthStats: HealthStats
+    @Binding var viewMode: HealthViewState
     
     var body: some View {
         NavigationView {

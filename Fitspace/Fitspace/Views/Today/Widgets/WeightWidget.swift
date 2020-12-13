@@ -10,7 +10,7 @@ import SwiftUI
 struct CardModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             .padding(10)
             .foregroundColor(.white)
             .background(Color(UIColor(red: 99/255, green: 110/255, blue: 114/255, alpha: 1.0)))

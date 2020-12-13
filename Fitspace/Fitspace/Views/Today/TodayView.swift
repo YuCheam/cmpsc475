@@ -11,6 +11,8 @@ struct TodayView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var user: User
     @State private var editMode = EditMode.inactive
+    @Binding var tabIndex: Int
+    @Binding var viewMode: HealthViewState
 
     @State private var refreshing = false
     var didSave =  NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
@@ -19,7 +21,10 @@ struct TodayView: View {
         NavigationView {
             List {
                 ForEach(user.widgetArray, id: \.self) { widget in
-                    WidgetItem(user: user, widget: widget, type: widget.type)
+                    Button(action: {navigate(type: widget.type)}) {
+                        WidgetItem(user: user, widget: widget, type: widget.type)
+                    }.buttonStyle(PlainButtonStyle())
+                    .padding([.top, .bottom], 10)
                 }.onMove(perform: onMove)
             }
             .listStyle(PlainListStyle())
@@ -40,6 +45,22 @@ struct TodayView: View {
     
     private func onMove(source: IndexSet, destination: Int) {
         user.widgetArray.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    func navigate(type: String) {
+        switch WidgetType(rawValue: type)! {
+        case .weight:
+            tabIndex = 1
+            viewMode = .weight
+        case .bodyMeasurements:
+            tabIndex = 1
+            viewMode = .bodyMeasurements
+        case .mood:
+            tabIndex = 2
+        default: // .gallery
+            tabIndex = 1
+            viewMode = .pictures
+        }
     }
     
     func toggleEdit() {
@@ -65,7 +86,7 @@ struct WidgetItem: View {
             case .gallery:
                 return AnyView(GalleryWidget(healthStats: user.healthStats))
             default: // .mood
-                return AnyView(MoodWidget())
+                return AnyView(MoodWidget(journal: user.journal))
             }
         } else {
             return AnyView(EmptyView())

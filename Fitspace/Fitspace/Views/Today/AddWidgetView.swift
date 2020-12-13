@@ -66,7 +66,6 @@ struct AddWidgetView: View {
             let doesContain = options.filter({$0.isSelected}).contains(where: {$0.type.rawValue == user.widgetArray[i].type})
             if  !doesContain {
                 viewContext.delete(user.widgetArray[i])
-                user.widgetArray.remove(at: i)
                 
                 do {
                    try viewContext.save()
