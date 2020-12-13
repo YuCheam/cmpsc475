@@ -17,22 +17,21 @@ struct TodayView: View {
    
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    ForEach(user.widgetArray, id: \.self) { widget in
-                        WidgetItem(user: user, widget: widget, type: widget.type)
-                    }.onMove(perform: onMove)
-                }
-                .listStyle(PlainListStyle())
-                
-                NavigationLink(destination: AddWidgetView(user: user)){
-                    Text("Add Widgets")
-                }
-            }.padding(10)
+            List {
+                ForEach(user.widgetArray, id: \.self) { widget in
+                    WidgetItem(user: user, widget: widget, type: widget.type)
+                }.onMove(perform: onMove)
+            }
+            .listStyle(PlainListStyle())
             .navigationBarTitle("Today")
             .navigationBarItems(trailing:
-                                    Button(action: toggleEdit){
-                                        Text(editMode == EditMode.inactive ? "Edit" : "Done")
+                                    HStack {
+                                        NavigationLink(destination: AddWidgetView(user: user)){
+                                            Label("Add", systemImage: "plus")
+                                        }
+                                        Button(action: toggleEdit){
+                                            Text(editMode == EditMode.inactive ? "Edit" : "Done")
+                                        }
                                     }
             )
             .environment(\.editMode, $editMode)
@@ -62,9 +61,9 @@ struct WidgetItem: View {
             case .weight:
                 return AnyView(WeightWidget(user: user, healthStats: user.healthStats))
             case .bodyMeasurements:
-                return AnyView(BodyMeasurementsWidget())
+                return AnyView(BodyMeasurementsWidget(healthStats: user.healthStats))
             case .gallery:
-                return AnyView(GalleryWidget())
+                return AnyView(GalleryWidget(healthStats: user.healthStats))
             default: // .mood
                 return AnyView(MoodWidget())
             }
