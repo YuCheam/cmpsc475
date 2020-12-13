@@ -236,8 +236,9 @@
 			children = (
 				28B19749255DBE9700C06703 /* ProfileView.swift */,
 				28F733CA2569D4A300F7C99D /* EditProfileView.swift */,
-				28473CAE2561B928005EE586 /* GoalComponent.swift */,
+				28A686B4257C2B9000D6D56F /* ImagePicker.swift */,
 				28F733CF256B49B100F7C99D /* AddEditGoal.swift */,
+				28473CAE2561B928005EE586 /* GoalComponent.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -281,7 +282,6 @@
 		285679F025782D950047F2B2 /* Health */ = {
 			isa = PBXGroup;
 			children = (
-				28A686B4257C2B9000D6D56F /* ImagePicker.swift */,
 				28B19738255DBE5A00C06703 /* HealthView.swift */,
 				28567A15257874280047F2B2 /* BodyMeasurementForm.swift */,
 				28567A0B257840520047F2B2 /* BodyMeasurementRow.swift */,

@@ -39,30 +39,21 @@ struct AddEditGoal: View {
             
             Section(header: Text("Modify")) {
                 HStack {
-                    Button("Cancel") {
-                        self.presentationMode.wrappedValue.dismiss()
+                    Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
+                        Text("Cancel")
+                            .modifier(ButtonStyle(ViewConstants.errorButtonColor))
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 150, height: 50)
-                    .background(Color.red)
-                    .cornerRadius(15.0)
                     
                     Spacer()
                     
-                    Button(goal == nil ? "Add Goal" : "Save Changes"){
+                    Button(action: {
                         goal == nil ? addGoal() : editGoal()
                         self.presentationMode.wrappedValue.dismiss()
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 150, height: 50)
-                    .background(Color.green)
-                    .cornerRadius(15.0)
+                    }) {
+                        Text("\(goal == nil ? "Add Goal" : "Save Changes")")
+                            .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }
         }.navigationBarTitle(goal == nil ? "Add Goal" : "Edit Goal")

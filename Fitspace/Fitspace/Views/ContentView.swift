@@ -12,7 +12,7 @@ struct ContentView: View {
     @AppStorage("needsUserCreation") private var needsUserCreation: Bool = true
     @FetchRequest(entity: User.entity(), sortDescriptors: [])
     var user: FetchedResults<User>
-    @State var currentTab: Int = 0
+    @State var currentTab: Int = 3
     @State var viewMode: HealthViewState = .weight
     
     var body: some View {
@@ -34,7 +34,7 @@ struct ContentView: View {
                     
                     ProfileView().tabItem {
                         Label("My Stats", systemImage: "person")
-                    }
+                    }.tag(3)
                 }
             }
         } else {
