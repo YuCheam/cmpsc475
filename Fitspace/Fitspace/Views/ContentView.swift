@@ -39,9 +39,7 @@ struct ContentView: View {
             }
         } else {
             Onboarding()
-                .edgesIgnoringSafeArea(.all)
-                .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.primaryLight]), startPoint: .top, endPoint: .bottom))
-                
+            
         }
     }
     

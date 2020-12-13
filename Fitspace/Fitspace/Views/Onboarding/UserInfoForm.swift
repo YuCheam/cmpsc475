@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct UserInfoForm: View {
-    @Binding var tabIndex: Int
+    @Binding var pushUserInfo: Bool
+    @Binding var pushHealthInfo: Bool
     @Binding var firstName: String
     @Binding var lastName: String
     @Binding var dob: Date
@@ -23,31 +24,27 @@ struct UserInfoForm: View {
                 .padding([.top, .bottom], 24)
             
             TextField("First Name", text: $firstName)
-                .disableAutocorrection(true)
-                .padding()
-                .background(Color.white)
-                .cornerRadius(16)
+                .modifier(FieldModifier())
             
             TextField("Last Name", text: $lastName)
-                .disableAutocorrection(true)
-                .padding()
-                .background(Color.white)
-                .cornerRadius(16)
+                .modifier(FieldModifier())
             
             DatePicker("Birthday", selection: $dob, in: ...Date(),  displayedComponents: .date)
-                .datePickerStyle(GraphicalDatePickerStyle())
+                .datePickerStyle(CompactDatePickerStyle())
                 .padding()
                 .background(Color.white)
                 .cornerRadius(16)
             
             Button(action: {
-                tabIndex += 1
+                pushUserInfo = false
+                pushHealthInfo = true
             }) {
               Text("Next")
                 .modifier(ButtonStyle(isValidTextField ? ViewConstants.defaultButtonColor : ViewConstants.errorButtonColor))
             }.disabled(!isValidTextField)
         }
         .padding(.horizontal)
+        .modifier(OnboardingModifier())
     }
 }
 

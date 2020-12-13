@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		28381FA3257C4E94009CC074 /* XAxisExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28381FA2257C4E94009CC074 /* XAxisExtension.swift */; };
+		28399EDA2586931F008DA885 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28399ED92586931F008DA885 /* WelcomeView.swift */; };
+		28399EE62586AD3D008DA885 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28399EE52586AD3D008DA885 /* Header.swift */; };
 		28473CAF2561B928005EE586 /* GoalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28473CAE2561B928005EE586 /* GoalComponent.swift */; };
 		28473CB82561BD4F005EE586 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28473CB72561BD4F005EE586 /* Color+Extension.swift */; };
 		28473CBD2561DA7D005EE586 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28473CBC2561DA7D005EE586 /* Onboarding.swift */; };
@@ -64,7 +66,6 @@
 		28B1974F255DBEAD00C06703 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1974E255DBEAD00C06703 /* TodayView.swift */; };
 		28B19756255DBEF800C06703 /* Fitspace.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28B19754255DBEF800C06703 /* Fitspace.xcdatamodeld */; };
 		28B1975B255E29CC00C06703 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1975A255E29CC00C06703 /* Persistence.swift */; };
-		28B19761255F326500C06703 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19760255F326500C06703 /* UserManager.swift */; };
 		28D2DA52258040C100FEB9D6 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D2DA51258040C100FEB9D6 /* BarChart.swift */; };
 		28D2DA5C25816AEF00FEB9D6 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D2DA5B25816AEF00FEB9D6 /* PhotoPicker.swift */; };
 		28F733B5256967F300F7C99D /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F733B3256967F300F7C99D /* User+CoreDataClass.swift */; };
@@ -122,6 +123,8 @@
 
 /* Begin PBXFileReference section */
 		28381FA2257C4E94009CC074 /* XAxisExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisExtension.swift; sourceTree = "<group>"; };
+		28399ED92586931F008DA885 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		28399EE52586AD3D008DA885 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		28473CAE2561B928005EE586 /* GoalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalComponent.swift; sourceTree = "<group>"; };
 		28473CB72561BD4F005EE586 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		28473CBC2561DA7D005EE586 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
@@ -183,7 +186,6 @@
 		28B1974E255DBEAD00C06703 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		28B19755255DBEF800C06703 /* Fitspace.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fitspace.xcdatamodel; sourceTree = "<group>"; };
 		28B1975A255E29CC00C06703 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		28B19760255F326500C06703 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		28D2DA51258040C100FEB9D6 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
 		28D2DA5B25816AEF00FEB9D6 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		28F733B3256967F300F7C99D /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -246,6 +248,8 @@
 				28473CBC2561DA7D005EE586 /* Onboarding.swift */,
 				28F733BD25696D2500F7C99D /* UserInfoForm.swift */,
 				28F733C22569716500F7C99D /* HealthInfoForm.swift */,
+				28399ED92586931F008DA885 /* WelcomeView.swift */,
+				28399EE52586AD3D008DA885 /* Header.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -359,7 +363,6 @@
 		28B19708255DBE2600C06703 /* Fitspace */ = {
 			isa = PBXGroup;
 			children = (
-				28B1975F255F314500C06703 /* Model */,
 				28B19753255DBEE000C06703 /* Core Data */,
 				28B19737255DBE4600C06703 /* Views */,
 				28B19709255DBE2600C06703 /* FitspaceApp.swift */,
@@ -440,14 +443,6 @@
 				28B1975A255E29CC00C06703 /* Persistence.swift */,
 			);
 			path = "Core Data";
-			sourceTree = "<group>";
-		};
-		28B1975F255F314500C06703 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				28B19760255F326500C06703 /* UserManager.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		28D2DA4E258040A100FEB9D6 /* BarChart */ = {
@@ -622,7 +617,6 @@
 				28A764CA2582C16100160556 /* ProgressPic+CoreDataClass.swift in Sources */,
 				28A686AE257C1E3B00D6D56F /* WeightView.swift in Sources */,
 				28F733D0256B49B100F7C99D /* AddEditGoal.swift in Sources */,
-				28B19761255F326500C06703 /* UserManager.swift in Sources */,
 				28567A2D257876BE0047F2B2 /* BodyMeasurements+CoreDataProperties.swift in Sources */,
 				2861287C2569657F00F818D8 /* JournalEntry+CoreDataClass.swift in Sources */,
 				2858B4762583D9AA0056F1A4 /* AddWidgetView.swift in Sources */,
@@ -671,7 +665,9 @@
 				28567A2E257876BE0047F2B2 /* BodyMeasurements+CoreDataClass.swift in Sources */,
 				2858B49025852A180056F1A4 /* WeightWidget.swift in Sources */,
 				286128732569657F00F818D8 /* MoodEntry+CoreDataProperties.swift in Sources */,
+				28399EDA2586931F008DA885 /* WelcomeView.swift in Sources */,
 				285679BD25772F5B0047F2B2 /* BarView.swift in Sources */,
+				28399EE62586AD3D008DA885 /* Header.swift in Sources */,
 				286128742569657F00F818D8 /* Weight+CoreDataClass.swift in Sources */,
 				28473CB82561BD4F005EE586 /* Color+Extension.swift in Sources */,
 				2865FC7D25733D90000D87C9 /* AddJournalEntry.swift in Sources */,

@@ -69,7 +69,12 @@ struct ProfileView: View {
                             for i in user {
                                 viewContext.delete(i)
                             }
-                            try? viewContext.save()
+                            
+                            do {
+                                try viewContext.save()
+                            } catch let error as NSError {
+                                print("Could not save \(error), \(error.userInfo)")
+                            }
                             
                             needsUserCreation = true
                         }

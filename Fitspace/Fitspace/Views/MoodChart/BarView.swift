@@ -31,7 +31,7 @@ struct BarView: View {
                 Capsule().frame(width: 30, height: 200)
                     .foregroundColor(Color.primary)
                 Capsule().frame(width: 30, height: value)
-                    .foregroundColor(Color.primaryLight)
+                    .foregroundColor(Color.secondary)
                 Text("\(moodEntry.moodEmoji)")
                     .baselineOffset(value)
             }

@@ -27,7 +27,7 @@ struct GoalComponent: View {
             }.buttonStyle(PlainButtonStyle())
         }
         .padding(8)
-        .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.primaryLight]), startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.secondary]), startPoint: .top, endPoint: .bottom))
         .cornerRadius(12)
         .lineLimit(6)
         .font(.footnote)

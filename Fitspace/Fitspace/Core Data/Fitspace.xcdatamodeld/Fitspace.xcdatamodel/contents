@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BodyMeasurements" representedClassName="BodyMeasurements" syncable="YES">
         <attribute name="arm" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -18,14 +18,14 @@
     </entity>
     <entity name="HealthStats" representedClassName="HealthStats" syncable="YES">
         <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="bodyMeasurements" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="BodyMeasurements" inverseName="userHealthStats" inverseEntity="BodyMeasurements"/>
-        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProgressPic" inverseName="userHealthStats" inverseEntity="ProgressPic"/>
+        <relationship name="bodyMeasurements" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BodyMeasurements" inverseName="userHealthStats" inverseEntity="BodyMeasurements"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProgressPic" inverseName="userHealthStats" inverseEntity="ProgressPic"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="healthStats" inverseEntity="User"/>
-        <relationship name="weightHistory" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Weight" inverseName="userHealthStats" inverseEntity="Weight"/>
+        <relationship name="weightHistory" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Weight" inverseName="userHealthStats" inverseEntity="Weight"/>
     </entity>
     <entity name="Journal" representedClassName="Journal" syncable="YES">
-        <relationship name="journalEntries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="JournalEntry" inverseName="journal" inverseEntity="JournalEntry"/>
-        <relationship name="moodEntries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MoodEntry" inverseName="journal" inverseEntity="MoodEntry"/>
+        <relationship name="journalEntries" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="JournalEntry" inverseName="journal" inverseEntity="JournalEntry"/>
+        <relationship name="moodEntries" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="MoodEntry" inverseName="journal" inverseEntity="MoodEntry"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="journal" inverseEntity="User"/>
     </entity>
     <entity name="JournalEntry" representedClassName="JournalEntry" syncable="YES">
@@ -52,10 +52,10 @@
         <attribute name="goalWeight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
         <attribute name="profileImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" customClassName="UIImage"/>
-        <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="user" inverseEntity="Goal"/>
-        <relationship name="healthStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HealthStats" inverseName="user" inverseEntity="HealthStats"/>
-        <relationship name="journal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="user" inverseEntity="Journal"/>
-        <relationship name="widgets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Widget" inverseName="user" inverseEntity="Widget"/>
+        <relationship name="goals" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Goal" inverseName="user" inverseEntity="Goal"/>
+        <relationship name="healthStats" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="HealthStats" inverseName="user" inverseEntity="HealthStats"/>
+        <relationship name="journal" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Journal" inverseName="user" inverseEntity="Journal"/>
+        <relationship name="widgets" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Widget" inverseName="user" inverseEntity="Widget"/>
     </entity>
     <entity name="Weight" representedClassName="Weight" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>

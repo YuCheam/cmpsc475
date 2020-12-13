@@ -25,3 +25,23 @@ struct ButtonStyle: ViewModifier {
         self.color = color
     }
 }
+
+struct OnboardingModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .navigationBarHidden(true)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.secondary]), startPoint: .top, endPoint: .bottom))
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct FieldModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .disableAutocorrection(true)
+            .padding()
+            .background(Color.white)
+            .cornerRadius(16)
+    }
+}

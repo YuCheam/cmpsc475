@@ -13,9 +13,6 @@ struct TodayView: View {
     @State private var editMode = EditMode.inactive
     @Binding var tabIndex: Int
     @Binding var viewMode: HealthViewState
-
-    @State private var refreshing = false
-    var didSave =  NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
    
     var body: some View {
         NavigationView {
@@ -77,14 +74,16 @@ struct WidgetItem: View {
     var type: String
     
     var body: some View {
-        if !widget.isFault {
+        if !widget.isFault && !user.isFault {
             switch widget.getState {
             case .weight:
                 return AnyView(WeightWidget(user: user, healthStats: user.healthStats))
             case .bodyMeasurements:
                 return AnyView(BodyMeasurementsWidget(healthStats: user.healthStats))
+                
             case .gallery:
                 return AnyView(GalleryWidget(healthStats: user.healthStats))
+                
             default: // .mood
                 return AnyView(MoodWidget(journal: user.journal))
             }

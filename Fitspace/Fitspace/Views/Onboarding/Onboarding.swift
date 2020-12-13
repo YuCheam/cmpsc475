@@ -19,6 +19,10 @@ struct Onboarding: View {
     @State var goalWeight: Float = 0.0
     @State var height: Int = 0
     
+    @State var pushUserInfo: Bool = false
+    @State var pushHealthInfo: Bool = false
+    @State var pushEndView: Bool = false
+    
     var heightFormatted: String {
         let inches = height % 12
         let feet = (height-inches)/12
@@ -32,50 +36,23 @@ struct Onboarding: View {
     }
     
     var body: some View {
-        TabView(selection: $tabIndex) {
-            VStack(spacing: 20) {
-                Text("Fitspace")
-                    .foregroundColor(Color.white)
-                    .font(.largeTitle)
-                    .fontWeight(.black)
+        NavigationView {
+            ZStack{
+                WelcomeView(pushUserInfo: $pushUserInfo)
                 
-                Text("Create an account")
-                    .foregroundColor(Color.white)
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
+                NavigationLink(destination: UserInfoForm(pushUserInfo: $pushUserInfo, pushHealthInfo: $pushHealthInfo, firstName: $firstName, lastName: $lastName, dob: $dob), isActive: $pushUserInfo){
+                    EmptyView()
+                }.hidden()
                 
-                Button(action: {tabIndex += 1}, label: {
-                    Text("Next →")
-                        .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
-                })
+                NavigationLink(destination: HealthInfoForm(pushHealthInfo: $pushHealthInfo, pushEndView: $pushEndView, currentWeight: $weight, goalWeight: $goalWeight, height: $height), isActive: $pushHealthInfo){
+                    EmptyView()
+                }.hidden()
                 
+                NavigationLink(destination: EndOnboarding.modifier(OnboardingModifier()), isActive: $pushEndView) {
+                    EmptyView()
+                }.hidden()
             }
-            .tag(0)
-            
-            UserInfoForm(tabIndex: $tabIndex, firstName: $firstName, lastName: $lastName, dob: $dob)
-                .tag(1)
-            
-            HealthInfoForm(tabIndex: $tabIndex, currentWeight: $weight, goalWeight: $goalWeight, height: $height)
-                .tag(2)
-            
-            VStack(spacing: 24) {
-                Text("Start your fitness journey!")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                
-                Group {
-                    Text("\(firstName) \(lastName)")
-                    Text("Date of Birth: \(formatDOB)")
-                    Text("Weight: \(weight, specifier: "%.1f") lbs")
-                    Text("Height: \(heightFormatted)")
-                }
-                
-                Button(action: {addUser()}){
-                    Text("Create User")
-                        .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
-                }
-            }.tag(3)
-        }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        }
     }
     
     func addUser() {
@@ -116,6 +93,33 @@ struct Onboarding: View {
         
         user.addToWidgets(newWidget)
         
+    }
+    
+    var EndOnboarding: some View {
+        VStack(spacing: 24) {
+            Text("Start your fitness journey!")
+                .foregroundColor(.white)
+                .font(.system(size: 36, weight: .bold, design: .default))
+            
+            VStack(alignment: .leading) {
+                Text("\(firstName) \(lastName)")
+                    .font(.system(size: 24, weight: .bold, design: .default))
+                    .padding(.bottom, 8)
+                Text("Date of Birth: \(formatDOB)")
+                Text("Weight: \(weight, specifier: "%.1f") lbs")
+                Text("Height: \(heightFormatted)")
+            }.frame(maxWidth: .infinity, alignment: .leading)
+            .modifier(FieldModifier())
+            
+            
+            Button(action: {
+                pushEndView = false
+                addUser()
+            }){
+                Text("Create User")
+                    .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+            }
+        }.padding(.horizontal)
     }
 }
 

@@ -27,7 +27,7 @@ struct WeightWidget: View {
     
     // Computed Properties
     var startWeight: Float {
-        Array(healthStats.weightHistory).sorted(by: {$0.date < $1.date})[0].amount
+        healthStats.weightHistory.count == 0 ? 0 : Array(healthStats.weightHistory).sorted(by: {$0.date < $1.date})[0].amount
     }
     
     var goalWeight: Float {
@@ -35,7 +35,7 @@ struct WeightWidget: View {
     }
     
     var currentWeight: Float {
-        Array(healthStats.weightHistory).sorted(by: {$0.date > $1.date})[0].amount
+        healthStats.weightHistory.count == 0 ? 0 :Array(healthStats.weightHistory).sorted(by: {$0.date > $1.date})[0].amount
     }
     
     var amountLeft: Float {
