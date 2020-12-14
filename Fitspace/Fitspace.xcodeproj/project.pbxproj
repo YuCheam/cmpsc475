@@ -255,14 +255,6 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		285679BB25772F470047F2B2 /* MoodChart */ = {
-			isa = PBXGroup;
-			children = (
-				285679BC25772F5B0047F2B2 /* BarView.swift */,
-			);
-			path = MoodChart;
-			sourceTree = "<group>";
-		};
 		285679DF25782AC60047F2B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +310,7 @@
 		2865FC7B25733D72000D87C9 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
+				285679BC25772F5B0047F2B2 /* BarView.swift */,
 				28B19741255DBE7700C06703 /* JournalView.swift */,
 				285679AB2576EE890047F2B2 /* JournalEntryComponent.swift */,
 				285679B02576F3DE0047F2B2 /* JournalEntryView.swift */,
@@ -406,7 +399,6 @@
 				28D2DA4E258040A100FEB9D6 /* BarChart */,
 				28381F9F257C4E6C009CC074 /* LineChart */,
 				285679F025782D950047F2B2 /* Health */,
-				285679BB25772F470047F2B2 /* MoodChart */,
 				2865FC81257342DE000D87C9 /* ExtensionsModifiers */,
 				2865FC7B25733D72000D87C9 /* Journal */,
 				28473CC12561DC1D005EE586 /* Onboarding */,
