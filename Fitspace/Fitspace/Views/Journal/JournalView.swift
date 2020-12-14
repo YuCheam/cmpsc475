@@ -52,7 +52,7 @@ struct JournalView: View {
                                 .padding(.horizontal, 12)
                         }
                     }
-                }
+                }.padding(.bottom, 48)
             }.navigationBarTitle("Journal", displayMode: .large)
             .navigationBarItems(trailing: Menu("+ Add"){
                 Button("Add Mood Entry"){pushAddMoodEntry.toggle()}

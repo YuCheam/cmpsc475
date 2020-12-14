@@ -19,7 +19,7 @@ struct PhotosView: View {
     @State var date: Date = Date()
     @State var pushNavigationLink = false
     var configuration: PHPickerConfiguration
-    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+    var columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 2), count: 3)
 
     var body: some View {
         VStack {
@@ -27,9 +27,11 @@ struct PhotosView: View {
                 ScrollView(){
                     ForEach(imagesArray, id:\.self) { array in
                         Text(array[0].date.formattedDate)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: ViewConstants.headingSize), weight: .bold, design: .default))
                         LazyVGrid(columns: columns, spacing: 6) {
                             ForEach(array, id:\.self) { image in
-                                ImageView(image: image, size: geo.size.width/3)
+                                ImageView(image: image, size: (geo.size.width/3)-4)
                                     .onTapGesture {
                                         image.isSelected.toggle()
                                     }
@@ -51,7 +53,7 @@ struct PhotosView: View {
                     Text("Photo library")
                         .font(.headline)
                 }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
-                .background(Color.blue)
+                .background(ViewConstants.gradient)
                 .foregroundColor(.white)
                 .cornerRadius(20)
                 .padding(.horizontal)
@@ -59,48 +61,23 @@ struct PhotosView: View {
         }.actionSheet(isPresented: $showActionSheet ){
             ActionSheet(title: Text("Modify Images"), buttons: [
                 .destructive(Text("Delete Photos")){deleteImages()},
-                .default(Text("Compare Photots")){pushNavigationLink.toggle()},
-                .default(Text("Change Date")){showCalendar.toggle()},
-                    .default(Text("Dismiss"))
+                .default(Text("Compare Photots")){
+                    if healthStats.selectedImages.count != 0 {
+                        pushNavigationLink.toggle()
+                    }
+                },
+                .default(Text("Change Date")){
+                    if healthStats.selectedImages.count != 0 {
+                        showCalendar.toggle()
+                    }
+                },
+                .default(Text("Dismiss"))
             ])
         }.sheet(isPresented: $showCalendar) {
-            Form {
-                DatePicker("Change Date", selection: $date)
-                Section {
-                    HStack {
-                        Button(action: {showCalendar.toggle()}){
-                            Text("Cancel")
-                                .modifier(ButtonStyle(ViewConstants.errorButtonColor))
-                        }.buttonStyle(PlainButtonStyle())
-                        
-                        Spacer()
-                        
-                        Button(action: {changeDate()}){
-                            Text("Save")
-                                .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
-                        }.buttonStyle(PlainButtonStyle())
-                    }
-                }
-            }
+            ChangeDateView(healthStats: healthStats, date: $date, showCalendar: $showCalendar)
         }
     }
     
-    func changeDate() {
-        for image in healthStats.selectedImages {
-            image.date = date
-            image.isSelected = false
-        }
-        
-        showCalendar.toggle()
-        
-        do {
-            try viewContext.save()
-        } catch {
-            print("Could not change date")
-        }
-        
-        healthStats.setImagesArray()
-    }
     
     func getUIImage(_ data: Data) -> UIImage {
         UIImage(data: data)!
@@ -138,7 +115,7 @@ struct ImageView: View {
     @ObservedObject var image: ProgressPic
     var size: CGFloat
     var color: Color {
-        image.isSelected ? Color.blue : Color.clear
+        image.isSelected ? Color.accent : Color.clear
     }
     
     var body: some View {
@@ -147,7 +124,52 @@ struct ImageView: View {
             .aspectRatio(contentMode: .fill)
             .frame(width: size, height: size)
             .clipped()
-            .border(color, width: 2)
+            .border(color, width: 4)
+    }
+}
+
+struct ChangeDateView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var healthStats: HealthStats
+    @Binding var date: Date
+    @Binding var showCalendar: Bool
+    
+    var body: some View {
+        Form {
+            DatePicker("Change Date", selection: $date)
+            Section {
+                HStack {
+                    Button(action: {showCalendar.toggle()}){
+                        Text("Cancel")
+                            .modifier(ButtonStyle(ViewConstants.errorButtonColor))
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                    Spacer()
+                    
+                    Button(action: {changeDate()}){
+                        Text("Save")
+                            .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+                    }.buttonStyle(PlainButtonStyle())
+                }
+            }
+        }
+    }
+    
+    func changeDate() {
+        for image in healthStats.selectedImages {
+            image.date = date
+            image.isSelected = false
+        }
+        
+        showCalendar.toggle()
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("Could not change date")
+        }
+        
+        healthStats.setImagesArray()
     }
 }
 

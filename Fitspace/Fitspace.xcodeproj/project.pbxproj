@@ -275,13 +275,13 @@
 			isa = PBXGroup;
 			children = (
 				28B19738255DBE5A00C06703 /* HealthView.swift */,
-				28567A15257874280047F2B2 /* BodyMeasurementForm.swift */,
 				28567A0B257840520047F2B2 /* BodyMeasurementRow.swift */,
 				28A686A9257C1A0300D6D56F /* WeightForm.swift */,
 				28A686AD257C1E3B00D6D56F /* WeightView.swift */,
 				28A686BA257C2C5700D6D56F /* PhotosView.swift */,
 				28D2DA5B25816AEF00FEB9D6 /* PhotoPicker.swift */,
 				2858B46D258320DF0056F1A4 /* ComparePhotosView.swift */,
+				28567A15257874280047F2B2 /* BodyMeasurementForm.swift */,
 			);
 			path = Health;
 			sourceTree = "<group>";
