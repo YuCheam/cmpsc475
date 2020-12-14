@@ -73,9 +73,9 @@ struct AddJournalEntry: View {
             } catch {
                 print("Journal Entry could not be created")
             }
+            
+            self.presentationMode.wrappedValue.dismiss()
         }
-        
-        self.presentationMode.wrappedValue.dismiss()
     }
 }
 

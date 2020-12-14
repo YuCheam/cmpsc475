@@ -22,7 +22,6 @@ struct GoalComponent: View {
             VStack(alignment: .leading) {
                 Text(goal.title)
                     .font(.system(size: ViewConstants.headingSize, weight: .semibold))
-                    .foregroundColor(Color.black)
                 Text(goal.details)
                 Text("\(goal.timeToCompletion)")
             }.padding(.horizontal, 12)

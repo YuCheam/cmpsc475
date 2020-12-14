@@ -22,7 +22,7 @@ struct JournalView: View {
     var body: some View {
         NavigationView {
             ScrollView{
-                VStack {
+                VStack(spacing: 12) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Mood Graph")
                             .font(.system(size: ViewConstants.headingSize, weight: .semibold, design: .default))
@@ -49,6 +49,7 @@ struct JournalView: View {
                     ForEach(Array(journal.journalEntries ?? []), id:\.self) { entry in
                         NavigationLink(destination: JournalEntryView(journalEntry: entry)){
                             JournalEntryComponent(journalEntry: entry)
+                                .padding(.horizontal, 12)
                         }
                     }
                 }
@@ -57,6 +58,7 @@ struct JournalView: View {
                 Button("Add Mood Entry"){pushAddMoodEntry.toggle()}
                 Button("Add Journal Entry"){pushAddJournalEntry.toggle()}
             })
+            .background(Color.offWhite)
         }
         
     }

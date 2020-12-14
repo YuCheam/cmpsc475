@@ -21,7 +21,7 @@ struct JournalEntryView: View {
         VStack(alignment: .leading) {
             Text(date)
             TextEditor(text: $text)
-                .border(Color.black, width: 1)
+                .shadow(radius: 12)
                 .disableAutocorrection(true)
                 .onDisappear(){
                     journalEntry.setValue(text, forKey: "text")
@@ -83,6 +83,8 @@ struct JournalEntryView: View {
         } catch {
             print("Title could not be changed")
         }
+        
+        isChangingTitle.toggle()
     }
     
     init(journalEntry: JournalEntry){

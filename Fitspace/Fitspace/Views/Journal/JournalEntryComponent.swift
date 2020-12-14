@@ -14,24 +14,24 @@ struct JournalEntryComponent: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(journalEntry.title).font(.largeTitle)
+                Text(journalEntry.title)
+                    .font(.system(size: ViewConstants.headingSize, weight: .semibold))
                 Text(journalEntry.stringDate)
                 Text(journalEntry.text).font(.body)
-            }
+            }.foregroundColor(Color.black)
             
             Spacer()
             
             Button(action: {deleteEntry()}){
                 Label("", systemImage: "trash")
             }.buttonStyle(PlainButtonStyle())
-        }
-        .padding(8)
-        .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.secondary
-        ]), startPoint: .top, endPoint: .bottom))
-        .cornerRadius(12)
+            .foregroundColor(Color.accent)
+            
+        }.padding()
+        .background(Color.white)
+        .cornerRadius(6)
         .lineLimit(6)
-        .font(.footnote)
-        .foregroundColor(Color.white)
+        .shadow(radius: 12)
 
     }
     
