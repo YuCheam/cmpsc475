@@ -17,41 +17,65 @@ struct BodyMeasurementsWidget: View {
         }
     }
     
+    var lineWidth: CGFloat = 1
+    var lineHeight: CGFloat = 52
+    
     var body: some View {
         VStack(spacing: 10) {
             if let measurement = currentBodyMeasurements {
                 Text("Body Measurements")
-                    .font(.system(size: 24, weight: .bold, design: .default))
+                    .font(.system(size: ViewConstants.headingSize, weight: .semibold, design: .default))
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 HStack(spacing: 10) {
                     VStack {
                         Text("Neck")
+                            .fontWeight(.heavy)
                         Text("\(measurement.neck, specifier: "%.1f") in")
                     }
                     
-                    VStack {
-                        Text("Arm")
-                        Text("\(measurement.arm, specifier: "%.1f") in")
-                    }
+                    Rectangle()
+                        .frame(width: lineWidth, height: lineHeight)
                     
                     VStack {
-                        Text("Waist")
+                        Text("Arm").fontWeight(.heavy)
+                        Text("\(measurement.arm, specifier: "%.1f") in")
+                            .foregroundColor(Color.offWhite)
+                    }
+                    
+                    Rectangle()
+                        .frame(width: lineWidth, height: lineHeight)
+                    
+                    VStack {
+                        Text("Waist").fontWeight(.heavy)
                         Text("\(measurement.waist, specifier: "%.1f") in")
                     }
                     
+                    Rectangle()
+                        .frame(width: lineWidth, height: lineHeight)
+                    
                     VStack {
-                        Text("Hips")
+                        Text("Hips").fontWeight(.heavy)
                         Text("\(measurement.hips, specifier: "%.1f") in")
                     }
                     
+                    Rectangle()
+                        .frame(width: lineWidth, height: lineHeight)
+                    
                     VStack {
-                        Text("Thigh")
+                        Text("Thigh").fontWeight(.heavy)
                         Text("\(measurement.thigh, specifier: "%.1f") in")
                     }
                 }
+                
+                Text(measurement.stringDate)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             } else {
-                Text("Add Body Measurements")
+                Text("Body Measurements")
+                    .font(.system(size: ViewConstants.headingSize, weight: .bold, design: .default))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text("No Body Measurements")
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
         }.modifier(CardModifier())
     }

@@ -45,3 +45,17 @@ struct FieldModifier: ViewModifier {
             .cornerRadius(16)
     }
 }
+
+struct CardModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            .padding(10)
+            .foregroundColor(.white)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.secondary]), startPoint: .top, endPoint: .bottom))
+            .cornerRadius(12)
+        
+            //.shadow(color: Color.black.opacity(0.6), radius: 20, x: 0, y: 0)
+    }
+    
+}

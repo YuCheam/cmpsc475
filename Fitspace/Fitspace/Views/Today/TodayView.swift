@@ -29,11 +29,17 @@ struct TodayView: View {
             .navigationBarItems(trailing:
                                     HStack {
                                         NavigationLink(destination: AddWidgetView(user: user)){
-                                            Label("Add", systemImage: "plus")
+                                            Image(systemName: "text.badge.plus")
+                                                .resizable()
+                                                .frame(width: 24, height: 24)
+                                                .foregroundColor(Color.accent)
                                         }
                                         Button(action: toggleEdit){
-                                            Text(editMode == EditMode.inactive ? "Edit" : "Done")
-                                        }
+                                            Text(editMode == EditMode.inactive ? "Reorder" : "Done")
+                                                .foregroundColor(Color.white)
+                                                .padding(6)
+                                        }.background(Color.accent)
+                                        .cornerRadius(4)
                                     }
             )
             .environment(\.editMode, $editMode)

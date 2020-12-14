@@ -22,18 +22,18 @@ struct MoodWidget: View {
     var body: some View {
         VStack(alignment: .leading){
             Text("Mood")
-                .font(.system(size:24, weight: .bold, design: .default))
+                .font(.system(size: ViewConstants.headingSize, weight: .semibold, design: .default))
             
             HStack(alignment: .center) {
                 if mood != nil {
                     Text("\(mood!.moodEmoji)")
                         .font(.system(size: 64))
-                    VStack(alignment: .center) {
+                    VStack(alignment: .leading) {
                         Text("Date: \(mood!.stringDate)")
                         Text("Details: \(mood!.details ?? "")")
                     }
                 } else {
-                    Text("Add mood ->")
+                    Text("No Mood Entries")
                 }
             }
         }.modifier(CardModifier())

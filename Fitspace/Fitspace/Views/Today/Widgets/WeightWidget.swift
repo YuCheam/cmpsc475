@@ -7,20 +7,6 @@
 
 import SwiftUI
 
-struct CardModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-            .padding(10)
-            .foregroundColor(.white)
-            .background(Color(UIColor(red: 99/255, green: 110/255, blue: 114/255, alpha: 1.0)))
-            .cornerRadius(20)
-        
-            //.shadow(color: Color.black.opacity(0.6), radius: 20, x: 0, y: 0)
-    }
-    
-}
-
 struct WeightWidget: View {
     @ObservedObject var user: User
     @ObservedObject var healthStats: HealthStats
@@ -35,15 +21,24 @@ struct WeightWidget: View {
     }
     
     var currentWeight: Float {
-        healthStats.weightHistory.count == 0 ? 0 :Array(healthStats.weightHistory).sorted(by: {$0.date > $1.date})[0].amount
+        healthStats.weightHistory.count == 0 ? 0 : Array(healthStats.weightHistory).sorted(by: {$0.date > $1.date})[0].amount
     }
     
     var amountLeft: Float {
-         currentWeight - goalWeight
+        if currentWeight >= goalWeight {
+            return currentWeight - goalWeight
+        } else {
+            return goalWeight - currentWeight
+        }
     }
     
     var fraction: CGFloat {
-        CGFloat(1-(amountLeft/(startWeight-goalWeight)))
+        if startWeight >= goalWeight {
+            return CGFloat(1-(amountLeft/(startWeight-goalWeight)))
+        } else {
+            return CGFloat(1-(amountLeft/(goalWeight-startWeight)))
+        }
+        
     }
     
     var body: some View {
@@ -55,7 +50,7 @@ struct WeightWidget: View {
                 
                 Circle()
                     .trim(from: 0, to: fraction)
-                    .stroke(Color.blue, lineWidth: 20)
+                    .stroke(Color.accent, lineWidth: 20)
                     .rotationEffect(.degrees(-90))
                     .overlay(
                         VStack {
@@ -66,14 +61,14 @@ struct WeightWidget: View {
             }.padding(10)
             .frame(height: 180)
             
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .trailing, spacing: 5) {
                 Text("Weight")
-                    .font(.system(size: 24, weight: .bold, design: .default))
-                    .padding(.bottom, 10)
+                    .font(.system(size: ViewConstants.headingSize, weight: .semibold, design: .default))
+                    .padding(.vertical, 6)
                 Text("Start Weight: \(startWeight, specifier: "%.1f")")
                 Text("Current Weight: \(currentWeight, specifier: "%.1f")")
                 Text("Goal Weight: \(goalWeight, specifier: "%.1f")")
-            }.font(.system(size: 16, weight: .bold, design: .default))
+            }
             
         }.modifier(CardModifier())
     }
