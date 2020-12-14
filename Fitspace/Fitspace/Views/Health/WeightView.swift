@@ -18,7 +18,7 @@ struct WeightView: View {
         LineGraph(entries: entries, xAxisFormatter: xAxisFormatter)
         
         List {
-            ForEach(Array(healthStats.weightHistory), id: \.self) { weight in
+            ForEach(Array(healthStats.weightHistory).sorted(by: {$0.date > $1.date}), id: \.self) { weight in
                 HStack{
                     Text("\(weight.stringDate)")
                     Text("Weight: \(weight.amount, specifier: "%.1f") lbs")

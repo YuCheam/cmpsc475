@@ -19,14 +19,11 @@ struct BodyMeasurementRow: View {
             ForEach(Array(healthStats.bodyMeasurements ?? []), id: \.self) { measurement in
                 VStack(spacing:0) {
                     Text("\(measurement.stringDate)")
+                    font(.system(size:ViewConstants.headingSize, weight: .semibold, design: .default))
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading)
-                        .background(Color.graphColor)
-                        
+                        .background(Color.accent)
+                    
                     HStack {
-                        Button(action: {deleteMeasurement(measurement)}){
-                            Label("", systemImage: "trash")
-                        }.buttonStyle(PlainButtonStyle())
-                        
                         VStack {
                             Text("Neck")
                             Text("\(measurement.neck, specifier: "%.1f")")
@@ -69,6 +66,11 @@ struct BodyMeasurementRow: View {
                             Text("\(measurement.thigh, specifier: "%.1f")")
                             Text("in")
                         }.padding(5)
+                        
+                        Button(action: {deleteMeasurement(measurement)}){
+                            Label("", systemImage: "trash")
+                        }.buttonStyle(PlainButtonStyle())
+                        .foregroundColor(Color.accent)
                     }
                 }
             }

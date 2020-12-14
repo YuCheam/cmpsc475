@@ -17,9 +17,7 @@ struct LineGraph: UIViewRepresentable {
     func makeUIView(context: Context) -> LineChartView  {
         let chart: LineChartView = LineChartView()
         chart.data = addData()
-
-        
-        chart.backgroundColor = UIColor(Color.blue)
+        chart.backgroundColor = UIColor(Color.primary)
         
         // Customization of Chart
         chart.rightAxis.enabled = false
@@ -37,6 +35,8 @@ struct LineGraph: UIViewRepresentable {
         chart.xAxis.granularity = 1
         chart.xAxis.labelPosition = .bottom
         
+        chart.animate(xAxisDuration: 2.5)
+        
         return chart
     }
     
@@ -53,10 +53,17 @@ struct LineGraph: UIViewRepresentable {
         
         let dataSet = LineChartDataSet(entries: entries, label: "Weights")
         dataSet.mode = .cubicBezier
-        //dataSet.drawCirclesEnabled = false
+        dataSet.drawCirclesEnabled = false
         dataSet.lineWidth = 3
+        dataSet.setColor(.white)
+        dataSet.drawHorizontalHighlightIndicatorEnabled = false
+        dataSet.highlightColor = .white
         
-        return LineChartData(dataSet: dataSet)
+        let data = LineChartData(dataSet: dataSet)
+        data.setDrawValues(false)
+        
+        
+        return data
     }
     
     class Coordinator: NSObject, ChartViewDelegate {

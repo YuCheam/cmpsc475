@@ -38,6 +38,7 @@ struct BarChart: UIViewRepresentable {
         let xAxis = chart.xAxis
         xAxis.drawGridLinesEnabled = true
         xAxis.labelPosition = .bottom
+        xAxis.labelFont = .boldSystemFont(ofSize: 12)
         xAxis.centerAxisLabelsEnabled = true
         xAxis.valueFormatter = IndexAxisValueFormatter(values: self.dates)
         xAxis.granularity = 1
@@ -49,6 +50,7 @@ struct BarChart: UIViewRepresentable {
         let yAxis = chart.leftAxis
         yAxis.spaceTop = 0.35
         yAxis.axisMinimum = 0.0
+        yAxis.labelFont = .boldSystemFont(ofSize: 12)
         yAxis.drawGridLinesEnabled = false
         
         //chart animation
@@ -91,8 +93,14 @@ struct BarChart: UIViewRepresentable {
         let barDataSet4 = BarChartDataSet(entries: dataEntries4, label: "Hip")
         let barDataSet5 = BarChartDataSet(entries: dataEntries5, label: "Thigh")
         let dataSets = [barDataSet1, barDataSet2, barDataSet3, barDataSet4, barDataSet5]
+        barDataSet1.setColor(.systemBlue)
+        barDataSet2.setColor(.systemTeal)
+        barDataSet3.setColor(.systemGreen)
+        barDataSet4.setColor(.systemYellow)
+        barDataSet5.setColor(.systemOrange)
         
         let data = BarChartData(dataSets: dataSets)
+        
         
         // Setting Grouping Settings
         // groupWidth (1) = n * (barWidth + barSpace) + groupSpace

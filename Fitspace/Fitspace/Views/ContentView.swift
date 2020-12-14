@@ -13,7 +13,7 @@ struct ContentView: View {
     @FetchRequest(entity: User.entity(), sortDescriptors: [])
     var user: FetchedResults<User>
     @State var currentTab: Int = 1
-    @State var viewMode: HealthViewState = .pictures
+    @State var viewMode: HealthViewState = .weight
     
     var body: some View {
         if !needsUserCreation {

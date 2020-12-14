@@ -23,7 +23,7 @@ struct ComparePhotosView: View {
                                 .frame(width: geo.size.width - 28)
                         }
                     }
-                }
+                }.padding(.horizontal, 10)
             }
         }.navigationBarTitle("Compare Photos")
     }

@@ -28,7 +28,8 @@ struct PhotosView: View {
                     ForEach(imagesArray, id:\.self) { array in
                         Text(array[0].date.formattedDate)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.system(size: ViewConstants.headingSize), weight: .bold, design: .default))
+                            .foregroundColor(Color.accent)
+                            .font(.system(size: ViewConstants.headingSize, weight: .bold, design: .default))
                         LazyVGrid(columns: columns, spacing: 6) {
                             ForEach(array, id:\.self) { image in
                                 ImageView(image: image, size: (geo.size.width/3)-4)
@@ -124,6 +125,7 @@ struct ImageView: View {
             .aspectRatio(contentMode: .fill)
             .frame(width: size, height: size)
             .clipped()
+            .cornerRadius(8)
             .border(color, width: 4)
     }
 }

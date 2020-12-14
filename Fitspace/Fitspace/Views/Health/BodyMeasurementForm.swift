@@ -12,7 +12,6 @@ struct BodyMeasurementForm: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var healthStats: HealthStats
     
-    @State var showBodyMeasurements: Bool = true
     @State var neckMeasurement: Double = 0.0
     @State var armMeasurement: Double = 0.0
     @State var hipMeasurement: Double = 0.0
@@ -24,36 +23,26 @@ struct BodyMeasurementForm: View {
         Form {
             Section(header: Text("Date")) {
                 DatePicker("Date", selection: $date, in: ...Date(),  displayedComponents: .date)
-                    .datePickerStyle(GraphicalDatePickerStyle())
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(16)
             }
             
             Section(header: Text("Body Measurements")) {
-                Toggle(isOn: $showBodyMeasurements) {
-                    Text("Add Body Measurements")
+                VStack {
+                    Text("Neck Measurement: \(neckMeasurement, specifier: "%.1f") in")
+                    Slider(value: $neckMeasurement, in: 0...100, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("100"), label: {})
+                    
+                    Text("Arm Measurement: \(armMeasurement, specifier: "%.1f") in")
+                    Slider(value: $armMeasurement, in: 0...100, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("100"), label: {})
+                    
+                    Text("Hip Measurement: \(hipMeasurement, specifier: "%.1f") in")
+                    Slider(value: $hipMeasurement, in: 0...100, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("100"), label: {})
+                    
+                    Text("Thigh Measurement: \(thighMeasurement, specifier: "%.1f") in")
+                    Slider(value: $thighMeasurement, in: 0...100, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("100"), label: {})
+                    
+                    Text("Waist Measurement: \(waistMeasurement, specifier: "%.1f") in")
+                    Slider(value: $waistMeasurement, in: 0...100, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("100"), label: {})
                 }
-                
-                if showBodyMeasurements {
-                    VStack {
-                        Slider(value: $neckMeasurement, in: 0...100, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("100"), label: {})
-                        Text("Neck Measurement: \(neckMeasurement, specifier: "%.1f") in")
-                        
-                        Slider(value: $armMeasurement, in: 0...100, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("100"), label: {})
-                        Text("Arm Measurement: \(armMeasurement, specifier: "%.1f") in")
-                        
-                        Slider(value: $hipMeasurement, in: 0...100, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("100"), label: {})
-                        Text("Hip Measurement: \(hipMeasurement, specifier: "%.1f") in")
-                        
-                        Slider(value: $thighMeasurement, in: 0...100, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("100"), label: {})
-                        Text("Thigh Measurement: \(thighMeasurement, specifier: "%.1f") in")
-                        
-                        Slider(value: $waistMeasurement, in: 0...100, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("100"), label: {})
-                        Text("Waist Measurement: \(waistMeasurement, specifier: "%.1f") in")
-                    }
-                }
-            }.animation(.default)
+            }
             
             Section {
                 HStack {
@@ -65,12 +54,12 @@ struct BodyMeasurementForm: View {
                     Spacer()
                     
                     Button(action: {addBodyMeasurements()}){
-                        Text("Add Body Measurements")
+                        Text("Add")
                             .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
                     }.buttonStyle(PlainButtonStyle())
                 }
             }
-        }.navigationBarTitle("Add Health Stats")
+        }.navigationBarTitle("Add Body Measurements")
         .navigationBarBackButtonHidden(true)
     }
     

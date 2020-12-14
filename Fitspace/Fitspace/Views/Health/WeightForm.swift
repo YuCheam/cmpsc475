@@ -19,14 +19,11 @@ struct WeightForm: View {
         Form {
             Section(header: Text("Date")) {
                 DatePicker("Date", selection: $date, in: ...Date(),  displayedComponents: .date)
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(16)
             }
             
-            Section {
-                Slider(value: $currentWeight, in: 0...400, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("400"), label: {Text("Current Weight: \(currentWeight, specifier: ".1f")")})
+            Section(header: Text("Modify Weight")) {
                 Text("Current Weight: \(currentWeight, specifier: "%.1f") lbs")
+                Slider(value: $currentWeight, in: 0...400, step:0.1, minimumValueLabel: Text("0"), maximumValueLabel: Text("400"), label: {Text("Current Weight: \(currentWeight, specifier: ".1f")")})
             }
             
             Section {
