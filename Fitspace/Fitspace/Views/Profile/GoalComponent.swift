@@ -13,25 +13,34 @@ struct GoalComponent: View {
     @ObservedObject var goal: Goal
     
     var body: some View {
-        HStack {
+        HStack(spacing: 8) {
+            Image(systemName: "checkmark.seal")
+                .resizable()
+                .frame(width: 24, height: 24)
+                .foregroundColor(Color.accent)
+            
             VStack(alignment: .leading) {
-                Text(goal.title).font(.largeTitle)
-                Text(goal.details).font(.body)
-                Text("Complete in: \(goal.timeToCompletion)").font(.body)
-            }
+                Text(goal.title)
+                    .font(.system(size: ViewConstants.headingSize, weight: .semibold))
+                    .foregroundColor(Color.black)
+                Text(goal.details)
+                Text("\(goal.timeToCompletion)")
+            }.padding(.horizontal, 12)
+            .foregroundColor(Color.black)
             
             Spacer()
             
             Button(action: {deleteGoal()}){
                 Label("", systemImage: "trash")
             }.buttonStyle(PlainButtonStyle())
-        }
-        .padding(8)
-        .background(LinearGradient(gradient: Gradient(colors: [Color.primary, Color.secondary]), startPoint: .top, endPoint: .bottom))
-        .cornerRadius(12)
+            .foregroundColor(Color.accent)
+    
+        }.padding(.horizontal, 12)
+        .padding(.vertical, 24)
+        .background(Color.white)
+        .cornerRadius(6)
         .lineLimit(6)
-        .font(.footnote)
-        .foregroundColor(Color.white)
+        .shadow(radius: 12)
     }
     
     func deleteGoal() {

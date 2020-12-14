@@ -23,20 +23,22 @@ struct ProfileView: View {
             NavigationView {
                 ScrollView {
                     ProfileHeader(user: user[0])
-                    VStack {
+                        .padding(.bottom, 24)
+                    
+                    NavigationLink(destination: AddEditGoal(user: user[0])){
+                        Text("Add Goal +")
+                            .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
+                    }.padding(.bottom, 12)
+                    
+                    VStack(spacing: 18) {
                         ForEach(Array(user[0].goals ?? [])) { goal in
                             NavigationLink(destination: AddEditGoal(goal: goal, user: user[0])) {
                                 GoalComponent(user: user[0], goal: goal)
+                                    .padding(.horizontal)
                             }
                         }
-                        
-                        NavigationLink(destination: AddEditGoal(user: user[0])){
-                            Text("Add Goal +")
-                                .modifier(ButtonStyle(ViewConstants.defaultButtonColor))
-                        }
-                    }.padding()
-                    .background(Color.white)
-                }
+                    }
+                }.background(Color.offWhite)
                 .edgesIgnoringSafeArea(.top)
                 .navigationBarItems(leading: DeleteButton,
                                     trailing: EditProfileButton)
@@ -79,6 +81,7 @@ struct ProfileHeader: View {
                     .resizable()
                     .frame(width: profileImageSize, height: profileImageSize)
                     .clipShape(Circle())
+                    .aspectRatio(contentMode: .fit)
                     
                 if user.profileImage == nil {
                     Circle()
@@ -92,7 +95,7 @@ struct ProfileHeader: View {
             
             VStack(alignment: .leading) {
                 Text("\(user.firstName) \(user.lastName)")
-                    .font(.system(size: 24, weight: .bold, design: .default))
+                    .font(.system(size: ViewConstants.headingSize, weight: .bold, design: .default))
                 Text("Current Weight: \(user.weight, specifier: "%.1f") lbs")
                 Text("Height: \(user.healthStats.heightFormatted)")
                 Text("Age: \(user.age)")
