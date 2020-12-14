@@ -16,6 +16,9 @@ struct JournalView: View {
     @State var currentMoodEntry: MoodEntry? = nil
     @State var text: String = ""
     
+    @State var pushAddMoodEntry : Bool = false
+    @State var pushAddJournalEntry: Bool = false
+    
     var body: some View {
         NavigationView {
             ScrollView{
@@ -33,15 +36,15 @@ struct JournalView: View {
                     .padding()
                     .background(ViewConstants.gradient)
                     
-                    HStack(spacing: 10) {
-                        NavigationLink(destination: AddMoodEntry(journal: user.journal)){
-                            Text("Add Mood Entry")
+                    Group {
+                        NavigationLink(destination: AddMoodEntry(journal: user.journal), isActive: $pushAddMoodEntry) {
+                            EmptyView()
                         }
                         
-                        NavigationLink(destination: AddJournalEntry(user: user)) {
-                            Text("Add Journal Entry")
+                        NavigationLink(destination: AddJournalEntry(user: user), isActive: $pushAddJournalEntry) {
+                            EmptyView()
                         }
-                    }
+                    }.hidden()
                     
                     ForEach(Array(journal.journalEntries ?? []), id:\.self) { entry in
                         NavigationLink(destination: JournalEntryView(journalEntry: entry)){
@@ -50,6 +53,10 @@ struct JournalView: View {
                     }
                 }
             }.navigationBarTitle("Journal", displayMode: .large)
+            .navigationBarItems(trailing: Menu("+ Add"){
+                Button("Add Mood Entry"){pushAddMoodEntry.toggle()}
+                Button("Add Journal Entry"){pushAddJournalEntry.toggle()}
+            })
         }
         
     }
