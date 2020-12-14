@@ -13,8 +13,8 @@ struct BodyMeasurementRow: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
+        BarChart(healthStats: healthStats)
         ScrollView {
-            BarChart(healthStats: healthStats)
             VStack(spacing: 12) {
                 ForEach(Array(healthStats.bodyMeasurements ?? []), id: \.self) { measurement in
                     VStack(spacing:0) {
