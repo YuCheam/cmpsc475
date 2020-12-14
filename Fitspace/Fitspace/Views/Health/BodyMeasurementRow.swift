@@ -13,68 +13,75 @@ struct BodyMeasurementRow: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
-        BarChart(healthStats: healthStats)
-        
-        List {
-            ForEach(Array(healthStats.bodyMeasurements ?? []), id: \.self) { measurement in
-                VStack(spacing:0) {
-                    Text("\(measurement.stringDate)")
-                    font(.system(size:ViewConstants.headingSize, weight: .semibold, design: .default))
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading)
-                        .background(Color.accent)
-                    
-                    HStack {
-                        VStack {
-                            Text("Neck")
-                            Text("\(measurement.neck, specifier: "%.1f")")
-                            Text("in")
+        ScrollView {
+            BarChart(healthStats: healthStats)
+            VStack(spacing: 12) {
+                ForEach(Array(healthStats.bodyMeasurements ?? []), id: \.self) { measurement in
+                    VStack(spacing:0) {
+                        Text("\(measurement.stringDate)")
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading)
+                        
+                        
+                        HStack {
+                            VStack {
+                                Text("Neck")
+                                Text("\(measurement.neck, specifier: "%.1f")")
+                                Text("in")
+                            }
+                            .padding(5)
+                            
+                            Rectangle()
+                                .frame(width: 2, height: 48)
+                            
+                            VStack {
+                                Text("Arm")
+                                Text("\(measurement.arm, specifier: "%.1f")")
+                                Text("in")
+                            }.padding(5)
+                            
+                            Rectangle()
+                                .frame(width: 2, height: 48)
+                            
+                            VStack {
+                                Text("Waist")
+                                Text("\(measurement.waist, specifier: "%.1f")")
+                                Text("in")
+                            }.padding(5)
+                            
+                            Rectangle()
+                                .frame(width: 2, height: 48)
+                            
+                            VStack {
+                                Text("Hips")
+                                Text("\(measurement.hips, specifier: "%.1f")")
+                                Text("in")
+                            }.padding(5)
+                            
+                            Rectangle()
+                                .frame(width: 2, height: 48)
+                            
+                            VStack {
+                                Text("Thigh")
+                                Text("\(measurement.thigh, specifier: "%.1f")")
+                                Text("in")
+                            }.padding(5)
+                            
+                            Button(action: {deleteMeasurement(measurement)}){
+                                Label("", systemImage: "trash")
+                            }.buttonStyle(PlainButtonStyle())
+                            .foregroundColor(Color.accent)
                         }
-                        .padding(5)
-                        
-                        Rectangle()
-                            .frame(width: 2, height: 48)
-                        
-                        VStack {
-                            Text("Arm")
-                            Text("\(measurement.arm, specifier: "%.1f")")
-                            Text("in")
-                        }.padding(5)
-                        
-                        Rectangle()
-                            .frame(width: 2, height: 48)
-                        
-                        VStack {
-                            Text("Waist")
-                            Text("\(measurement.waist, specifier: "%.1f")")
-                            Text("in")
-                        }.padding(5)
-                        
-                        Rectangle()
-                            .frame(width: 2, height: 48)
-                        
-                        VStack {
-                            Text("Hips")
-                            Text("\(measurement.hips, specifier: "%.1f")")
-                            Text("in")
-                        }.padding(5)
-                        
-                        Rectangle()
-                            .frame(width: 2, height: 48)
-                        
-                        VStack {
-                            Text("Thigh")
-                            Text("\(measurement.thigh, specifier: "%.1f")")
-                            Text("in")
-                        }.padding(5)
-                        
-                        Button(action: {deleteMeasurement(measurement)}){
-                            Label("", systemImage: "trash")
-                        }.buttonStyle(PlainButtonStyle())
-                        .foregroundColor(Color.accent)
                     }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 24)
+                    .background(Color.white)
+                    .cornerRadius(6)
+                    .shadow(radius: 12)
                 }
-            }
-        }.listStyle(PlainListStyle())
+            }.padding(.horizontal, 12)
+            .padding(.vertical, 24)
+        }
+        .background(Color.offWhite)
     }
     
     func deleteMeasurement(_ measurement: BodyMeasurements) {

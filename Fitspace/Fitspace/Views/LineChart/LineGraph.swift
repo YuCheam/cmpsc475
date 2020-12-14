@@ -35,7 +35,7 @@ struct LineGraph: UIViewRepresentable {
         chart.xAxis.granularity = 1
         chart.xAxis.labelPosition = .bottom
         
-        chart.animate(xAxisDuration: 2.5)
+        chart.animate(xAxisDuration: 0.65)
         
         return chart
     }
