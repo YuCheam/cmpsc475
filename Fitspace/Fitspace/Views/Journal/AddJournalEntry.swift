@@ -29,6 +29,10 @@ struct AddJournalEntry: View {
                 TextEditor(text: $entryText)
                     .foregroundColor(Color.gray)
                     .frame(height: 100)
+                    .animation(.default)
+                    .onTapGesture(){
+                        entryText = ""
+                    }
             }
             
             Section(){
@@ -54,7 +58,7 @@ struct AddJournalEntry: View {
     }
     
     func addJournalEntry() {
-        if entryTitle == "" || entryText == "add text" {
+        if entryTitle == "" || entryText == "add text"  || entryText == ""{
             showAlert.toggle()
         } else {
             let newEntry = JournalEntry(context: viewContext)

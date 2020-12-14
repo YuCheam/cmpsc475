@@ -20,12 +20,13 @@ struct AddMoodEntry: View {
         Form {
             Section(header: Text("Select Mood")){
                 Text("Date: \(date.formattedDate)")
-                Picker("Mood", selection: $mood) {
+                Picker("Mood: \(getEmoji(mood))", selection: $mood) {
                     ForEach(Mood.allCases, id: \.self) { mood in
-                        Text(getEmoji(mood)).tag(mood)
+                        Text("\(mood.rawValue) \(getEmoji(mood))")
+                            .tag(mood)
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
+                .pickerStyle(MenuPickerStyle())
             }
             
             
@@ -35,7 +36,6 @@ struct AddMoodEntry: View {
                     .onTapGesture {
                         text = ""
                     }
-                
             }
             
             Section(){

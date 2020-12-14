@@ -27,18 +27,11 @@ struct JournalView: View {
                         MoodGraph(journal: journal, currentMoodEntry: $currentMoodEntry, text: $text)
                         
                         MoodDetail(currentMoodEntry: $currentMoodEntry, text: $text)
-                        
+                            .animation(.default)
                     }
+                    .foregroundColor(.white)
                     .padding()
-                    .background(Color.graphColor)
-                    
-                    ForEach(Array(journal.journalEntries ?? []), id:\.self) { entry in
-                        NavigationLink(destination: JournalEntryView(journalEntry: entry)){
-                            JournalEntryComponent(journalEntry: entry)
-                        }
-                    }
-                    
-                    Spacer()
+                    .background(ViewConstants.gradient)
                     
                     HStack(spacing: 10) {
                         NavigationLink(destination: AddMoodEntry(journal: user.journal)){
@@ -47,6 +40,12 @@ struct JournalView: View {
                         
                         NavigationLink(destination: AddJournalEntry(user: user)) {
                             Text("Add Journal Entry")
+                        }
+                    }
+                    
+                    ForEach(Array(journal.journalEntries ?? []), id:\.self) { entry in
+                        NavigationLink(destination: JournalEntryView(journalEntry: entry)){
+                            JournalEntryComponent(journalEntry: entry)
                         }
                     }
                 }
@@ -78,6 +77,10 @@ struct MoodGraph: View {
                 }
                 Spacer()
             }
+            
+            if journal.moodEntries == nil {
+                Text("No data")
+            }
         }.onTapGesture {
             if currentMoodEntry != nil {
                 currentMoodEntry = nil
@@ -93,9 +96,10 @@ struct MoodDetail: View {
     @State var isEditing: Bool = false
     
     var body: some View {
-        VStack {
-            Text("Details:")
-            HStack {
+        VStack(alignment: .leading) {
+            Text("Details: ")
+                .fontWeight(.semibold)
+            HStack(alignment: .top) {
                 if isEditing {
                     TextEditor(text: $text)
                 } else {
@@ -104,29 +108,38 @@ struct MoodDetail: View {
                 
                 Spacer()
                 
-                VStack {
-                    Button(){
-                        currentMoodEntry!.setValue(text, forKey: "details")
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            print("Mood Entry details could not be changed")
-                        }
-                        
-                        isEditing.toggle()
-                    }
-                    label: {
+                VStack(alignment: .trailing) {
+                    Button(action: toggleEdit){
                         Label(isEditing ? "done" : "edit", systemImage: "pencil")
+                            .padding(4)
+                            .background(Color.accent)
+                            .cornerRadius(4)
                     }
                     
                     Button(action: {deleteMoodEntry(currentMoodEntry!)}){
                         Label("delete", systemImage: "trash")
+                            .padding(4)
+                            .background(Color.accent)
+                            .cornerRadius(4)
                     }
-                }
-                
-                
+                }.foregroundColor(Color.white)
             }.opacity(currentMoodEntry != nil ? 1.0 : 0.0)
+        }.foregroundColor(Color.black)
+        .padding(10)
+        .background(Color.offWhite)
+        .cornerRadius(8)
+        .shadow(radius: 8)
+    }
+    
+    func toggleEdit() {
+        currentMoodEntry!.setValue(text, forKey: "details")
+        do {
+            try viewContext.save()
+        } catch {
+            print("Mood Entry details could not be changed")
         }
+        
+        isEditing.toggle()
     }
     
     func deleteMoodEntry(_ entry: MoodEntry) {
@@ -136,6 +149,8 @@ struct MoodDetail: View {
         } catch {
             print("Could not save view context")
         }
+        
+        currentMoodEntry = nil
     }
 }
 

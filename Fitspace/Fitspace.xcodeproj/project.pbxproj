@@ -310,8 +310,8 @@
 		2865FC7B25733D72000D87C9 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
-				285679BC25772F5B0047F2B2 /* BarView.swift */,
 				28B19741255DBE7700C06703 /* JournalView.swift */,
+				285679BC25772F5B0047F2B2 /* BarView.swift */,
 				285679AB2576EE890047F2B2 /* JournalEntryComponent.swift */,
 				285679B02576F3DE0047F2B2 /* JournalEntryView.swift */,
 				2865FC7C25733D90000D87C9 /* AddJournalEntry.swift */,

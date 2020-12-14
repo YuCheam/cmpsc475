@@ -29,9 +29,9 @@ struct BarView: View {
         VStack {
             ZStack(alignment: .bottom) {
                 Capsule().frame(width: 30, height: 200)
-                    .foregroundColor(Color.primary)
+                    .foregroundColor(Color.offWhite)
                 Capsule().frame(width: 30, height: value)
-                    .foregroundColor(Color.secondary)
+                    .foregroundColor(Color.accent)
                 Text("\(moodEntry.moodEmoji)")
                     .baselineOffset(value)
             }
