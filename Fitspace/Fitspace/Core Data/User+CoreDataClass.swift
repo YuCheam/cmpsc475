@@ -16,6 +16,8 @@ public class User: NSManagedObject {
         Array(self.widgets).sorted(by: {$0.index < $1.index})
     }()
     
+    lazy var _dob = {self.dob}()
+    
     func setWidgetArray() {
         self.widgetArray = Array(self.widgets).sorted(by: {$0.index < $1.index})
     }

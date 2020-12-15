@@ -40,7 +40,8 @@ struct ProfileView: View {
                     }
                 }.background(Color.offWhite)
                 .edgesIgnoringSafeArea(.top)
-                .navigationBarItems(leading: DeleteButton,
+                .navigationBarItems(
+                    //leading: DeleteButton,
                                     trailing: EditProfileButton)
             }
         }
@@ -79,9 +80,9 @@ struct ProfileHeader: View {
             ZStack {
                 Image(uiImage: user.image)
                     .resizable()
-                    .frame(width: profileImageSize, height: profileImageSize)
+                    .aspectRatio(contentMode: .fill)
                     .clipShape(Circle())
-                    .aspectRatio(contentMode: .fit)
+                    
                     
                 if user.profileImage == nil {
                     Circle()
